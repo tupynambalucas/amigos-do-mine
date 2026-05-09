@@ -1,0 +1,42 @@
+id: 24fa8b9f-6a62-3d98-9536-02d6a3bf8688
+name: xXeakusunaXx
+created: 1676438275645
+updated: 1676439276227
+last_cast: 1676438578178
+cooldown_expiration: 0
+last_death_location: 166.22258760363974,110.0,108.74714948888314,tutorial,-83.59982,6.1499605
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+spells:
+  ak47:
+    cast_count: 21
+    last_cast: 1676438577799
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  reload_ak47:
+    cast_count: 4
+    last_cast: 1676438494130
+    last_earn: 0
+    cooldown_expiration: 1676438497130
+    charges: 0.0
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data: {}
+properties:
+  version: 7
+classes:
+  soldier: {}
+transient_modifiers: {}
+active_class: soldier
+health: 20.0

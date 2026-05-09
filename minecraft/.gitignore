@@ -1,0 +1,41 @@
+# --- Ambiente ---
+.env
+
+# --- Servidor Minecraft (/server) ---
+
+# Ignora tudo na pasta server para evitar arquivos pesados e vazamento de dados
+server/*
+
+# Permite a pasta de plugins (necessário para o whitelist abaixo)
+!server/plugins/
+
+# Ignora todos os plugins por padrão
+server/plugins/*
+
+# --- Whitelist de Plugins (Devem ser upados no GitHub) ---
+
+# AmigosPlugin: Pasta de configuração e arquivo JAR
+!server/plugins/AmigosPlugin/
+
+# Magic: Pasta de configuração e arquivo JAR
+!server/plugins/Magic/
+
+# --- Configurações do Servidor (Seguro versionar, são arquivos pequenos e sem segredos) ---
+!server/bukkit.yml
+!server/commands.yml
+!server/help.yml
+!server/permissions.yml
+!server/purpur.yml
+!server/spigot.yml
+
+# --- Arquivos Críticos Ignorados (Explicitando o que server/* já cobre) ---
+# server/server.properties (Pode conter segredos e tokens)
+# server/ops.json (Lista de administradores)
+# server/whitelist.json
+# server/banned-ips.json
+# server/banned-players.json
+# server/world/ (Mapa do servidor - muito pesado)
+# server/logs/
+# server/libraries/
+# server/cache/
+# server/server.jar

@@ -1,0 +1,35 @@
+﻿name: amigos-minecraft
+
+services:
+  minecraft:
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile
+    container_name: amigosdomine_container
+    stdin_open: true
+    tty: true
+    ports:
+      - '25565:25565'
+    networks:
+      - amigosdomine_network
+    environment:
+      - MC_JAR_NAME=${MC_JAR_NAME}
+      - MC_MIN_MEM=${MC_MIN_MEM}
+      - MC_MAX_MEM=${MC_MAX_MEM}
+    volumes:
+      # Mapeia a pasta local para dentro do container (PERSISTÊNCIA TOTAL)
+      - ./server:/data
+    healthcheck:
+      test: ['CMD', 'nc', '-z', 'localhost', '25565']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  mongo_data:
+  backend_logs:
+  redis_data:
+
+networks:
+  amigosdomine_network:
+    driver: bridge

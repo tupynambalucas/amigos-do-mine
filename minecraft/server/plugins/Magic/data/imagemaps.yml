@@ -1,0 +1,78 @@
+'80':
+  world: world
+  url: http://textures.minecraft.net/texture/8c907a7f4f0c3a6c9c9b79348f7bf1993695b6d2eae2fab704a1a4d9b8288cbe
+  x: 8
+  y: 8
+  width: 8
+  height: 8
+  enabled: false
+  name: Photo of Crisin2balas
+  player: Crisin2balas
+  slice: false
+  x_overlay: 40
+  y_overlay: 8
+'75':
+  world: world
+  url: http://textures.minecraft.net/texture/f35df8543b5e205cddb2dd8ef3334ebb0b667d7000dcc68cc9ed259e8751d524
+  x: 8
+  y: 8
+  width: 8
+  height: 8
+  enabled: false
+  name: Photo of CoalaPimposo
+  player: CoalaPimposo
+  slice: false
+  x_overlay: 40
+  y_overlay: 8
+'76':
+  world: world
+  url: http://textures.minecraft.net/texture/a74ffa25371701f6907cda347e3acd448c48827c9fbdd740256c771317126a99
+  x: 8
+  y: 8
+  width: 8
+  height: 8
+  enabled: false
+  name: Photo of Stone
+  player: MHF_Stone
+  slice: false
+  x_overlay: 40
+  y_overlay: 8
+'77':
+  world: world
+  url: http://textures.minecraft.net/texture/b23c5b10e3a28133762ed6087557e91737d90dbab5f0ee45b6707b40e6d73d80
+  x: 8
+  y: 8
+  width: 8
+  height: 8
+  enabled: false
+  name: Photo of Peepi170
+  player: Peepi170
+  slice: false
+  x_overlay: 40
+  y_overlay: 8
+'78':
+  world: world
+  url: http://textures.minecraft.net/texture/24f94c1c89c9c18259309fc7dd161487a7f95372f3b57c3e8990259badc276d5
+  x: 8
+  y: 8
+  width: 8
+  height: 8
+  enabled: false
+  name: Photo of Peepi170
+  player: Peepi170
+  slice: false
+  x_overlay: 40
+  y_overlay: 8
+'79':
+  world: world
+  url: http://textures.minecraft.net/texture/17167cbaca56a5a4b94341d3fa00d566ff7c70bae9b817c6dde1a2f39818119e
+  x: 8
+  y: 8
+  width: 8
+  height: 8
+  enabled: false
+  name: Photo of Lofass
+  player: Lofass
+  slice: false
+  x_overlay: 40
+  y_overlay: 8

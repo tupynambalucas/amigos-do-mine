@@ -1,0 +1,26 @@
+{
+  "name": "@amigos-do-mine/minecraft",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "author": "Tupynambá Lucas Varela Rodrigues <tupynambalucas.dev>",
+  "description": "EloOrganico Studio Package",
+  "license": "https://github.com/tupynambalucas/EloOrganico/tree/main#license",
+  "homepage": "https://github.com/tupynambalucas/EloOrganico/tree/main/studio#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tupynambalucas/EloOrganico.git",
+    "directory": "studio"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "server:up": "docker compose -f compose.yaml up -d",
+    "server:down": "docker compose -f compose.yaml down",
+    "server:logs": "docker compose -f compose.yaml logs -f",
+    "server:attach": "docker attach amigosdomine_container",
+    "server:restart": "docker compose -f compose.yaml restart",
+    "server:reset": "docker compose -f compose.yaml down && docker compose -f compose.yaml up -d --force-recreate",
+    "server:update": "docker compose -f compose.yaml pull && docker compose -f compose.yaml up -d",
+    "typecheck": "tsc --noEmit"
+  }
+}

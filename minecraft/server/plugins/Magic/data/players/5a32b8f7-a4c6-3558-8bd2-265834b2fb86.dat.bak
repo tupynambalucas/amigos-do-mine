@@ -1,0 +1,811 @@
+id: 5a32b8f7-a4c6-3558-8bd2-265834b2fb86
+name: moonnliee
+created: 1677261581908
+updated: 1677279711001
+last_cast: 1677272187485
+cooldown_expiration: 0
+last_death_location: 165.82391616657992,110.0,102.36439337776686,tutorial,-168.60355,23.7
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+spells:
+  ak47:
+    cast_count: 9
+    last_cast: 1677269956386
+    last_earn: 0
+    cooldown_expiration: 1677269956486
+    charges: 0.0
+  mob:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  cluster:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  arrow:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  invincible:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  smite:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  reload_ak47:
+    cast_count: 5
+    last_cast: 1677269950156
+    last_earn: 0
+    cooldown_expiration: 1677269953156
+    charges: 0.0
+  entangle:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  cure:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  fling:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  flashbang:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  bomb:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  whip:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  reflect:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  pollinate:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  sunstrike:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  neutron:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  frost:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  missile:
+    cast_count: 3
+    last_cast: 1677269827191
+    last_earn: 1677269827190
+    cooldown_expiration: 0
+    charges: 0.0
+  fire:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  hat:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  homing:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  lightning:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  lightning|3:
+    cast_count: 1
+    last_cast: 1677264603703
+    last_earn: 0
+    cooldown_expiration: 1677264648703
+    charges: 0.0
+  rubberize:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  grenade:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  levitate:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  shrink:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  tendril:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  chop:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  earthquake:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  gather:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  push:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  blob:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  shuriken:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  shell:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  curse:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  sticky:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  lift:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  force:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  chainlightning:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  airscooter:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  blessing:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  sponge:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  boon:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  blind:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  petrify:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  vengeance:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  boom:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  blink:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  sandblast:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  platform:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  wave:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  harden:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  dragonball:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  lava:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  wound:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  nuke:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  walls:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  laser:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  icbm:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  bubble:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  stream:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  flamethrower:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  recall:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  heal:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  singularity:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  fireball:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  mine:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  breach:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  tornado:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  poison:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  fury:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  counterspell:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  railgun:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  meteor:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  torch:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  disintegrate:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  kill:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  gatling:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  blast:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  peek:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  pull:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  torture:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  cloak:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  growth:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  arrowrain:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  wither:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  collapse:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  stash:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+wands:
+  wand:
+    item:
+      ==: org.bukkit.inventory.ItemStack
+      v: 3218
+      type: STICK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_aqua","text":"Wand"}],"text":""}'
+        lore:
+        - '{"italic":false,"extra":[{"color":"gold","text":"Wizard "},{"color":"white","text":"Magic
+          Wand"}],"text":""}'
+        - '{"italic":true,"color":"dark_aqua","text":"Bound to moonnliee"}'
+        - '{"text":"Knows 87 Spells"}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana: 200"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana Regeneration: 35/s"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"dark_gray","text":"------------------------"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Swing
+          "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+          "},{"color":"gray","text":"to cast "},{"color":"gold","text":"Frost"}],"keybind":"key.attack"}],"text":""}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Interact
+          "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+          "},{"color":"gray","text":"to cycle the active spell"}],"keybind":"key.use"}],"text":""}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Drop
+          "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+          "},{"color":"gray","text":"to open the spell inventory"}],"keybind":"key.drop"}],"text":""}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"yellow","text":"Change
+          controls using an "},{"color":"aqua","text":"enchant table"}],"text":""}'
+        custom-model-data: 18004
+        attribute-modifiers:
+          GENERIC_ATTACK_SPEED:
+          - ==: org.bukkit.attribute.AttributeModifier
+            amount: 10.0
+            name: Equipment Modifier
+            slot: HAND
+            uuid: 0716e328-9887-42e0-b4d7-73210f78576f
+            operation: 0
+        ItemFlags:
+        - HIDE_ENCHANTS
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+        - HIDE_DESTROYS
+        - HIDE_PLACED_ON
+        - HIDE_POTION_EFFECTS
+        - HIDE_DYE
+        Unbreakable: true
+        internal: H4sIAAAAAAAA/01UaZPcNBDV4t3s7OzkAEK4IUAIBHZgd2Y863ATjgAfuI8QqNqS7fZYNbJkZHmmAsV/53V7A3xrqdX9+r1u9VipHbW7Jmp3xmp3q105Unt+6yiog8Z756whStS12sdchzPjNuSiDw/OCt+7qJRKxupy15K1//kStVf0oSN430jUbu6bHOZPiZpIEAV5j6s5rkrTGdytgo4c8GmiLtQ6lORweE+iPZt7MK3eaJg3kT+3uhN02FXwYu8n6qDCfZ1rt8J5kahLRa0NKKzq6IxcZgmz3DDU50P2BuYBUPNAuqhx+ILvreeabyVq1FodKx/4WQqPKXI2f4C5NsLi8UTtr3S0A8D7SLU1sYaASt1I1LgMeuVdruXtVwiDNgz/iNAwroT9FK6rPjyA+QtYdL3rYjBrfvY1XC3RGubLiOgiCMK+ynqYinnfwTVkl9qvA731phPNXsKbmjTjvoI3OgS/hb2DokiHWP/Ra4G4xyIiAdvfI0HXerfiw4eJSmrNGG/zdYRCzH0MwoEqSwW7LkCjru65XAb96JwWF3yR2da+hfmaJDDFmjl+ggowLcYVJrcM9DuCtlCog/0u8lUm0LliL0CP0Oc5BfMnP30HbowZWiyRh4BojGPzVZ476zUjP82CGtF5Fwn+PwETJLC0MXEYuGssamPE/gzEWoLyFVd5hWlqY1c983oCBAIVQ1EvclN6acSz0KiRYflGLsX/HDDArOsGyPs4Ft5a3cqneAaJ0TCnS4/Tj6gPH2dF2kkHjvgH+GaI/ICFwafhITlN1CEn7K0OJnKFT3IicmUwDPodTo0BpgijeNBrw9pfBoI0H2yYyptwuV5a/zO3/nxyX+dPAKUl/HkkK2zfRZnj3+DCiA9DveQJxaJ4+Adv49yCnXGDoo/yY6BFluctAOCdBH6MtmsTusL7Ie1dHoo6DMPyJTeiHhbDiL9UICjECaeDXnH4N98iqKFInjP8CpejPgYZ+MewT7AB4K2BLxCX1EhNdBHNhs6GtTPsixH/ZARNZCj/OsmOjxd/J+oiOawMF/9dbxBof4ONZQRgf6RGshzPTKlupHo+y7PqdKoXxXI6T9NsmuXlbDpbptl8kc+qPFsiIFLDO4QertcJVRW+DiAsONzMimKZzrLZaUrV0YyyJS1KqhYnx0cpUp7Mq9N5Or+NLX2IMQi+bTU6tKP+AdKmQ8y5BQAA
+    wand:
+      owner: moonnliee
+      hotbar_inventory_count: 3
+      enchant_count: 86
+      active_spell: frost
+      icon: stick{18004}
+      spell_inventory:
+        curse: 42
+        bomb: 85
+        harden: 60
+        disintegrate: 68
+        counterspell: 51
+        boon: 5
+        lava: 38
+        blast: 3
+        boom: 9
+        flashbang: 52
+        wave: 70
+        chainlightning: 56
+        frost: 7
+        breach: 72
+        blob: 41
+        platform: 53
+        icbm: 83
+        kill: 19
+        gatling: 61
+        dragonball: 74
+        wither: 36
+        cure: 2
+        blind: 24
+        fury: 87
+        sunstrike: 78
+        earthquake: 88
+        stash: 20
+        lift: 66
+        torch: 32
+        heal: 35
+        poison: 33
+        arrow: 1
+        peek: 34
+        sponge: 63
+        force: 82
+        shuriken: 64
+        reflect: 6
+        stream: 10
+        blink: 13
+        hat: 47
+        chop: 39
+        sticky: 67
+        invincible: 92
+        walls: 59
+        entangle: 11
+        rubberize: 58
+        fireball: 30
+        sandblast: 57
+        push: 27
+        petrify: 16
+        lightning: 12
+        smite: 69
+        levitate: 22
+        fire: 4
+        railgun: 21
+        recall: 31
+        cloak: 25
+        mob: 79
+        blessing: 90
+        pull: 28
+        wound: 55
+        homing: 62
+        vengeance: 44
+        tornado: 84
+        collapse: 26
+        gather: 54
+        cluster: 91
+        missile: 0
+        whip: 15
+        bubble: 29
+        fling: 40
+        nuke: 86
+        arrowrain: 43
+        tendril: 81
+        singularity: 23
+        mine: 37
+        pollinate: 17
+        flamethrower: 14
+        laser: 65
+        airscooter: 71
+        shrink: 73
+        shell: 8
+        grenade: 45
+        neutron: 18
+        meteor: 89
+        torture: 80
+        growth: 46
+      template: wand
+      owner_id: 5a32b8f7-a4c6-3558-8bd2-265834b2fb86
+      version: 7
+      effect_color: 8cc6528275ef,2e86e4def410,535513f73539
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data:
+  sp: 21.0
+properties:
+  version: 7
+classes:
+  caster:
+    spells:
+    - mob
+    - cluster
+    - arrow
+    - invincible
+    - smite
+    - entangle
+    - cure
+    - fling
+    - flashbang
+    - bomb
+    - whip
+    - reflect
+    - pollinate
+    - sunstrike
+    - neutron
+    - frost
+    - missile
+    - fire
+    - hat
+    - homing
+    - lightning
+    - rubberize
+    - grenade
+    - levitate
+    - shrink
+    - tendril
+    - chop
+    - earthquake
+    - gather
+    - push
+    - blob
+    - shuriken
+    - shell
+    - curse
+    - sticky
+    - lift
+    - force
+    - chainlightning
+    - airscooter
+    - blessing
+    - sponge
+    - boon
+    - blind
+    - petrify
+    - vengeance
+    - boom
+    - blink
+    - sandblast
+    - platform
+    - wave
+    - harden
+    - dragonball
+    - lava
+    - wound
+    - nuke
+    - walls
+    - laser
+    - icbm
+    - bubble
+    - stream
+    - flamethrower
+    - recall
+    - heal
+    - singularity
+    - fireball
+    - mine
+    - breach
+    - tornado
+    - poison
+    - fury
+    - counterspell
+    - railgun
+    - meteor
+    - torch
+    - disintegrate
+    - kill
+    - gatling
+    - blast
+    - peek
+    - pull
+    - torture
+    - cloak
+    - growth
+    - arrowrain
+    - wither
+    - collapse
+    - stash
+  mage:
+    effect_color: 8415f28a8363,d88c8874b437,dde3df561846
+    mana_timestamp: 1677279710914
+    mana: 200.0
+    path: master
+  soldier: {}
+transient_modifiers: {}
+active_class: mage
+health: 20.0

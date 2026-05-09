@@ -1,0 +1,6 @@
+# ---------------------------------------------------------------- #
+#  MINECRAFT SERVER & RESOURCES DEV GITIGNORE
+# ---------------------------------------------------------------- #
+plugins/amigosmagicplugin/
+**gradle/
+stabledf/

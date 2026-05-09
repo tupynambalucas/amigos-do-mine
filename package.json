@@ -1,0 +1,67 @@
+{
+  "name": "@amigos-do-mine/monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.33.4",
+  "author": "Tupynambá Lucas Varela Rodrigues <tupynambalucas.dev>",
+  "license": "CC-BY-NC-4.0",
+  "homepage": "https://tupynambalucas.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tupynambalucas/EloOrganico.git"
+  },
+  "scripts": {
+    "// MINECRAFT SERVER": "---------------------------------------",
+    "server:up": "pnpm --filter @amigos-do-mine/minecraft server:up",
+    "server:down": "pnpm --filter @amigos-do-mine/minecraft server:down",
+    "server:logs": "pnpm --filter @amigos-do-mine/minecraft server:logs",
+    "server:update": "pnpm --filter @amigos-do-mine/minecraft server:update",
+    "server:restart": "pnpm --filter @amigos-do-mine/minecraft server:restart",
+    "server:reset": "pnpm --filter @amigos-do-mine/minecraft server:reset",
+    "server:attach": "pnpm --filter @amigos-do-mine/minecraft server:attach",
+    "build:plugin": "pnpm --filter @amigos-do-mine/resources build:plugin",
+    "build:resourcepack": "pnpm --filter @amigos-do-mine/resources build:resourcepack",
+    "// PENPOT": "---------------------------------------------",
+    "penpot:up": "pnpm --filter @amigos-do-mine/studio penpot:up",
+    "penpot:down": "pnpm --filter @amigos-do-mine/studio penpot:down",
+    "penpot:reset": "pnpm --filter @amigos-do-mine/studio penpot:reset",
+    "penpot:update": "pnpm --filter @amigos-do-mine/studio penpot:update",
+    "penpot:aide:up": "pnpm --filter @amigos-do-mine/studio aide:up",
+    "penpot:aide:down": "pnpm --filter @amigos-do-mine/studio aide:down",
+    "// BUILD & QUALITY (CI/CD)": "-------------------------------------------------",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "clean:project": "npx npkill"
+  },
+  "devDependencies": {
+    "@eslint/js": "catalog:tooling-stack",
+    "@types/node": "catalog:",
+    "@typescript-eslint/eslint-plugin": "catalog:tooling-stack",
+    "eslint": "catalog:tooling-stack",
+    "eslint-import-resolver-typescript": "catalog:tooling-stack",
+    "eslint-plugin-import": "catalog:tooling-stack",
+    "eslint-plugin-react": "catalog:web-stack",
+    "eslint-plugin-react-hooks": "catalog:web-stack",
+    "eslint-plugin-react-refresh": "catalog:web-stack",
+    "kill-port": "catalog:",
+    "prettier": "catalog:tooling-stack",
+    "rimraf": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:tooling-stack",
+    "turbo": "catalog:"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@sentry-internal/node-cpu-profiler",
+      "@swc/core",
+      "bcrypt",
+      "core-js",
+      "esbuild",
+      "msgpackr-extract",
+      "unrs-resolver"
+    ]
+  }
+}

@@ -1,0 +1,305 @@
+id: 93e73e77-228d-36cd-9941-50aab7d5efcc
+name: morenasensual
+created: 1676474341223
+updated: 1677266145791
+last_cast: 1676519969711
+cooldown_expiration: 0
+last_death_location: 369.69999998807907,64.0,612.6999999880791,world,86.849335,29.249907
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: 75
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+spells:
+  ak47:
+    cast_count: 200
+    last_cast: 1676482950561
+    last_earn: 0
+    cooldown_expiration: 1676482950661
+    charges: 0.0
+  reload_ak47:
+    cast_count: 266
+    last_cast: 1676504699816
+    last_earn: 0
+    cooldown_expiration: 1676504702816
+    charges: 0.0
+  note16:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note15:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note14:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note13:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note12:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note11:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note10:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  missile:
+    cast_count: 30
+    last_cast: 1676494959310
+    last_earn: 1676494959288
+    cooldown_expiration: 1676494960310
+    charges: 0.0
+  note19:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note18:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note17:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  soulshop:
+    cast_count: 0
+    last_cast: 1676486545779
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  ak47|2:
+    cast_count: 200
+    last_cast: 1676485153827
+    last_earn: 0
+    cooldown_expiration: 1676485153927
+    charges: 0.0
+  camera3d:
+    cast_count: 1
+    last_cast: 1676509155485
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  ak47|3:
+    cast_count: 1684
+    last_cast: 1676504698862
+    last_earn: 0
+    cooldown_expiration: 1676504698962
+    charges: 0.0
+  note05:
+    cast_count: 0
+    last_cast: 1676519964842
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note04:
+    cast_count: 0
+    last_cast: 1676519962067
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  radar:
+    cast_count: 1
+    last_cast: 1676494460687
+    last_earn: 0
+    cooldown_expiration: 1676494465687
+    charges: 0.0
+  note03:
+    cast_count: 0
+    last_cast: 1676519968934
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note02:
+    cast_count: 0
+    last_cast: 1676519969711
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note24:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note01:
+    cast_count: 0
+    last_cast: 1676519969283
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note23:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  mercadorshop:
+    cast_count: 0
+    last_cast: 1676484976036
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note22:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note21:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note20:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note09:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note08:
+    cast_count: 0
+    last_cast: 1676519963784
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  missile|2:
+    cast_count: 50
+    last_cast: 1676495178552
+    last_earn: 1676495178535
+    cooldown_expiration: 1676495179552
+    charges: 0.0
+  note07:
+    cast_count: 0
+    last_cast: 1676519959421
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  missile|3:
+    cast_count: 128
+    last_cast: 1676506368456
+    last_earn: 1676506368497
+    cooldown_expiration: 0
+    charges: 0.0
+  note06:
+    cast_count: 0
+    last_cast: 1676519955085
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+wands:
+  wand:
+    item:
+      ==: org.bukkit.inventory.ItemStack
+      v: 3218
+      type: STICK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_aqua","text":"Wand"}],"text":""}'
+        lore:
+        - '{"italic":false,"extra":[{"color":"gray","text":"Beginner "},{"color":"white","text":"Magic
+          Wand"}],"text":""}'
+        - '{"italic":true,"color":"dark_aqua","text":"Bound to morenasensual"}'
+        - '{"italic":false,"extra":[{"color":"gold","text":"Level 3"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"Fire a bolt of pure magic"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Cooldown: "},{"color":"gold","text":"One
+          second"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"blue","text":"Range: "},{"color":"gold","text":"48
+          "},{"color":"blue","text":"meters"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"gray","text":"Lasts for 10 seconds"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Consumes 20 "},{"color":"dark_aqua","text":"MP"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"dark_green","text":"Earns up to "},{"color":"gold","text":"10
+          "},{"color":"aqua","text":"SP"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana: 50"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana Regeneration: 5/s"}],"text":""}'
+        custom-model-data: 18001
+        attribute-modifiers:
+          GENERIC_ATTACK_SPEED:
+          - ==: org.bukkit.attribute.AttributeModifier
+            amount: 10.0
+            name: Equipment Modifier
+            slot: HAND
+            uuid: 31b6c09f-e1e8-4f41-8622-a15c6e565cdd
+            operation: 0
+        ItemFlags:
+        - HIDE_ENCHANTS
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+        - HIDE_DESTROYS
+        - HIDE_PLACED_ON
+        - HIDE_POTION_EFFECTS
+        - HIDE_DYE
+        Unbreakable: true
+        internal: H4sIAAAAAAAA/z1P7WqDMBS9MkfFdewlxn5VMEajPo3EmxsIjYkkqWWMvfuyDnY4P89nDVBAeSXaixrKu3Sqgmd/dxTgdfOBnIzk4k3aCs4SkzloiTtZC6fNxGgsVVAa9A7OMRm8frGpbdl3DW8P1WLcQS758Pn0b4BfVFA9Shaj4H3mNGaOTddNquECVTPPPWuGVsp1VANpxGxItO1WJvqbmQMPCtHkaoBTXkdaE6YFvfUBPrQgEpxpZNheJi4GMfbI+2m4MKm7tVNCT3zN319uTgW/73K1VMAP6g60Hg8BAAA=
+    wand:
+      owner: morenasensual
+      active_spell: missile
+      icon: stick{18001}
+      spell_inventory:
+        missile: 0
+      version: 7
+      template: wand
+      owner_id: 93e73e77-228d-36cd-9941-50aab7d5efcc
+      effect_color: f6ee631fc1c0,8365674c3485,1af2b2d6f83b
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data:
+  sp: 241.0
+properties:
+  version: 7
+classes:
+  caster:
+    spell_levels:
+      missile: 3
+  mage:
+    effect_color: bb9d1163d8e,213e00dd6799,75409d21ad4d
+    mana_timestamp: 1677266145781
+    mana: 50.0
+  soldier:
+    spell_levels:
+      ak47: 3
+transient_modifiers: {}
+active_class: mage
+health: 20.0

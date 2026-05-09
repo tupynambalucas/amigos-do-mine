@@ -1,0 +1,6 @@
+uuid: 8d2d1d6d-8034-4c89-bd86-809a31fd5193
+skin: http://textures.minecraft.net/texture/696a537a813a1c17ab4c90d212b80d03b1baf1e3cf172f5ffe02afd0532fccef
+profile: '{  "id" : "8d2d1d6d80344c89bd86809a31fd5193",  "name" : "MHF_Wolf",  "properties"
+  : [ {    "name" : "textures",    "value" : "ewogICJ0aW1lc3RhbXAiIDogMTY3NTU3MDY0MjIzOSwKICAicHJvZmlsZUlkIiA6ICI4ZDJkMWQ2ZDgwMzQ0Yzg5YmQ4NjgwOWEzMWZkNTE5MyIsCiAgInByb2ZpbGVOYW1lIiA6ICJNSEZfV29sZiIsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82OTZhNTM3YTgxM2ExYzE3YWI0YzkwZDIxMmI4MGQwM2IxYmFmMWUzY2YxNzJmNWZmZTAyYWZkMDUzMmZjY2VmIgogICAgfQogIH0KfQ=="  }
+  ]}'
+name: MHF_Wolf

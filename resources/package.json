@@ -1,0 +1,18 @@
+{
+  "name": "@amigos-do-mine/resources",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Amigos Do Mine - Creative Studio (Plugin & Resource Pack)",
+  "author": "Tupynambá Lucas Varela Rodrigues <tupynambalucas.dev>",
+  "license": "CC-BY-NC-4.0",
+  "homepage": "https://github.com/tupynambalucas/AmigosDoMine/tree/main/resources#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tupynambalucas/AmigosDoMine.git",
+    "directory": "resources"
+  },
+  "scripts": {
+    "build:plugin": "cd amigosplugin && gradlew shadowJar",
+    "build:resourcepack": "cd resourcepack && gradlew build"
+  }
+}

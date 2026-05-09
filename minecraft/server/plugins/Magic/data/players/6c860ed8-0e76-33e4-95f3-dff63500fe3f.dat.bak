@@ -1,0 +1,195 @@
+id: 6c860ed8-0e76-33e4-95f3-dff63500fe3f
+name: YOOSHll
+created: 1676830857060
+updated: 1676837841751
+last_cast: 1676837829370
+cooldown_expiration: 0
+last_death_location: 156.71454978286155,116.49520087700593,-10.480070577811874,tutorial,-108.15024,11.7
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b:
+  - blocks:
+    - 256,67,-94,world|stone_brick_slab?minecraft:stone_brick_slab[type=bottom,waterlogged=false]
+    - 258,66,-90,world|gravel
+    time_to_live: 30000
+    name: Combat Shotgun Skill
+    mode: NO_PHYSICS
+  - blocks:
+    - 254,66,-88,world|grass_block?minecraft:grass_block[snowy=false]
+    - 250,67,-91,world|stone_brick_slab?minecraft:stone_brick_slab[type=bottom,waterlogged=false]
+    - 253,66,-90,world|mossy_stone_bricks
+    time_to_live: 30000
+    name: Combat Shotgun Skill
+    mode: NO_PHYSICS
+  - blocks:
+    - 254,67,-94,world|stone_brick_slab?minecraft:stone_brick_slab[type=bottom,waterlogged=false]
+    - 253,67,-94,world|mossy_stone_bricks
+    - 253,68,-96,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 255,66,-92,world|mossy_stone_bricks
+    - 252,68,-96,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 255,67,-94,world|stone_brick_slab?minecraft:stone_brick_slab[type=bottom,waterlogged=false]
+    - 254,67,-93,world|stone_brick_slab?minecraft:stone_brick_slab[type=bottom,waterlogged=false]
+    time_to_live: 30000
+    name: Combat Shotgun Skill
+    mode: NO_PHYSICS
+  - blocks:
+    - 254,67,-93,world|stone_brick_slab?minecraft:stone_brick_slab[type=bottom,waterlogged=false]
+    - 254,67,-94,world|stone_brick_slab?minecraft:stone_brick_slab[type=bottom,waterlogged=false]
+    - 252,68,-97,world|ochre_froglight?minecraft:ochre_froglight[axis=y]
+    - 253,67,-93,world|stone_brick_slab?minecraft:stone_brick_slab[type=bottom,waterlogged=false]
+    - 252,68,-95,world|oak_wood?minecraft:oak_wood[axis=y]
+    time_to_live: 30000
+    name: Combat Shotgun Skill
+    mode: NO_PHYSICS
+  - blocks:
+    - 252,67,-94,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 251,68,-94,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 251,68,-95,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 251,68,-96,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 253,67,-94,world|mossy_stone_bricks
+    - 253,67,-93,world|stone_brick_slab?minecraft:stone_brick_slab[type=bottom,waterlogged=false]
+    time_to_live: 30000
+    name: Combat Shotgun Skill
+    mode: NO_PHYSICS
+  - blocks:
+    - 252,67,-95,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 253,67,-95,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 252,67,-96,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 253,67,-96,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 251,67,-95,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 253,66,-95,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 252,67,-93,world|mossy_stone_brick_slab?minecraft:mossy_stone_brick_slab[type=bottom,waterlogged=false]
+    time_to_live: 30000
+    name: Combat Shotgun Skill
+    mode: NO_PHYSICS
+  - blocks:
+    - 251,67,-96,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 252,67,-97,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 252,67,-98,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 251,68,-97,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 252,67,-93,world|mossy_stone_brick_slab?minecraft:mossy_stone_brick_slab[type=bottom,waterlogged=false]
+    time_to_live: 30000
+    name: Combat Shotgun Skill
+    mode: NO_PHYSICS
+  - blocks:
+    - 250,68,-96,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 251,66,-96,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 251,66,-95,world|oak_wood?minecraft:oak_wood[axis=y]
+    - 250,67,-96,world|oak_wood?minecraft:oak_wood[axis=y]
+    time_to_live: 30000
+    name: Combat Shotgun Skill
+    mode: NO_PHYSICS
+spells:
+  ak47:
+    cast_count: 35
+    last_cast: 1676831943863
+    last_earn: 0
+    cooldown_expiration: 1676831943963
+    charges: 0.0
+  shotgun:
+    cast_count: 0
+    last_cast: 1676837827392
+    last_earn: 0
+    cooldown_expiration: 1676837828192
+    charges: 0.0
+  mercadorshop:
+    cast_count: 0
+    last_cast: 1676831565165
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  reload_shotgun:
+    cast_count: 2
+    last_cast: 1676837829370
+    last_earn: 0
+    cooldown_expiration: 1676837832870
+    charges: 0.0
+  missile:
+    cast_count: 19
+    last_cast: 1676831874563
+    last_earn: 1676831874562
+    cooldown_expiration: 0
+    charges: 0.0
+  reload_ak47:
+    cast_count: 9
+    last_cast: 1676831896484
+    last_earn: 0
+    cooldown_expiration: 1676831899484
+    charges: 0.0
+wands:
+  wand:
+    item:
+      ==: org.bukkit.inventory.ItemStack
+      v: 3218
+      type: STICK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_aqua","text":"Wand"}],"text":""}'
+        lore:
+        - '{"italic":false,"extra":[{"color":"gray","text":"Beginner "},{"color":"white","text":"Magic
+          Wand"}],"text":""}'
+        - '{"italic":true,"color":"dark_aqua","text":"Bound to YOOSHll"}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"Fire a bolt of pure magic"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Cooldown: "},{"color":"gold","text":"One
+          second"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"blue","text":"Range: "},{"color":"gold","text":"24
+          "},{"color":"blue","text":"meters"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"gray","text":"Lasts for 10 seconds"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Consumes 15 "},{"color":"dark_aqua","text":"MP"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"dark_green","text":"Earns up to "},{"color":"gold","text":"20
+          "},{"color":"aqua","text":"SP"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana: 50"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana Regeneration: 5/s"}],"text":""}'
+        custom-model-data: 18001
+        attribute-modifiers:
+          GENERIC_ATTACK_SPEED:
+          - ==: org.bukkit.attribute.AttributeModifier
+            amount: 10.0
+            name: Equipment Modifier
+            slot: HAND
+            uuid: 9d7f025f-715d-4b0a-9e22-7d3b603e3e50
+            operation: 0
+        ItemFlags:
+        - HIDE_ENCHANTS
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+        - HIDE_DESTROYS
+        - HIDE_PLACED_ON
+        - HIDE_POTION_EFFECTS
+        - HIDE_DYE
+        Unbreakable: true
+        internal: H4sIAAAAAAAA/zWPsWrDMBQAn6mLRZrPaLcYJCuW7D/olqFTJ2M9vQciii0sNRlK/72m0PWGO+4AUEF9JUrVAerHvHgBz+tjoQ2az8vl4z1GAccZS7jTlBPFCM0t5BwiCagDrgsccwl4/VaDlOrnCZo7bTnsHKARIArdUpwL/cvFn3wKHl4NDkaSH1pJ1rRa07kde9atZza6l5JJ8x4nZsIy4RrXDd6MHftRocZOuZNzdKbODXrEE5Nly6pzaP3+9PK1+G1NaXaRKvgFu/7AoucAAAA=
+    wand:
+      owner: YOOSHll
+      active_spell: missile
+      icon: stick{18001}
+      owner_id: 6c860ed8-0e76-33e4-95f3-dff63500fe3f
+      template: wand
+      version: 7
+      effect_color: 679591c3c21b,bbe4e2b839c,fe7f7f12bc7d
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data:
+  sp: 149.0
+properties:
+  version: 7
+classes:
+  caster: {}
+  mage:
+    effect_color: 45af86af8c2d,c68e30df8ee1,28a2bf6beadb
+    mana_timestamp: 1676837794330
+    mana: 50.0
+  soldier: {}
+transient_modifiers: {}
+active_class: soldier
+health: 10.238093376159668

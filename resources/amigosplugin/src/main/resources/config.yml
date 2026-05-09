@@ -1,0 +1,12 @@
+# 🧠 Amigos Plugin Configuration
+
+mechanics:
+  chat:
+    # Allow players to use legacy color codes (e.g., &a, &l, &6)
+    # If false, only MiniMessage tags (e.g., <green>, <bold>) will work.
+    legacy-colors: true
+  elevator:
+    # The block type used for elevators
+    block-type: IRON_BLOCK
+    # Maximum distance to search for the next elevator block
+    max-distance: 100

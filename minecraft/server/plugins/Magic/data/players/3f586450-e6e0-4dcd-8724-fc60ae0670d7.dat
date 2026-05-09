@@ -1,0 +1,42 @@
+id: 3f586450-e6e0-4dcd-8724-fc60ae0670d7
+name: CoalaPimposo
+created: 1778162800036
+updated: 1778173251709
+last_cast: 1778169411147
+cooldown_expiration: 0
+last_death_location: ''
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  4b79d1c0-5184-47e6-a547-39973798411e: []
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+  2e11c91a-8475-481d-9aca-db3677417ccc: []
+spells:
+  mercadorshop:
+    cast_count: 0
+    last_cast: 1778169411147
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data: {}
+properties:
+  version: 7
+classes:
+  caster: {}
+  mage:
+    effect_color: 1f38cca5e95c,5ac49bef089b,683fabea0bd
+    mana_timestamp: 1778173251529
+    mana: 50.0
+transient_modifiers: {}
+active_class: mage
+health: 19.0

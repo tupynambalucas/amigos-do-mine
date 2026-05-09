@@ -1,0 +1,5 @@
+packloader/
+run/
+**/assets/**/*.ogg
+**/assets/**/*.png
+**/assets/**/*.png.mcmeta

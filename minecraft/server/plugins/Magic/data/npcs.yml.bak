@@ -1,0 +1,83 @@
+npcs:
+- template: sombrio_npc
+  id: 47ea8f60-86ec-425c-bb08-e038ce4dd9f1
+  entity_uuid: 18f2ee0f-9bd2-4ad2-a14f-3045c59834d6
+  mob: sombrio_npc
+  name: Corrompido
+  created: 1675476754809
+  creator: 340d6398-cbe0-342a-a18c-64ef21d29992
+  creator_name: CoalaPimposo
+  location:
+    world: world
+    x: -2.9019171070308696
+    y: 72.0
+    z: -413.9906817955476
+    yaw: -178.62988
+    pitch: -0.45000988
+  parameters: {}
+- template: gunshop
+  id: ac443e4f-7e29-4810-b513-43122ab463ed
+  entity_uuid: e3acfc3e-9836-4b8b-b6f9-bf59b600bd02
+  mob: gunshop
+  name: Murica
+  created: 1676516982547
+  creator: 340d6398-cbe0-342a-a18c-64ef21d29992
+  creator_name: CoalaPimposo
+  location:
+    world: world
+    x: -2666.0922340418992
+    y: 119.0
+    z: -3024.935860291401
+    yaw: 89.70755
+    pitch: 1.1999915
+  parameters: {}
+- template: mercador_npc
+  id: f89f4c9d-07fa-4877-abc1-9fc066abe31f
+  entity_uuid: 9931605e-c7c4-451c-8534-eb41088fba28
+  mob: mercador_npc
+  name: Mercador
+  created: 1735228187494
+  creator: 340d6398-cbe0-342a-a18c-64ef21d29992
+  creator_name: CoalaPimposo
+  location:
+    world: world
+    x: 277.53369114489595
+    y: 68.0
+    z: -92.9945581359885
+    yaw: 50.645752
+    pitch: 6.5501533
+  parameters:
+    leash_range: 10
+    dialog_range: 5
+- template: raca_npc
+  id: 69e04aea-30d2-4bf1-932b-809b8b2d5128
+  entity_uuid: 60bd19a3-b2bf-47ea-914c-0614b462ce3d
+  mob: raca_npc
+  name: Guia de Raça
+  created: 1678164374153
+  creator: 340d6398-cbe0-342a-a18c-64ef21d29992
+  creator_name: CoalaPimposo
+  location:
+    world: world
+    x: 200.0530199124168
+    y: 68.0
+    z: -65.19187693612129
+    yaw: -84.50136
+    pitch: -0.3000306
+  parameters: {}
+- template: classe_npc
+  id: ef1a3803-d2f1-45f2-a6ea-096977545d00
+  entity_uuid: 8e8312dc-710b-4cb2-95e4-505b875c5cab
+  mob: classe_npc
+  name: Guia de Classe
+  created: 1678164367964
+  creator: 340d6398-cbe0-342a-a18c-64ef21d29992
+  creator_name: CoalaPimposo
+  location:
+    world: world
+    x: 200.04179674565975
+    y: 68.0
+    z: -67.93709804703998
+    yaw: -84.50136
+    pitch: -0.3000306
+  parameters: {}

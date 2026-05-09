@@ -1,0 +1,371 @@
+id: 60c0f58c-3361-32c6-a9a6-b9a27dd0e6c5
+name: xupinga
+created: 1676425827891
+updated: 1676915391341
+last_cast: 1676568207564
+cooldown_expiration: 0
+last_death_location: 317.01317242137344,52.0,-110.18459465346994,world,5.7437134,75.45018
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+spells:
+  ak47:
+    cast_count: 11
+    last_cast: 1676431130491
+    last_earn: 0
+    cooldown_expiration: 1676431130591
+    charges: 0.0
+  flare:
+    cast_count: 11
+    last_cast: 1676566167191
+    last_earn: 1676566154465
+    cooldown_expiration: 0
+    charges: 0.0
+  carshop:
+    cast_count: 0
+    last_cast: 1676430617724
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  boon:
+    cast_count: 29
+    last_cast: 1676568023778
+    last_earn: 1676567918647
+    cooldown_expiration: 0
+    charges: 0.0
+  blind:
+    cast_count: 2
+    last_cast: 1676566624600
+    last_earn: 1676566602373
+    cooldown_expiration: 0
+    charges: 0.0
+  arrow:
+    cast_count: 17
+    last_cast: 1676567479442
+    last_earn: 1676567451673
+    cooldown_expiration: 0
+    charges: 0.0
+  reload_ak47:
+    cast_count: 4
+    last_cast: 1676428562256
+    last_earn: 0
+    cooldown_expiration: 1676428565256
+    charges: 0.0
+  appearanceshop:
+    cast_count: 1
+    last_cast: 1676429800115
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  steal_model3:
+    cast_count: 1
+    last_cast: 1676430641035
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  cure:
+    cast_count: 0
+    last_cast: 1676431245602
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  blink:
+    cast_count: 5
+    last_cast: 1676566865887
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  stun:
+    cast_count: 1
+    last_cast: 1676566442182
+    last_earn: 1676566442181
+    cooldown_expiration: 0
+    charges: 0.0
+  rocketlauncher:
+    cast_count: 0
+    last_cast: 1676566764592
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  fling:
+    cast_count: 2
+    last_cast: 1676568205677
+    last_earn: 0
+    cooldown_expiration: 1676568210677
+    charges: 0.0
+  upgrades:
+    cast_count: 7
+    last_cast: 1676430140266
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  controlsmenu:
+    cast_count: 0
+    last_cast: 1676429453741
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  reload_rocketlauncher:
+    cast_count: 1
+    last_cast: 1676566775952
+    last_earn: 0
+    cooldown_expiration: 1676566781452
+    charges: 0.0
+  spellshop:
+    cast_count: 0
+    last_cast: 1676430330721
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  bubble:
+    cast_count: 1
+    last_cast: 1676566040832
+    last_earn: 1676566040824
+    cooldown_expiration: 0
+    charges: 0.0
+  frost:
+    cast_count: 0
+    last_cast: 1676566055904
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  missile:
+    cast_count: 30
+    last_cast: 1676427897892
+    last_earn: 1676427897891
+    cooldown_expiration: 1676427898892
+    charges: 0.0
+  fire:
+    cast_count: 3
+    last_cast: 1676566371567
+    last_earn: 1676566331116
+    cooldown_expiration: 0
+    charges: 0.0
+  spawn_car:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  progressmenu:
+    cast_count: 40
+    last_cast: 1676430329459
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  aqualung:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    enabled: false
+    charges: 0.0
+  fireball:
+    cast_count: 13
+    last_cast: 1676567903878
+    last_earn: 1676567891956
+    cooldown_expiration: 0
+    charges: 0.0
+  soulshop:
+    cast_count: 0
+    last_cast: 1676428790408
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  lightning|3:
+    cast_count: 3
+    last_cast: 1676567982831
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  broom:
+    cast_count: 19
+    last_cast: 1676567698294
+    last_earn: 0
+    cooldown_expiration: 1676567713294
+    charges: 0.0
+  torch:
+    cast_count: 1
+    last_cast: 1676566111784
+    last_earn: 1676566111783
+    cooldown_expiration: 0
+    charges: 0.0
+  blast:
+    cast_count: 8
+    last_cast: 1676567493637
+    last_earn: 1676567493636
+    cooldown_expiration: 0
+    charges: 0.0
+  peek:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  wandinstructions:
+    cast_count: 1
+    last_cast: 1676430099566
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  cloak:
+    cast_count: 7
+    last_cast: 1676430274480
+    last_earn: 1676430273368
+    cooldown_expiration: 0
+    charges: 0.0
+  mercadorshop:
+    cast_count: 0
+    last_cast: 1676516227941
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  grab:
+    cast_count: 16
+    last_cast: 1676515958012
+    last_earn: 0
+    cooldown_expiration: 1676515959012
+    charges: 0.0
+  missile|2:
+    cast_count: 50
+    last_cast: 1676515273820
+    last_earn: 1676515272577
+    cooldown_expiration: 1676515274820
+    charges: 0.0
+  collapse:
+    cast_count: 3
+    last_cast: 1676567937552
+    last_earn: 1676567938013
+    cooldown_expiration: 0
+    charges: 0.0
+  missile|3:
+    cast_count: 70
+    last_cast: 1676568070823
+    last_earn: 1676568036026
+    cooldown_expiration: 0
+    charges: 0.0
+wands:
+  wand:
+    item:
+      ==: org.bukkit.inventory.ItemStack
+      v: 3218
+      type: STICK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_aqua","text":"Wand"}],"text":""}'
+        lore:
+        - '{"italic":false,"extra":[{"color":"gray","text":"Beginner "},{"color":"white","text":"Magic
+          Wand"}],"text":""}'
+        - '{"italic":true,"color":"dark_aqua","text":"Bound to xupinga"}'
+        - '{"text":"Knows 17 Spells"}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana: 50"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana Regeneration: 5/s"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"dark_gray","text":"------------------------"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Swing
+          "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+          "},{"color":"gray","text":"to cast "},{"color":"gold","text":"Magic Missile"}],"keybind":"key.attack"}],"text":""}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Interact
+          "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+          "},{"color":"gray","text":"to cycle the active spell"}],"keybind":"key.use"}],"text":""}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Drop
+          "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+          "},{"color":"gray","text":"to open the spell inventory"}],"keybind":"key.drop"}],"text":""}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"yellow","text":"Change
+          controls using an "},{"color":"aqua","text":"enchant table"}],"text":""}'
+        custom-model-data: 18037
+        attribute-modifiers:
+          GENERIC_ATTACK_SPEED:
+          - ==: org.bukkit.attribute.AttributeModifier
+            amount: 10.0
+            name: Equipment Modifier
+            slot: HAND
+            uuid: 2b5024f4-01e5-4e65-9289-bc38f946d089
+            operation: 0
+        ItemFlags:
+        - HIDE_ENCHANTS
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+        - HIDE_DESTROYS
+        - HIDE_PLACED_ON
+        - HIDE_POTION_EFFECTS
+        - HIDE_DYE
+        Unbreakable: true
+        internal: H4sIAAAAAAAA/0VRXU8CMRBcvEMuSOKL3/HJ6BskhxcK/BqybfewobRnrwca4393e0Tt02x3dqadHQMMIN8RNYMx5Ed0OoO8wS0BnwKG/ugowOija4zbYgY3bz5KDBvjDuSiD58b5TsXmTwoYIIqmgNt2oashdHetK2xVEBulHcwaaNRu6/5qqyW32O47Fn/QuyrupB87xhKzxMAZxkUyluLTZs659mfKldZBkNpse3de2ycZjzK4Fx2UvakW27UwfekK1arTSCJ/DyAnFvsrN4Y37BnG7vkOeRrDMEfUwQpDaIdo0eGaZjhPevge4e2c1sun3hAWY+J9ZDsLPa0aw6w6APcGA3PolRlvVipWVWJ+ax6VWKGaxQzucbXpdYlCbXggUj7xmKk322MDhRa06eRPnbK/7SdCdU1qcgrsD7ASy1pJYQmWq6ncynnC61rWa6qqS5FpUjopZZrXvdF53TwTYOc0AB+ALuIrXcCAgAA
+    wand:
+      owner: xupinga
+      page: 0
+      hotbar_inventory_count: 1
+      active_spell: missile
+      icon: stick{18037}
+      spell_inventory:
+        boon: 2
+        cure: 24
+        collapse: 6
+        blast: 1
+        missile: 3
+        blind: 7
+        bubble: 23
+        frost: 20
+        fireball: 4
+        torch: 22
+        stun: 5
+        arrow: 0
+        peek: 28
+        fire: 25
+        flare: 21
+        cloak: 26
+        aqualung: 34
+      version: 7
+      template: wand
+      owner_id: 60c0f58c-3361-32c6-a9a6-b9a27dd0e6c5
+      effect_color: fbe866dee79,1bb15ddfb083,d063ce6d7db9
+      hotbar: 0
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data:
+  sp: 205.0
+  wand_appearances:
+    orb: true
+properties:
+  version: 7
+classes:
+  caster:
+    spell_levels:
+      missile: 3
+    spells:
+    - flare
+    - boon
+    - blind
+    - arrow
+    - torch
+    - cure
+    - stun
+    - blast
+    - peek
+    - cloak
+    - bubble
+    - frost
+    - missile
+    - fire
+    - aqualung
+    - fireball
+    - collapse
+  mage:
+    effect_color: c2389e3a514e,201daec19d68,da4254ba0b27
+    mana_timestamp: 1676568210719
+    mana: 50.0
+  soldier: {}
+  broomrider: {}
+transient_modifiers: {}
+active_class: broomrider
+health: 20.0

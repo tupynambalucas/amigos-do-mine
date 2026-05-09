@@ -1,0 +1,320 @@
+id: 2587f340-e095-3dd6-b529-01a4cec238ba
+name: Lipaokk
+created: 1676682171597
+updated: 1676754635448
+last_cast: 1676754635229
+cooldown_expiration: 0
+last_death_location: -2752.168896312863,71.0,-3043.640992666593,world,-75.75926,8.337662
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: 80
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+spells:
+  ak47:
+    cast_count: 85
+    last_cast: 1676683808034
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  reload_ak47:
+    cast_count: 24
+    last_cast: 1676683743364
+    last_earn: 0
+    cooldown_expiration: 1676683746364
+    charges: 0.0
+  note16:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note15:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note14:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note13:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note12:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note11:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note10:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note19:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note18:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note17:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note05:
+    cast_count: 0
+    last_cast: 1676754585587
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note04:
+    cast_count: 0
+    last_cast: 1676754626851
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note03:
+    cast_count: 0
+    last_cast: 1676754627876
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note02:
+    cast_count: 0
+    last_cast: 1676754626167
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note24:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note01:
+    cast_count: 0
+    last_cast: 1676754628743
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note23:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note22:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note21:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note20:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note09:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note08:
+    cast_count: 0
+    last_cast: 1676754608934
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note07:
+    cast_count: 0
+    last_cast: 1676754635229
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note06:
+    cast_count: 0
+    last_cast: 1676754634530
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+inventory:
+- ==: org.bukkit.inventory.ItemStack
+  v: 3218
+  type: DIAMOND_SWORD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    enchants:
+      LOOT_BONUS_MOBS: 3
+      MENDING: 1
+      DAMAGE_UNDEAD: 4
+      DURABILITY: 3
+    repair-cost: 15
+- ==: org.bukkit.inventory.ItemStack
+  v: 3218
+  type: COOKED_SALMON
+  amount: 59
+- ==: org.bukkit.inventory.ItemStack
+  v: 3218
+  type: DIAMOND_SHOVEL
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    enchants:
+      LOOT_BONUS_BLOCKS: 2
+      DURABILITY: 3
+- ==: org.bukkit.inventory.ItemStack
+  v: 3218
+  type: DARK_OAK_PLANKS
+  amount: 64
+- ==: org.bukkit.inventory.ItemStack
+  v: 3218
+  type: DIAMOND_PICKAXE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"aqua","text":"AK-47"}],"text":""}'
+    lore:
+    - '{"text":"Ammo: 30"}'
+    attribute-modifiers:
+      GENERIC_ATTACK_SPEED:
+      - ==: org.bukkit.attribute.AttributeModifier
+        amount: 10.0
+        name: Equipment Modifier
+        uuid: fbb46c16-d72b-41a0-8642-089e05b9b400
+        operation: 0
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    - HIDE_DESTROYS
+    - HIDE_PLACED_ON
+    - HIDE_POTION_EFFECTS
+    - HIDE_DYE
+    Unbreakable: true
+    Damage: 1
+    internal: H4sIAAAAAAAA/+NiYOBiYClPzEthZWDJTcxLZAACZgb2stSi4sz8PCCHnYOBoyQ1tyAnsSSVgSUx28SchYEPpDK+JDM3tbgkMbeAgYGxLS165UMOBpbMZKAmwZTMxNz8vJT4gszk7MSKVCtDBgYAb01aXWkAAAA=
+- ==: org.bukkit.inventory.ItemStack
+  v: 3218
+  type: DIAMOND_SWORD
+- null
+- ==: org.bukkit.inventory.ItemStack
+  v: 3218
+  type: FILLED_MAP
+  meta:
+    ==: ItemMeta
+    meta-type: MAP
+    display-name: '{"extra":[{"text":"Photo of Crisin2balas"}],"text":""}'
+    map-id: 80
+- ==: org.bukkit.inventory.ItemStack
+  v: 3218
+  type: STICK
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"aqua","text":"Ocarina"}],"text":""}'
+    lore:
+    - '{"italic":false,"extra":[{"color":"green","text":"Right-click and use the hotbar
+      buttons to play music"}],"text":""}'
+    - '{"text":"Has 24 Notes"}'
+    - '{"italic":false,"extra":[{"color":"dark_gray","text":"------------------------"}],"text":""}'
+    - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Swing
+      "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+      "},{"color":"gray","text":"to cast "},{"color":"gold","text":"1 Note C Middle"}],"keybind":"key.attack"}],"text":""}],"text":""}'
+    - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Interact
+      "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+      "},{"color":"gray","text":"to open the spell"}],"keybind":"key.use"}],"text":""}],"text":""}'
+    - '{"italic":false,"extra":[{"color":"gray","text":" inventory"}],"text":""}'
+    custom-model-data: 18018
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    - HIDE_DESTROYS
+    - HIDE_PLACED_ON
+    - HIDE_POTION_EFFECTS
+    - HIDE_DYE
+    Unbreakable: true
+    internal: H4sIAAAAAAAA/0XQDU/CMBAG4NNONgYIKB9/Yxsfzl9Dymi0YbbLVmcM8b97F3hDkyZ98t710qZEKUU/2p0URY3+MMRL0erTh6NuD9b1xgXf/h4q/+2CZAklwXw1tQ6GYl/p1jqtKO5N21nvuCJOKLIVH8ddsNX5kpdZXv6lNO0aU9f3KxUNnA8mK6UH2DOebsglmSMpGA9IBKMbiozxikQwRM+OEaFMepbAhrECtow1eiR5BCRRwDsjwRzBC/DGmKFMMADy639eywQphgoWSGToGJChE0A+ZArIe555/wMxEHW4tgEAAA==
+- null
+- ==: org.bukkit.inventory.ItemStack
+  v: 3218
+  type: TRIDENT
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":"Atlantida"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gold","text":"Teste"}],"text":""}'
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+- null
+open_wand: true
+gave_welcome_wand: false
+resource_pack_preference: default
+data: {}
+properties:
+  version: 7
+classes:
+  soldier: {}
+transient_modifiers: {}
+active_class: soldier
+health: 20.0

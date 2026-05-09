@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Gemini CLI (New Window)",
+      "type": "shell",
+      "command": "wt",
+      "args": ["-d", "${workspaceFolder}", "pwsh", "-NoExit", "-Command", "gemini"],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

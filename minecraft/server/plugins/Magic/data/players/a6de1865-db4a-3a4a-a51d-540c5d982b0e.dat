@@ -1,0 +1,110 @@
+id: a6de1865-db4a-3a4a-a51d-540c5d982b0e
+name: rick
+created: 1676511316936
+updated: 1678237476186
+last_cast: 1678237470016
+cooldown_expiration: 0
+last_death_location: 174.44355967094538,116.26880756190305,0.7580322881627908,tutorial,139.34602,36.899956
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+spells:
+  missile:
+    cast_count: 30
+    last_cast: 1678236042540
+    last_earn: 1678236042539
+    cooldown_expiration: 1678236043540
+    charges: 0.0
+  missile|2:
+    cast_count: 50
+    last_cast: 1678236646672
+    last_earn: 1678236643027
+    cooldown_expiration: 1678236647672
+    charges: 0.0
+  missile|3:
+    cast_count: 56
+    last_cast: 1678237470016
+    last_earn: 1678237470189
+    cooldown_expiration: 0
+    charges: 0.0
+wands:
+  wand:
+    item:
+      ==: org.bukkit.inventory.ItemStack
+      v: 3218
+      type: STICK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_aqua","text":"Wand"}],"text":""}'
+        lore:
+        - '{"italic":false,"extra":[{"color":"gray","text":"Beginner "},{"color":"white","text":"Magic
+          Wand"}],"text":""}'
+        - '{"italic":true,"color":"dark_aqua","text":"Bound to rick"}'
+        - '{"italic":false,"extra":[{"color":"gold","text":"Level 3"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"Fire a bolt of pure magic"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Cooldown: "},{"color":"gold","text":"One
+          second"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"blue","text":"Range: "},{"color":"gold","text":"48
+          "},{"color":"blue","text":"meters"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"gray","text":"Lasts for 10 seconds"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Consumes 20 "},{"color":"dark_aqua","text":"MP"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"dark_green","text":"Earns up to "},{"color":"gold","text":"10
+          "},{"color":"aqua","text":"SP"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana: 50"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana Regeneration: 5/s"}],"text":""}'
+        custom-model-data: 18001
+        attribute-modifiers:
+          GENERIC_ATTACK_SPEED:
+          - ==: org.bukkit.attribute.AttributeModifier
+            amount: 10.0
+            name: Equipment Modifier
+            slot: HAND
+            uuid: 601e67c8-539f-431c-b0ca-6c42a4fcaa74
+            operation: 0
+        ItemFlags:
+        - HIDE_ENCHANTS
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+        - HIDE_DESTROYS
+        - HIDE_PLACED_ON
+        - HIDE_POTION_EFFECTS
+        - HIDE_DYE
+        Unbreakable: true
+        internal: H4sIAAAAAAAA/z1PUWrDMBR7YRk1WWCX2P4asNM4cU8TXuwXMHXtYHsppezu8wqbPgQCCUkNQAX1hWirGqhv6A2D13DzFKGOVl8YtKiz3WlOGzkHh6tNyTpiUFsdPLQpF9dDKM7FdwPvT9ds/U4+h3h/+Q/AL4rcKSZbggAHBizTdXOY6a+aPatna+ADR0NCjbIzy4DdCQuhFKaTA9fSnFW/8LKipXUlnWcdXIjwqdVA62i46HE4ikWd+DQN43nCI8q+J4Wr7LE8fvvyJoZtw8VRBT/AL4jJBQEAAA==
+    wand:
+      owner: rick
+      active_spell: missile
+      icon: stick{18001}
+      spell_inventory:
+        missile: 0
+      owner_id: a6de1865-db4a-3a4a-a51d-540c5d982b0e
+      template: wand
+      version: 7
+      effect_color: c84ef6d012a4,1b830774697a,a522e8af52a
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data:
+  sp: 237.0
+properties:
+  version: 7
+classes:
+  caster:
+    spell_levels:
+      missile: 3
+  mage:
+    effect_color: cecc93755971,50a638871941,7665543d773d
+    mana_timestamp: 1678237476086
+    mana: 50.0
+transient_modifiers: {}
+active_class: mage
+health: 19.833332061767578

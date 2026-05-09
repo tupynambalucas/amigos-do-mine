@@ -1,0 +1,104 @@
+id: 340d6398-cbe0-342a-a18c-64ef21d29992
+name: CoalaPimposo
+created: 1778205164653
+updated: 1778317017088
+last_cast: 1778252576958
+cooldown_expiration: 0
+last_death_location: ''
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 1
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+spells:
+  classselector:
+    cast_count: 0
+    last_cast: 1778206715323
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  lightning|3:
+    cast_count: 3
+    last_cast: 1778252564603
+    last_earn: 0
+    cooldown_expiration: 1778252609603
+    charges: 0.0
+  mercadorshop:
+    cast_count: 0
+    last_cast: 1778252576958
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  missile:
+    cast_count: 0
+    last_cast: 1778206419949
+    last_earn: 0
+    cooldown_expiration: 1778206420949
+    charges: 0.0
+  fling:
+    cast_count: 7
+    last_cast: 1778252566687
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  raceselector:
+    cast_count: 0
+    last_cast: 1778206995887
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+wands:
+  wand:
+    item:
+      ==: org.bukkit.inventory.ItemStack
+      DataVersion: 4790
+      id: minecraft:stick
+      count: 1
+      components:
+        minecraft:attribute_modifiers: '[{amount:10.0d,id:"magic:modifier",operation:"add_value",slot:"mainhand",type:"minecraft:attack_speed"}]'
+        minecraft:unbreakable: '{}'
+        minecraft:lore: '[{extra:[{color:"gray",text:"Beginner "},{color:"white",text:"Magic
+          Wand"}],italic:0b,text:""},{color:"dark_aqua",italic:1b,text:"Bound to CoalaPimposo"},{extra:[{color:"aqua",text:"Fire
+          a bolt of pure magic"}],italic:0b,text:""},{extra:[{color:"yellow",text:"Cooldown:
+          "},{color:"gold",text:"One second"}],italic:0b,text:""},{extra:[{color:"blue",text:"Range:
+          "},{color:"gold",text:"24 "},{color:"blue",text:"meters"}],italic:0b,text:""},{extra:[{color:"gray",text:"Lasts
+          for 10 seconds"}],italic:0b,text:""},{extra:[{color:"yellow",text:"Consumes
+          15 "},{color:"dark_aqua",text:"MP"}],italic:0b,text:""},{extra:[{color:"dark_green",text:"Earns
+          up to "},{color:"gold",text:"30 "},{color:"aqua",text:"SP"}],italic:0b,text:""},{extra:[{color:"yellow",text:"Mana:
+          50"}],italic:0b,text:""},{extra:[{color:"yellow",text:"Mana Regeneration:
+          5/s"}],italic:0b,text:""}]'
+        minecraft:tooltip_display: '{hidden_components:["minecraft:enchantments","minecraft:attribute_modifiers","minecraft:unbreakable","minecraft:can_break","minecraft:can_place_on","minecraft:bundle_contents","minecraft:container_loot","minecraft:banner_patterns","minecraft:instrument","minecraft:firework_explosion","minecraft:fireworks","minecraft:block_entity_data","minecraft:charged_projectiles","minecraft:container","minecraft:painting/variant","minecraft:block_state","minecraft:tropical_fish/pattern","minecraft:written_book_content","minecraft:bees","minecraft:map_id","minecraft:potion_contents","minecraft:jukebox_playable","minecraft:pot_decorations","minecraft:dyed_color"]}'
+        minecraft:custom_name: '{extra:[{bold:0b,color:"dark_aqua",italic:0b,obfuscated:0b,strikethrough:0b,text:"Wand",underlined:0b}],text:""}'
+        minecraft:custom_model_data: '{floats:[18001.0f]}'
+        minecraft:custom_data: '{keep:1b,undroppable:1b,wand:{active_spell:"missile",effect_color:"d9423b925e95,fb1145b0b0a4,c5c18b723cf7",icon:"stick{18001}",owner:"CoalaPimposo",owner_id:"340d6398-cbe0-342a-a18c-64ef21d29992",template:"wand",version:7}}'
+      schema_version: 1
+    wand:
+      owner: CoalaPimposo
+      active_spell: missile
+      icon: stick{18001}
+      version: 7
+      template: wand
+      owner_id: 340d6398-cbe0-342a-a18c-64ef21d29992
+      effect_color: d9423b925e95,fb1145b0b0a4,c5c18b723cf7
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: downloaded
+preferred_resource_pack: all
+data: {}
+properties:
+  version: 7
+classes:
+  caster: {}
+  mage:
+    effect_color: 45936de97f68,8bad0d3147a5,d670a4d3c44c
+    mana_timestamp: 1778317016875
+    mana: 50.0
+transient_modifiers: {}
+active_class: mage
+health: 20.0

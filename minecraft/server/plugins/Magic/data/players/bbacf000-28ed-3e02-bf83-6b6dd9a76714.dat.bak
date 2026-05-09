@@ -1,0 +1,156 @@
+id: bbacf000-28ed-3e02-bf83-6b6dd9a76714
+name: Lalatina
+created: 1676500347489
+updated: 1676509193204
+last_cast: 1676509021896
+cooldown_expiration: 0
+last_death_location: ''
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+spells:
+  spellshop:
+    cast_count: 0
+    last_cast: 1676504490054
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  poison:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  recall:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  missile:
+    cast_count: 30
+    last_cast: 1676502729534
+    last_earn: 1676502729525
+    cooldown_expiration: 1676502730534
+    charges: 0.0
+  progressmenu:
+    cast_count: 5
+    last_cast: 1676504487418
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  upgrades:
+    cast_count: 1
+    last_cast: 1676504483612
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  missile|2:
+    cast_count: 50
+    last_cast: 1676504426067
+    last_earn: 1676504426066
+    cooldown_expiration: 1676504427067
+    charges: 0.0
+  fireball:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  missile|3:
+    cast_count: 59
+    last_cast: 1676509021897
+    last_earn: 1676509018103
+    cooldown_expiration: 1676509022897
+    charges: 0.0
+wands:
+  wand:
+    item:
+      ==: org.bukkit.inventory.ItemStack
+      v: 3218
+      type: STICK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_aqua","text":"Wand"}],"text":""}'
+        lore:
+        - '{"italic":false,"extra":[{"color":"gray","text":"Beginner "},{"color":"white","text":"Magic
+          Wand"}],"text":""}'
+        - '{"italic":true,"color":"dark_aqua","text":"Bound to Lalatina"}'
+        - '{"text":"Knows 4 Spells"}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana: 50"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana Regeneration: 5/s"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"dark_gray","text":"------------------------"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Swing
+          "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+          "},{"color":"gray","text":"to cast "},{"color":"gold","text":"Magic Missile"}],"keybind":"key.attack"}],"text":""}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Interact
+          "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+          "},{"color":"gray","text":"to cycle the active spell"}],"keybind":"key.use"}],"text":""}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Drop
+          "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+          "},{"color":"gray","text":"to open the spell inventory"}],"keybind":"key.drop"}],"text":""}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"yellow","text":"Change
+          controls using an "},{"color":"aqua","text":"enchant table"}],"text":""}'
+        custom-model-data: 18001
+        attribute-modifiers:
+          GENERIC_ATTACK_SPEED:
+          - ==: org.bukkit.attribute.AttributeModifier
+            amount: 10.0
+            name: Equipment Modifier
+            slot: HAND
+            uuid: 63b141c2-c39a-4bd3-a956-5cff12538b49
+            operation: 0
+        ItemFlags:
+        - HIDE_ENCHANTS
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+        - HIDE_DESTROYS
+        - HIDE_PLACED_ON
+        - HIDE_POTION_EFFECTS
+        - HIDE_DYE
+        Unbreakable: true
+        internal: H4sIAAAAAAAA/0WQzU7DMBCENyRQK1TixhOgnhrJdiAJ78A7RP5ZC6uubdluK4R4d0x74DjSfDsz2wM00B0QY9NDdxFeE7gPF48JyIdwolgvWnj+DEWKtFp/Rl9C+lpVOPkCFSbQWRU8bHOx6vDNFkrZTw9POaJz/0ALDzHYXI2VaWFztDlbh1VBC8TYhFI496eqM6G6iTsgQK5tVqvhRUqhDKV04AvqYUTKB2mWcZjkpPW7mKeZvVag4DHW5njbU8POmLK9Rm8IbNEYVKUucCHBjjNN51mOODKxX+qh2eCk6IR7psQbV4IvXNP6pMeT1ynEKKTDBn4BxDSycDgBAAA=
+    wand:
+      owner: Lalatina
+      hotbar_inventory_count: 1
+      icon: stick{18001}
+      spell_inventory:
+        fireball: 3
+        poison: 1
+        missile: 0
+        recall: 2
+      version: 7
+      template: wand
+      owner_id: bbacf000-28ed-3e02-bf83-6b6dd9a76714
+      effect_color: 21d077b3e31a,8b6d7fe6c06e,1ca52ca282d0
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data:
+  sp: 116.0
+properties: {}
+classes:
+  caster:
+    spells:
+    - poison
+    - recall
+    - missile
+    - fireball
+    spell_levels:
+      missile: 3
+  mage:
+    effect_color: 8450f9d174ee,522a4f0ed7a0,19a1f7d9016b
+    mana_timestamp: 1676509193063
+    mana: 50.0
+transient_modifiers: {}
+active_class: mage
+health: 25.600000381469727

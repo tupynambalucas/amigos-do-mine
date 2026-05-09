@@ -1,0 +1,113 @@
+id: 4afdc466-d97b-397d-92b0-7ce16988034f
+name: Melancholly
+created: 1676928234277
+updated: 1676929738364
+last_cast: 1676929717587
+cooldown_expiration: 0
+last_death_location: 258.22185785590443,66.0,-79.3165014938929,world,-51.006653,26.115065
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+spells:
+  ak47:
+    cast_count: 155
+    last_cast: 1676929708161
+    last_earn: 0
+    cooldown_expiration: 1676929708261
+    charges: 0.0
+  broom:
+    cast_count: 4
+    last_cast: 1676929725425
+    last_earn: 0
+    cooldown_expiration: 1676929740425
+    charges: 0.0
+  reload_ak47:
+    cast_count: 27
+    last_cast: 1676929702690
+    last_earn: 0
+    cooldown_expiration: 1676929705690
+    charges: 0.0
+  missile:
+    cast_count: 16
+    last_cast: 1676929715287
+    last_earn: 1676929715287
+    cooldown_expiration: 0
+    charges: 0.0
+wands:
+  wand:
+    item:
+      ==: org.bukkit.inventory.ItemStack
+      v: 3218
+      type: STICK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_aqua","text":"Wand"}],"text":""}'
+        lore:
+        - '{"italic":false,"extra":[{"color":"gray","text":"Beginner "},{"color":"white","text":"Magic
+          Wand"}],"text":""}'
+        - '{"italic":true,"color":"dark_aqua","text":"Bound to Melancholly"}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"Fire a bolt of pure magic"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Cooldown: "},{"color":"gold","text":"One
+          second"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"blue","text":"Range: "},{"color":"gold","text":"24
+          "},{"color":"blue","text":"meters"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"gray","text":"Lasts for 10 seconds"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Consumes 15 "},{"color":"dark_aqua","text":"MP"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"dark_green","text":"Earns up to "},{"color":"gold","text":"20
+          "},{"color":"aqua","text":"SP"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana: 50"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana Regeneration: 5/s"}],"text":""}'
+        custom-model-data: 18001
+        attribute-modifiers:
+          GENERIC_ATTACK_SPEED:
+          - ==: org.bukkit.attribute.AttributeModifier
+            amount: 10.0
+            name: Equipment Modifier
+            slot: HAND
+            uuid: c3845f32-8b8e-49ff-8497-d5577705794d
+            operation: 0
+        ItemFlags:
+        - HIDE_ENCHANTS
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+        - HIDE_DESTROYS
+        - HIDE_PLACED_ON
+        - HIDE_POTION_EFFECTS
+        - HIDE_DYE
+        Unbreakable: true
+        internal: H4sIAAAAAAAA/yWPUW7DIBAF16oroyTHqPoVS8bYgA/RM1h4WRQUAsimiaood6/VHmBm3jsAVFBfiXJ1gPphomXwnh6RVjh+UTARLymEHwYng8Xfad4yhQDNzW+bD8Sg9pginLbi8frkuuv4iwH7M8zewsdgnMVBytZOamnFpGw79UvXKiQuJ607MbgdKHTLwRT63/AGzZ3Wze9mgGaPk3OEZcYU0gqfYuwl8lFMHPmZK6FHVFYoJ8/YUU/WjQMNej92/I52TTmbJVAFv6gr+v/sAAAA
+    wand:
+      owner: Melancholly
+      active_spell: missile
+      icon: stick{18001}
+      version: 7
+      template: wand
+      owner_id: 4afdc466-d97b-397d-92b0-7ce16988034f
+      effect_color: 3526c15391c1,17385c7d37f6,c0e2edf54e48
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data:
+  sp: 90.0
+properties:
+  version: 7
+classes:
+  caster: {}
+  mage:
+    effect_color: 3f6b6fcdc193,de992760ceee,831a73c02761
+    mana_timestamp: 1676929716615
+    mana: 6.755
+  soldier: {}
+  broomrider: {}
+transient_modifiers: {}
+active_class: broomrider
+health: 20.0

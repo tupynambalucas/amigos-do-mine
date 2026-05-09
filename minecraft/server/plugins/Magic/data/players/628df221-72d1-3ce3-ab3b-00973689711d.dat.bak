@@ -1,0 +1,66 @@
+id: 628df221-72d1-3ce3-ab3b-00973689711d
+name: xX1at1wXx
+created: 1676437982385
+updated: 1676438095605
+last_cast: 1676438095248
+cooldown_expiration: 0
+last_death_location: ''
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b:
+  - blocks:
+    - 168,109,104,tutorial|purple_concrete
+    time_to_live: 18000
+    name: AK-47 Skill
+    mode: NO_PHYSICS
+  - blocks:
+    - 162,96,94,tutorial|purple_concrete
+    time_to_live: 18000
+    name: AK-47 Skill
+    mode: NO_PHYSICS
+  - blocks:
+    - 165,130,96,tutorial|purple_concrete
+    time_to_live: 18000
+    name: AK-47 Skill
+    mode: NO_PHYSICS
+  - blocks:
+    - 164,119,113,tutorial|purple_concrete
+    time_to_live: 18000
+    name: AK-47 Skill
+    mode: NO_PHYSICS
+  - blocks:
+    - 185,139,99,tutorial|purple_concrete
+    time_to_live: 18000
+    name: AK-47 Skill
+    mode: NO_PHYSICS
+spells:
+  ak47:
+    cast_count: 9
+    last_cast: 1676438094944
+    last_earn: 0
+    cooldown_expiration: 1676438095044
+    charges: 0.0
+  reload_ak47:
+    cast_count: 2
+    last_cast: 1676438095248
+    last_earn: 0
+    cooldown_expiration: 1676438098248
+    charges: 0.0
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data: {}
+properties: {}
+classes:
+  soldier: {}
+transient_modifiers: {}
+active_class: soldier
+health: 17.33333396911621

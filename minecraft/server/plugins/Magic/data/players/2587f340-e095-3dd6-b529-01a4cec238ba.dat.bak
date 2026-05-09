@@ -1,0 +1,186 @@
+id: 2587f340-e095-3dd6-b529-01a4cec238ba
+name: Lipaokk
+created: 1676682171597
+updated: 1676754505795
+last_cast: 1676683808928
+cooldown_expiration: 0
+last_death_location: -2752.168896312863,71.0,-3043.640992666593,world,-75.75926,8.337662
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+spells:
+  ak47:
+    cast_count: 85
+    last_cast: 1676683808034
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  reload_ak47:
+    cast_count: 24
+    last_cast: 1676683743364
+    last_earn: 0
+    cooldown_expiration: 1676683746364
+    charges: 0.0
+  note16:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note15:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note14:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note13:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note12:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note11:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note10:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note19:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note18:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note17:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note05:
+    cast_count: 0
+    last_cast: 1676683554332
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note04:
+    cast_count: 0
+    last_cast: 1676683554043
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note03:
+    cast_count: 0
+    last_cast: 1676683554745
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note02:
+    cast_count: 0
+    last_cast: 1676683539133
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note24:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note01:
+    cast_count: 0
+    last_cast: 1676683556552
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note23:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note22:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note21:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note20:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note09:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note08:
+    cast_count: 0
+    last_cast: 1676683553525
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note07:
+    cast_count: 0
+    last_cast: 1676683553789
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  note06:
+    cast_count: 0
+    last_cast: 1676683551406
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data: {}
+properties:
+  version: 7
+classes:
+  soldier: {}
+transient_modifiers: {}
+active_class: soldier
+health: 20.0

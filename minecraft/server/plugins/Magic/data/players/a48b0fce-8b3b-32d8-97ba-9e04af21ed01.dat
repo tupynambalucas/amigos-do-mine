@@ -1,0 +1,426 @@
+id: a48b0fce-8b3b-32d8-97ba-9e04af21ed01
+name: MonsterCandy
+created: 1676426564759
+updated: 1676502580284
+last_cast: 1676502517468
+cooldown_expiration: 0
+last_death_location: 910.3291000072747,57.0,-595.1237275944098,world,-151.95316,25.199923
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+spells:
+  ak47:
+    cast_count: 59
+    last_cast: 1676431445156
+    last_earn: 0
+    cooldown_expiration: 1676431445256
+    charges: 0.0
+  flare:
+    cast_count: 1
+    last_cast: 1676502504132
+    last_earn: 1676502504672
+    cooldown_expiration: 0
+    charges: 0.0
+  boon:
+    cast_count: 5
+    last_cast: 1676431437838
+    last_earn: 1676431335402
+    cooldown_expiration: 0
+    charges: 0.0
+  blind:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  arrow:
+    cast_count: 1
+    last_cast: 1676429678108
+    last_earn: 1676429652040
+    cooldown_expiration: 0
+    charges: 0.0
+  reload_ak47:
+    cast_count: 14
+    last_cast: 1676428180350
+    last_earn: 0
+    cooldown_expiration: 1676428183350
+    charges: 0.0
+  broom|2:
+    cast_count: 1
+    last_cast: 1676502132620
+    last_earn: 0
+    cooldown_expiration: 1676502145620
+    charges: 0.0
+  appearanceshop:
+    cast_count: 1
+    last_cast: 1676429849727
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  cure:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  stun:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  upgrades:
+    cast_count: 20
+    last_cast: 1676430360704
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  reflect:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  lava:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  spellshop:
+    cast_count: 1
+    last_cast: 1676430327792
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  effectshop:
+    cast_count: 0
+    last_cast: 1676429870143
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  bubble:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  frost:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  recall:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  missile:
+    cast_count: 30
+    last_cast: 1676429717866
+    last_earn: 1676429717857
+    cooldown_expiration: 1676429718866
+    charges: 0.0
+  fire:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  progressmenu:
+    cast_count: 71
+    last_cast: 1676430359671
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  workbench:
+    cast_count: 1
+    last_cast: 1676429770012
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  aqualung:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    enabled: false
+    charges: 0.0
+  fireball:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  soulshop:
+    cast_count: 0
+    last_cast: 1676428792365
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  grenade:
+    cast_count: 0
+    last_cast: 1676431309000
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  poison:
+    cast_count: 3
+    last_cast: 1676502517468
+    last_earn: 1676502511792
+    cooldown_expiration: 0
+    charges: 0.0
+  broom:
+    cast_count: 20
+    last_cast: 1676502101013
+    last_earn: 0
+    cooldown_expiration: 1676502116013
+    charges: 0.0
+  chop:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  torch:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  familiar:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  push:
+    cast_count: 1
+    last_cast: 1676431377366
+    last_earn: 1676431378222
+    cooldown_expiration: 0
+    charges: 0.0
+  peek:
+    cast_count: 5
+    last_cast: 1676431414073
+    last_earn: 1676431385797
+    cooldown_expiration: 0
+    charges: 0.0
+  blast:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  monster:
+    cast_count: 2
+    last_cast: 1676430455237
+    last_earn: 0
+    cooldown_expiration: 1676430485237
+    charges: 0.0
+  pull:
+    cast_count: 3
+    last_cast: 1676429672905
+    last_earn: 1676429595556
+    cooldown_expiration: 0
+    charges: 0.0
+  radar:
+    cast_count: 2
+    last_cast: 1676428414809
+    last_earn: 0
+    cooldown_expiration: 1676428419809
+    charges: 0.0
+  wandinstructions:
+    cast_count: 3
+    last_cast: 1676430108210
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  mercadorshop:
+    cast_count: 0
+    last_cast: 1676502403261
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  cloak:
+    cast_count: 1
+    last_cast: 1676431329565
+    last_earn: 1676431314728
+    cooldown_expiration: 0
+    charges: 0.0
+  colorshop:
+    cast_count: 1
+    last_cast: 1676429886784
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  grab:
+    cast_count: 5
+    last_cast: 1676431043136
+    last_earn: 0
+    cooldown_expiration: 1676431044136
+    charges: 0.0
+  missile|2:
+    cast_count: 33
+    last_cast: 1676502492264
+    last_earn: 1676502488651
+    cooldown_expiration: 0
+    charges: 0.0
+  collapse:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+wands:
+  wand:
+    item:
+      ==: org.bukkit.inventory.ItemStack
+      v: 3218
+      type: STICK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_aqua","text":"Wand"}],"text":""}'
+        lore:
+        - '{"italic":false,"extra":[{"color":"dark_green","text":"Student "},{"color":"white","text":"Magic
+          Wand"}],"text":""}'
+        - '{"italic":true,"color":"dark_aqua","text":"Bound to MonsterCandy"}'
+        - '{"text":"Knows 28 Spells"}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana: 100"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana Regeneration: 15/s"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"dark_gray","text":"------------------------"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Swing
+          "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+          "},{"color":"gray","text":"to cast "},{"color":"gold","text":"Poison"}],"keybind":"key.attack"}],"text":""}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Interact
+          "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+          "},{"color":"gray","text":"to cycle the active spell"}],"keybind":"key.use"}],"text":""}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"white","text":"Drop
+          "},{"color":"gray","text":"("},{"color":"green","extra":[{"extra":[{"color":"gray","text":")
+          "},{"color":"gray","text":"to open the spell inventory"}],"keybind":"key.drop"}],"text":""}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"• "},{"color":"yellow","text":"Change
+          controls using an "},{"color":"aqua","text":"enchant table"}],"text":""}'
+        custom-model-data: 18010
+        attribute-modifiers:
+          GENERIC_ATTACK_SPEED:
+          - ==: org.bukkit.attribute.AttributeModifier
+            amount: 10.0
+            name: Equipment Modifier
+            slot: HAND
+            uuid: 601f5521-903f-4cd3-85f8-f05ae99b7377
+            operation: 0
+        ItemFlags:
+        - HIDE_ENCHANTS
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+        - HIDE_DESTROYS
+        - HIDE_PLACED_ON
+        - HIDE_POTION_EFFECTS
+        - HIDE_DYE
+        Unbreakable: true
+        internal: H4sIAAAAAAAA/01SXW8TMRDc1JfkGiIhQCqICpCgICo10l2a0vSZZ35DtPatGyuObey7RBXiv7N2VZW3md3xzn54BjCCakcURjOojui6Gsb+6CjC/Jd3qaf4k4MPAs62vpcYN8YdyPU+PmyUH1wPACc1zFH15kCbFMhamARvknc1VEZ5B/PUG7X7066btvk7g5dF9FxHwOnRx50kp7Zc7ZuASnp+BiAETCNpSyrbfOSExQMyfCdgLC2mHH7LYbX1gWHNYR19CX8WUGsTSSI3BPCBVZkyfM8qZT3uGI8ETCKpR81r1oQh5Sam/Bp/D2gHd8/0U8kU0UW2G0qhcxYpby2GlOn37Ih7Yw1GpjNufm9SMjYnoXRsXMfwFZvKQcqSuOQExuiPjL8y5o2UNXxhn9QPeQ1vxNNGmVS57ONhmJ3mxojyKGNO3Edy2OWyJ3kVFkufEzafHigmUypMa6h72geLPT2dvC4n35gOLnC1lo1WtFjLa7m4Xnbrxd2txMUdNSvUy5a6puWDk9Z8Fv4D1kc4v9V6STc/blYrbK+aq/8p/68Xg+uiDwF55BH8A5xn/4dzAgAA
+    wand:
+      owner: MonsterCandy
+      hotbar_inventory_count: 2
+      active_spell: poison
+      icon: stick{18010}
+      spell_inventory:
+        workbench: 38
+        boon: 3
+        reflect: 30
+        lava: 24
+        blast: 23
+        chop: 8
+        frost: 34
+        fireball: 29
+        fire: 26
+        push: 7
+        recall: 18
+        cloak: 1
+        aqualung: 31
+        pull: 36
+        cure: 27
+        collapse: 40
+        familiar: 10
+        missile: 0
+        blind: 17
+        bubble: 41
+        monster: 9
+        torch: 35
+        stun: 19
+        poison: 4
+        arrow: 37
+        peek: 5
+        grenade: 2
+        flare: 6
+      owner_id: a48b0fce-8b3b-32d8-97ba-9e04af21ed01
+      template: wand
+      version: 7
+      effect_color: 7ff2e56544a1,0,7ff2e56544a1
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data:
+  sp: 3617.0
+  wand_appearances:
+    moon: true
+  wand_colors:
+    purple: true
+properties:
+  version: 7
+classes:
+  caster:
+    spells:
+    - flare
+    - boon
+    - blind
+    - arrow
+    - cure
+    - stun
+    - reflect
+    - lava
+    - bubble
+    - frost
+    - recall
+    - missile
+    - fire
+    - workbench
+    - aqualung
+    - fireball
+    - grenade
+    - poison
+    - chop
+    - torch
+    - familiar
+    - push
+    - peek
+    - blast
+    - monster
+    - pull
+    - cloak
+    - collapse
+    spell_levels:
+      missile: 2
+  mage:
+    effect_color: 7625e9a94f56,ab94223b742f,f7ec61ce5a54
+    mana_timestamp: 1676502580111
+    mana: 100.0
+    path: student
+  soldier: {}
+  broomrider:
+    spell_levels:
+      broom: 2
+transient_modifiers: {}
+active_class: mage
+health: 14.0

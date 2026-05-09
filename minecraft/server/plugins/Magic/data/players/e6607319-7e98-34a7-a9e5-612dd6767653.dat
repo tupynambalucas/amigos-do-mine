@@ -1,0 +1,103 @@
+id: e6607319-7e98-34a7-a9e5-612dd6767653
+name: UWo3Na
+created: 1676437389142
+updated: 1676437954127
+last_cast: 1676437951373
+cooldown_expiration: 0
+last_death_location: ''
+fall_protection_count: 0
+fall_protection: 0
+brush:
+  map_id: -1
+  material: dirt
+  data: 0
+  schematic: ''
+  scale: 1.0
+  erase: true
+undo:
+  92354a01-3cad-4683-9889-06f2e54be75b: []
+spells:
+  ak47:
+    cast_count: 28
+    last_cast: 1676437950396
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  missile:
+    cast_count: 0
+    last_cast: 0
+    last_earn: 0
+    cooldown_expiration: 0
+    charges: 0.0
+  reload_ak47:
+    cast_count: 5
+    last_cast: 1676437574504
+    last_earn: 0
+    cooldown_expiration: 1676437577504
+    charges: 0.0
+wands:
+  wand:
+    item:
+      ==: org.bukkit.inventory.ItemStack
+      v: 3218
+      type: STICK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_aqua","text":"Wand"}],"text":""}'
+        lore:
+        - '{"italic":false,"extra":[{"color":"gray","text":"Beginner "},{"color":"white","text":"Magic
+          Wand"}],"text":""}'
+        - '{"italic":true,"color":"dark_aqua","text":"Bound to UWo3Na"}'
+        - '{"italic":false,"extra":[{"color":"aqua","text":"Fire a bolt of pure magic"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Cooldown: "},{"color":"gold","text":"One
+          second"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"blue","text":"Range: "},{"color":"gold","text":"24
+          "},{"color":"blue","text":"meters"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"gray","text":"Lasts for 10 seconds"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Consumes 15 "},{"color":"dark_aqua","text":"MP"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"dark_green","text":"Earns up to "},{"color":"gold","text":"20
+          "},{"color":"aqua","text":"SP"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana: 50"}],"text":""}'
+        - '{"italic":false,"extra":[{"color":"yellow","text":"Mana Regeneration: 5/s"}],"text":""}'
+        custom-model-data: 18001
+        attribute-modifiers:
+          GENERIC_ATTACK_SPEED:
+          - ==: org.bukkit.attribute.AttributeModifier
+            amount: 10.0
+            name: Equipment Modifier
+            slot: HAND
+            uuid: 7ec43428-0134-4822-a9e5-44ae2573406c
+            operation: 0
+        ItemFlags:
+        - HIDE_ENCHANTS
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+        - HIDE_DESTROYS
+        - HIDE_PLACED_ON
+        - HIDE_POTION_EFFECTS
+        - HIDE_DYE
+        Unbreakable: true
+        internal: H4sIAAAAAAAA/yWOyw6CMBRELxG1QT7DuIKkpS/4CXfGJSntbUJASgBlYfx3iWY2cxZzMglABHGHOEYJxKsZHIF9WAec4HC7B341BMiP69bBGZWimrMq11iVORdG56ZCmStWOKf0Fsm3wYKPsTcL/o07OL5wmtswAMCRQNzarabz0truzUpK2YdAit6jXWob+jDBhTstZGENasEzwY2ktGFMqCZjqBtvKyZLb7fvp+fgpjCOpukxgi+S7GYSzwAAAA==
+    wand:
+      owner: UWo3Na
+      version: 7
+      template: wand
+      owner_id: e6607319-7e98-34a7-a9e5-612dd6767653
+      icon: stick{18001}
+      effect_color: 3d7452cae743,43a500b1146b,1e7bfc9158fc
+open_wand: false
+gave_welcome_wand: false
+resource_pack_preference: default
+data: {}
+properties: {}
+classes:
+  caster: {}
+  mage:
+    effect_color: 6c1771c29834,accf02069bab,8bf5ebb2710
+    mana_timestamp: 1676437457899
+    mana: 50.0
+  soldier: {}
+transient_modifiers: {}
+active_class: soldier
+health: 20.0
