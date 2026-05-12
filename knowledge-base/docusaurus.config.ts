@@ -92,6 +92,21 @@ const config: Config = {
         sidebarPath: './sidebarsMagic.ts',
       },
     ],
+    function webpackIgnoreCriticalDependencyPlugin(_context, _options) {
+      return {
+        name: 'webpack-ignore-critical-dependency-plugin',
+        configureWebpack() {
+          return {
+            ignoreWarnings: [
+              {
+                module: /vscode-languageserver-types/,
+                message: /Critical dependency: require function is used in a way in which dependencies cannot be statically extracted/,
+              },
+            ],
+          };
+        },
+      };
+    },
   ],
 
   themeConfig: {
