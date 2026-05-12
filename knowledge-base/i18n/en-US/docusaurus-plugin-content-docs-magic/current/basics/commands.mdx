@@ -1,0 +1,183 @@
+---
+title: Commands
+---
+
+### Commands
+
+The default permissions give several commands to ops. Try using tab-completion (e.g. `/mgive <tab>`) for in-game help.
+
+See [The page on permissions](permissions.mdx) for detailed permission information.
+
+#### Wand Commands
+
+-   `**/wand**` : Create a new, empty wand.
+-   `**/wand <name>**` : Create a new wand from one of the preset wands
+    defined in `wands.yml`
+-   `**/wand list**` : List available wand templates from `wands.yml`
+-   `**/wand enchant [#levels]**` : Randomly add spells and properties to a wand
+-   `**/wand add <spell>**` : Add a new spell to the currently held
+    wand.
+-   `**/wand restore**` : Restore a player's lost wands
+-   `**/wand organize**` : Reorganize the spells on a wand
+-   `**/wand fill**` : Fill a wand with all known (permissible) spells.
+-   `**/wand remove <spell>**` : Remove a spell from the currently held
+    wand.
+-   `**/wand configure <property> <value>**` : Configure wand
+    properties (see below)
+-   `**/wand upgrade <property> <value>**` : Configure wand
+    properties, but never lower any values (see below)
+-   `**/wand override <parameter> <value>**` : Change the way a wand casts a spell
+-   `**/wand bind**` : Bind a wand so that only you can hold it
+-   `**/wand unbind**` : Unbind a wand, including saved backups
+-   `**/wand save <name>**` : Save a wand to a new configuration template
+-   `**/wand delete <id>**` : Delete a saved wand template
+-   `**/wand combine <wand>**` : Add a wand template to an existing wand
+    (upgrade it)
+-   `**/wand add brush <material>**` : Add a new material to the
+    currently held wand.
+-   `**/wand remove brush <material>**` : Remove a material from the
+    currently held wand.
+-   `**/wand name <name>**` : Name a wand (note that you can also rename
+    a wand on an anvil)
+-   `**/wand describe**` : List all of a wand's properties, use with "configure"
+-   `**/wand unlock**` : Unlock a locked wand to make it editable. (`/wand configure locked true` to lock)
+-   `**/wand create**` : Create a wand out of the item you are holding
+-   `**/wand destroy**` : Unenchant (**destroy**) the wand you are
+    holding.
+-   `**/wand duplicate**` : Create a copy of the wand you are holding
+-   `**/wand enchant xp**` : Add all of your XP levels (consuming the
+    XP) to your wand. Can be used in command blocks for a leveling
+    system.
+-   `**/wandp <player> <etc...>**` : Use `/wand` commands on a specific
+    player.
+
+Wand configuration parameters for "configure" and "upgrade":
+
+[Detailed wand configuration reference](../reference/wand-parameters.mdx)
+
+#### The mgive Command
+
+The `/mgive` command works a lot like the vanilla and Esssentials `/give`
+commands. It can be used to give any item to any player, including Magic
+items like wands, spells and upgrades. It can also be used to give XP to
+players, which currently may be needed as a work-around to wands
+blocking XP given by the `/xp` command.
+
+-   `**/mgive [player] <item> [amount]**` : The general, flexible format
+    of the command. The "item" is the only required parameter.
+-   `**/mgive NathanWolf elder**` : Give NathanWolf an Elder Wand
+-   `**/mgive NathanWolf sp 100**` : Give NathanWolf 100 Skill Points
+-   `**/mgive NathanWolf sp:100**` : Give NathanWolf an item worth 100 Skill Points
+-   `**/mgive fling 32**` : Give yourself 32 "fling" spells. Spells will
+    stack, and can be placed in chests or given to players.
+-   `**/mgive NathanWolf xp 200**` : Give NathanWolf 200 XP, which will
+    work even if he is holding a wand.
+-   `**/mgive NathanWolf gold_nugget 32**` : Give NathanWolf 32 gold
+    nuggets. Item format must follow Bukkit's Material enum.
+-   `**/mgive spell:wolf**` : Give yourself the "wolf" spell. The
+    "spell:", "wand:", and "upgrade:" prefixes can be used to
+    differentiate between items with the same name.
+-   `**/mgive book:<category>**` : The `"book:<category>"` item will
+    create a "Spell Book" containing all the spells in that category,
+    with lore and costs descriptions.
+-   `**/mgive book:all**` : Give a "master" spellbook that contains all
+    spells, organized by category.
+
+#### The /mmob command
+
+Please see the section on [Magic Mobs](../advanced-setup/magic-mobs.mdx) for mmob command reference!
+
+#### The /mitem command
+
+Please see the section on [Custom Items](../reference/custom-items.mdx) for mitem command reference!
+
+#### Utility Commands
+
+-   `**/magic load**` : Reload config files, update spell configurations.
+-   `**/magic save**` : Force saving of player data. Also saves other
+    data, like lost wands and image maps.
+-   `**/magic commit**` : Commit all changes (like casting "Commit" on all
+    players)
+-   `**/magic cancel**` : Cancel all in-progress construction batches.
+-   `**/magic list [wands | automata | maps | tasks] <player>**` : List
+    all lost wands, maps or automata. The "tasks" parameter can be used
+    to check for runaway tasks in any plugin.
+-   `**/magic clean <player>**` : Clear unowned lost wands, or a
+    specific player's lost wands.
+-   `**/magic clean ALL**` : Clear all wands from all worlds.
+-   `**/spells**` : Lists all spells that a player knows about. A player
+    may view detailed information about any spells they have permission
+    to cast. This command is safe to give to players, though it removes
+    some of the *mystery*. Players can see the same information in-game
+    about spells they have on their wands (via the lore tooltips).
+
+#### The Mage Command
+
+The mage command can be used to check or modify specific player informatino.
+
+-  `**/mage check <player>**` : Check permissions for a player given their location and active spell
+-  `**/mage debug <player>**` : Toggle debug output for a specific player
+-  `**/mage describe <player> [spell/data]**` : Dump information about a player- spell casts, stored data, etc.
+-  `**/mage configure <player> <spell/data> <value>**` : Set player information, change spell casts, etc
+-  `**/mage reset <player>**` : Completely reset all stored data for a player
+
+#### The Cast Command
+
+The `**/cast**` in-game command is very powerful. It lets you cast any
+spell directly, but (more importantly) it lets you use "command line
+parameters" to play around with the configurable spell system. Many
+spells in Magic are based on the same "building block" spell, using
+parameters. By tweaking those parameters yourself, you can create
+some interesting and powerful spells. A server admin can then make them
+"official" spells by adding them to `spells.yml`, so players can use the
+new spell on their wands.
+
+As an example, the "boom", "kamikazee", "kaboom" and "nuke" spells are
+all variants of `BoomSpell`, tweaking the "size" parameter (mainly). A
+"nuke" for instance is "size 20" - want to see what a 10x nuke would
+look like? Try `**/cast boom size 200**` ... but be forewarned, it's not
+pretty!
+
+Parameters to the cast command follow the same name and format as in
+`spells.yml`, and are passed in pairs - e.g. `**/cast <spell> <param> <value> <param> <value>**`. Browsing through the default `spells.yml`
+is the best way to get a feel for what your options are.
+
+[Detailed spell parameter documentation](../reference/spell-parameters.mdx)
+
+### Debugging Utilities
+
+While working on new spells, you may find a few useful utilities:
+
+#### `**/cast**`
+
+The cast command can be used to quickly try out different parameters for spells. See above.
+
+#### `**/wand override**`
+
+The `/wand override` command can be used to modify the way a specific wand casts a spell. Examples:
+```
+# Make all spells cast by this wand permanent (dangerous!)
+/wand override bypass_undo true
+# Decrease the cooldown on only the blink spell
+/wand override blink.cooldown 0
+# Slow down Magic Missile
+/wand override missile.velocity 5
+```
+
+#### `**/mage debug**`
+
+This will enable debug output for spells cast by the specified player. A number can be provided to increase level of detail of output.
+```
+# Toggle debug on/off. 
+/mage debug NathanWolf
+# Show a ton of information, may flood your chat
+/mage debug NathanWolf 20
+```
+
+#### `**/mage check**`
+
+Useful for debugging issues with permissions. If a spell seems randomly uncastable by a player, use this command on them while they are holding a wand with that spell active.
+
+#### `**/wand save**`
+
+If you have created or modified a wand in-game, you can save it to a configuration file. For instance `/wand save awesome` will save the wand in your hand to a new config file in `plugins/Magic/wands/awesome.yml`. The wand will be available to spawn as normal using `/wand` or `/mgive`.

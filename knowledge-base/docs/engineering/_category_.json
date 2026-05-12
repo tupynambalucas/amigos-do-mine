@@ -1,8 +1,8 @@
 {
-  "label": "Engineering",
+  "label": "Engenharia",
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "The 'How' and 'Standards' of Amigos Do Mine: Architecture and Style Guide."
+    "description": "O 'Como' e os 'Padrões' do Amigos Do Mine: Arquitetura e Guia de Estilo."
   }
 }

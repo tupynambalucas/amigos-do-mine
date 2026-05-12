@@ -15,7 +15,7 @@ export default function TupynambaSection() {
 
         <div className={styles.content}>
           <div className={styles.badge}>
-            <Translate id="homepage.about.badge">The Architect</Translate>
+            <Translate id="homepage.about.badge">O Arquiteto</Translate>
           </div>
           
           <h2>
@@ -24,14 +24,14 @@ export default function TupynambaSection() {
 
           <p className={styles.bio}>
             <Translate id="homepage.about.description">
-              Fullstack Developer with a rare profile that combines over 10 years of programming study with a deep sensitivity for design and UX/UI. I have expertise in the architecture of complete digital solutions, developing performant applications with TypeScript and strategically choosing database technology — PostgreSQL for relational structures or MongoDB for high-flexibility scenarios — to ensure the scalability and efficiency of the final product.
+              Desenvolvedor Fullstack com foco em arquitetura de sistemas e apaixonado por criar experiências digitais completas e performáticas.
             </Translate>
           </p>
 
           <div className={styles.techGrid}>
             <div className={styles.techItem}>
               <span className={styles.techLabel}>
-                <Translate id="homepage.about.tech.code">Code</Translate>
+                <Translate id="homepage.about.tech.code">Código</Translate>
               </span>
               <span className={styles.techValue}>TypeScript, Node.js, Go</span>
             </div>
@@ -43,7 +43,7 @@ export default function TupynambaSection() {
             </div>
             <div className={styles.techItem}>
               <span className={styles.techLabel}>
-                <Translate id="homepage.about.tech.data">Data</Translate>
+                <Translate id="homepage.about.tech.data">Dados</Translate>
               </span>
               <span className={styles.techValue}>PostgreSQL, MongoDB, Redis</span>
             </div>

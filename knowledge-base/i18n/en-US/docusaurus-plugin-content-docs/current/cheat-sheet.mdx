@@ -1,0 +1,78 @@
+---
+title: Cheat Sheet
+description: Fast reference for common commands and project orchestration.
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# ⚡ Quick Cheat Sheet
+
+A comprehensive reference for developers to manage the **Amigos Do Mine** monorepo, infrastructure, and automation.
+
+---
+
+## 🎮 Game Server (Minecraft)
+
+Management of the Purpur server container.
+
+- **Start Server:** `pnpm server:up`
+- **Stop Server:** `pnpm server:down`
+- **View Logs:** `pnpm server:logs`
+- **Restart Server:** `pnpm server:restart`
+- **Reset Data:** `pnpm server:reset` (Wipes and recreates container)
+- **Attach Console:** `pnpm server:attach` (Press `Ctrl+P, Ctrl+Q` to detach)
+
+---
+
+## 🚀 Portal & Apps
+
+Running the web infrastructure.
+
+<Tabs>
+  <TabItem value="web" label="Web Dashboard" default>
+    - **Development:** `pnpm --filter @amigos-portal/web dev`
+    - **Build:** `pnpm --filter @amigos-portal/web build`
+  </TabItem>
+  <TabItem value="api" label="Backend API">
+    - **Development:** `pnpm --filter @amigos-portal/api dev`
+    - **Build:** `pnpm --filter @amigos-portal/api build`
+  </TabItem>
+  <TabItem value="docs" label="Documentation">
+    - **Start Docusaurus:** `pnpm dev:docs`
+    - **Build Docs:** `pnpm build` (Runs build for all workspaces)
+  </TabItem>
+</Tabs>
+
+---
+
+## 🛠️ Assets & Plugins (Resources)
+
+Building custom game content.
+
+- **Build Amigos Plugin:** `pnpm build:plugin`
+- **Build Resource Pack:** `pnpm build:resourcepack`
+
+---
+
+## 📦 Workspace Management
+
+Handling internal dependencies and quality.
+
+- **Clean node_modules:** `pnpm clean:project`
+- **Typecheck All:** `pnpm typecheck`
+- **Lint All:** `pnpm lint`
+
+---
+
+## 🎨 Studio & Design (Penpot)
+
+Orchestrating the self-hosted design environment.
+
+- **Start Penpot:** `pnpm penpot:up`
+- **Stop Penpot:** `pnpm penpot:down`
+- **Aide AI Bridge:** `pnpm penpot:aide:up` / `pnpm penpot:aide:down`
+
+---
+_Last Updated: May 2026_

@@ -1,0 +1,46 @@
+---
+title: Customizing the Resource Pack
+---
+
+# Customizing the Resource Pack
+
+You are welcome to download the zip and modify it as you wish, it
+is provided completely free as in everything. Just unzip, modify, re-zip
+and host somewhere public.
+
+Here is a detailed tutorial on adding some custom items to your own resource pack: https://youtu.be/I4Xp-Eu1BMA
+
+Bear in mind you may want to tweak the Magic configuration to match your changes. The easiest way to customize is to just replace the models in the RP. 
+
+The linking between configs and models in the resource pack is done with custom model data. This is pretty easy to set up, just open up any of the builtin models (like `stick.json`) to see how it works:
+
+```json
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "minecraft:item/stick"
+  },
+  "overrides": [
+    {"predicate": {"custom_model_data": 18001}, "model": "item/custom/old_survival_wand1"},
+    {"predicate": {"custom_model_data": 18002}, "model": "item/custom/old_survival_wand2"},
+    {"predicate": {"custom_model_data": 18003}, "model": "item/custom/survival_wand1"},
+... etc
+```
+
+Each model in the "overrides" list corresponds to a specific custom model data number. You can configure or spawn in these items with
+
+`/mgive stick{18001}`
+
+On older versions of Magic you may need to use a slightly longer format:
+
+`/mgive stick{CustomModelData:18001}`
+
+#### Pre-1.14 (Damage predicates rather than custom model data)
+
+The linking between the configs and resource packs is basically just a combination of item and durability id.
+
+If you wan to create and add new models, you will want to be familiar with the technique the plugin uses for adding custom models:
+
+https://www.spigotmc.org/wiki/custom-item-models-in-1-9-and-up/
+
+Most of the models in this RP were created using BDCraft Cubik. Beyond this, we can't really support or help with making custom resource packs, there are tutorials available elsewhere for that.

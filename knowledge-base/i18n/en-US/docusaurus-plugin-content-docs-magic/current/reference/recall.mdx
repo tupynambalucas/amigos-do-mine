@@ -1,0 +1,58 @@
+---
+title: Recall
+---
+
+# The Recall Action
+
+The `Recall` action, which powers the `Recall` spell in the survival configs, can be used to set up a collectable waypoint system.
+
+## Setting Up Warps
+
+You can create magic warps with the `/mwarp` command. Any warps with an icon assigned will automatically show up in Recall.
+
+For instance, to add a new warp you can do:
+
+```bash
+/mwarp add airtemple
+/mwarp name airtemple Air Nomad Temple
+/mwarp configure airtemple icon string
+```
+
+It will immediately show up in all players' Recall menus.
+
+If you would prefer players to have to discover these warps or otherwise unlock them, you can use `/mwarp configure airtemple locked true`
+
+## Unlocking Warps
+
+The `warpunlock` spell can be used to unlock a warp for a player. It can be done with a command, like this:
+
+`/castp <player> warpunlock unlock chicago`
+
+Giving the name of the warp to unlock.
+
+This can be used in combination with WorldGuard regions and the WorldGuardExtraFlags plugin. Make a region around the warp area, and add the following flag:
+
+`region flag chicago -w world console-command-on-entry /castp %username% warpunlock unlock chicago`
+
+Then the warp will unlock for a player when they enter the region.
+
+## Using CommandBook and Essentials Warps
+
+If you would prefer to use Essentials or CommandBook as your warp system, you can add their warps to Recall as well.
+
+You just need to edit the spell config and add the warps manually, like this:
+
+```yaml
+recall:
+  parameters:
+    warps:
+      chicago:
+        icon: iron_nugget
+        name: Chicago Warzone
+        description: Leave this world
+        locked: true
+```
+
+Add an entry under `warps` for each warp you want to show in the menu. You can give each warp an icon or an `icon_url`.
+
+The `locked` parameter specifies that a warp is not available to a player until they unlock it.

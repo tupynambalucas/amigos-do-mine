@@ -1,0 +1,267 @@
+---
+title: Custom Spells
+---
+
+# Creating Custom Spells
+
+Spells in Magic can be very complex, creating one from scratch is often intimidating. If there is a builtin spell similar to what you'd like to do, it's often best to start with that and modify.
+
+Spells in Magic are like scripted events, they can contain complex rules, actions and logic allowing you to create a huge variety of visual and game effects.
+
+## Tools and Reference
+
+After reading through the following tutorial, it will be useful to know there are a few web tools available to help:
+
+* [Sandbox Editor](http://sandbox.elmakers.com/) A config editor for spells with error checking, syntax highlighting and auto-completion. Spells made in this editor can be tested in-game at the sandbox.elmakers.com development server. For pre-13, use [the legacy editor](http://mine.elmakers.com/legacy/editor/), but there is no sandbox server available.
+
+* [Reference Guide](http://reference.elmakers.com/) Detailed reference guide for all spell parameters, actions, effects and everything else mentioned in this guide. [Legacy version](http://mine.elmakers.com/legacy/reference/) for pre-1.13
+
+* [Default survival spell list](http://mine.elmakers.com/#spells) See high-level info on builtin survival spells, and translate in-game names to key names to find the right configs.
+
+## Tutorial
+
+For this tutorial, we will start by looking at the Magic Missile spell, breaking it down piece by piece.
+
+## Spell Anatomy
+
+There are 5 main sections to most spells, which we will cover one at a time:
+
+* **Base Properties**: Basic properties of a spell, such as its icon, SP cost and earn amount, and other information that can't be changed by upgrades, wands or /cast parameters.
+* **Actions**: Modern spells use the [action system](../reference/actions.mdx), which lets you build your own custom behavior for spells based on atomic building block actions.
+* **Effects**: These are the visual effects used by a spell, most often something that happens on cast.
+* **Parameters**: Actions can have parameters that change their behavior. Parameters can be changed by spell upgrades, wand overrides or /cast parameters, which makes it easy to test spell tweaks directly in-game.
+* **Costs**: Spells can have casting costs, most often mana, but items, currency and health may be used as well.
+
+## Base Properties
+
+Let's take a look at Magic Missile, [the configuration of which can be found here](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/defaults/spells/missile.yml).
+
+```yaml
+missile:
+```
+This is the spell's "key" name. This is what is used when referencing this spell in configs, with the `/cast` command or `/wand` commands.
+
+```yaml
+    icon: diamond_axe:160
+    icon_disabled: diamond_hoe:160
+    icon_url: http://textures.minecraft.net/texture/2ba95570c7b712713632d4c0d2fc66906613d3850a596a0267c6d763fe741ac
+```
+
+The icon for a spell is the item that will be used to represent it in-game. This can be on a wand, in a shop, as an item, etc.
+
+Magic can be configured to use icons from a resource pack (the default), vanilla items, or textured player skulls. If `url_icons_enabled` is set to true in `config.yml`, spells will use the `icon_url` property to create a player skull with a custom texture.
+
+Otherwise, spells use the `icon` property as their icon. When a spell is not available to cast (out of mana, on cooldown, no permission) the `icon_disabled` property is used. (Skull-based icons do not support a disabled icon). In the official Magic resource packs, the disabled icon for each spell is identical to the normal icon, but with a red "no" sign overlayed.
+
+```yaml
+    upgrade_required_path: beginner
+    upgrade_required_casts: 40
+```
+
+Spells can have upgrades. Upgrade spells are defined using the pipe character `|`, so `missile|2` is Magic Missile Level 2. Spell upgrades inherit from the previous level, meaning they have all of the same properties unless overridden. For example, as [Magic Missile](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/missile.yml#L108) levels up its range and damage increase.
+
+These properties define how upgrading works- in this case for Magic Missile to upgrade, you must be on the "Beginner" path and have cast the spell successfully 40 times.
+
+```yaml
+    category: combat
+```
+
+Spells can have categories, this is mainly used for organization in spell books and the `/spells` command.
+
+```yaml
+    worth: 150
+    earns_sp: 8
+    earns_cooldown: 10000
+```
+
+These define how [Spell Points](../basics/spell-points.mdx) work for this spells. The `worth` properties is the cost of the spell in spell points. (Or currency, depending on spellshop configuration).
+
+The `earns_sp` property defines the _maximum_ amount of SP this spell will earn. When a spell earns SP, it goes on cooldown for some amount of time. During this time, the amount of SP you earn for additional successful casts is reduced. This is to prevent players grinding their way through levels quicky.
+
+The `earns_cooldown` property defines how long the SP earn cooldown lasts for this spell. Note that this is not a hard cooldown, the spell can still earn SP, it is just reduced proportionally to how long it has been since the spell last earned SP.
+
+For example, the first time you cast Magic Missile, it will earn 8 SP. If you cast it again 5 seconds later (half of the 10-second cooldown) it will only earl 4 SP.
+
+Magic Missile is the first spell a player will get on the default wand, so as a manner of tutorial its SP cooldown is greatly reduced. The default value for all other spells is 15 minutes.
+
+As Magic Missile levels up, its SP cooldown increases until it is on par with other spells.
+
+### In-Game Text
+
+To make localization easier, Magic tries to put all in-game text in `messages.yml`. Each spell's name and description can be found under [the "spells" section](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/messages/spells.yml#L1).
+
+However, for convenience you may also put a `name` and `description` property in a spell's base properties.
+
+### Spell Classses
+
+Some older spells, such as [SuperBlob](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/superblob.yml#L10), use a class property like this:
+
+```yaml
+superblob:
+    class: ConstructSpell
+```
+
+These spells predate the action system, and cannot use actions or have an `actions` section. 
+
+The behavior of these spells is completely hard-coded. Each spell has its own class, which can be seen [here in the source code](https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/java/com/elmakers/mine/bukkit/spell/builtin).
+
+It is not recommended to use these if you can avoid it since they are not as customizable as action-based spells. However, some spells like engineering magic have not been converted (yet) and use ConstructSpell, for instance.
+
+## Actions
+
+Most spells now use the [Actions](../reference/actions.mdx). The `actions` section is used to define what actions a spell will perform when cast.
+
+Let's look at Magic Missile again:
+
+```yaml
+    actions:
+        cast:
+        - class: CustomProjectile
+          actions:
+          - class: Damage
+          - class: BreakBlock
+            ignore_result: true
+```
+
+There can be multiple sections of actions, but most spells will have only `cast`, the actions performed when this spell is cast.
+
+Actions are often a hierarchy, meaning one action may have "child" actions that it is responsible for running under certain conditions.
+
+Each action must have at least a `class` property, this defines what action it is. Classes can be found on the [Actions](../reference/actions.mdx) page, or you can look at [the source code here](https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/java/com/elmakers/mine/bukkit/action/builtin).
+
+Note that when referring to the source code, the "Action" part of the class name may be omitted when you use it in a spell configuration.
+
+Many spells in the builtin configs start off with the "CustomProjectile" action. This action creates a virtual projectile (not a vanilla snowball, arrow, etc) with some extremely customizable behavior.
+
+When the projectile hits a target (either block or entity) it will run it's `actions` list.
+
+In this case, when Magic Missile hits it will perform the Damage action and the BreakBlock action. Both are performed no matter the target, but if hitting a block Damage will do nothing, if hitting an entity BreakBlock will do nothing.
+
+### Action Parameters
+
+Every action has some parameters that can change its behavior. These parameters can be put in two places: As properties directly on an action in the `actions` list, or as common shared parameters in the `parameters` section (see below).
+
+In this case, the BreakBlock action has `ignore_result` set to true.
+
+Every action returns a result, generally success, fail or no_target. For a spell to count as a successful cast, at least one action must return success. This is the only way for it to earn SP, or have the cast count towards the spell upgrade counter.
+
+In the case of Magic Missile, breaking blocks is more of a secondary cosmetic effect, and does not count towards earning SP. You must hit and damage an entity for Magic Missile to count as a success.
+
+And so, "ignore_result: true" on the BreakBlock action says to ignore the result of that action, meaning that Damage is the only action that matters for the overall result of the spell.
+
+## Effects
+
+The `effects` section defines the visual effects that a spell will use. Spells should generally at least have a `cast` effects section so that something visual happens when the spell is cast. Generally some particle FX and a sound are good to make a spell feel meaningful.
+
+Let's look at Magic Missile:
+
+```yaml
+        cast:
+        -  class: EffectSingle
+           sound: magic.zap_crack
+           location: origin
+           color_override: color
+           effectlib:
+             class: ConeEffect
+             iterations: 10
+             particle: redstone
+             lengthGrow: 0.1
+             radiusGrow: 0.003
+             updateLocations: false
+             updateDirections: false
+```
+
+The `cast` section will run when the spell is cast. Each section is really a list, so you can run multiple different effects on cast. Each section in the list can have a few properties:
+
+* **class**: The class of effect. This is sort of outdated and can mostly be ignored and omitted. **EffectSingle** means to run a single effect, but most effects in Magic now defer to EffectLib. Other options are EffectRing, EffectTrail and EffectTransform but they are rarely used.
+* **sound**: A sound effect to play, which can be a custom sound from a resource pack (such as with "magic.zap_crack" here or a builtin vanilla sound, using its [Sound enum](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html). `sound_pitch` and `sound_volume` can also be used to modify the sound.
+* **location**: Where the effect should play. This can be `origin` (the caster), `target` or `both`.
+* **color_override**: Wands have personalized colors which can be used by spells. The `color_override` property tells the effectlib effects to use the wand color as one if its parameters (usually *color*, which is how the color of most effectlib effects is controlled). This only works with the redstone and mob_spell particles.
+* **effectlib**: Magic is deeply integrated with [EffectLib](https://dev.bukkit.org/projects/effectlib) and most spells use an effectlib effect. See [here for details](../reference/effectlib-parameters.mdx) on configuring effectlib effects.
+
+Magic Missile also has a "tick" effect list:
+
+```yaml
+        tick:
+        - particle: redstone
+          location: target 
+```
+
+In this case you can see that `class` has been omitted, EffectSingle will be used as the default class.
+
+The `tick` effect list is a special set of effects used by the CustomProjectile action. These effects will be shown on every server tick while the projectile is running. They may be shown multiple times per tick, depending on the projectile velocity and configuration, so it's best not to put anything too complex in here.
+
+In this case, we are showing a single `particle`, whose names come from [the EffectLib particle enum](https://github.com/Slikey/EffectLib/blob/master/src/main/java/de/slikey/effectlib/util/ParticleEffect.java).
+
+Magic Missile has several other effect blocks, too many to list here. It has special effects for headshots, hitting blocks, etc. If you're curious, take a look at [the configs](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/missile.yml#L18).
+
+## Parameters
+
+Spells have several base parameters that can be seen here: [Spell Parameters](../reference/spell-parameters.mdx)
+
+Each action also has its own parameters, which can be seen on the [Actions](../reference/actions.mdx) page, though it is not completely up to date. Action parameters can also be found [in the source code](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/java/com/elmakers/mine/bukkit/action/builtin/CustomProjectileAction.java#L226) of each action, by searching for the "prepare" method and looking at what it reads out of its configuration.
+
+Parameters in the `parameters` section affect all actions in the spell.
+
+Let's look at Magic Missile:
+
+```yaml
+    parameters:
+        allow_max_range: true
+        velocity: 200
+        range: 24
+        hitbox: true
+        target_type: Damageable
+        player_damage: 2
+        entity_damage: 4
+        target_breakables: 1
+        cooldown: 1000
+        reorient: false
+        destructible: solid
+        destructible_durability: 50
+        break_durability: 2
+        undo: 10000
+```
+
+### Headshots
+
+The CustomProjectile action can detect when you hit an entity in the head. In this case, it may run a separate set of `headshot` actions, or in some cases (like Magic Missile) just use some extra parameters:
+
+```yaml
+    headshot_parameters:
+      damage_multiplier: 1.5
+```
+
+So a headshot with Magic Missile multiplies the damage done by 150%.
+
+## Costs
+
+Costs are lists of costs required to cast the spell. It is most often just mana, like this:
+
+```yaml
+    costs:
+        mana: 15
+```
+
+## Requirements
+Spells can have requirements assigned to them, which much be met in order for the player to purchase and use them. This can be used to create reasearch or teching paths, requiring players to have a certain class, skill, spell, etc, before they can purchase the spell.
+
+Right now the current requirements are supported:
+
+* Type: `skillapi`
+  * `skill` - Requires the player to have the specified SkillAPI skill
+  * `class` - Requires the player to have the specified SkillAPI class
+
+Here is an example requirement block, which might appear in a spell, Selector or other config. It requires the player to have the skillapi skill **enchanting**
+
+```yaml
+    requirements:
+        -  type: skillapi
+        -  skill: enchanting
+```
+
+`type` specifies the type of requirement
+`skill` further specifies that a skill from skillAPI is required, and what that skill is
+
+**Additional Editor Wiki**
+[Sophia's Editor and Command Wiki](https://minecraft-magic-editor.fandom.com/wiki/Minecraft_Magic_Editor_Wiki)

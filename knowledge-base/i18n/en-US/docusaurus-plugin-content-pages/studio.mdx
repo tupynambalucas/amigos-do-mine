@@ -1,0 +1,120 @@
+---
+title: Studio Workspace
+description: Canonical hub for brand strategy, creative assets, and self-hosted design infrastructure with Aide AI.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+export const ColorSwatch = ({color}) => (
+  <div style={{
+    backgroundColor: color,
+    width: '24px',
+    height: '24px',
+    borderRadius: '4px',
+    border: '1px solid rgba(0,0,0,0.1)',
+    display: 'inline-block',
+    verticalAlign: 'middle',
+    marginRight: '8px'
+  }} />
+);
+
+<head>
+  <title>Studio Workspace</title>
+</head>
+
+<div className="container margin-vert--lg">
+  <h1>Studio Workspace</h1>
+  
+  <p>The Studio workspace serves as the multidisciplinary creative nucleus of the Amigos Do Mine ecosystem. It functions as the master repository for brand strategy, high-fidelity design sources, and a technical orchestration layer for our self-hosted Penpot environment integrated with the Aide AI assistant.</p>
+
+  <Tabs>
+    <TabItem value="identity" label="Brand Identity" default>
+      <h3>Visual Strategy and Governance</h3>
+      <p>The visual identity is designed to be vibrant and community-oriented, ensuring a unified look across the game and the web.</p>
+      
+      <h4>Core Philosophy</h4>
+
+      - **Community:** Fostering ownership and collective fun.
+      - **Innovation:** Modern tools for a classic game.
+      - **High Fidelity:** Professional-grade assets and performance.
+
+      <h4>Technical Implementation: Hybrid Token System</h4>
+      <p>The design system employs a <strong>Hybrid Source of Truth (SSOT)</strong> model, bridging the gap between high-performance CSS and type-safe TypeScript engineering.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>File Path</th>
+            <th>Technical Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Source of Truth (TS)</strong></td>
+            <td><code>src/tokens/index.ts</code></td>
+            <td>Strongly-typed constants for React components and animations.</td>
+          </tr>
+          <tr>
+            <td><strong>Distribution Layer (CSS)</strong></td>
+            <td><code>src/tokens/theme.css</code></td>
+            <td>Tailwind CSS v4 <code>@theme</code> block for zero-runtime delivery.</td>
+          </tr>
+          <tr>
+            <td><strong>Icon Registry</strong></td>
+            <td><code>src/icons/index.tsx</code></td>
+            <td>Standardized <code>Icon</code> component wrapper using FontAwesome.</td>
+          </tr>
+        </tbody>
+      </table>
+    </TabItem>
+
+    <TabItem value="penpot" label="Penpot & Aide">
+      <h3>Self-Hosted Design Engineering</h3>
+      <p>Amigos Do Mine utilizes a distributed Penpot stack integrated with Aide, an AI-native engineering assistant.</p>
+
+      <h4>Infrastructure Architecture</h4>
+      <p>The environment is orchestrated via Docker, ensuring absolute data sovereignty.</p>
+
+      - **Orchestration:** Managed via <code>studio/penpot/compose.yaml</code>.
+      - **Connectivity:** Uses Port 4402 for real-time design audits and synchronization.
+
+      <h5>Operational Scripts</h5>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Command</th>
+            <th>Technical Responsibility</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>pnpm penpot:up</code></td>
+            <td>Initializes core design services at <code>http://localhost:9005</code>.</td>
+          </tr>
+          <tr>
+            <td><code>pnpm aide:up</code></td>
+            <td>Activates the Aide bridge (Penpot MCP) for AI design manipulation.</td>
+          </tr>
+        </tbody>
+      </table>
+    </TabItem>
+
+    <TabItem value="creative-hub" label="Creative Assets">
+      <h3>Centralized Creative Repository</h3>
+      <p>The Studio workspace acts as the master vault for all creative assets of the Amigos Do Mine brand.</p>
+
+      <h4>Namespaced Workspace Exports</h4>
+      <p>Internal packages access creative assets via strictly defined exports:</p>
+
+      <ul>
+        <li><code>@amigos-do-mine/studio/icons</code>: Optimized Icon component registry.</li>
+        <li><code>@amigos-do-mine/studio/logos</code>: Canonical brand logotypes.</li>
+        <li><code>@amigos-do-mine/studio/tokens</code>: Strongly-typed design constants.</li>
+        <li><code>@amigos-do-mine/studio/theme.css</code>: Global theme and resets.</li>
+      </ul>
+    </TabItem>
+  </Tabs>
+</div>

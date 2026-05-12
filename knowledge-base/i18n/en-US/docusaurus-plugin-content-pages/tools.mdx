@@ -1,0 +1,75 @@
+---
+title: Tools Workspace
+description: Technical automation infrastructure, Model Context Protocol (MCP) ecosystems, and engineering guidelines.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<head>
+  <title>Tools & Infrastructure</title>
+</head>
+
+<div className="container margin-vert--lg">
+  <h1>Tools Workspace</h1>
+
+  <p>The Tools workspace provides the automation backbone for the Amigos Do Mine project. It centralizes specialized Model Context Protocol (MCP) servers and infrastructure scripts designed to enhance developer productivity and ensure environment parity.</p>
+
+  <Tabs>
+    <TabItem value="mcp" label="MCP Ecosystem" default>
+      <h3>Model Context Protocol Infrastructure</h3>
+      <p>The project leverages a network of specialized MCP servers. These servers act as structured context providers, allowing AI agents to interact safely and accurately with the project's data layers and infrastructure APIs.</p>
+
+      <h4>Integrated Context Servers</h4>
+
+      - **GitHub MCP:** Handles repository orchestration and PR management.
+      - **Context7 MCP:** A high-performance research bridge for documentation fetching.
+      - **Docker Hub MCP:** Manages container image discovery and synchronization.
+    </TabItem>
+
+    <TabItem value="network" label="AI Security & Network">
+      <h3>Isolated Infrastructure Architecture</h3>
+      <p>Security is maintained through a zero-trust network model for AI agents. Automation tools operate within an isolated Docker environment.</p>
+
+      <h4>Network Topology</h4>
+
+      - **Private Bridge:** All MCP services communicate over a dedicated bridge network.
+      - **Resource Security:** Multi-stage Dockerfiles ensure only required binaries are included in final images.
+    </TabItem>
+
+    <TabItem value="guidelines" label="Engineering Guidelines">
+      <h3>Rules of Engagement for AI Agents</h3>
+      <p>The workspace defines strict behavioral logic for AI agents through structured context files.</p>
+
+      <h4>Operational Conventions</h4>
+
+      - **Domain Core First:** Modification of shared schemas must originate in `@amigos-portal/core`.
+      - **Strict Typing:** Agents are strictly prohibited from using `any`.
+      - **Validation:** Running `pnpm typecheck` is mandatory after code modification.
+    </TabItem>
+
+    <TabItem value="scripts" label="Maintenance">
+      <h3>Operational Logic and Maintenance</h3>
+      <p>Standardized commands are provided for maintaining the automation layer.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Command</th>
+            <th>Engineering Responsibility</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>pnpm typecheck</code></td>
+            <td>Validates TypeScript integrity across the workspace.</td>
+          </tr>
+          <tr>
+            <td><code>clean:project</code></td>
+            <td>Workspace maintenance using <code>npkill</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </TabItem>
+  </Tabs>
+</div>

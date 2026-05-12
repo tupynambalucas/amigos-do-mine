@@ -1,0 +1,55 @@
+---
+title: Classes
+---
+
+Classes in Magic are a way to store data on a player in a segmented way. 
+
+Magic was originally an item-based plugin, spells, mana and everything else were stored on the wand item.
+
+Since 7.0, Magic now allows you to choose to store some data on the player as well. The default survival configs will store spells and mana on player data, while keeping spell inventory and wand aesthetics on the item.
+
+## Class Configuration
+
+A class typically inherits from the base class, which looks like this:
+
+```yaml
+base:
+  storage:
+    mana: class
+    mana_max: class
+    mana_regeneration: class
+    mana_timestamp: class
+    spell_levels: class
+    spells: class
+    brushes: class
+    path: subclass
+    hotbar_count: subclass
+```
+
+The "storage" block defines where certain data is stored. This is particularly important for servers that were using Magic prior to 7.0, this will migrate data from wand items to players.
+
+This also makes using commands such as `/wand` easier. You can, for instance, use `/wand add blink` to add blink to your wand, but it will actually add to your player data. However `/wand configure effect_color FF0000` will still configure the wand item.
+
+Individual class configs will then look something like this:
+
+```yaml
+caster:
+  inherit: base
+  locked: false
+  mana_max: 50
+  mana: 50
+  mana_regeneration: 5
+  spells:
+  - missile
+
+```
+
+This specifies the default values for this class, how a player's mana and spells will start when they activate this class.
+
+By default, class activation is automatic. Wands are configured to be tied to a specific class, when a player holds that wand they active the class.
+
+## Locked Classes
+
+Some configurations (for instance the stars and bending examples) may instead use locked classes.
+
+These are classes that are not automatically unlocked and activated, and instead must be unlocked manually. This can be done using the `/mage unlock` command, or by using a class selection GUI.

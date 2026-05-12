@@ -1,0 +1,110 @@
+---
+title: Action System
+---
+
+# Action System
+
+Magic has a flexible "action" system that lets you build your own spells, using the individual behaviors that the default spells employ.
+
+Most spells in Magic are made up of "actions", rather than having a custom class for each spell.
+
+Magic's action system intelligently load-balances given the number of mages actively casting spells. Magic will try to ensure that spells don't lag the server by modifying too many blocks or entities in a single tick.
+
+This means that any spell has the potential to get "batched" for delayed processing. This is not strictly speaking "asynchronous", but it is the same general idea. If a spell requires too much "work" to complete in a single tick, it will spread out over multiple ticks.
+
+## Create your own spells
+
+The action system lets you build your own spells for some really cool custom behavior! Take a look through the [survival spell configurations](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/) to get a feel for what's possible. In particular, there are a few spells (laser, singularity, magichat) that are documented pretty well, I'm hoping to do better with that in the future.
+
+### Built in Actions
+
+Please check out the [Reference Manual](http://mine.elmakers.com/reference/#actions) for a list of all builtin spell actions and their parameters!
+
+## Create your own actions
+
+If you can't seem to get the effect you want, and have a bit of Java/Bukkit experience, it's pretty each to code up some new SpellAction classes. This is now the preferred method to extend Magic, rather than creating a new Spell class.
+
+This will let you mix your custom actions in with the builtin actions!
+
+All you need to do is to implement the [SpellAction](https://github.com/elBukkit/MagicPlugin/blob/master/MagicAPI/src/main/java/com/elmakers/mine/bukkit/api/action/SpellAction.java) interface found in MagicAPI. Alternately, you can extend [BaseSpellAction](http://jenkins.elmakers.com/job/MagicLib/doxygen/classcom_1_1elmakers_1_1mine_1_1bukkit_1_1action_1_1_base_spell_action.html) in MagicLib, which takes care of some of the boilerplate code for you.
+
+If using BaseSpellAction (which I would recommend), you will need to build against the Magic plugin itself, not the API. The plugin is not available in the Central Maven repo, so you will have to add the elMakers repo:
+
+```xml
+    <repositories>
+        <repository>
+            <id>elMakers</id>
+            <url>http://maven.elmakers.com/repository/</url>
+        </repository>
+    </repositories>
+```
+
+Then you would add Magic as a dependency like this:
+```xml
+    <dependencies>
+        <dependency>
+            <groupId>com.elmakers.mine.bukkit.plugins</groupId>
+            <artifactId>Magic</artifactId>
+            <version>8.3</version>
+            <scope>provided</scope>
+        </dependency>
+   </dependencies>
+```
+
+### Action anatomy
+
+Actions have a few important methods that get called at certain times. It is important, especially for performance, to know what to do and when.
+
+**initialize**
+
+This method is called whenever a spell is loaded for the first time. It is only called once per player per server session, and is given the action's parameters. Spells rarely use this, though in cases where you have a big list of things in your parameters or spell config it may be more efficient to pre-parse it here.
+
+Any parameters read inside of `initialize()` cannot be overridden by `/cast` or `/wand override`.
+
+**prepare**
+
+This is called at the beginning of a spell cast, giving the action the current CastContext and parameters. This is generally when you'll want to read your parameters into class variables.
+
+**reset**
+
+This is called at the beginning of one "iteration" of a spell cast. This is generally only used by CompoundAction classes, to reset their counter to the beginning of their action list. It is rare you'll need to override this.
+
+**perform**
+
+This is the main body of your action, where you will do your work. This may be called many, many times during a spell cast, so try and keep things efficient.
+
+**finish**
+
+This is called for each action after the entire spell cast is complete, and is a good place to perform and cleanup or final actions.
+
+### Cast Context and Parameters
+
+Most spells only need to override "prepare" and "perform". The "prepare" method is passed a ConfigurationSection, which can be used to read in the action's parameters.
+
+Both "prepare" and "perform" are passed a [CastContext](http://jenkins.elmakers.com/job/MagicAPI/doxygen/interfacecom_1_1elmakers_1_1mine_1_1bukkit_1_1api_1_1action_1_1_cast_context.html) object. This object is how you interact with all of the core Magic functionality- such as the undo system. Methods are constantly added to CastContext as needed by the builtin actions, so there is quite a bit there you can make use of.
+
+## Action Flow
+
+Normally actions in a spell are processed "serially"- that is, one at a time, in a row.
+
+If an action takes some time to complete (Delay action, in-flight Projectile, etc) the spell will sit and wait on that action until it completes.
+
+Sometimes you'd like more than one thing to happen at a time in a spell.
+There are a few different actions that can do that:
+- **Multiply**: Kind of like "Repeat" except all of the "cloned" actions run at the same time (in parallel) instead of one after another (in serial)
+- **Parallel**: Runs all of the actions in its "actions" list separately, in parallel
+- **Asynchronous**: Runs its actions list as normal (serially, one after another) except it does this in parallel with the rest of the spell- so an Asynchronous action always completely immediately, no matter how longer the actions inside it really take
+
+Then there is this kind of odd case of the **Serial** action- this is basically just used to group actions together. Mainly this is used in "Parallel", since that one takes each action in its list as a separate "thread" to run, Serial may be used to group several actions together that you want to run one after another in parallel with other actions.
+
+To try and tie all that together with an example- what does the [Chain Lightning](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/chainlightning.yml) spell do?
+
+It launches a projectile, when that projectile hits it does an AreaOfEffect.
+
+AOE will run actions for each target in a radius, but we want to spawn a new projectile towards each of those targets. 
+
+However, we want them to all fly at once, rather than one firing, waiting for hit, then another firing, etc.
+
+That is what the Asynchronous action does, it makes all of the chained projectiles fly at once.
+
+Similarly [Meteor Shower](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/meteor.yml) uses Multiply to launch several meteors at once.

@@ -1,0 +1,80 @@
+---
+title: Skript
+---
+
+# Skript Integration
+
+[Skript](https://github.com/bensku/Skript) is a plugin that provides natural language scripting for Bukkit servers.
+
+Magic provides events and effects that can be used in Skripts.
+
+## Cast Event
+
+The cast event is triggered when a player or mob casts a spell. You may use the "caster" expression to get the caster entity and the "targets" expression for any targets hit by the spell.
+
+Examples:
+```applescript
+on cast:
+  send "You cast a spell" to caster
+  damage targets by 20 hearts
+
+on cast spell "missile":
+  send "You throw a Magic Missile" to caster
+
+# The casting event triggers before a spell is cast, versus when it finishes
+on casting spell "missile":
+  send "You ready Magic Missile" to caster
+
+```
+
+## Cast Effect
+
+The cast effect can be used to force a player to cast a spell, or to cast a spell via the console. Examples:
+```applescript
+on place of sand:
+  make player cast the spell "rubberize"
+
+# Use some parameters
+on step on glass:
+  make player cast the spell "fling" with "pdy 1 pdx 0 pdz 0 min_speed 5 max_speed 5"
+
+on death:
+  cast "day"
+```
+
+## Spawn Effect
+
+You can spawn magic mobs similar to vanilla mobs, just enclose the mob key in quotes. The "last spawned entity" expression will not work, however. 
+
+```applescript
+on step on stone:
+	player knows spell "kill"
+	spawn a "mutant" 5 meters in front of the player
+```
+
+## Conditionals
+
+You may use conditionals to check if a player has a specific class, path, wand, item or spell:
+
+```applescript
+on step on glass:
+# Check for specific class
+  player is class "airbender"
+  player is holding wand "airbending"
+  make player cast the spell "fling" with "pdy 1 pdx 0 pdz 0 min_speed 5 max_speed 5"
+
+on right click:
+# Check for magic items in hand or armor slots
+  player has "emerald_sword" in offhand
+  player is wearing "magneticleggings"
+
+on right click:
+# Check for specific path, and that the player has a spell
+  player is on path "master"
+  player knows spell "missile"
+
+on right click:
+# Check for having finished specific path, and that the player has a spell
+  player has finished path "master"
+  player knows spell "kill"
+```

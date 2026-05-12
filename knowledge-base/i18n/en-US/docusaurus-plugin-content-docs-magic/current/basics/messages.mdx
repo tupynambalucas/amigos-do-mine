@@ -1,0 +1,41 @@
+---
+title: Messages and Languages
+---
+
+# Messages
+
+The messages.yml config file can be used to change _any_ of the in-game text in Magic.
+
+If you are looking to change one or two specific lines, simply open up plugins/Magic/defaults/messages.defaults.yml, then search for the text you want to change.
+
+Copy that one line to plugins/Magic/messages.yml and modify it how you wish. Make sure that it is still in the correct section.
+
+If you'd like to change a lot or all of the text, you may copy that entire file- but keep in mind that anything you have copied will override any future changes that may be made to the internal plugin defaults.
+
+## Messages GUI Locations
+
+If you wish to change locations of the messages in the GUI for example changing the "Not enough mana" message from the actionbar to the chat,
+just change the prefix of the message in the configuration file:
+
+`[message_id]: [prefix][message]`
+
+where prefix is:
+* empty - for normal chat
+* a: - for actionbar
+* t: - for title
+
+# Localization
+
+If you wish to localize the entire plugin, you may copy plugins/Magic/defaults/messages.defaults.yml to plugins/Magic/messages.yml and start editing.
+
+# Built-in Localizations
+
+There are several different languages built into the plugin that can be activated by putting a line like this in config.yml:
+
+`language: ES`
+
+See here for the available languages:
+
+https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/resources/examples/localizations
+
+This mostly only applies to the survival configs.

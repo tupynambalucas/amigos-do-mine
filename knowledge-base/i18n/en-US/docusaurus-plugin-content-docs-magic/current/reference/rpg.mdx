@@ -1,0 +1,107 @@
+---
+title: RPG Style
+---
+
+# Role-Playing Game Style
+
+**(ROUGH DRAFT, NOT YET IMPLEMENTED!)**
+
+## Dungeons & Dragons, GURPs, etc
+
+The "example" configs provide a rich framework of character classes and attributes, with unique game mechanics.
+
+## Using
+
+Simply use the following command to enable these configs:
+
+`/mconfig example add rpg`
+
+## Combining
+
+To combine the RPG configs with the default (or other configs), use this instead:
+
+```yaml
+add_examples:
+- rpg
+- .. more configs if desired
+```
+## Customizing
+
+Changes to the customized configs in plugins/Magic will affect example configurations as normal. Example configs are fully customizable.
+
+## Configuration
+
+If you'd like to see the rpg configs, look here:
+
+https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/resources/examples/rpg
+## Set Up
+
+Players should begin in an area using the `classselector` and `attributeselector` GUIs, from an NPC or command-block system.
+
+These spells will get the player in a specific class of their choosing, and have their attribute points distributed.
+
+Ideally the player would be confined to this area until they have completed both of these tasks (TBD: How to do this)
+
+## Classes
+
+Each character class strives to provide a unique and interesting mix of mechanics.
+
+### Cleric
+
+Can brew a wide variety of potions, for healing and attack. 
+Has passive abilities to give health and protection boosts to allies
+
+### Fighter
+
+Can craft a variety of powerful melee weapons, some of which can only be used by the Fighter class.
+
+*NEW TECH*: Class-specific crafting recipes (and items?)
+
+High damage, high hit points.
+
+### Ranger
+
+Can craft a variety of arrows that are used in a bow.
+
+*NEW TECH*: Consumable arrows, shot via a normal bow but cast spells (like the magic bow)
+
+### Rogue
+
+Stealth abilities and special weapons.
+Backstab, invisible-on-sneak.
+
+### Wizard
+
+A wand-using, mana-consuming spellcasting wizard, very similar to the default survival configs.
+
+### Monk
+
+Must meditate (use a bed?) to choose up to 3 sets of effects that will activate on melee attacks.
+
+### Sorcerer
+
+Takes spells from a spellbook to cast on demand. Uses cooldowns, not mana.
+
+### Barbarian
+
+? 
+
+### Paladin
+
+? 
+
+### Warlock
+
+? 
+
+### Bard
+
+? 
+
+### Druid
+
+? 
+
+## Progression
+
+Progression will be based on vanilla XP and levels ?

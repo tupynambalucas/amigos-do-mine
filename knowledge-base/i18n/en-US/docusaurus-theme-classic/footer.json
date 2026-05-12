@@ -1,0 +1,50 @@
+{
+  "link.title.Documentação": {
+    "message": "Documentation",
+    "description": "The title of the footer links column with title=Documentação in the footer"
+  },
+  "link.title.Ecossistema": {
+    "message": "Ecosystem",
+    "description": "The title of the footer links column with title=Ecossistema in the footer"
+  },
+  "link.title.Produto": {
+    "message": "Product",
+    "description": "The title of the footer links column with title=Produto in the footer"
+  },
+  "link.item.label.Introdução": {
+    "message": "Introduction",
+    "description": "The label of footer link with label=Introdução linking to /docs/intro"
+  },
+  "link.item.label.Arquitetura": {
+    "message": "Architecture",
+    "description": "The label of footer link with label=Arquitetura linking to /docs/engineering/architecture"
+  },
+  "link.item.label.Guia de Estilo": {
+    "message": "Style Guide",
+    "description": "The label of footer link with label=Guia de Estilo linking to /docs/engineering/styleguide"
+  },
+  "link.item.label.Studio (Design)": {
+    "message": "Studio (Design)",
+    "description": "The label of footer link with label=Studio (Design) linking to /studio"
+  },
+  "link.item.label.Tools (Ferramentas)": {
+    "message": "Tools (CLI)",
+    "description": "The label of footer link with label=Tools (Ferramentas) linking to /tools"
+  },
+  "link.item.label.Portal (Painel)": {
+    "message": "Portal (Dashboard)",
+    "description": "The label of footer link with label=Portal (Painel) linking to /"
+  },
+  "link.item.label.Minecraft (Servidor)": {
+    "message": "Minecraft (Server)",
+    "description": "The label of footer link with label=Minecraft (Servidor) linking to https://github.com/tupynambalucas/amigos-do-mine"
+  },
+  "link.item.label.Visão": {
+    "message": "Vision",
+    "description": "The label of footer link with label=Visão linking to /docs/product/vision"
+  },
+  "copyright": {
+    "message": "\n        <div class=\"footer__banner-container\">\n          <img src=\"/amigos-do-mine/eloornico/svg/banner-negative.svg\" alt=\"Amigos Do Mine\" class=\"footer__banner\" />\n        </div>\n        <p>Copyright © 2026 Amigos Do Mine. Professional Minecraft ecosystem management. Built with Docusaurus.</p>\n      ",
+    "description": "The footer copyright"
+  }
+}

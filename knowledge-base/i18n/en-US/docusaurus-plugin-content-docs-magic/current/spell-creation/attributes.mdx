@@ -1,0 +1,63 @@
+---
+title: Attributes
+---
+
+# Attributes
+
+**_Work-in-Progress_**
+
+## Defining Attributes
+
+Attributes are properties that can be attached to players (or classes) and boosted by wand items.
+
+You can use the internal Magic attributes system, or SkillAPI or Heroes to provide player attributes.
+
+If using Magic's attributes, you must define your attributes in `plugins/Magic/attributes.yml`. No attributes are defined in the default configs, though there are some D&D style attributes in the RPG configs you can use as an example:
+
+https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/rpg/attributes
+
+## Setting Attributes
+
+If using Magic attributes, the `/mage attribute` command can be used to view and modify player attributes.
+
+TODO: A GUI and spell actions for attribute manipulation.
+
+## Built-in Attributes
+
+By default, there are the following attributes:
+* `bowpull` - How far back a player has pulled their bow
+* `health` - Caster's current health (hearts x 2)
+* `health_max` - Caster's maximum health
+* `time` - Time of day in ticks, from 0 to 23999
+* `moon` - Phase of the moon.  0 = Full Moon, 1 = Waning Gibbous, 4 = New Moon, 7 = Waxing Gibbous
+* `location_x` - x-coordinates of the caster
+* `location_y` - y-coordinates of the caster
+* `location_z` - z-coordinates of the caster
+* `level` - The player's experience level
+* `xp` - The player's total experience points
+* `mana` - The player's current mana
+* `mana_max` - The player's maximum mana
+
+## Using Attributes in Mage properties
+
+TODO: Ability to specify protection, strength, weakness, health and other properties in terms of attributes.
+
+## Using Attributes in Spells
+
+Attributes can be used in equations in spell parameters. Any numeric parameter can be specified with attributes, for example:
+
+```yaml
+missile:
+  parameters:
+    player_damage: "intelligence/5 + 4"
+    entity_damage: "wisdom/2 + 3"
+```
+
+This would make the Magic missile spell increase damage depending on a player's intelligence or wisdom attribute.
+
+## Commands and Messages
+
+The Command and Message actions can also use attributes inside of their `command` and `message` parameters. In this case you have two options for how to use them:
+
+* **$attribute** : This will use the full attribute value including any decimals
+* **@attribute** : This will use only the integer (whole number) portion of the attribute value

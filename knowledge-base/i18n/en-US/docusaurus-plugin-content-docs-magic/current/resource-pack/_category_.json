@@ -1,0 +1,8 @@
+{
+  "label": "Resource Pack",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Customizing the visual and auditory experience of Magic."
+  }
+}

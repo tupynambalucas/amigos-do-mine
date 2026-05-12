@@ -1,0 +1,34 @@
+{
+  "title": {
+    "message": "AmigosDocs",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Amigos Do Mine Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Documentação": {
+    "message": "Documentation",
+    "description": "Navbar item with label Documentação"
+  },
+  "item.label.Magic": {
+    "message": "Magic",
+    "description": "Navbar item with label Magic"
+  },
+  "item.label.Changelog": {
+    "message": "Changelog",
+    "description": "Navbar item with label Changelog"
+  },
+  "item.label.Studio": {
+    "message": "Studio",
+    "description": "Navbar item with label Studio"
+  },
+  "item.label.Ferramentas": {
+    "message": "Tools",
+    "description": "Navbar item with label Ferramentas"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

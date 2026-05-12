@@ -1,0 +1,104 @@
+---
+title: Harry Potter Configs
+---
+
+# Harry Potter Configs
+
+![Potter](http://i.imgur.com/XSz073S.png)
+
+## Using
+
+Simply use the following command to enable these configs:
+
+`/mconfig example set potter`
+
+## Customizing
+
+Changes to the customized configs in plugins/Magic will affect example configurations as normal. Example configs are fully customizable.
+
+## Progression
+
+The potter configuration relies heavily on [NPCs](../advanced-setup/npc.mdx).
+
+* Players start with a "Ticket from Ollivander"
+* The ticket can be redeemed for a Wand Box, which opens into a random wand
+* Students earn Spell Points as in the default configs
+* Students interact with a Spell Teach to learn new spells by spending Spell Points
+* Students must obtain a special spell, 7 in total, to graduate to the next year
+
+This last part is left up to you to define. You can set up special NPC's the players need to find, give them out in classes, or find other creative ways for players to earn these special graduation spells.
+
+Alternately, you can edit your configs so that players can graduate simply by learning all of the spells in each year, like how the survival configs work. This is just here as an example, it is expected that you will customize to fit your server.
+
+## Configuration
+
+If you'd like to see the potter configs, look here:
+
+https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/resources/examples/potter
+
+You won't be able to find them on your server, they are built into the plugin and not saved anywhere to disk.
+
+## Set Up
+
+### Ollivander NPC
+
+`mpnc add ollivander`
+
+or prior to version 8:
+```bash
+/mnpc add Ollivander
+/cast cast ollivander
+```
+
+You should be able to right-click Ollivander to get a wand, if you have a ticket from Ollivander. Use this command to give yourself a ticket for testing:
+
+`/mgive ticket`
+
+### Spell Teacher NPC
+
+`/mnpc add spellshop`
+
+or prior to version 8:
+```bash
+/mnpc add Professor
+/mnpc cast spellshop
+```
+
+You can now right-click this Professor to learn new spells by spending Spell Points.
+
+### Graduation NPC
+
+Should you want to set up an NPC to allow players to graduate to the 2nd year:
+
+`mnpc add year1`
+
+or prior to version 8:
+
+```bash
+/mnpc add First Year Finals
+/mnpc cast addspell spell alohomora path_end year1
+```
+
+Once you reach the end of year 1 and there are no more spells available, you can right-click this NPC to learn Alohomora and advance to Year 2.
+
+You would need to set up 6 more of these NPCs for each of the following graduation spells if you want to go this route:
+
+* Alohomora
+* Glacius
+* Deprimo
+* Ascendio
+* Reducto
+* Apparate
+* Piertotem
+
+Note that this is taken care of for you in version 8 and above by using the right NPC, `year1` through `year6`.
+
+## Spells
+
+Potter spells and wands can be seen here:
+
+http://mine.elmakers.com/?example=potter#spells
+
+## PotterPlus 
+
+[PotterPlus](https://github.com/grisstyl/PotterPlus) is an expansion to the example Potter configs built into Magic. they are adaptable, largely modular by design, and more lore-accurate to Harry Potter.

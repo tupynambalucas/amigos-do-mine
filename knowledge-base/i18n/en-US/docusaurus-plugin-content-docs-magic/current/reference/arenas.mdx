@@ -1,0 +1,90 @@
+---
+title: Arenas
+---
+
+# Arenas
+
+Magic has a simple yet powerful arena/dueling system builtin.
+
+There is currently not much documentation- I will work on that! In the meantime, if you want to try it out feel free, the tab-completion should be helpful. `/marena` is the main command.
+
+## Command Usage
+
+Quick example of how to set up an arena:
+
+```bash
+# do this in the center of the spleef arena
+/marena add spleef
+# do this in as many places as you want players to spawn
+/marena configure spleef add spawn
+# alternately, you can set up a randomized location
+# this will cause players to spawn in a 20x20 square centered around the spawn location:
+/marena configure spleef randomized spawn 10,0,10
+# do this in the lobby - you can set up separate "prize rooms" for the winners if you want
+/marena configure spleef lobby
+/marena configure spleef win
+/marena configure spleef lose
+/marena configure spleef exit
+```
+
+Use `/marena describe spleef` to check the options for your arena, and see if you've missed anything.
+
+## Signs
+
+Simple signs can be set up to allow players to leave and join matches, as well as create a player-skull leaderboard:
+
+```text
+[Arena]
+Join
+spleef
+
+[Arena]
+Leave
+
+[Arena]
+Leaderboard
+spleef
+```
+
+The last one should be a wall sign, and requires some space - 8 blocks above and one to the right. It will build a sign and skull leaderboard showing the top-ranking players in the arena.
+
+## Mob Arenas
+
+Similar to setting up a PvP arena, start by layout out lobby and player spawn locations:
+
+```bash
+# do this in the center of the arena
+/marena add mobarena
+# do this in as many places as you want players to spawn
+/marena configure mobarena add spawn
+# do this in the lobby, where players wait to join or respawn
+/marena configure mobarena lobby
+# This this where players will go when they leave or finish the arena
+/marena configure mobarena exit
+```
+
+Next we want to add some mob spawns. These are done to "stages", an arena can have any number of stages. Players progress to the next stage after killing all of the mobs in the current stage.
+
+```bash
+# Name this stage, this will show as a title when players start
+/marena stage mobarena name Warlocks!
+# Add some mob spawns
+/marena stage mobarena configure add mob warlock 3
+# Run around in some places (far from player spawn, ideally) and make multiple mob spawn locations
+/marena stage mobarena configure add mob_spawn
+# Add a second stage
+/marena stage mobarena add
+/marena stage mobarena name !Dark Wizard!
+/marena stage mobarena configure add mob dark_wizard
+# Set at least one spawn point
+/marena stage mobarena configure add mob_spawn
+```
+
+Stages also share a set of default values that are shared, useful for setting mob spawn locations or randomization just one time
+
+```bash
+# Select the "default" stage for editing
+/marena stage default
+# Set mob spawn locations here and all stages will use them
+/marena stage mobarena configure add mob_spawn
+```

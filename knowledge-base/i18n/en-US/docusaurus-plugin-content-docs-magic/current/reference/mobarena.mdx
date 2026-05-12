@@ -1,0 +1,64 @@
+---
+title: MobArena Integration
+---
+
+# MobArena Integration
+
+Magic has some integration with MobArena so you can set up magic-based classes, mobs and rewards as part of your arenas.
+
+## Example Configs
+
+Use `/mconfig example add arenas` if you want to use all of the built-in arena classes. Note that this will import the stars, war and bending configs!
+
+Alternately, you can put this in your plugins/Magic/config.yml if you don't want to use the `mconfig` command:
+
+```yaml
+example: arenas
+```
+
+The wands made available are used in the example MobArena class configs shown below.
+
+You can use your own wands and mobs in MobArea configs without importing the arenas example.
+
+## Magic Wands and Items
+
+Magic wands and items can be used in MobArena class and reward configs. Simply prefix the magic item/wand key with `magic:` in configs. For example:
+
+```yaml
+  Mage:
+    items: magic:mage
+    helmet: magic:wizardhelmet
+    boots: magic:wizardboots
+    chestplate: magic:wizardchestplate
+    leggings: magic:wizardleggings
+    unbreakable-weapons: false
+```
+
+Note that `unbreakable-weapons: false` will prevent MobArena from messing with the durability of wand items, which will randomly change their appearance during the battle.
+
+## Magic Mobs
+
+You can use magic mobs directly in MobArena configs. For example:
+
+```yaml
+        boss1:
+          type: boss
+          wave: 10
+          monster: darkwizard
+```
+
+## War Items
+
+Some of the example classes use items from the war configs. If you want to use these classes, you will also need to add the war configs via
+
+`/mconfig example add war`
+
+This will add a variety of guns and vehicles, but none of it will be available to players by default.
+
+## Working Examples
+
+See here for some class, mob and reward examples. I'm using these on my dev server:
+
+https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/examples/MobArena
+
+Note that these are config snippets, you will need to copy and paste them into the right places in your MobArena config.yml if you want to use them.

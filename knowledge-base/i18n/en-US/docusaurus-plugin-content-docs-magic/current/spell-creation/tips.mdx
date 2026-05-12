@@ -1,0 +1,43 @@
+---
+title: Tips
+---
+
+# Tips for beginners
+
+First if you some reason skip to Tips, i recomend to read everything about spell creation. But moving to tips.
+
+# Use reference manual, when sandbox editor is down
+
+a lot of people didn't know, you can check all actions, and what is does in reference manual.
+how to go/get in reference manual? You can just click here: https://reference.elmakers.com/
+Or if you lost link, you can always search "magic plugin" and go to description, and check link
+
+![image](https://github.com/elBukkit/MagicPlugin/assets/40630698/4175e0f5-0f30-4815-88f6-a82adf345d76)
+
+# Turn on Debug mode
+
+you spell do not work? You can check what happen, by use command `/mage debug <number>` the larger the number, 
+will show report about casting last spell on chat (note: including triggered spells, passive and infinite repeated spells).
+
+# use "/mhelp" to help yourself
+
+in this command you get a lot of info about specific things. Just check it now!
+
+# Read errors and warnings, after reload.
+
+sometimes you will get warning, or errors. Warning exist when you write wrong value like `range: @`. Warning do not broken spell entirely, 
+but wrong writed config, will get default config, if you don't manage to change it. Erros broken spell. Probably you miss writing, or space.
+This is example how errors looks like:
+
+![image](https://github.com/elBukkit/MagicPlugin/assets/40630698/4681a10f-9f9e-4c84-9530-a35c0605e635)
+
+this is what i writing wrong:
+
+![image](https://github.com/elBukkit/MagicPlugin/assets/40630698/034db3a7-82d3-4ea9-82ff-72d4a82da2b6)
+
+`- class: CheckEntity` is moved slightly to the right
+so i just need to fix it is move to left
+
+![image](https://github.com/elBukkit/MagicPlugin/assets/40630698/cdaa6e00-b22b-45ea-ae78-151921b7fb95)
+
+Now is correct. Plugin will load spell without error

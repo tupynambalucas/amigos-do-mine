@@ -1,0 +1,473 @@
+---
+title: Check Actions
+---
+
+# Check Actions
+
+Spell requirements, or 'checks' are powerful actions that can allow for intricate and complex spell designs. You can create spells which require, check for, or react to specific circumstances. Depending on the way these requirements are used, you can check attributes or requirements on the caster of the spell, the target of the spell, or even external factors in the environment.
+
+There are currently about 11 different spell actions that fall under the 'Check' umbrella, which are divided into specific categories for ease of understanding and use by spell creators. It should be noted that using `invert: true` can reverse the check of some spells, for example if a spell checks an integer is 'higher' than X it will instead check if integer is 'lower' than X.
+
+## CheckBlock
+
+The `CheckBlock` action reacts to certain features of the targeted block. This action defaults to the block directly at the caster, but it can be attached to a `CustomProjectile` to react to the block it hits. It can also be put in a `Sphere`, `Disc`, or other shape action to check all blocks within an area.
+
+### allow_brush
+
+`allow_brush: (true/false)`
+
+This can be set to true or false, and will continue onto its sub-actions depending on the check. For example, if this is set to `false` and the spell finds a block which is found in the spell's `brush` parameter, it will not continue to its sub-actions.
+
+### not_brush
+
+`not_brush: (true/false)`
+
+This can be set to true or false, and will continue onto its sub-actions depending on the check. It is the opposite of `allow_brush`.
+
+### allowed
+
+`allowed: (string)`
+
+This requires a string of the blocks this spell is allowed to check for. If the spell targets a block found in the string, it will be able to continue to its sub actions. Otherwise, it will fail/skip.
+
+### biome_actions
+
+WIP
+
+### biomes
+
+```yaml
+biomes:
+- biome1
+- biome2
+```
+
+This will check for any biomes in the list as formatted above. If a biome in the list is found, it will continue to its sub actions, otherwise it will fail.
+
+### not_biomes
+
+```yaml
+not_biomes:
+- biome1
+- biome2
+```
+
+This will check for any biomes in the list as formatted above. If a biome in the list is found, it will not continue to its sub actions, and it will fail. It is the opposite of `biomes`.
+
+### block_actions
+
+WIP
+
+### check_permission
+
+WIP
+
+### direction
+
+`direction: (string)`
+
+This checks the block in the designated direction from the caster, such as `up` or `down`.
+
+### direction_count
+
+`direction_count: (integer)`
+
+This checks a designated number of blocks in the direction designated by `direction`, rather than just the closest one.
+
+## CheckEntity
+
+The `CheckEntity` action will react to certain entity types, and certain factors of the targeted entity. It can check the target of a `CustomProjectile`, or even all entities within an `AreaOfEffect` and run sub-actions for each. Otherwise, it will default to the entity the caster is looking at.
+
+### allow_caster
+
+`allow_caster: (true/false)`
+
+Whether the spell is allowed to check the caster or not, if false it will ignore the caster when checking entities.
+
+### only_caster
+
+`only_caster: (true/false)`
+
+Similarly to `allow_caster`, if true this will allow the spell to check the caster entity, but it will only target the caster entity and no others.
+
+### allowed_entities
+
+```yaml
+allowed_entities:
+- entity1
+- entity2
+```
+
+This will check for any entities in the list as formatted above. If an entity in the list is found, it will continue to its sub actions, otherwise it will fail.
+
+### allowed_entity_classes
+
+```yaml
+allowed_entity_classes:
+- entity_class1
+- entity_class2
+```
+
+This will check for any entities types, such as `Damageable` or `LivingEntity`, in the list. If an entity in the list is found, it will continue to its sub actions, otherwise it will fail.
+
+### denied_entities
+
+```yaml
+denied_entities:
+- entity1
+- entity2
+```
+
+This will check for any entities in the list as formatted above. If an entity in the list is found, it will fail. It is the opposite of `allowed_entities`.
+
+### denied_entity_classes
+
+```yaml
+denied_entity_classes:
+- entity_class1
+- entity_class2
+```
+
+This will check for any entities types, such as `Damageable` or `LivingEntity`, in the list. If an entity in the list is found, it will fail. It is the opposite of `allowed_entity_classes`.
+
+### on_fire
+
+`on_fire: (true/false)`
+
+This will check if the target entity is on fire. If true it will only continue to its sub-actions if the target is alight. If false it will only continue if the target is not on fire.
+
+### on_ground
+
+`on_ground: (true/false)`
+
+This will check if the target entity is on ground. If true it will only continue to its sub-actions if the target is on the ground. If false it will only continue if the target is in the air.
+
+## CheckHealth
+
+The `CheckHealth` action will check the health of the target and move on to the sub-actions depending on whether it succeeds the check.
+
+### max_health
+
+`max_health: (number)`
+
+The maximum health the target can have. The spell will fail its sub-actions if the target's health is over this number.
+
+### min_health
+
+`min_health: (number)`
+
+The minimum health the target can have. The spell will fail its sub-actions if the target's health is below this number.
+
+### as_percentages
+
+`as_percentages: (true/false)`
+
+If this is set to true, the `min_health` and `max_health` will be read as percentages rather than flat numbers. For example, instead of requiring more than `10` health points, it will require more than `10%` of maximum health.
+
+### full_health
+
+`full_health: (true/false)`
+
+If this is true, it will require the target to have full health in order to continue to its sub-actions, otherwise it will fail.
+
+## CheckInventory
+
+The `CheckInventory` action is incredibly useful for checking for specific items in the player's inventory. It can check specific slots, certain item NBTs, and even for wands.
+
+### allowed_enchantments
+
+```yaml
+allowed_enchantments:
+- enchantment1
+- enchantment2
+```
+
+This will check the item found for specific enchantments applied to it. If any of the specific enchantments are found, it will be able to continue to its sub-actions.
+
+### blocked_enchantments
+
+```yaml
+blocked_enchantments:
+- enchantment1
+- enchantment2
+```
+
+This will check the item found for specific enchantments applied to it. If any of the specific enchantments are found, it will fail its sub-actions. It is the opposite of `allowed_enchantments`.
+
+### item
+
+`item: (string)`
+
+This field specifies what item the check is looking for. It will continue to its sub actions if it finds the item specified in this section (and if it matches the other fields) otherwise it will fail.
+
+### material_only
+
+`material_only: (true/false)`
+
+This field specifies whether the item needs to meet specific NBT requirements or not. If set to true, the spell will successfully check for any item disregarding its unique NBT. This is particularly useful for checking items with durability, as having this set to false/unset will fail if the item has lost any durability.
+
+### slot
+
+`slot: (string)`
+
+This specifies which slot to check for the item. If unset, it will check the whole inventory, but if it is set to something like `offhand` it will only check the target's offhand for the specified item.
+
+## CheckLore
+
+WIP
+
+## CheckMana
+
+The `CheckMana` action will check the health of the target and move on to the sub-actions depending on whether it succeeds the check. These actions may rely more on using `invert: true` to achieve more flexibility than other actions.
+
+### require_mana
+
+`require_mana: (number)`
+
+The spell will check to see if the target has higher than the designated amount of mana, and continues to the sub-actions if it does.
+
+### require_mana_empty
+
+`require_mana_empty: (true/false)`
+
+This will check if the target's mana is completely empty, and succeeds to its sub-actions if it is.
+
+### require_mana_not_full
+
+`require_mana_not_full: (true/false)`
+
+This will check if the target's mana is lower than 100% full. It will fail its sub-actions if the target has full mana.
+
+### require_mana_percentage
+
+`require_mana_percentage: (number)`
+
+The spell will check to see if the target has higher than the designated amount of mana, and continues to the sub-actions if it does.
+
+## CheckModifiers
+
+WIP
+
+## CheckPotionEffects
+
+This powerful action can react to specific potion effects applied on the target. It seems to be unable to check potion levels, though.
+
+### required
+
+```yaml
+required:
+- potioneffect1
+- potioneffect2
+```
+
+This will check the target for specific potion effects. If any of the specific effects are found, it will succeed on to its sub-actions.
+
+### blocked
+
+```yaml
+blocked:
+- potioneffect1
+- potioneffect2
+```
+
+This will check the target for specific potion effects. If any of the specific effects are found, it will fail its sub-actions. It is the opposite of `required`.
+
+## CheckVelocity
+
+This action checks for the target's movement, or 'velocity' and reacts to their speed.
+
+### max_speed
+
+`max_speed: (number)`
+
+The maximum speed the target can be moving at. The spell will fail its sub-actions if the target's health is over this number.
+
+### min_speed
+
+`min_speed: (number)`
+
+The minimum speed the target can be moving at. The spell will fail its sub-actions if the target's health is below this number.
+
+## CheckTrigger
+
+This action checks triggers from the target. It can check many different triggers and even sub categories of triggers. It's usually best to include with an Interval, Repeat, or While action so that the spell will check for a trigger during a duration.
+
+### trigger
+
+`trigger: (string)`
+
+This specifies the trigger to check for. There is an extensive list of triggers, as follows:
+
+- `block` (target blocks with a raised shield)
+- `consume` (target consumes/eats something)
+- `damage` (target is damaged by something)
+- `damage_dealt` (target damages something else)
+- `death` (target dies or is killed)
+- `drop` (target uses the drop item key)
+- `glide` (target glides with an elytra)
+- `interact` (target interacts with something)
+- `join` (target joins the server/world)
+- `jump` (target jumps)
+- `kill` (target kills something)
+- `land` (target lands on the ground)
+- `launch` (target launches a projectile)
+- `left_click` (target uses left click)
+- `respawn` (target respawns after death)
+- `right_click` (target uses right click)
+- `sneak` (target sneaks or uses sneak key)
+- `spawn` (target spawns or is generated)
+- `sprint` (target starts to sprint)
+- `swap` (target uses the swap items key)
+- `stop_block` (target stops blocking with shield)
+- `stop_glide` (target stops gliding with elytra)
+- `stop_sneak` (target stops sneaking)
+- `stop_sprint` (target stops sprinting)
+
+### max_damage
+
+`max_damage: (string)`
+
+This specifies the maximum damage required by a `damage` or `damage_dealt` class to trigger. Damage values higher than this will fail and not continue to sub-actions.
+
+### min_damage
+
+`min_damage: (string)`
+
+This specifies the minimum damage required by a `damage` or `damage_dealt` class to trigger. Damage values lower than this will fail and not continue to sub-actions.
+
+### damage_type
+
+`damage_type: (string)`
+
+This specifies the type of damage required by a `damage` or `damage_dealt` class to trigger. Damage types other than this will fail and not continue to sub-actions.
+
+### max_bowpull
+
+`max_bowpull: (number)`
+
+This specifies the maximum pull on a bow for this class to trigger. Pulling a bow to values higher than this will fail and not continue to sub-actions.
+
+### min_bowpull
+
+`min_bowpull: (number)`
+
+This specifies the minimum pull on a bow for this class to trigger. Pulling a bow to values lower than this will fail and not continue to sub-actions.
+
+### interval
+
+`interval: (number)`
+
+This specifies the time between the `interval` triggers. This amount of time must pass between triggering its sub-actions.
+
+## CheckRequirements
+
+This is probably the most versatile and useful 'check' action in magic. Its entire catalogue of uses is not fully documented yet due to how extensive they are. The format is somewhat different to the others, following either:
+
+```yaml
+- class: CheckRequirements
+  requirement:
+    (string):
+```
+
+Or
+
+```yaml
+- class: CheckRequirements
+  requirements:
+  - (string):
+  - (string):
+```
+
+### light
+
+```yaml
+requirement:
+  light:
+    min: (number)
+    max: (number)
+```
+
+This specifies the ambient light level required to proceed. You can set either a `min` light level, a `max` light level, or both for a range in between. Values of light outside this range will fail to proceed to the sub-actions. Light levels range from 0 to 15, aka low to high.
+
+### time
+
+```yaml
+requirement:
+  time:
+    min: (number)
+    max: (number)
+```
+
+This specifies the game time (in ticks) required to proceed. You can set either a `min` time, a `max` time, or both for a range in between. Values of light outside this range will fail to proceed to the sub-actions. Minecraft day/time cycle starts at 0 and ends at 24000. 0 and 24000 are equivalent to 6am. 6000 is equivalent to 12pm, 12000 is equivalent to 6pm, and 18000 is equivalent to 12am.
+
+### attributes
+
+```yaml
+requirements:
+- attributes:
+  - attribute: (string)
+    min: (number)
+    max: (number)
+    value: (number)
+```
+
+This specifies the attribute value or range required to succeed its check. If you define it in `value` it must be that exact number. Otherwise you can use min/max or both to define a range of accepted values to succeed.
+
+### weather
+
+```yaml
+requirement:
+  weather: (string)
+```
+
+This specifies the weather required to proceed. You can set either it to `clear` or `thunder` or `storm`. `clear` only works in clear skies, `thunder` only works during lightning/thunder, and `storm` works during both rain or thunder. To check for rain specifically, you may want to do a check succeeding for `storm` and a check failing for `thunder`.
+
+### class
+
+```yaml
+requirements:
+- class:
+  - (string)
+```
+
+This specifies a class that the player must have unlocked in order for the spell to succeed. You can define multiple classes as multiple bullet points. If the player fails to have the class defined, it will fail to continue to its sub-actions.
+
+### class_properties
+
+WIP
+
+### wand_properties
+
+WIP
+
+### wands
+
+WIP
+
+### wand
+
+WIP
+
+### wand_tags
+
+WIP
+
+### holding_wand
+
+WIP
+
+### path
+
+WIP
+
+### path_exact
+
+WIP
+
+### path_end
+
+WIP
+
+### permission
+
+WIP

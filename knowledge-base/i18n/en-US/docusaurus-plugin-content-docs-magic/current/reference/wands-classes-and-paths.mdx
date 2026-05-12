@@ -1,0 +1,169 @@
+---
+title: Wands, Classes and Paths
+---
+
+If creating an entirely new wand from scratch, you may also want to make a separate progression path.
+
+# Classes
+
+A "class" in Magic is a way to store spells, mana or other progression properties for a specific player in a contained way. So each wand may use its own class, or they can share classes (or base classes) with other wands, if you want two wands to share spells.
+
+So if creating a unique wand with its own set of spells, you may want to create a unique class to go along with it.
+
+See [Classes](classes.mdx) for more specific information on mage classes.
+
+# Paths
+
+A "path" in Magic represents how a player may progress. Generally this involves learning new spells, but may also give the player additional mana or other bonuses.
+
+Paths are how a spell shop knows what spells to allow a player to purchase, based on what class they have. Most often, a player's currently active class depends on the last wand they were holding.
+
+See [Progression](../basics/progression.mdx) for more information on how players progress in Magic.
+
+# Example: Adding a New Wand
+
+In this example we are adding a "fire" wand. This wand will only have fire-related spells on it, and it will keep its spells and mana separate from other wands.
+
+## The Class
+
+This wand will need its own class, to track the spells and mana the player has for their fire wand. Doing it this way via a class (versus storing spells and mana on the wand item itself) ensures that if a player loses their wand item, they do not lose their progress.
+
+This class would go in `plugins/Magic/classes/fire.yml`
+
+```yaml
+fire:
+  parent: base
+  locked: false
+  path: fire
+  mana_max: 50
+  mana_regeneration: 5
+  mana: 50
+  spells:
+    - fire
+```
+
+Let us look at each of these properties individually:
+
+* **parent**: This specifies the parent class. This class will inherit all properties from the parent. Generally you want to use the [base](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/defaults/classes/base.yml) class which is built into the plugin.
+* **locked**: This can be set to "true" to require a player to go through some extra steps before they can use this class. If set to "false", a player will unlock this class simply by holding a wand that uses it.
+* **path**: This is the progression path this class starts on.
+* **mana_max**: This is the maximum amount of mana a player will start with. This can be changed later by the progression path, or other means.
+* **mana_regeneration**: This is how much mana a player regenerates every second. This can be upgraded later by the progression path.
+* **mana**: This is the amount of mana the player first starts out with. This is simply here so a player can use their wand right away without waiting for mana to regenerate.
+* **spells**: A list of spells the player will start with
+
+## The Path
+
+For a player to be able to learn new spells and gain additional mana, they must be on a path. Here we have defined a starting path called `fire` in our class definition. 
+
+This path would go in `plugins/Magic/paths/fire.yml`
+
+The path might look like this:
+
+```yaml
+fire:
+    inherit: default
+    spells:
+      - flamethrower
+      - lava
+```
+
+Like classes, paths can inherit from other paths. In this case we are just inheriting from the [default](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/defaults/paths/default.yml) builtin path.
+
+A simple path only needs a set of spells for the player to learn.
+
+## Ranking Up
+
+If you want a system where a player can rank up to a new path, you will need to make more than one path for your wand. Then when a player has learned all of the spells from their first path, they will move on to the next path.
+
+Here is an example of two paths, the starting one and one the player may rank up to:
+
+```yaml
+fire:
+    inherit: default
+    upgrade: fire2
+    upgrade_item: fire2_upgrade
+    extra_spells:
+      - flare
+    spells:
+      - flamethrower
+      - lava
+```
+
+Let's look at the new properties:
+* **upgrade**: This is the path a player will move to after completing the current path
+* **upgrade_item**: This is an item the player will receive when ranking up. Often this is used to apply a wand upgrade to the player's wand, to set specific properties of the wand. This is optional.
+* **extra_spells**: This is a list of spells the player *may* purchase from the spell shop, but which are not required to progress to the next path.
+
+And here is the new path, which players will move to upon obtaining all 3 main spells of the `fire` path:
+
+```yaml
+fire2:
+    icon: wood_hoe:2
+    inherit: fire
+    mana_regeneration: 30
+    mana_max: 150
+    spells: 
+     - nuke
+```
+
+When moving to the `fire2` path, players mana and regen will be upgraded, and their wand icon will change to a new one. They now have access to one more (very OP) spell in their spell shop.
+
+# Advanced: Sharing Base Classes
+
+In some cases you may want two classes to share some properties. For instance, the `mage` (main wand) and `battle_mage` (magic sword) classes share spells. If you learn the `arrow` spell with your wand, you will also have access to it on your magic sword.
+
+This can be done by sharing a *common base class*.
+
+In this case, the base class is called [caster](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/classes/caster.yml).
+
+The base class looks much like our classes above, please follow the link if you'd like to look.
+
+The [mage](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/classes/mage.yml) and [battle_mage](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/classes/battle_mage.yml) classes then inherit from this common base class.
+
+These two classes will follow separate progression paths, but any spells learned on one path do not need to be re-learned on the other path.
+
+However, one detail here is that you may want to limit a wand so that it only shows spells on its own path. This can be done using a special property, which is set on the [magicsword](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/wands/magicsword.yml) wand configuration:
+
+```yaml
+magicsword:
+    inherit: base_sword
+    # ... irrelevant properties removed
+    limit_spells_to_path: true
+```
+
+This means that you will have access to *all* of your `caster` spells on a wand, but only a limited set of them on the magic sword.
+
+## Even More Advanced: Property Storage
+
+This works because of the configuration of the [base](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/defaults/classes/base.yml) class, which the `caster` class inherits from.
+
+This base class defines where properties are stored. This is important, because in order to share spells we need to store the list of spells on the shared `caster` class, rather than the individual `mage` or `battle_mage` classes. 
+
+Here is what that looks like:
+
+```yaml
+base:
+  storage:
+    mana: class
+    mana_max: class
+    mana_regeneration: class
+    mana_timestamp: class
+    spell_levels: class
+    spells: class
+    brushes: class
+    path: subclass
+    hotbar_count: subclass
+
+    # Attributes are primarily stored on the mage
+    # But attributes can also be set on wands to provide attribute buffs.
+    attributes: mage,wand
+```
+
+So here we see that mana and spells are stored on the base class, but the path is stored on the "subclass".
+
+In our mage/battle example, the base class is `caster` (which is shared between the two) and the subclass would be either `mage` or `battle`.
+
+Hotbar count is also stored on the subclass, so that players may earn additional hotbars on their wand but have to earn them separately for the magic sword.
+
+And then finally we see `attributes`, which are a mix of global player attributes, and per-wand attributes. These will stack.

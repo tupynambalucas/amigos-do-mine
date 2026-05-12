@@ -1,0 +1,27 @@
+---
+title: Publishing
+---
+
+# Publishing an External Example
+
+If you've created a set of configs in Magic that you'd like to share, you can publish it as an external example that other users can easily load with the `/mconfig fetch` command.
+
+All you need is a publicly accessible zip file containing your configs. This is especially easy to do with github- you can make a new repository with your configs in them and then point people at the "Download Zip" link.
+
+The repository's root should contain the configs. See here for an example: https://github.com/elBukkit/Magic-Mars
+
+## Meta Information
+
+You may (optionally) put an example.yml in the root of your zip. This file will be parsed when the example is loaded. There are currently only two fields supported:
+
+**min_version**: This is the minimum version of Magic required to use your example. If you know you are using features in a recent build of Magic, it is good to set this to avoid people updating your example before they've updated the plugin.
+
+**name**: This is the name of your example. If not specified, the name given by the user when they use `/mconfig fetch` will be used.
+
+## Providing Instructions
+
+You can include instructions for your example in your messages files, these will be shown when the example is enabled.
+
+You add these instructions in the `examples.<your example name>.instructions` string. It is a good idea to provide your example name in your `example.yml` meta file (see above), so that users will still see your instructions even if they load your example using a different name.
+
+See [the mars example](https://github.com/elBukkit/Magic-Mars/blob/main/messages/instructions.yml) for an example set of instructions.

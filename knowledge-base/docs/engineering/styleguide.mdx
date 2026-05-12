@@ -1,88 +1,88 @@
 ---
-title: Style Guide & Standards
-description: Engineering standards, coding conventions, and quality requirements for the Amigos Do Mine monorepo.
+title: Guia de Estilo e Padrões
+description: Padrões de engenharia, convenções de codificação e requisitos de qualidade para o monorepo Amigos Do Mine.
 ---
 
-# Style Guide and Standards
+# Guia de Estilo e Padrões
 
-This document defines the strict coding conventions and quality requirements for the **Amigos Do Mine** project. These rules are mandatory for all AI assistants and human contributors.
+Este documento define as convenções estritas de codificação e requisitos de qualidade para o projeto **Amigos Do Mine**. Estas regras são obrigatórias para todos os assistentes de IA e contribuidores humanos.
 
 ---
 
-## 1. The Prime Directives 🛡️
+## 1. As Diretrizes Primárias 🛡️
 
-*   **SSOT or Die**: Never use `any`. All data shapes must come from `@amigos-portal/core`. If a type is missing, create it there first.
-*   **Asset Safety**: Do not touch raw assets in `portal/apps/api`. Always edit in `resources/` and use the build pipeline.
-*   **Async Everything**: All I/O operations (file reads, web requests, database queries) MUST be asynchronous. Blocking the main thread (especially on the game server) is strictly forbidden.
-*   **Technical English**: All code, comments, and technical documentation must be in English.
+*   **SSOT ou Morte**: Nunca use `any`. Todas as formas de dados devem vir de `@amigos-portal/core`. Se um tipo estiver faltando, crie-o lá primeiro.
+*   **Segurança de Ativos**: Não toque em ativos brutos em `portal/apps/api`. Sempre edite em `resources/` e use o pipeline de build.
+*   **Async Everything**: Todas as operações de I/O (leitura de arquivos, requisições web, consultas ao banco) DEVEM ser assíncronas. Bloquear a thread principal (especialmente no servidor de jogo) é estritamente proibido.
+*   **Inglês Técnico**: Todo o código, comentários e documentação técnica devem estar em Inglês.
 
-## 2. TypeScript & General Coding Rules
+## 2. Regras de TypeScript e Codificação Geral
 
-We prioritize maximum type safety through a rigorous TypeScript configuration.
+Priorizamos a máxima segurança de tipos através de uma configuração rigorosa de TypeScript.
 
-- **Object Definitions:** Use `interface` for object definitions. Use type aliases for unions or utility types.
-- **Type Imports:** Always use `import type` for types.
-- **Strict Booleans:** Boolean expressions must be explicit. Use `if (value !== undefined)` instead of `if (value)`.
-- **Comparisons:** Always use strict equality (`===`).
-- **Naming Conventions**:
-    - **Schemas:** Must end with `Schema` (e.g., `UserSchema`).
-    - **Files:** Follow the `name.type.ts` pattern (e.g., `auth.controller.ts`).
-    - **Directories:** Use `camelCase`.
+- **Definições de Objetos:** Use `interface` para definições de objetos. Use aliases de tipo para uniões ou tipos utilitários.
+- **Importação de Tipos:** Sempre use `import type` para tipos.
+- **Booleanos Estritos:** Expressões booleanas devem ser explícitas. Use `if (value !== undefined)` em vez de `if (value)`.
+- **Comparações:** Sempre use igualdade estrita (`===`).
+- **Convenções de Nomenclatura**:
+    - **Schemas:** Devem terminar com `Schema` (ex: `UserSchema`).
+    - **Arquivos:** Seguir o padrão `nome.tipo.ts` (ex: `auth.controller.ts`).
+    - **Diretórios:** Usar `camelCase`.
 
-## 3. Minecraft & Resources 🎨
+## 3. Minecraft e Recursos 🎨
 (`resources/`)
 
-- **Naming**: Use `snake_case` for asset files (e.g., `ruby_sword.png`).
-- **Organization**: Keep textures in `/textures` and models in `/models`.
-- **Exporting**: Always use the build script to bundle resource packs.
+- **Nomenclatura**: Use `snake_case` para arquivos de ativos (ex: `ruby_sword.png`).
+- **Organização**: Mantenha texturas em `/textures` e modelos em `/models`.
+- **Exportação**: Sempre use o script de build para empacotar os resource packs.
 
-## 4. Docker & Infrastructure 🐳
+## 4. Docker e Infraestrutura 🐳
 
-- **User Permissions**: In production, services run as a restricted user (e.g., `user: minecraft`).
-- **Graceful Shutdown**: Use `exec` form in Dockerfiles to ensure SIGTERM signals are handled.
-- **Rebuilds**: Run with `--build` whenever infrastructure configuration (like `eudev-libs`) is modified.
+- **Permissões de Usuário**: Em produção, os serviços rodam como um usuário restrito (ex: `user: minecraft`).
+- **Shutdown Gracioso**: Use a forma `exec` nos Dockerfiles para garantir que os sinais SIGTERM sejam tratados.
+- **Rebuilds**: Rode com `--build` sempre que a configuração de infraestrutura (como `eudev-libs`) for modificada.
 
-## 5. SOLID Principles 🧱
+## 5. Princípios SOLID 🧱
 
-We build for the future. Spaghetti code is forbidden.
+Construímos para o futuro. Código espaguete é proibido.
 
-- **S**ingle Responsibility: One class, one job.
-- **O**pen/Closed: Extend functionality, don't rewrite it.
-- **L**iskov Substitution: Subtypes must behave like their parents.
-- **I**nterface Segregation: Keep interfaces small and focused.
-- **D**ependency Inversion: Depend on abstractions, not concretions.
+- **S**ingle Responsibility: Uma classe, uma função.
+- **O**pen/Closed: Estenda a funcionalidade, não a reescreva.
+- **L**iskov Substitution: Subtipos devem se comportar como seus pais.
+- **I**nterface Segregation: Mantenha as interfaces pequenas e focadas.
+- **D**ependency Inversion: Dependa de abstrações, não de concreções.
 
 ---
 
-## 6. Code Block Standards (`live` blocks)
+## 6. Padrões de Blocos de Código (blocos `live`)
 
 > [!CAUTION]
-> **RESTRICTED USAGE:** The Docusaurus `live` code block is EXCLUSIVELY reserved for this Style Guide to demonstrate coding patterns.
+> **USO RESTRITO:** O bloco de código `live` do Docusaurus é reservado EXCLUSIVAMENTE para este Guia de Estilo para demonstrar padrões de codificação.
 
-### 6.1. Rigorous Pattern Example
+### 6.1. Exemplo de Padrão Rigoroso
 
 ```jsx live
 /**
- * Advanced State Manager Example
- * Demonstrates: Interfaces, useCallback, void operator, and explicit booleans.
+ * Exemplo de Gestor de Estado Avançado
+ * Demonstra: Interfaces, useCallback, operador void e booleanos explícitos.
  */
 
 function ServerStatsManager() {
   const [servers, setServers] = React.useState([
     { id: 'lobby-1', status: 'online', players: 42 },
-    { id: 'survival-1', status: 'maintenance', players: 0 },
+    { id: 'survival-1', status: 'manutencao', players: 0 },
   ]);
   const [isRefreshing, setIsRefreshing] = React.useState(false);
 
   const hasIssues = React.useMemo(() => {
-    return servers.some((s) => s.status === 'maintenance');
+    return servers.some((s) => s.status === 'manutencao');
   }, [servers]);
 
   const refreshData = async () => {
     setIsRefreshing(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.info('Stats refreshed');
+      console.info('Stats atualizados');
     } finally {
       setIsRefreshing(false);
     }
@@ -94,16 +94,16 @@ function ServerStatsManager() {
 
   return (
     <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '8px' }}>
-      <h3>Server Monitor</h3>
+      <h3>Monitor de Servidores</h3>
       <div style={{ marginBottom: '1rem' }}>
-        {hasIssues === true ? '⚠️ Issues Detected' : '✅ All Systems Nominal'}
+        {hasIssues === true ? '⚠️ Problemas Detectados' : '✅ Sistemas Operantes'}
       </div>
       <button 
         disabled={isRefreshing === true}
         onClick={handleAction}
         style={{ cursor: isRefreshing === true ? 'not-allowed' : 'pointer' }}
       >
-        {isRefreshing === true ? 'Refreshing...' : 'Force Refresh'}
+        {isRefreshing === true ? 'Atualizando...' : 'Forçar Atualização'}
       </button>
     </div>
   );
@@ -112,4 +112,4 @@ function ServerStatsManager() {
 
 ---
 
-_Last Updated: May 2026_
+_Última Atualização: Maio de 2026_

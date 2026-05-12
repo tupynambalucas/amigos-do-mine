@@ -1,0 +1,127 @@
+---
+title: NPCs
+---
+
+# Magic NPCs
+
+Magic NPCs can be used to cast spells on players, allow them to check spell upgrade progress, purchase wands, items, spells, and much more.
+
+They can also run commands on right-click, as well as have any of the triggered events that [Magic Mobs](magic-mobs.mdx) can have.
+
+## WorldGuard
+
+NOTE: If you want to use NPCs inside of WorldGuard regions, you will need to set `mobs.block-plugin-spawning: false` inside WorldGuard's config.yml
+
+## Citizens NPCs
+
+If you are already using [Citizens NPCs](../reference/citizens.mdx) you can also attach the "magic" or "command" trait for similar features to Magic NPCs.
+
+If you have been using Citizens NPCs with Magic traits, and would like to switch to using pure Magic NPCs, simply use the command `/mnpc import`. After you've verified it worked (there should be duplicates of all NPCs afterward) you should be able to shut down the server and remove Citizens.
+
+## Getting Started
+
+Use the command `/mnpc add Spell Shop` to create a new Spell Shop NPC. By default it will be a villager. You can change that with `/mnpc type witch`.
+
+Magic mobs can be used as NPC templates, so disguises can be used if you have LibsDisguises, allowing you to make fake-player NPCs.
+
+## Casting Spells
+
+You can make an NPC cast a spell on right-click using the shortcut `/mnpc cast spellshop`.
+
+You can also provide parameters, such as `/mnpc cast blink cooldown 0 pdy 10`, which will cast Blink straight up in the air with no cooldown.
+
+By default, the NPC will force the player clicking on the NPC to cast the spell. This works great for shops, but if you wanted to make a healing NPC you want the NPC to cast the spell on the player. This could be done as
+
+```bash
+/mnpc cast heal
+/mnpc configure cast_source npc
+```
+
+### Built-in Spells for NPC Use
+
+The following spells are intended for NPC use:
+* **upgrades** - Provides a GUI for a player to check on their upgrade progress
+* **spellshop** - A wand-sensitive spell shop that can replace enchanting as a progression mechanism
+* **magicitemshop** - A shop to sell all of the magic items
+* **engineershop** - A shop to allow players to progress to Engineer
+* **architectshop** - A shop to allow players to progress to Architect
+* **bookshop** - A shop to give away spellbooks that describe available spells
+* **broomshop** - A shop to sell brooms
+* **wandshop** - A shop to sell a few example wands
+* **tweakshop** - A shop for wand "tweaks", which are free (inventory/chest mode, etc)
+* **colorshop** - A shop for selling custom wand colors and effects
+* **mobshop** - A shop with custom mob spawn eggs
+* **withdrawals** - An exchange shop for currency items
+* **deposits** - An exchange shop for currency items
+* **ledgershop** - A simple shop that sells the Ledger item
+* **lootshop** - A sell shop for mob loot
+* **trinketshop** - A shop with decorative player skulls
+* **upgradeshop** - A shop for selling wand upgrades (hotbar upgrades, anti-hunger)
+* **fillwand** - For rank-based servers, fills a player's wand with all of their spells
+* **addspell** - Can be used to give players a specific spell
+* **enchantwand** - Can be used as a replacement for the enchantment table
+* **tpshop** - Allow a random tp for $1
+
+#### NPC shop parameters
+
+You can use /cast in-game with tab-completion to get an idea for available parameters. In particular, all of the shops support a common set of useful parameters:
+
+* **confirm** - Whether or not to show the confirmation screeen
+* **path** - A player must be on or past this enchanting path to use this shop
+* **path_end** - A player must have completed this enchanting path and be blocked on required spells
+* **path_exact** - A player must be on this exact path
+* **auto_upgrade** - Whether to advance the player to the next path once they meet the requirements
+* **require_wand** - Whether or not to require a wand, useful to prevent players from having spell and upgrade items
+
+### Examples
+
+Some simple examples:
+
+```bash
+# Set up an upgrades NPC
+/mnpc cast upgrades
+
+# Set up an NPC to give the player the blink spell in exchange for 30 dollars
+/mnpc cast addspell spell blink
+/mnpc costs 30
+
+# Set up a spell shop
+/mnpc cast spellshop
+
+# Set up a random TP NPC
+/mnpc cast tpshop
+/mnpc configure helmet randomtp
+```
+
+As with any spell, these spells can be customized or used as the basis for new spells via spells.yml.
+
+## Running Commands
+
+An NPC can also be set to run a set of commands, such as
+
+`/mnpc configure commands time set day;weather clear`
+
+Command traits are similar to "magic" traits, but instead of a "spell" parameter they take a "command" parameter. 
+
+### Command Trait Selectors
+
+The following selectors can be used in a command:
+
+* **@p** The player's IGN
+* **@pn** The player's IGN (same as @p)
+* **@pd** The player's display name
+* **@uuid** The player's UUID
+* **@world** The world the player is in
+* **@x** The player's x coordinate
+* **@y** The player's y coordinate
+* **@z** The player's z coordinate
+
+### Examples
+
+```bash
+/mnpc configure command broadcast @p has clicked on an NPC at @world,@x,@y,@z
+```
+
+### Player NPCs
+
+Magic uses vanilla mobs for NPCs, as such it can not make players. However, if you have LibsDisguises you can make an NPC *look* like a player with the command `/mnpc player NathanWolf`

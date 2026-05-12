@@ -1,0 +1,115 @@
+---
+title: Style Guide & Standards
+description: Engineering standards, coding conventions, and quality requirements for the Amigos Do Mine monorepo.
+---
+
+# Style Guide and Standards
+
+This document defines the strict coding conventions and quality requirements for the **Amigos Do Mine** project. These rules are mandatory for all AI assistants and human contributors.
+
+---
+
+## 1. The Prime Directives 🛡️
+
+*   **SSOT or Die**: Never use `any`. All data shapes must come from `@amigos-portal/core`. If a type is missing, create it there first.
+*   **Asset Safety**: Do not touch raw assets in `portal/apps/api`. Always edit in `resources/` and use the build pipeline.
+*   **Async Everything**: All I/O operations (file reads, web requests, database queries) MUST be asynchronous. Blocking the main thread (especially on the game server) is strictly forbidden.
+*   **Technical English**: All code, comments, and technical documentation must be in English.
+
+## 2. TypeScript & General Coding Rules
+
+We prioritize maximum type safety through a rigorous TypeScript configuration.
+
+- **Object Definitions:** Use `interface` for object definitions. Use type aliases for unions or utility types.
+- **Type Imports:** Always use `import type` for types.
+- **Strict Booleans:** Boolean expressions must be explicit. Use `if (value !== undefined)` instead of `if (value)`.
+- **Comparisons:** Always use strict equality (`===`).
+- **Naming Conventions**:
+    - **Schemas:** Must end with `Schema` (e.g., `UserSchema`).
+    - **Files:** Follow the `name.type.ts` pattern (e.g., `auth.controller.ts`).
+    - **Directories:** Use `camelCase`.
+
+## 3. Minecraft & Resources 🎨
+(`resources/`)
+
+- **Naming**: Use `snake_case` for asset files (e.g., `ruby_sword.png`).
+- **Organization**: Keep textures in `/textures` and models in `/models`.
+- **Exporting**: Always use the build script to bundle resource packs.
+
+## 4. Docker & Infrastructure 🐳
+
+- **User Permissions**: In production, services run as a restricted user (e.g., `user: minecraft`).
+- **Graceful Shutdown**: Use `exec` form in Dockerfiles to ensure SIGTERM signals are handled.
+- **Rebuilds**: Run with `--build` whenever infrastructure configuration (like `eudev-libs`) is modified.
+
+## 5. SOLID Principles 🧱
+
+We build for the future. Spaghetti code is forbidden.
+
+- **S**ingle Responsibility: One class, one job.
+- **O**pen/Closed: Extend functionality, don't rewrite it.
+- **L**iskov Substitution: Subtypes must behave like their parents.
+- **I**nterface Segregation: Keep interfaces small and focused.
+- **D**ependency Inversion: Depend on abstractions, not concretions.
+
+---
+
+## 6. Code Block Standards (`live` blocks)
+
+> [!CAUTION]
+> **RESTRICTED USAGE:** The Docusaurus `live` code block is EXCLUSIVELY reserved for this Style Guide to demonstrate coding patterns.
+
+### 6.1. Rigorous Pattern Example
+
+```jsx live
+/**
+ * Advanced State Manager Example
+ * Demonstrates: Interfaces, useCallback, void operator, and explicit booleans.
+ */
+
+function ServerStatsManager() {
+  const [servers, setServers] = React.useState([
+    { id: 'lobby-1', status: 'online', players: 42 },
+    { id: 'survival-1', status: 'maintenance', players: 0 },
+  ]);
+  const [isRefreshing, setIsRefreshing] = React.useState(false);
+
+  const hasIssues = React.useMemo(() => {
+    return servers.some((s) => s.status === 'maintenance');
+  }, [servers]);
+
+  const refreshData = async () => {
+    setIsRefreshing(true);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.info('Stats refreshed');
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
+
+  const handleAction = () => {
+    void refreshData();
+  };
+
+  return (
+    <div style={{ padding: '1rem', border: '1px solid #ccc', borderRadius: '8px' }}>
+      <h3>Server Monitor</h3>
+      <div style={{ marginBottom: '1rem' }}>
+        {hasIssues === true ? '⚠️ Issues Detected' : '✅ All Systems Nominal'}
+      </div>
+      <button 
+        disabled={isRefreshing === true}
+        onClick={handleAction}
+        style={{ cursor: isRefreshing === true ? 'not-allowed' : 'pointer' }}
+      >
+        {isRefreshing === true ? 'Refreshing...' : 'Force Refresh'}
+      </button>
+    </div>
+  );
+}
+```
+
+---
+
+_Last Updated: May 2026_

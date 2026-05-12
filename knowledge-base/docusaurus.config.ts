@@ -37,16 +37,16 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'pt-BR'],
+    defaultLocale: 'pt-BR',
+    locales: ['pt-BR', 'en-US'],
     localeConfigs: {
-      en: {
-        label: 'English',
-        htmlLang: 'en-US',
-      },
       'pt-BR': {
         label: 'Português (Brasil)',
         htmlLang: 'pt-BR',
+      },
+      'en-US': {
+        label: 'English',
+        htmlLang: 'en-US',
       },
     },
   },
@@ -120,7 +120,7 @@ const config: Config = {
     navbar: {
       title: 'AmigosDocs',
       logo: {
-        alt: 'Amigos Do Mine Logo',
+        alt: 'Logo do Amigos Do Mine',
         src: 'eloornico/svg/logo-negative.svg',
       },
       items: [
@@ -128,7 +128,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Documentation',
+          label: 'Documentação',
         },
         {
           type: 'docSidebar',
@@ -138,7 +138,7 @@ const config: Config = {
           docsPluginId: 'magic',
         },
         { to: '/studio', label: 'Studio', position: 'left' },
-        { to: '/tools', label: 'Tools', position: 'left' },
+        { to: '/tools', label: 'Ferramentas', position: 'left' },
         { to: '/changelog', label: 'Changelog', position: 'right' },
         {
           type: 'localeDropdown',
@@ -148,25 +148,25 @@ const config: Config = {
           href: 'https://github.com/tupynambalucas/amigos-do-mine',
           position: 'right',
           className: 'header-github-link',
-          'aria-label': 'GitHub repository',
+          'aria-label': 'Repositório no GitHub',
         },
       ],
     },
     footer: {
       links: [
         {
-          title: 'Documentation',
+          title: 'Documentação',
           items: [
             {
-              label: 'Introduction',
+              label: 'Introdução',
               to: '/docs/intro',
             },
             {
-              label: 'Architecture',
+              label: 'Arquitetura',
               to: '/docs/engineering/architecture',
             },
             {
-              label: 'Style Guide',
+              label: 'Guia de Estilo',
               to: '/docs/engineering/styleguide',
             },
             {
@@ -176,31 +176,31 @@ const config: Config = {
           ],
         },
         {
-          title: 'Ecosystem',
+          title: 'Ecossistema',
           items: [
             {
               label: 'Studio (Design)',
               to: '/studio',
             },
             {
-              label: 'Tools (CLI)',
+              label: 'Tools (Ferramentas)',
               to: '/tools',
             },
             {
-              label: 'Portal (Dashboard)',
+              label: 'Portal (Painel)',
               to: '/',
             },
             {
-              label: 'Minecraft (Server)',
+              label: 'Minecraft (Servidor)',
               href: 'https://github.com/tupynambalucas/amigos-do-mine',
             },
           ],
         },
         {
-          title: 'Product',
+          title: 'Produto',
           items: [
             {
-              label: 'Vision',
+              label: 'Visão',
               to: '/docs/product/vision',
             },
           ],
@@ -210,7 +210,7 @@ const config: Config = {
         <div class="footer__banner-container">
           <img src="/amigos-do-mine/eloornico/svg/banner-negative.svg" alt="Amigos Do Mine" class="footer__banner" />
         </div>
-        <p>Copyright © ${new Date().getFullYear()} Amigos Do Mine. Professional Minecraft ecosystem management. Built with Docusaurus.</p>
+        <p>Copyright © ${new Date().getFullYear()} Amigos Do Mine. Gestão profissional de ecossistema Minecraft. Desenvolvido com Docusaurus.</p>
       `,
     },
     prism: {

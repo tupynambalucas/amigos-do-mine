@@ -1,0 +1,181 @@
+---
+title: Selector
+---
+
+# Custom GUIs with the [Selector](http://reference.elmakers.com/#actions.selector) action
+
+The Selector action can be used to create custom GUIs that can buy/sell/trade items, buff players, cast spells, modify wands and items or do anything else a spell could do.
+
+Selectors can specify a range of requirements for the entire GUI or for individual options.
+
+## Examples
+
+The default survival configs come with several examples of using the Selector. The GUI players see when right-clicking an enchant table is in the [progressmenu](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/progressmenu.yml) configuration, for instance.
+
+Each option in the progressmenu is also another Selector, contained in its own file.
+
+The stars configs also have an example of a class-chosing mechanic in the [starshop](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/stars/spells/starshop.yml).
+
+## Custom GUIs
+
+Creating a new GUI starts by creating a new spell with a Selector action, like this:
+
+```yaml
+starshop:
+  icon: sulphur
+  category: shop
+  hidden: true
+  actions:
+      cast:
+      -  class: Selector
+```
+
+The first three properties aren't strictly necessary, but may be nice for testing, spell books or general organization:
+
+* `icon`: An icon used if this spell appears on a wand or as an option in some other Selector.
+* `category`: Organization for the `/spells` command, web pages or spell books. 
+* `hidden`: Will hide this spell from the `/spells` command, web pages and spell book.
+
+The `actions` section, as always, specifies what the spell does. In this case it's just the Selector action.
+
+### Parameters
+
+There are a few top-level parameters that can be used in a selector:
+
+```yaml
+  parameters:
+    show_unavailable: true
+    confirm: true
+    confirm_filler: glass
+    auto_close: true
+    options:
+    - .... see options section below!
+```
+
+* `show_unavailable`: true/false, whether or not unavailable options should be shown or hidden entirely.
+* `confirm`: true/false, whether or not there should be confirmation screen before the selection is finalized.
+* `confirm_filler`: A Material type used to fill in empty space in the confirmation screen.
+* `auto_close`: true/false, whether the shop should automatically close after the player has selected an opion.
+* `scale`: A multiplier used to scale any costs in the options.
+* `earn_scale`: A multiplier used to scale anything earned from the options.
+* `title`: The title to use for the GUI inventory. This can also be specified in `messages.yml`
+* `confirm_title`: The title to use for the confirmation screen GUI inventory. This can also be specified in `messages.yml`
+* `unlock_confirm_title`: The title to use for the confirmation screen GUI inventory when unlocking an option (paying for that option to be free forever). This can also be specified in `messages.yml`
+
+### Options
+
+The `options` parameter will be a list of configuration sections that specify how each inventory slot in the GUI should behave.
+
+Any properties of an option can also be specified in the base Selector parameters. In this case they will serve as the default values for all options.
+
+Each option can have any of the following properties:
+
+* `icon`: An item to use as the icon for this option. If omitted the option will automatically choose an icon based on the items or spells it offers.
+* `name`: The title of this option's icon, seen when hovering over it. If omitted the option will attempt to determine the name automatically for the items, classes or spells offered by the option.
+* `lore`: The lore to use for the icon, seen when hovering over it.  If omitted the option will attempt to determine the name automatically for the items, classes or spells offered by the option.
+* `slot`: A specific inventory slot to put this option in. Omit to have slots filled in order.
+* `item`: A single item to offer. This can be an item name or a configuration section. See "Items" below.
+* `items`: A list of items to offer. Each item can be an item name or a configuration section. See "Items" below.
+* `cast_spell`: A spell to force the player to cast. This can be used to open another GUI, or make the player perform any kind of action Magic supports.
+* `commands`: A list of commands to run as the console. A variety of parameters can be used here, See the [Command](http://reference.elmakers.com/#actions.command.command) action for details.
+* `unlock_class`: A [class](classes.mdx) the player will unlock
+* `switch_class`: A [class](classes.mdx) the player will switch to. The player's current class will be locked, and a new class will be unlocked.
+* `actions`: A list of actions to run when this option is selected. This can be used to make self-contained multi-level GUIs, instead of using `cast_spell` to refer to a separate spell config.
+* `effects`: A list of special FX to play when this option is selected.
+* `earn`: An amount of money (or some other currency) to give to the player on selection.
+* `earn_type`: The type of currency earned by this option.
+* `costs`: A list of costs for this option. Can be mana, money, items or any other registered currency type. (These are shown in your server logs at startup)
+* `limit`: Mainly used for `unlock_class`, specifies how many classes a player is allowed to unlock. This is used to make "choose a class" type of GUIs, where a player has to choose only one of a set number of classes.
+* `unlock`: A unique key used for unlocking this option. If present, the first time a player chooses this option it will unlock. Afterwards that option is available for free. This is used in the wand [appearanceshop](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/appearanceshop.yml) to allow players to collect unique wand appearances and switch to them at any time.
+* `apply_to_caster`: Set to true to apply the item directly to the caster, preventing the caster from being able to get this option as a physical item.
+* `apply_to_wand`: Set to true to apply the item directly to the caster's wand, preventing the caster from being able to get this option as a physical item.
+* `confirm`: true/false, whether or not there should be confirmation screen before the selection is finalized.
+* `show_unavailable`: true/false, whether this option should be shown if unavailable (telling the player why it is not available), or hidden completely.
+* `free`: Set to true to simply make this option free. Can be used with `/cast` to make a selector free for testing purposes.
+* `selected`: The message to to send to the player when they select this option.
+* `cost_modifiers`: Used to make dynamic pricing based on player attributes. See below for more info.
+* `requirements`: A list of requirements the player must fulfill for this option to be available.
+
+### Items
+
+The `items` and `item` properties in an option can take two different forms for each item specified:
+
+#### List of items
+
+Just a simple list of items. Costs can not be specified here.
+
+If an item does not have a worth specified in the items configuration (e.g. `/mitem save <itemname> <worth>`), it will be offered for free.
+
+The format `itemname@amount` can be used to offer multiple items in one slot.
+
+#### List of configuration sections
+
+For more complex shops, items can be specified as configuration sections.
+
+Each item can have a few different properties:
+
+* `item`: The Material type of the item sold in this slot.
+* `slot`: A specific slot of the item GUI to put this item. Omit this to just fill in order.
+* `cost`: The cost of this item, if omitted the saved item worth will be used.
+* `name`: A custom display name for this item. Will be used by the icon as well as the item given.
+* `lore`: A custom list of lore for this item. Will be used by the icon as well as the item given.
+
+### Cost Modifiers
+
+Cost modifiers can be used to make an options' costs depend on player or wand attributes. For instance:
+
+```yaml
+      cost_modifiers:
+        - scale: "1 + 9 * (x ^ 3)"
+          type: wand
+          property: protection.overall
+```
+
+This is used for wand buffs to make the buffs progressively more expensive as they are added to the wand.
+
+The `type` property can be `wand`, `mage`, `class` or `attribute`. The first 3 types use properties on wands, mages (player data) or mage classes. The `attribute` type will use mage class attributes.
+
+The `property` property specifies which property is used. For `attribute` type modifiers, `attribute` should be used instead. 
+
+The `scale` property is an equation using the specified property as the `x` variable. This equation is computed to determine a cost multiplier to use on the option's cost.
+
+See the [wandbuffs](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/wandbuffs.yml#L22) for a full example.
+
+### Requirements
+
+A list of requirements can be specified on each option to determine whether or not the player is allowed to select this option. Requirements can be added by external plugins, and Magic contains a variety of built in options. Each requirement can specify any of the following:
+
+* `permission`: The player must have a specific permission.
+* `path`: The player must have attained at least this path.
+* `path_exact`: The player must be on a specific path.
+* `path_end`: The must be on a specific path, and have no more spells available.
+* `wand`: The player must be holding a specific wand.
+* `wands`: The player must be holding one out of a list of specific wands.
+* `class`: The player must have a specific class unlocked.
+* `active_class`: The player must have a specific class currently active.
+* `holding_wand`: Set to true to require the player be holding a wand, though it doesn't matter what kind.
+* `wand_properties`: A player must be holding a wand with some specific properties. See below.
+* `class_properties`: A player must be have some specific properties on their active class. See below.
+* `attributes`: A player must have some specific attributes. See below.
+
+#### Properties and Attributes
+
+Requirements for properties and attributes are specified in a configuration section. This section specifies:
+
+* `property`/`attribute`: The property or attribute to check.
+* `min`: The minimum value allowed for this property or attribute.
+* `max`: The maximum value allowed for this property or attribute.
+* `value`: An exact value this property or attribute must have.
+
+For example, to stop offering a particular option once a wand's overall protection level is at 1 or higher:
+
+```yaml
+      requirements:
+        - wand_properties:
+          - property: protection.overall
+            max: 1
+```
+
+### Empty space
+
+A simple `none` can be put in the options list for an empty slot, allowing you to organize your GUIs. You can also give each option a `slot` parameter to organize, but this may be more difficult to manage in the future when you wand to add or remove options.

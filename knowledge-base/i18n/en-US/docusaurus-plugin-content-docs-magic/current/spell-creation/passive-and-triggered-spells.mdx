@@ -1,0 +1,111 @@
+---
+title: Passive and Triggered Spells
+---
+
+Magic supports triggered passive spells.
+
+# Passive Spells
+
+A passive spell is one that can not be directly cast by the player. These spells will show up in the player's spell inventory, but selecting or casting it will toggle the spell on/off.
+
+Spells are made passive via a top-level property, such as:
+
+```yaml
+savior:
+  passive: true
+  toggleable: false
+```
+
+The ability to toggle a passive spell on/off can be disabled via the `toggleable` property.
+
+Passive spells can be obtained via the spell shop like any other spell.
+
+Passive spells will not do anything unless given triggers.
+
+# Triggered Spells
+
+Spells can be triggered by a number of builtin events, or by other spells.
+
+Triggers are set up as top-level properties, and generally go along with the `passive` property. A spell can have multiple triggers, and some triggers can have criteria that must be met. For example:
+
+```yaml
+  passive: true
+  triggers:
+    # This triggers when the player takes fall damage
+    - trigger: damage
+      damage_type: fall
+```
+
+## Available Builtin Triggers
+
+The following triggers will fire automatically:
+
+* **join** : When the player joins the server
+* **interval** : Every `interval` milliseconds
+* **death** : When the player dies
+* **damage** : When the player is damaged
+* **launch** : When the player launches a projectile
+* **damage_dealt** : When the player deals damage
+* **kill** : When the player kills a player or mob
+* **glide** : A player starts gliding with an elytra
+* **stop_glide** : A player stops gliding with an elytra
+* **interact** : A player interacts with an entity or NPC
+* **left_click** : A player left-clicks (swings)
+* **right_click** : A player right-clicks (interacts with a block or air)
+* **sneak** : A player starts sneaking
+* **stop_sneak** : A player stops sneaking
+* **sprint** : A player starts sprinting
+* **stop_sprint** : A player stops sprinting
+* **land** : The player lands on the ground after flying or falling
+* **block** : The player starts blocking with a shield (has it raised)
+* **stop_block** : The player stops blocking with a shield
+* **respawn** : The player has respawned after death
+* **swap** : The player uses the swap item button
+* **drop** : The player uses the drop item button
+* **consume** : A player consumes some food or drink
+* **jump** : A player jumped
+* **catch_fish** : When player catch fish
+
+## Trigger Requirements
+
+Triggers can have requirements, some of these only apply to specific trigger types:
+
+* **interval** : For the interval trigger, how often it should fire
+* **max_health** : Will not fire if the player has more health than this
+* **min_health** : Will not fire if the player has less health than this
+* **max_damage** : Will not fire if more than this amount of damage was dealt
+* **min_damage** : Will not fire if less than this amount of damage was dealt
+* **max_bowpull** : Will not fire if the player pulled the bow back farther than this (0 - 1)
+* **min_bowpull** : Will not fire if the player did not pull the bow back far enough (0 - 1)
+* **damage_type** : Only fires for one specific damage type
+* **damage_types** : Only fires for a set of damage types
+* **projectile_type** : Only fires for one specific projectile type
+* **projectile_types** : Only fires for a set of projectile types
+
+Additionally, the `launch` trigger can specify whether or not it should cancel the projectile launch (for instance if you want to swap out an arrow for a magic spell)
+
+Launch is canceled by default, but you can trigger a spell and still fire the arrow by adding this:
+
+`cancel_launch: false`
+
+## Damage Types
+
+A list of vanilla damage types can be found here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/EntityDamageEvent.DamageCause.html
+
+Custom damage types can also be dealt via the Damage action.
+
+## Projectile Types
+
+Projectile types use the EntityType identifier from Bukkit:
+
+https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+
+# Mob Triggers
+
+Magic mobs work with a similar set of triggers, but using a slightly different format since the triggers are attached to the mob rather than attached to spells. 
+
+See [Magic Mobs](../advanced-setup/magic-mobs.mdx) for more information.
+
+# Examples
+
+See the [passives folder](https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/examples/elworld/spells/passives) for some working examples of passive spells.

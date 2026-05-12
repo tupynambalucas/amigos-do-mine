@@ -1,0 +1,182 @@
+---
+title: Magic Mobs
+---
+
+# Magic Mobs
+
+Magic lets you create custom mobs that you can spawn into the world. There are several built-in default mobs that you can look at in the [survival mobs](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/mobs/).
+
+Magic Mobs can have custom equipment, health, names and loot drops. They can also randomly cast spells.
+
+Magic mob loot can include magic items and Skill Points.
+
+## Spawning Via Command
+
+You can spawn a Magic Mob in-game at your target location with the "mmob spawn" command, e.g.
+```bash
+/mmob spawn warlock
+/mmob spawn mutant_captain
+```
+
+As always, use tab-completion for options in-game!
+
+You can also spawn mobs from other plugins or via command blocks by providing a location:
+```bash
+/mmob spawn warlock 100 64 100 world
+```
+
+## Customizing and Adding new Mobs
+
+You may edit the plugins/Magic/mobs.yml file to add Magic Mobs or customize existing ones, just like you would with spells or wands.
+
+### Triggers
+
+Magic mobs can cast spells or run commands when certain triggers occur.
+
+* On a specific interval
+* On death
+* On damage
+
+For interval triggers, you may specify an interval in milliseconds with the `interval` property.
+
+Spellcasting uses a probability table to randomly choose a spell to cast, commands use a simple list of commands to run.
+
+For example:
+
+```yaml
+  interval: 5000
+  triggers:
+    damage:
+      cast:
+        push|4: 150
+        none: 50
+    death:
+      cast:
+        neutron: 10
+        fury: 50
+      commands: 
+      - broadcast A bomb went off!
+      - kill @damagers
+    interval:
+      cast:
+        missile|4: 20
+        railgun: 10
+        fury: 5
+        none: 20
+```
+
+Every second this mob will randomly choose a spell to cast. There is a chance it will cast nothing, otherwise it will chose to cast "Magic Missile level 4" (most often) Railgun (Less often) or Fury (rarely).
+
+On death, this mob will cast either Fury or Neutron (rarely), and execute a list of commands, killing anyone that damaged it and announcing it to the whole server.
+
+On damage, the mob may cast Push Level 4.
+
+Trigger definitions can include multiple triggers of the same type, using the "type" property. They may also have certain qualifiers. For example:
+
+```yaml
+  triggers:
+    damage1:
+      type: damage
+      min_health: 100
+      cast:
+        push|4: 150
+        push|3: 100
+        none: 50
+    damage2:
+      type: damage
+      max_health: 100
+      cast:
+        missile|4: 150
+        railgun: 100
+        push|4: 70
+        shell: 20
+        none: 20
+```
+
+This mob will get more aggressive as its health gets lower.
+
+Qualifiers:
+
+* `min_health` : This trigger will only fire if the mob has at least this much health
+* `max_health` : This trigger will only fire if the mob has less than this much health
+* `min_health_percentage` : This trigger will only fire if the mob has at least this much health (as a percentage of max health)
+* `max_health_percentage` : This trigger will only fire if the mob has less than this much health (as a percentage of max health)
+* `min_damage` : This trigger will only fire if the mob takes at least this much damage (only valid on damage triggers)
+* `max_damage` : This trigger will only fire if the mob takes than this amount of damage (only valid on damage triggers)
+
+### Command Parameters
+
+Valid parameters for commands include:
+* `@x`, `@y`, `@z`, `@world` for the location of the mob at time of death
+* `@name` for the name of the mob
+* `@killer` for the last player to have damaged the mob before death
+* `@damager` for the player that did the most damage to the mob
+* `@damagers` for all players that damaged the mob
+
+### Other Magic Mob Properties
+
+* `name` : A custom name for a mob, which is required for most other functionality to work
+* `type` : The EntityType of this mob, required.
+* `potion_effects` : Permanent potion effects can be added
+* `aggro` : Magic mobs who cast spells or have other special behavior will auto-target players that damage them. use "aggro: true" to turn on this behavior for simple magic mobs as well.
+* `health` : How much health the mob has
+* `default_drops` : Set to false to avoid dropping vanilla loot on death
+* `drops` : A list of custom items to drop on death
+
+## Magic Mob Triggers
+
+Mobs can cast spells, perform commands or run effects based on some triggers. For example:
+
+```yaml
+  interval: 1000
+  triggers:
+    interval:
+      cast:
+        missile: 20
+        poison: 30
+        pull: 100
+```
+
+This will automatically cast one spell, chosen with a weighted random pick, every second (1000 ms).
+
+Other available triggers include:
+
+* **interval** : Every `interval` milliseconds
+* **death** : When the mob dies
+* **damage** : When the mob is damaged
+* **launch** : When the mob launches a projectile
+* **deal_damage** : When the mob deals damage
+* **kill** : When the mob kills another mob or player
+* **spawn** : When the mob is first spawned
+* **respawn** : When the mob is respawned due to spell undo or chunk reload (for persistent mobs)
+
+## Mob Spawner Blocks
+
+* NOTE: Due to a vanilla feature, you must be opped to place mob spawners.
+
+A mob spawner configured to spawn a mob with the same base type and display name as a Magic Mob (e.g. Zombie and "Warlock") will spawn a magic mob instead.
+
+This bypasses WorldGuard and other spawn restrictions, so you can use this to set up tightly controlled dungeons with natural spawning disabled!
+
+See the "spawnershop" spell/shop or the "warlockspawner" item for examples.
+
+## Natural Spawning
+
+You can use `/mconfig example add spawnmobs` to turn on the spawnmobs example, making Magic Mobs spawn naturally in your worlds.
+
+You will get some instructions in chat showing you how to customize the spawn rules.
+
+## Region-Based Spawning
+
+By adding tags to spawn rules you can provide custom spawning per-region.
+
+See the [Region Mix-in](https://github.com/elBukkit/MagicWorlds/blob/master/src/main/resources/examples/mixins/regions.yml) for an (outdated) example (that may still work)
+
+In-game you would use
+```bash
+/region flag <some region> spawn-tags arena
+```
+
+To tag the region you want these spawn rules to apply in.
+
+This can be combined with vanilla spawners (or [Magic Block spawners](magic-blocks.mdx) to add Magic Mob spawners to specific areas. See http://minecraft.tools/en/spawn.php for a good spawner creation tool.

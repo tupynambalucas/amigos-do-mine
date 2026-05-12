@@ -1,0 +1,35 @@
+---
+title: Modifiers
+---
+
+Modifiers are like custom status effects that can be added to players or mobs.
+
+Modifiers can contain anything that [Mage Classes](classes.mdx) can contain. 
+
+But modifiers can be added and removed much like potion effects. They can also have a duration, after which they will automatically expire.
+
+This can be used to give a player temporary attribute boosts, [passives](../spell-creation/passive-and-triggered-spells.mdx), or other properties.
+
+# Modifier Configurations
+
+Modifiers can be added to `/plugins/Magic/modifiers.yml` or to any file in the `/plugins/Magic/modifiers/` folder.
+
+# Modifier Syntax
+
+Modifiers look a lot like classes:
+
+```yaml
+damageboost:
+  entity_attributes:
+    generic_attack_damage:
+      value: 20
+      operation: MULTIPLY_SCALAR_1
+```
+
+# Applying Modifiers
+
+Modifiers are applied in a spell via the `Modifier` action. Use the `add_modifiers` parameter to list modifiers to apply. Modifiers can also be removed via `remove_modifiers`.
+
+# More Examples
+
+See the [survival modifiers](https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/resources/examples/survival/modifiers) for more examples.

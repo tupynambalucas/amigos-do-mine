@@ -1,0 +1,110 @@
+---
+title: Spell Points
+---
+
+# Spell Points
+
+Magic has a builtin system for progression that focuses on successfully using a variety of spells, while preventing quick grinding.
+
+## Collecting Spell Points
+
+Players collect Spell Points by successful spell casts. "Successful" means different things to different spells, but generally you have to have a valid target.
+
+You can see your current SP amount in the number above the mana bar (normally XP level) while holding a wand.
+
+Players can right-click on an enchanting table to bring up the spell shop GUI, where they can redeem spell points for new spells.
+
+## Ranking Up
+
+Similarly to enchanting, once a player has purchased all of the spells for their current wand path, they rank up to the next path. The next time they bring up the spell shop GUI, they will see news spells available.
+
+## Levelling Spells
+
+Spells still level up independently of spell points. Players can shift+right-click an enchanting table to view their spell upgrade progress.
+
+## SP Cooldowns
+
+Spell points are doled out using a per-spell cooldown system. The first time you cast a spell, you will get the full SP payout.
+
+After that, payout is decreased for that spell until a time threshold passes (by default, 5 minutes for most spells). If you continue to cast the spell, you'll need to wait longer for full payout.
+
+This system is in place to prevent grinding/farming for SP, and to encourage players to switch up the spells they use to maximize earned SP.
+
+## Giving Spell Points
+
+Spell points can be directly give to a player via the mgive command, like so:
+```
+/mgive <player> sp 100
+```
+
+You can also create SP items (good for shops, quests, random drops) in a similar manner:
+```
+/mgive sp:100
+```
+
+Note the colon- that creates a single SP item worth 100 SP, a player will earn this SP when their wands absorb this item (like a spell or upgrade item).
+
+# Configuring
+
+The SP system is tuned towards a long progression, attempting to keep players from being able to grind-level. However it easily configurable to speed up or slow down player progression.
+
+## Disabling Spell Points
+
+If you wish to disable the spell point system, it is easy to do. Wand and spell progression use the enchanting configs in both cases, so all you need to do is put the following into config.yml:
+
+```
+sp_enabled: false
+```
+
+Wands will use the vanilla enchanting mechanics instead, reverting to the behavior prior to Magic 5.4.
+
+Note that this may not work in current versions of Minecraft, due to hoes not being enchantable.
+
+## Disabling the SP Display
+
+When a player holds their wand, Spell Points are displayed in place of their experience level. If you wish to disable this, add the following to config.yml:
+
+```
+sp_display: none
+```
+
+## Balancing SP
+
+If you wish to change the the SP cap (the maximum amount of SP a player may store up), change the following in config.yml:
+
+```
+sp_max: 9999
+```
+
+If you want to modify the "cooldown" on players earning SP, this is done in spells.yml. You can change the default value for all spells by modifying default.earns_cooldown:
+
+```
+default:
+    # Spells take 15 minutes to return to full SP earning potential
+    earns_cooldown: 900000
+```
+
+This value is in milliseconds, so you might need to pull out your calculator!
+
+You can also modify this value per-spell, should you wish to have some spells earn SP more frequently than others.
+
+To change the default to 1 minute, you can use this command:
+```
+/mconfig configure spell default earns_cooldown 60000
+```
+
+## Disabling Earning SP
+
+If you want to give out SP via shops or some other method and don't want players to earn spell points for casting spells, put this in config.yml:
+
+```
+sp_earn_enabled: false
+```
+
+## SP Costs
+
+Costs are derived from the "worth_sp" field in a spell's configuration. This will be used by the builtin spellshop to determine spell prices. Shops can also be set up to sell specific spells for specific amounts of SP (or money, items), as well as selling normal items and magic items.
+
+## Other Options
+
+If you would like to expand on the SP system, you can do so with [NPC traits](../advanced-setup/npc.mdx). The spellshop and upgrades spells can be used to replace the enchanting table, and you can configure individual spell shops in your spells.yml file.

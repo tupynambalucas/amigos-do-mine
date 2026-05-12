@@ -1,0 +1,74 @@
+---
+title: Placeholders
+---
+
+Magic supports a variety of placeholders that can be used in the Command and Message actions, and are also exposed to [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) with a `magic_` prefix. For example `%magic_health%`
+
+Any variable/attribute can be used as a placeholder, Magic will log these on startup, look for "Registered attributes" in your server logs. Here's a list that may not be up to date:
+
+```
+target_fall_distance, regeneration, respiration, testattribute, projectile_protection, bowpower, 
+degrees, seconds, channeling, target_pitch, legs, humidity, pitch, sharpness, jump, health_max, 
+efficiency, target_luck, blindness, absorption, target_armor, loyalty, slow_digging, silk_touch, 
+fire_resistance, unluck, invisibility, target_health_max, moon, air_max, slow, mana_max, sweeping, 
+bowpull, damage, weeks, mending, epoch, protection, air, fast_digging, lure, punch, temperature, 
+frost_walker, power, riptide, health_boost, levitation, increase_damage, poison, torso, health, 
+target_temperature, binding_curse, yaw, mana, glowing, target_head, target_health, target_humidity, 
+days, infinity, impaling, bad_omen, luck, thorns, hero_of_the_village, injuries, target_torso, 
+target_hunger, smite, location_x, unbreaking, location_y, target_mana, feather_falling, attack_damage, 
+knockback, fire_aspect, luck_of_the_sea, knockback_resistance, saturation, conduit_power, location_z, 
+target_air, bane_of_arthropods, soul_speed, night_vision, level, minutes, target_testattribute, 
+water_breathing, fall_distance, quick_charge, aqua_affinity, multishot, hunger, slow_falling, target_legs, 
+armor, target_injuries, blast_protection, confusion, damage_dealt, harm, piercing, fire_protection, 
+target_yaw, dolphins_grace, speed, head, damage_resistance, weakness, heal, target_mana_max, hours, 
+fortune, looting, target_air_max, movement_speed, play_time, depth_strider, xp, target_location_x, pi, 
+target_location_y, vanishing_curse, target_knockback_resistance, target_location_z, time, flame, wither
+```
+
+Note that all enchantments and potion effects are available.
+
+These are all available to use an equation inputs in any spell, wand or class parameter.
+
+There are some additional text-base placeholders as well:
+
+* **pn** or **p** The player's name
+* **pd** The player's display name
+* **uuid** The player's UUID
+* **spell** The name of the player's active spell
+* **wand** The name of the player's active wand
+* **class** The name of the player's active class
+* **path** The name of the player's current progression path
+* **spell_count** How many spells a player knows in total
+* **last_spell** The name of last used spell player's use
+
+## Placeholder API
+
+Magic placeholders can be used in [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) with a `magic_` prefix, such as:
+
+* `magic_path`
+* `magic_class`
+* `magic_wand`
+* `magic_spell`
+* `magic_mana`
+* `magic_mana_max`
+* `magic_sp`
+* `magic_spell_count`
+* `magic_last_spell`
+
+## Imported Placeholders
+
+Numeric placeholders can be used in spell parameters as normal, for example `%player_health%`
+
+## Custom placeholder or/and currency
+
+You can create new custom currency/placeholder. Just go to config.yml and write new currency
+
+Note: Only numbers will show in custom placeholder/currency.
+
+```yaml
+custom_currency:
+ luckycoin:
+  max: 10
+  default: 0
+```
+Now you can use placeholder by write `%magic_luckycoin%`. you can modify value by use class `ModifyCurrency`.

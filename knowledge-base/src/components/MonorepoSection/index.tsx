@@ -7,12 +7,12 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 export default function MonorepoSection() {
   const { i18n } = useDocusaurusContext();
-  const isPtBR = i18n.currentLocale === 'pt-BR';
+  const isEnUS = i18n.currentLocale === 'en-US';
   const [selectedId, setSelectedId] = useState<string | null>(null);
   
   const getLocalizedWorkspace = (ws: WorkspaceInfo): WorkspaceInfo => {
-    if (!isPtBR || !ws.ptBR) return ws;
-    return { ...ws, ...ws.ptBR };
+    if (!isEnUS || !ws.enUS) return ws;
+    return { ...ws, ...ws.enUS };
   };
 
   const selectedWorkspace = getLocalizedWorkspace(
@@ -24,11 +24,11 @@ export default function MonorepoSection() {
       <div className={styles.container}>
         <div className={styles.header}>
           <h2>
-            <Translate id="homepage.monorepo.title">Monorepo Map</Translate>
+            <Translate id="homepage.monorepo.title">Mapa do Monorepo</Translate>
           </h2>
           <p>
             <Translate id="homepage.monorepo.subtitle">
-              Interactive visualization of the Amigos Do Mine bounded contexts. Click on a context to explore.
+              Visualização interativa dos contextos do Amigos Do Mine. Clique em um contexto para explorar.
             </Translate>
           </p>
         </div>
@@ -43,7 +43,7 @@ export default function MonorepoSection() {
               
               <div className={styles.metadataSection}>
                 <h4>
-                  <Translate id="homepage.monorepo.techstack">Tech Stack</Translate>
+                  <Translate id="homepage.monorepo.techstack">Stack Tecnológica</Translate>
                 </h4>
                 <div className={styles.tagGrid}>
                   {selectedWorkspace.stack.map(tech => (
@@ -54,7 +54,7 @@ export default function MonorepoSection() {
 
               <div className={styles.metadataSection}>
                 <h4>
-                  <Translate id="homepage.monorepo.responsibilities">Core Responsibilities</Translate>
+                  <Translate id="homepage.monorepo.responsibilities">Responsabilidades Principais</Translate>
                 </h4>
                 <ul className={styles.responsibilityList}>
                   {selectedWorkspace.responsibilities.map(resp => (

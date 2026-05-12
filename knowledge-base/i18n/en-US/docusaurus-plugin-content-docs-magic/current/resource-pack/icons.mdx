@@ -1,0 +1,103 @@
+---
+title: Custom Icons
+---
+
+# Custom Icons
+
+Magic supports "custom icons" by way of using 1.8 player skulls. (NOTE: This is no longer true, recent version of Magic use RP items instead of player skulls, but this information may still be useful)
+
+In order for these to work properly, you must be using the Magic resource pack, or at least [this specific part of it](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/resource-pack/potter/assets/minecraft/models/item/skull_char.json).
+
+This changes skull items when held in an inventory from this:
+
+![Normal skulls](http://i.imgur.com/qXJwmGv.png)
+to this:
+![Magic Skulls](http://i.imgur.com/COH6rdF.png)
+
+Note, in particular, that normal player skulls will be affected, too, so that is a consolation you will have to make to use custom icons.
+
+Otherwise, your wand inventory will look like this:
+
+![Broken inventory](http://i.imgur.com/rclAteO.png)
+
+Making spells basically unreadable. If you can not use a resource pack, I recommend setting `url_icons_enabled: false` in your `config.yml` to turn off the custom icons.
+
+## Customizing
+
+**_Note: This method no longer works reliably, Mojang has deprecated the skins.mojang API_**
+_See the below section on Advanced Skin Retrieval_
+
+A spell or wand can use any Minecraft skin as an icon texture. The icon will be the front of the head, though all sides of the head are visible when a spell item is held in a player's hand.
+
+You can use an online database of heads to find one you like, such as [Minecraft heads](http://heads.freshcoal.com). You can also browse the collection of [textures made specifically for Magic here](http://mine.elmakers.com/#textures).
+
+If you want to make your own, you can via a relatively simple process:
+
+1. Create a skin as you would normally for a player, making the head an 8x8 icon.
+2. Download your current skin and keep it as a backup.
+3. Upload your "spell skin" to your Minecraft account.
+4. Check "http://skins.minecraft.net/MinecraftSkins/NathanWolf.png" (using your own username)
+5. Once the skin image above changes to your spell icon (this may take some time!), record its URL- you should be redirected to an image like "http://textures.minecraft.net/texture/4a41b28f5f8bc079342b2f49d3b8b649e89b60754a3acbad681cdc86a5"
+6. Re-upload your own skin to restore your sense of self.
+7. Put the texture URL you recorded into your spells.yml config, under the `icon_url` property.
+
+## Advanced Skin Retrieval
+
+The above routine might not work anymore, as skins.mojang now updates very rarely, if at all.
+
+Fortunately, there is a way to get around this if you have a little tech know-how:
+
+1. Get your UUID, if you don't know it already: https://api.mojang.com/users/profiles/minecraft/NathanWolf
+2. Make a note of the "id" returned by the above, it never changes. It will look something like "4cb358ae719c442393c78769ce46e9c3" (no dashes and don't copy the quotes)
+3. Note that API requests are heavily limited by Mojang, don't spam these links or you will get blocked. You may need to wait a minute or two before going to the next step. 
+4. Now look up your player profile using the UUID from above: https://sessionserver.mojang.com/session/minecraft/profile/4cb358ae719c442393c78769ce46e9c3
+5. This should give you a block of JSON that looks like this:
+
+```json
+{
+"id":
+"4cb358ae719c442393c78769ce46e9c3",
+"name":
+"NathanWolf",
+"properties":
+[
+  {
+    "name":
+    "textures",
+    "value":
+"eyJ0aW1lc3RhbXAiOjE0MzA0OTMyNTIwNTMsInByb2ZpbGVJZCI6IjRjYjM1OGFlNzE5YzQ0MjM5M2M3ODc2OWNlNDZlOWMzIiwicHJvZmlsZU5hbWUiOiJOYXRoYW5Xb2xmIiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzRhNDFiMjhmNWY4YmMwNzkzNDJiMmY0OWQzYjhiNjQ5ZTg5YjYwNzU0YTNhY2JhZDY4MWNkYzg2YTUifX19"
+  }
+]
+}
+```
+
+6. Take that long blob of text in "value", all of it without the quotes, and copy+paste it to this website: https://www.base64decode.org
+
+Click "DECODE" and you should see something like this (that's right- inside the base64-encoded string in the JSON is... more JSON! GG, Mojang)
+
+```json
+{"timestamp":1430493252053,"profileId":"4cb358ae719c442393c78769ce46e9c3","profileName":"NathanWolf","textures":
+{"SKIN":
+{"url":"http://textures.minecraft.net/texture/4a41b28f5f8bc079342b2f49d3b8b649e89b60754a3acbad681cdc86a5"}
+}}
+```
+
+7. Finally, you can see your new skin URL there in the `url` field. This tends to update instantly, much more quickly than the skins.mojang URL redirect.
+
+## Super-Advanced Scripted Skin Retrieval
+
+As part of the de-iconing of Minecraft 1.8.4, I wrote some scripts to mass-update all the icons in Magic. If you have some PHP experience and are feeling adventurous, you can check out the scripts I used here:
+
+https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/resource-pack/common/source
+
+Steps to use these scripts:
+
+1. Clone the Magic repository on github
+2. Navigate to `src/resource-pack/common/src`
+3. Put your new icons (8x8 images) in the `source_images` folder
+4. Run `php makeicons.php` to convert your 8x8 icons into skins
+5. Run `php uploadicons.php` to upload your new skins
+
+Both scripts will skip skins that have already been processed. The `image_map.yml` file is used to track uploaded skins so they don't get re-uploaded. It is also what drives my global list of textures.. so if you feel like sharing, please send me your updated YML file! :)
+
+The script will save and restore your original skin, but of course it's always a good idea to have a backup before running something like this.

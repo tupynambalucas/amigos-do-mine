@@ -1,78 +1,78 @@
 ---
 title: Cheat Sheet
-description: Fast reference for common commands and project orchestration.
+description: Referência rápida para comandos comuns e orquestração do projeto.
 sidebar_position: 2
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# ⚡ Quick Cheat Sheet
+# ⚡ Cheat Sheet Rápido
 
-A comprehensive reference for developers to manage the **Amigos Do Mine** monorepo, infrastructure, and automation.
+Uma referência abrangente para desenvolvedores gerenciarem o monorepo **Amigos Do Mine**, infraestrutura e automação.
 
 ---
 
-## 🎮 Game Server (Minecraft)
+## 🎮 Servidor de Jogo (Minecraft)
 
-Management of the Purpur server container.
+Gestão do container do servidor Purpur.
 
-- **Start Server:** `pnpm server:up`
-- **Stop Server:** `pnpm server:down`
-- **View Logs:** `pnpm server:logs`
-- **Restart Server:** `pnpm server:restart`
-- **Reset Data:** `pnpm server:reset` (Wipes and recreates container)
-- **Attach Console:** `pnpm server:attach` (Press `Ctrl+P, Ctrl+Q` to detach)
+- **Iniciar Servidor:** `pnpm server:up`
+- **Parar Servidor:** `pnpm server:down`
+- **Ver Logs:** `pnpm server:logs`
+- **Reiniciar Servidor:** `pnpm server:restart`
+- **Resetar Dados:** `pnpm server:reset` (Remove e recria o container)
+- **Anexar Console:** `pnpm server:attach` (Pressione `Ctrl+P, Ctrl+Q` para desanexar)
 
 ---
 
 ## 🚀 Portal & Apps
 
-Running the web infrastructure.
+Executando a infraestrutura web.
 
 <Tabs>
-  <TabItem value="web" label="Web Dashboard" default>
-    - **Development:** `pnpm --filter @amigos-portal/web dev`
+  <TabItem value="web" label="Dashboard Web" default>
+    - **Desenvolvimento:** `pnpm --filter @amigos-portal/web dev`
     - **Build:** `pnpm --filter @amigos-portal/web build`
   </TabItem>
-  <TabItem value="api" label="Backend API">
-    - **Development:** `pnpm --filter @amigos-portal/api dev`
+  <TabItem value="api" label="API Backend">
+    - **Desenvolvimento:** `pnpm --filter @amigos-portal/api dev`
     - **Build:** `pnpm --filter @amigos-portal/api build`
   </TabItem>
-  <TabItem value="docs" label="Documentation">
-    - **Start Docusaurus:** `pnpm dev:docs`
-    - **Build Docs:** `pnpm build` (Runs build for all workspaces)
+  <TabItem value="docs" label="Documentação">
+    - **Iniciar Docusaurus:** `pnpm dev:docs`
+    - **Build da Docs:** `pnpm build` (Executa build para todos os workspaces)
   </TabItem>
 </Tabs>
 
 ---
 
-## 🛠️ Assets & Plugins (Resources)
+## 🛠️ Ativos & Plugins (Resources)
 
-Building custom game content.
+Construindo conteúdo customizado para o jogo.
 
-- **Build Amigos Plugin:** `pnpm build:plugin`
-- **Build Resource Pack:** `pnpm build:resourcepack`
+- **Build do Amigos Plugin:** `pnpm build:plugin`
+- **Build do Resource Pack:** `pnpm build:resourcepack`
 
 ---
 
-## 📦 Workspace Management
+## 📦 Gestão de Workspace
 
-Handling internal dependencies and quality.
+Lidando com dependências internas e qualidade.
 
-- **Clean node_modules:** `pnpm clean:project`
-- **Typecheck All:** `pnpm typecheck`
-- **Lint All:** `pnpm lint`
+- **Limpar node_modules:** `pnpm clean:project`
+- **Validar Tipagem (Typecheck):** `pnpm typecheck`
+- **Lint:** `pnpm lint`
 
 ---
 
 ## 🎨 Studio & Design (Penpot)
 
-Orchestrating the self-hosted design environment.
+Orquestrando o ambiente de design self-hosted.
 
-- **Start Penpot:** `pnpm penpot:up`
-- **Stop Penpot:** `pnpm penpot:down`
-- **Aide AI Bridge:** `pnpm penpot:aide:up` / `pnpm penpot:aide:down`
+- **Iniciar Penpot:** `pnpm penpot:up`
+- **Parar Penpot:** `pnpm penpot:down`
+- **Ponte Aide AI:** `pnpm penpot:aide:up` / `pnpm penpot:aide:down`
 
 ---
-_Last Updated: May 2026_
+_Última Atualização: Maio de 2026_

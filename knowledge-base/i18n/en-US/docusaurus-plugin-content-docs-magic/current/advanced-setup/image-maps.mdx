@@ -1,0 +1,103 @@
+---
+title: Image Maps
+---
+
+![Image Map Signage](https://lh5.googleusercontent.com/-QvcXC33t6K4/U1qTbWjp4dI/AAAAAAAAAU4/QIfysxqbFT4/w854-h480-no/2014-04-25_09.50.25.png)
+
+Magic includes a robust "image map" system, for putting PNG and GIF images on to Minecraft maps. You can use these maps as decorations in item frames, special collectable items, or whatever you can dream up.
+
+Using the "mmap" command, you can create, edit and remove maps:
+
+* `mmap load <url> [name] [width] [height]`: Load an image into a map. Will create a new map if this image hasn't been loaded before. Can load URLs, or files (relative to your MC server path)
+* `mmap give [player] <map id>` : Give yourself or another player a specific map
+* `mmap list [filter]` : List all maps, or search for specific maps by keyword/filename
+* `mmap remove <map id>` : Unregister a specific map id, returning it to a normal map
+* `mmap import [Pixelator config file]` : Import images from Pixelator (You should disabled Pixelator prior to doing this!)
+
+## Animated GIFs
+
+If you were wondering "this can't possibly support animated GIFs, can it?" Well, it can!
+
+**Disclaimer**: I would not recommend using these very much, if at all! The bandwidth cost may be very high. It is effectively 16k x number of players viewing per animation frame time. Minecraft does not cache or compress these in any way, they are sent from the server to the client .. you have been warned!
+
+[![Magic GIF](http://img.youtube.com/vi/6SgD163Xrcs/0.jpg)](http://www.youtube.com/watch?v=6SgD163Xrcs)
+
+## The Camera Spell
+
+The "camera" spell and item use this system for generating player portraits. You will see any photos taken with a camera show up in the `/mmap list`.
+
+_Note:_ It is generally easier to use the `/mmap` command for dealing with maps, but I've left this section here for reference.
+
+The camera spell can be used from the command-line to decorate your
+world with images. There are a few key parameters:
+
+-   `name`: A player's name, to create a portrait. Can also be used to set
+    a custom name for an id or url map.
+-   `url`: A full url to a PNG image to show on the map.
+-   `x`: The x offset, in pixels, to start rendering from. Default is 0.
+-   `y`: The y offset, in pixels, to start rendering from. Default is 0.
+-   `width`: How many x pixels of the image to use. Default is 128.
+-   `height`: How many y pixels of the image to use. Default is 128.
+
+Or, you can use the following to get an existing map:
+
+-   `id`: A map id : Useful for creating a copy of an existing map (this
+    can be done with `/give`, too)
+
+## Examples
+
+```bash
+/cast camera url http://i.imgur.com/UUyPoDi.png
+```
+
+You can also give it a name, which will make it easier to find later, and also name the photo for you:
+
+```bash
+/cast camera url http://i.imgur.com/UUyPoDi.png name Daft
+```
+
+![Daft](http://i.imgur.com/udTNu8h.png)
+
+You can use `/magic list maps <keyword>` in-game or via the console to
+search for maps. The list will include the id's, so you can then use
+`/cast camera id <id>` to get a copy of a previously loaded map.
+
+![Map List](http://i.imgur.com/nhF5CzC.png)
+
+Maps are loaded on demand (both from the web and into memory), and
+cached on the server for performance. If you wish to clear this cache,
+use `/magic clearcache`.
+
+Map URLs are saved in `data/imagesmaps.yml`. This file can be manually
+edited, though Magic saves to it frequently so editing while the server
+is offline is best. If you do edit the file, you may create new entries
+by specifying a non-integer string (e.g. "new1") as the key. Magic will
+generate a new map and id for your entry on next start. Make sure to
+create a backup, YML is a fickle mistress.
+
+## Cropping and Scaling
+
+Images will be auto-scaled to fit on a 128x128 map canvas by default. You can scale and crop yourself with the x, y, width and height parameters- for instance
+
+```bash
+/cast camera url http://i.imgur.com/UUyPoDi.png x 100 y 100 width 128 height 128
+```
+
+Will produce the following cropped image:
+
+![Cropped](http://i.imgur.com/EFieeGX.png)
+
+## Command Blocks and Console
+
+You can set up command blocks that use ``/castp @p camera id <foo>``
+to give out artwork or portraits. `/castp @p camera target self` can be
+used for a photo booth.
+
+Using `/castp` from the console can also help you get around the chat
+length limitations for using longer urls.
+
+```bash
+/castp NathanWolf camera url http://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1024px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg
+```
+
+![Art!](https://lh6.googleusercontent.com/-fu_nlaitBgA/U1qTbu1tgUI/AAAAAAAAAU8/F2nakT_ZJ0o/w854-h480-no/2014-04-25_09.51.13.png)

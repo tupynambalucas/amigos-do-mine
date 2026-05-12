@@ -1,0 +1,70 @@
+---
+title: Variables
+---
+
+Magic supports variables that can be defined and modified by spells.
+
+## Creating and Setting Variables
+
+The `ModifyVariable` action is used to create a variable or update its value.
+
+This action has the following parameters:
+
+* **variable** : The name of the variable to modify
+* **default** : The value to set the variable to initially. This only happens once, on the first cast of a spell using a variable
+* **value** : The value to update the variable to. This can include references to variables (including this one), attributes or placeholders
+* **clear** : Set to `true` to reset this variable so it will get its default value on next use.
+
+### Example
+
+This will increment a variable on each cast, starting at 10:
+
+```yaml
+        actions:
+        - class: ModifyVariable
+          variable: count
+          default: 10
+          value: "count + 1"
+```
+
+## Using Variables
+
+Variables can be used in spell parameters, `CheckRequirements`, and `Message` and `Command` actions.
+
+In parameters you simply refer to the variable by its name, such as `count / 4`.
+
+In `Message` and `Command` actions you can refer to a variable two different ways:
+
+* **$variable** : This will output a floating-point representation of the variable, such as `40.3`
+* **@variable** : This will round the variable down and output an integer representation, such as `40`
+
+## Example
+
+Here is an example of punishing a player after having cast a spell too many times:
+
+```yaml
+      - class: CheckRequirements
+        requirements:
+          - variables:
+            - variable: count
+              min: 50
+        actions:
+          - class: Message
+            message: "You have cast this @count times, it's too much!"
+          - class: Damage
+            damage: "count / 4"
+```
+
+## Scope
+
+Variables can have different "scopes". A scope defines how long a variable lasts and what can see and modify that variable. This is set via the `scope` parameter of the `ModifyVariable` action.
+
+Available scopes include:
+
+* **cast** : (The default) This variable will only last for one spell cast and can not be seen by other casts.
+* **spell** : This variable can only be seen by this specific spell, but survives across multiple casts
+* **mage** : This variable can be seen by any spell casts from this player. These work very similarly to attributes.
+
+## Full Examples
+
+See the [variables](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/examples/elworld/spells/variables) folder for several working examples.

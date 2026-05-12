@@ -1,0 +1,37 @@
+---
+title: Magic Blocks
+---
+
+The "mblock" command may be used to add magic blocks, to your world.
+
+(Note: prior to Magic 9.4, you must use the "mauto" command instead. It was renamed to avoid confusion with the "block monster" [automata](../reference/automata.mdx))
+
+Magic blocks are active anytime their chunk is loaded, and deactivate when the chunk unloads. When deactivating, they will cancel their effects and despawn any mobs they had spawned.
+
+## Adding Magic Block
+
+Use `/mblock add <type>` to add a new automata to the world, in the location in which you are standing.
+
+Magic comes with a few preset automata, such as `spawner`, and you can add more to automata.yml.
+
+## Spawning Mobs
+
+Magic blocks can spawn mobs via the "spawn.mobs" property, which can be a single mob, a list of mobs, or a probability table.
+
+Example: `/mblock add spawner spawn.mobs warlock`
+
+## Effects
+
+Magic Blocks can have an "effects" property, which is an effects list (or reference to a global effects list defined in effects.yml)
+
+This can be used to add cool particle effects to your world, such as with the `fountain` example that is builtin to the default configs.
+
+## Managing Magic Block
+
+The `/mblock list` command can be used to list all active automata. use `/mblock select` to select one of these.
+
+The `/mblock remove` command can remove your selected automaton, and `/mblock describe` and `/mblock configure` can view and change the properties of your selection.
+
+Automaton can have a parameters block that overrides their configured template, similar to how wands work.
+
+This means you can `/mblock add spawner spawn.mobs creeper` to add a creeper spawner, or `/mblock add fountain effects earth` to add a different kind of effect.

@@ -1,0 +1,177 @@
+---
+title: Resource Pack
+---
+
+# The Official Magic Resource Pack
+
+Magic has an official resource pack that adds several items to support magic. The wooden hoe and golden sword are used for wands.
+
+## Disabling the Resource Pack
+
+Magic will provide the resource pack automatically. If you don't want this, add the following to your plugins/Magic/config.yml:
+```yaml
+resource_pack: ""
+```
+
+## Custom Resource Packs
+
+You can also set the `resource_pack` option to a URL for your own resource pack if you have a custom one and still want Magic to manage it.
+
+## Skull Icons
+
+Spell icons are in the resource pack as of Magic 6.1, so if you disable the RP you may also want to turn back on the player-skull based icons (these are no longer updated!)
+```yaml
+url_icons_enabled: true
+```
+
+And if you're turning back on the player skull icons, you may need the [old player skull icon model for your resource pack](https://github.com/elBukkit/MagicPlugin/blob/93e205d667f042b40f48eafe17ad4296e0d962ae/src/resource-pack/survival/assets/minecraft/models/item/skull_char.json).
+
+Alternately, just put your own resource pack in server.properties and Magic will leave it alone.
+
+Please keep in mind that if you're not using the resource pack or a customized version thereof, wands will appear as wood hoes, spell icons will not be visible and none of the custom sound effects will work. You are free to merge these aspects of the Magic RP into your own!
+
+## Downloading
+
+The current version of the resource pack is subject to change, it's best to use the `/getrp url` command to get the current URL if you need to download the pack for some reason.
+
+You can also simply look on your server in plugins/Magic/defaults/config.defaults.yml to find the url under `resource_pack`.
+
+### Using on Your Server
+
+If you wish to use the Magic RP on your server, simply clear the resource pack from your server.properties. Magic will direct you to the correct version of the RP automatically. Magic also keeps your hash up to date automatically, so players will re-download the RP as it changes.
+
+RP's are available for the example customized configurations as well, they will be used automatically when using an example config.
+
+### Older versions
+Older versions of the resource pack occupy some vanilla items:
+
+* Several wand items:
+  * The wooden hoe, the default wand
+  * The golden axe, the master wand
+  * The golden hoe, the Wolf wand
+  * The golden pickaxe, the invisibility cloak
+  * The golden shovel, the broomstick
+  * The golden sword, the Master Sword
+
+* The monster egg blocks (only as they appear in your inventory, not the placed blocks)
+  * The architect wand
+
+If you are using a version of Magic prior to 6 (for 1.8 servers), you may need the following RPs instead:
+* http://rp.elmakers.com/Magic-RP-5.zip
+* http://rp.elmakers.com/Magic-potter-RP-5.zip
+* http://rp.elmakers.com/Magic-bending-RP-5.zip
+
+If you are using a version of Magic prior to 5 (for 1.7 servers), you may need the following RPs instead:
+* http://rp.elmakers.com/Magic-RP-4.zip
+* http://rp.elmakers.com/Magic-potter-RP-4.zip
+* http://rp.elmakers.com/Magic-bending-RP-4.zip
+
+These RPs should be identical to the current versions, except that they include an override for the zombie horse texture, used for the 2D broom texture while riding.
+
+### Customizing
+
+You are also welcome to download the zip and modify it as you wish, it
+is provided completely free as in everything. Just unzip, modify, re-zip
+and host somewhere public.
+
+Here is a detailed tutorial on adding some custom items to your own resource pack: https://youtu.be/I4Xp-Eu1BMA
+
+Bear in mind you may want to tweak the Magic configuration to match your changes. The easiest way to customize is to just replace the models in the RP. 
+
+The linking between configs and models in the resource pack is done with custom model data. This is pretty easy to set up, just open up any of the builtin models (like stick.json) to see how it works:
+
+```json
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "minecraft:item/stick"
+  },
+  "overrides": [
+    {"predicate": {"custom_model_data": 18001}, "model": "item/custom/old_survival_wand1"},
+    {"predicate": {"custom_model_data": 18002}, "model": "item/custom/old_survival_wand2"},
+    {"predicate": {"custom_model_data": 18003}, "model": "item/custom/survival_wand1"},
+... etc
+```
+
+Each model in the "overrides" list corresponds to a specific custom model data number. You can configure or spawn in these items with
+
+`/mgive stick{18001}`
+
+On older versions of Magic you may need to use a slightly longer format:
+
+`/mgive stick{CustomModelData:18001}`
+
+#### Pre-1.14 (Damage predicates rather than custom model data)
+
+The linking between the configs and resource packs is basically just a combination of item and durability id.
+
+If you wan to create and add new models, you will want to be familiar with the technique the plugin uses for adding custom models:
+
+https://www.spigotmc.org/wiki/custom-item-models-in-1-9-and-up/
+
+Most of the models in this RP were created using BDCraft Cubik. Beyond this, we can't really support or help with making custom resource packs, there are tutorials available elsewhere for that.
+
+### Merging
+
+Sometimes you may want to combine Magic's RP with another RP. This could be a custom RP for your server, or one required by another plugin.
+
+We have a utility for that: [Resource Pack Merger](https://merge.elmakers.com)
+
+It is recommended to use this utility as it will properly merge models if there are conflicts. In most cases this should let you use Magic's RP combined with other plugin RPs, even if they use custom model data or damage predicates.
+
+The manual way to do this is:
+
+1. Unzip your RP
+2. Unzip Magic's RP
+3. Copy Magic's RP onto your RP
+4. Zip the result back up.
+
+Sometimes, however, you'll find you have a collision between the items Magic is using versus the items in your RP.
+
+If you need to change any of the items used by Magic, you can do that. See here for the main items used by Magic:
+
+https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/defaults/items/icons.yml
+
+So for instance if you need to change the item used for spell icons, you can do that in two steps.
+
+1. After unzipping Magic's RP (step 2 above), rename and edit the assets/minecraft/models/item/diamond_axe.json to (for instance) iron_axe.
+2. Edit plugins/Magic/items.yml, adding a line like `spell_icon: iron_axe`
+
+This will switch all spell icons to use the iron axe.
+
+### Hosting
+
+If you make a custom or merged resource pack, you will need to host it somewhere to be able to use it on your server. You may try:
+
+https://mc-packs.net/
+
+
+### Source
+
+The resource pack source and assets are available here:
+
+https://github.com/elBukkit/Magic-RP/
+
+### Alternative RPs
+
+I made a "painterly" RP before realizing the free/open icons I found were already used in another popular Minecraft client mod. So I decided not to make these the defaults, but you can still use them.
+
+Just put "example: painterly" in your config.yml to turn them on, or use the RP directly:
+
+http://rp.elmakers.com/Magic-painterly-RP-6-1.zip
+
+# Loading Issues
+
+If the RP isn't working, there are two main possibilities:
+
+1. You have a `resource-pack` set in your server.properties, you need to clear that for Magic to take over. The `/getrp` command should tell you if that's the case.
+
+2. You do not have your client set to accept resource packs. You will need to add your server and make sure to choose "Enabled" in the server's resource pack settings:
+
+![Minecraft resource pack menu](https://i.imgur.com/xnEmIdl.png)
+
+# List of available resource packs
+
+Generally you should use the plugin's `/getrp url` command to get a url to the latest RP, the RP url is specific to your plugin and server version.
+
+If, for some reason, you would like to browse the available RPs instead you can [see a list here](https://rp.elmakers.com/list.php).

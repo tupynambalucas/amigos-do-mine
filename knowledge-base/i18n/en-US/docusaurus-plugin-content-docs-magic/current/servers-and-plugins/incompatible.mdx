@@ -1,0 +1,29 @@
+---
+title: Incompatible Plugins
+---
+
+# Incompatible Plugin List
+
+The following plugins may interfere with Magic items, causing them to lose data, or otherwise is incompatible with Magic:
+
+- AutoSaveWorlds
+- ItemLoreStats
+- dtlTraders
+- Bags2
+- [FurnitureLib](https://github.com/elBukkit/MagicPlugin/issues/653)
+- Chairs (Messes up with brooms)
+
+This plugin will break many of Magic's GUIS
+- Itemjoin
+
+Notice that if you have problems with the default configuration of the broom spell, it may be caused by an incompatible sitting plugin you use.
+
+## Incompatible Server Settings
+
+### Paper
+
+Setting `armor_stand_tick: false` will break vehicles (including broomsticks) and armor stand projectiles
+
+### Yatopia
+
+Using `fire-block-physics-event: false` will cause issues with chests and item duplication

@@ -1,6 +1,6 @@
 ---
 title: Studio Workspace
-description: Canonical hub for brand strategy, creative assets, and self-hosted design infrastructure with Aide AI.
+description: Hub canônico para estratégia de marca, ativos criativos e infraestrutura de design self-hosted com Aide AI.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -20,100 +20,100 @@ export const ColorSwatch = ({color}) => (
 );
 
 <head>
-  <title>Studio Workspace</title>
+  <body className="workspace-page no-footer" />
 </head>
 
 <div className="container margin-vert--lg">
   <h1>Studio Workspace</h1>
   
-  <p>The Studio workspace serves as the multidisciplinary creative nucleus of the Amigos Do Mine ecosystem. It functions as the master repository for brand strategy, high-fidelity design sources, and a technical orchestration layer for our self-hosted Penpot environment integrated with the Aide AI assistant.</p>
+  <p>O workspace Studio serve como o núcleo criativo e estrutural do ecossistema Amigos Do Mine. Ele funciona como o repositório mestre para a estratégia de marca, fontes de design de alta fidelidade e uma camada de orquestração técnica para nosso ambiente Penpot self-hosted integrado com o assistente Aide AI.</p>
 
   <Tabs>
-    <TabItem value="identity" label="Brand Identity" default>
-      <h3>Visual Strategy and Governance</h3>
-      <p>The visual identity is designed to be vibrant and community-oriented, ensuring a unified look across the game and the web.</p>
+    <TabItem value="identity" label="Identidade de Marca" default>
+      <h3>Estratégia Visual e Governança</h3>
+      <p>A identidade visual é projetada para ser vibrante e orientada à comunidade, garantindo uma aparência unificada entre o jogo e a web.</p>
       
-      <h4>Core Philosophy</h4>
+      <h4>Filosofia e Pilares Centrais</h4>
 
-      - **Community:** Fostering ownership and collective fun.
-      - **Innovation:** Modern tools for a classic game.
-      - **High Fidelity:** Professional-grade assets and performance.
+      - **Comunidade:** Fomentar o sentimento de participação coletiva e diversão.
+      - **Inovação:** Ferramentas modernas para um jogo clássico.
+      - **Alta Fidelidade:** Ativos e performance de nível profissional.
 
-      <h4>Technical Implementation: Hybrid Token System</h4>
-      <p>The design system employs a <strong>Hybrid Source of Truth (SSOT)</strong> model, bridging the gap between high-performance CSS and type-safe TypeScript engineering.</p>
+      <h4>Implementação Técnica: Sistema de Tokens Híbrido</h4>
+      <p>O design system utiliza um modelo de **Fonte Única de Verdade (SSOT) Híbrida**, unindo o CSS de alta performance com a engenharia TypeScript type-safe.</p>
 
       <table>
         <thead>
           <tr>
-            <th>Layer</th>
-            <th>File Path</th>
-            <th>Technical Purpose</th>
+            <th>Camada</th>
+            <th>Caminho do Arquivo</th>
+            <th>Propósito Técnico</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Source of Truth (TS)</strong></td>
+            <td><strong>Fonte da Verdade (TS)</strong></td>
             <td><code>src/tokens/index.ts</code></td>
-            <td>Strongly-typed constants for React components and animations.</td>
+            <td>Objeto fortemente tipado para componentes React e animações.</td>
           </tr>
           <tr>
-            <td><strong>Distribution Layer (CSS)</strong></td>
+            <td><strong>Camada de Distribuição (CSS)</strong></td>
             <td><code>src/tokens/theme.css</code></td>
-            <td>Tailwind CSS v4 <code>@theme</code> block for zero-runtime delivery.</td>
+            <td>Bloco <code>@theme</code> do Tailwind CSS v4 para entrega com zero runtime.</td>
           </tr>
           <tr>
-            <td><strong>Icon Registry</strong></td>
+            <td><strong>Registro de Ícones</strong></td>
             <td><code>src/icons/index.tsx</code></td>
-            <td>Standardized <code>Icon</code> component wrapper using FontAwesome.</td>
+            <td>Wrapper padronizado de componente <code>Icon</code> utilizando FontAwesome.</td>
           </tr>
         </tbody>
       </table>
     </TabItem>
 
     <TabItem value="penpot" label="Penpot & Aide">
-      <h3>Self-Hosted Design Engineering</h3>
-      <p>Amigos Do Mine utilizes a distributed Penpot stack integrated with Aide, an AI-native engineering assistant.</p>
+      <h3>Engenharia de Design Self-Hosted</h3>
+      <p>O Amigos Do Mine utiliza um stack Penpot distribuído integrado com o Aide, um assistente de engenharia nativo de IA.</p>
 
-      <h4>Infrastructure Architecture</h4>
-      <p>The environment is orchestrated via Docker, ensuring absolute data sovereignty.</p>
+      <h4>Arquitetura de Infraestrutura</h4>
+      <p>O ambiente é orquestrado via Docker, garantindo soberania absoluta dos dados.</p>
 
-      - **Orchestration:** Managed via <code>studio/penpot/compose.yaml</code>.
-      - **Connectivity:** Uses Port 4402 for real-time design audits and synchronization.
+      - **Orquestração:** Gerenciada via <code>studio/penpot/compose.yaml</code>.
+      - **Conectividade:** Utiliza a Porta 4402 para auditorias de design e sincronização em tempo real.
 
-      <h5>Operational Scripts</h5>
+      <h5>Scripts Operacionais</h5>
 
       <table>
         <thead>
           <tr>
-            <th>Command</th>
-            <th>Technical Responsibility</th>
+            <th>Comando</th>
+            <th>Responsabilidade Técnica</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><code>pnpm penpot:up</code></td>
-            <td>Initializes core design services at <code>http://localhost:9005</code>.</td>
+            <td>Inicializa os serviços centrais de design em <code>http://localhost:9005</code>.</td>
           </tr>
           <tr>
             <td><code>pnpm aide:up</code></td>
-            <td>Activates the Aide bridge (Penpot MCP) for AI design manipulation.</td>
+            <td>Ativa a ponte Aide (Penpot MCP) para manipulação de design por IA.</td>
           </tr>
         </tbody>
       </table>
     </TabItem>
 
-    <TabItem value="creative-hub" label="Creative Assets">
-      <h3>Centralized Creative Repository</h3>
-      <p>The Studio workspace acts as the master vault for all creative assets of the Amigos Do Mine brand.</p>
+    <TabItem value="creative-hub" label="Ativos Criativos">
+      <h3>Repositório Criativo Centralizado</h3>
+      <p>O workspace Studio atua como o cofre mestre para todos os ativos criativos da marca Amigos Do Mine.</p>
 
-      <h4>Namespaced Workspace Exports</h4>
-      <p>Internal packages access creative assets via strictly defined exports:</p>
+      <h4>Exportações de Workspace com Namespace</h4>
+      <p>Pacotes internos acessam ativos criativos através de exportações estritamente definidas:</p>
 
       <ul>
-        <li><code>@amigos-do-mine/studio/icons</code>: Optimized Icon component registry.</li>
-        <li><code>@amigos-do-mine/studio/logos</code>: Canonical brand logotypes.</li>
-        <li><code>@amigos-do-mine/studio/tokens</code>: Strongly-typed design constants.</li>
-        <li><code>@amigos-do-mine/studio/theme.css</code>: Global theme and resets.</li>
+        <li><code>@amigos-do-mine/studio/icons</code>: Biblioteca de ícones e registro de componentes.</li>
+        <li><code>@amigos-do-mine/studio/logos</code>: Logotipos canônicos da marca.</li>
+        <li><code>@amigos-do-mine/studio/tokens</code>: Constantes de design fortemente tipadas.</li>
+        <li><code>@amigos-do-mine/studio/theme.css</code>: Tema Tailwind CSS v4 e resets globais.</li>
       </ul>
     </TabItem>
   </Tabs>

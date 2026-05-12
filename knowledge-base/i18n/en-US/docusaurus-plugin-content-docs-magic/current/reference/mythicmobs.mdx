@@ -1,0 +1,36 @@
+---
+title: MythicMobs Integration
+---
+
+# MythicMobs Integration
+
+[![EffectLib Video](http://img.youtube.com/vi/28P-aWT0yJE/0.jpg)](http://www.youtube.com/watch?v=28P-aWT0yJE)
+
+You can use the "cmd" Skill in MythicsMobs to have mobs cast spells.
+You can check out an [example skills config
+here](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/examples/MythicMobs-2.0/Skills/MagicSkills.yml)
+if you like. A basic example would be:
+
+```yaml
+Lightning: 
+  Cooldown: 10 
+  Skills: 
+  - cmd 'castp <mob.uuid> lightning' >0 1
+```
+
+This will have the mob cast Lighting. The spell will be cast in whatever
+direction the mob is facing, as if the mob cast it.
+
+The special `<mob.uuid>` in place of a player
+name tells magic to create a Mage for the mob's entity. This will make
+the mob function just like a Player casting spells. This means you can
+use Counterspell on it (it has an undo queue), you can cast Curse on it
+to prevent it from casting spells for a while. Its spell casts will show
+up on dynmap uniquely.
+
+![MythicMobs+Magic+Dynmap](https://lh6.googleusercontent.com/-VOVyaEvQHco/U21lzWwRD6I/AAAAAAAAAWk/GzdrQUaV5d8/w632-h464-no/Screen+Shot+2014-05-09+at+4.32.49+PM.png)
+
+Automata will also react to them as if they were players, so Hunters
+will hunt them. Magical MythicMobs can add a lot of depth to your
+server, and provide a scaleable way to add "boss mobs" and other
+challenges for your powerful Mages.

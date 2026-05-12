@@ -1,0 +1,20 @@
+---
+title: Warps
+---
+
+# Warp Integration
+
+Magic supports warps from Essentials and CommandBook in `RecallAction` spells. These must be configured manually to add them to a spell, via the `warps` list in configs.
+
+# Builtin Warps
+
+Magic also has its own builtin warp system. This makes it easy to tie together warps, `Recall` and dynmap markers (if you have dynmap installed).
+
+To add a warp, use
+`/mwarp add hogwarts`
+
+For this warp to show up in Recall, give it an icon
+`/mwarp configure hogwarts icon feather`
+
+And if you want it to show up on dynmap, give it a marker icon
+`/mwarp configure hogwarts marker_icon bank`

@@ -1,42 +1,42 @@
 ---
-title: Technical Architecture
-description: Comprehensive overview of Amigos Do Mine's monorepo structure, bounded contexts, and technology stack.
+title: Arquitetura Técnica
+description: Visão geral abrangente da estrutura do monorepo do Amigos Do Mine, escopos de aplicação e stack tecnológica.
 ---
 
-# Technical Architecture
+# Arquitetura Técnica
 
-## 1. Executive Summary
+## 1. Resumo Executivo
 
-**Amigos Do Mine** is an integrated Minecraft ecosystem that combines a custom game experience with a modern web portal. The project is built on a **Monorepo** architecture using **PNPM Workspaces** and **Turborepo**, prioritizing high performance, modularity, and a **Single Source of Truth (SSOT)** strategy.
+O **Amigos Do Mine** é um ecossistema Minecraft integrado que combina uma experiência de jogo customizada com um portal web moderno. O sistema é construído sobre uma arquitetura de **Monorepo** utilizando **PNPM Workspaces** e **Turborepo**, priorizando alta performance, modularidade e uma estratégia de **Fonte Única de Verdade (SSOT)**.
 
-The architecture ensures that the game server, assets, and web interface are strictly synchronized and follow **SOLID Principles**.
+A arquitetura garante que o servidor de jogo, os ativos e a interface web estejam estritamente sincronizados e sigam os **Princípios SOLID**.
 
 ---
 
-## 2. Monorepo Structure & Application Roles
+## 2. Estrutura do Monorepo & Papéis das Aplicações
 
-The codebase is organized into specialized workspaces. The following diagram illustrates the package relationships and dependency flow:
+A base de código é organizada em workspaces especializados. O diagrama a seguir ilustra as relações entre os pacotes e o fluxo de dependências:
 
 ```mermaid
 graph LR
     subgraph Studio
-        S_Assets["Brand Assets & Tokens"]
+        S_Assets["Ativos de Marca e Tokens"]
     end
 
-    subgraph Tools
-        T_MCP["MCP Servers"]
-        T_Scripts["Automation Scripts"]
+    subgraph Tools["Ferramentas (Tools)"]
+        T_MCP["Servidores MCP"]
+        T_Scripts["Scripts de Automação"]
     end
 
-    subgraph Portal_Scope
+    subgraph Escopo_Portal
         P_Web["@amigos-portal/web"]
         P_API["@amigos-portal/api"]
         P_Core["@amigos-portal/core"]
     end
 
-    subgraph Minecraft_Scope
+    subgraph Escopo_Minecraft
         M_Server["minecraft (Purpur)"]
-        M_Resources["resources (Plugin/Assets)"]
+        M_Resources["resources (Plugin/Ativos)"]
     end
 
     P_Web --> P_Core
@@ -48,70 +48,70 @@ graph LR
     M_Server -.-> P_API
     M_Resources -.-> P_API
     
-    Portal_Scope -.-> Tools
-    Minecraft_Scope -.-> Tools
+    Escopo_Portal -.-> Tools
+    Escopo_Minecraft -.-> Tools
 ```
 
-| Directory              | Package Name              | Role          | Responsibility                                                 |
-| :--------------------- | :------------------------ | :------------ | :------------------------------------------------------------- |
-| portal/apps/web        | @amigos-portal/web        | **Frontend**  | React 19 SPA. Dashboard for server control and player stats.   |
-| portal/apps/api        | @amigos-portal/api        | **Backend**   | Fastify v5 API. Handles auth, data, and serves resource packs. |
-| portal/packages/core   | @amigos-portal/core       | **Library**   | SSOT for shared schemas (Zod) and TypeScript types.            |
-| minecraft/             | @amigos-do-mine/minecraft | **Server**    | Dockerized Purpur 1.21+ Minecraft server.                      |
-| resources/             | @amigos-do-mine/resources | **Assets**    | Custom plugins (AmigosPlugin) and MCreator assets.             |
-| studio/                | @amigos-do-mine/studio    | **Tooling**   | Brand tokens, design assets, and self-hosted Penpot.           |
-| tools/                 | @amigos-do-mine/tools     | **Tooling**   | MCP infrastructure and project automation scripts.             |
+| Diretório              | Nome do Pacote            | Papel          | Responsabilidade                                               |
+| :--------------------- | :------------------------ | :------------- | :------------------------------------------------------------- |
+| portal/apps/web        | @amigos-portal/web        | **Frontend**   | SPA React 19. Dashboard para controle do servidor e estatísticas. |
+| portal/apps/api        | @amigos-portal/api        | **Backend**    | API Fastify v5. Gerencia auth, dados e serve os resource packs. |
+| portal/packages/core   | @amigos-portal/core       | **Biblioteca** | SSOT para esquemas compartilhados (Zod) e tipos TypeScript.    |
+| minecraft/             | @amigos-do-mine/minecraft | **Servidor**   | Servidor Minecraft Purpur 1.21+ dockerizado.                   |
+| resources/             | @amigos-do-mine/resources | **Ativos**     | Plugins customizados (AmigosPlugin) e ativos do MCreator.      |
+| studio/                | @amigos-do-mine/studio    | **Tooling**    | Tokens de marca, ativos de design e Penpot self-hosted.        |
+| tools/                 | @amigos-do-mine/tools     | **Tooling**    | Infraestrutura MCP e scripts de automação do projeto.          |
 
 ---
 
-## 3. The "Develop-Host-Consume" Flow ♻️
+## 3. O Fluxo "Desenvolver-Hospedar-Consumir" ♻️
 
-This is our specialized pipeline for Minecraft assets:
+Este é o nosso pipeline especializado para ativos do Minecraft:
 
-1.  **Cook**: Create a 3D model or texture in `resources/`.
-2.  **Pack**: Automation scripts bundle the assets into a `.zip` resource pack.
-3.  **Serve**: The file is hosted by the `@amigos-portal/api` public folder.
-4.  **Eat**: The Minecraft server (`minecraft/`) detects the update and instructs connected players to download the new pack automatically.
+1.  **Cozinhar (Cook)**: Criar um modelo 3D ou textura em `resources/`.
+2.  **Empacotar (Pack)**: Scripts de automação agrupam os ativos em um resource pack `.zip`.
+3.  **Servir (Serve)**: O arquivo é hospedado pela pasta pública da `@amigos-portal/api`.
+4.  **Consumir (Eat)**: O servidor Minecraft (`minecraft/`) detecta a atualização e instrui os jogadores conectados a baixarem o novo pack automaticamente.
 
 ---
 
-## 4. Technology Stack
+## 4. Stack Tecnológica
 
 ### 4.1. Core Engine
 - **Runtime**: Node.js 22+ (LTS).
-- **Package Manager**: PNPM v10 (Strict dependency management).
-- **Task Orchestrator**: **Turborepo** (Optimized caching and parallel execution).
-- **Tooling**: TypeScript 6, ESLint 9, Prettier 3.
+- **Gerenciador de Pacotes**: PNPM v10 (Gestão estrita de dependências).
+- **Orquestrador de Tarefas**: **Turborepo** (Cache otimizado e execução paralela).
+- **Ferramental**: TypeScript 6, ESLint 9, Prettier 3.
 
-### 4.2. Backend (API Layer)
+### 4.2. Backend (Camada de API)
 - **Framework**: Fastify v5.
-- **ORM/ODM**: Mongoose with MongoDB (Replica Set).
-- **Validation**: Zod (Integrated via `@amigos-portal/core`).
-- **Processing**: BullMQ + Redis for asynchronous tasks.
+- **ORM/ODM**: Mongoose com MongoDB (Replica Set).
+- **Validação**: Zod (Integrado via `@amigos-portal/core`).
+- **Processamento**: BullMQ + Redis para tarefas assíncronas.
 
-### 4.3. Frontend (UI Layer)
+### 4.3. Frontend (Camada de UI)
 - **Framework**: React 19.
-- **State Management**: Zustand.
-- **Styling**: TailwindCSS v4.
-- **Animations**: GSAP for high-fidelity feedback.
+- **Gestão de Estado**: Zustand.
+- **Estilização**: TailwindCSS v4.
+- **Animações**: GSAP para feedback de alta fidelidade.
 
-### 4.4. Game Server
-- **Platform**: Purpur 1.21+ (Fork of Paper/Spigot).
+### 4.4. Servidor de Jogo
+- **Plataforma**: Purpur 1.21+ (Fork do Paper/Spigot).
 - **Runtime**: Java 21 (Eclipse Temurin).
-- **Customization**: "Amigos Plugin" developed in Kotlin/Java.
+- **Customização**: "Amigos Plugin" desenvolvido em Kotlin/Java.
 
 ---
 
-## 5. Infrastructure & Docker 🐳
+## 5. Infraestrutura & Docker 🐳
 
-We run on a unified network called `amigosdomine_network`.
+Rodamos em uma rede unificada chamada `amigosdomine_network`.
 
-- **Persistence**:
-    - **Minecraft**: Uses Bind Mounts (`./minecraft:/data`) for easy host-side editing.
-    - **Databases**: Use Named Volumes (`mongo_data`) for data safety.
-- **Security**: In production, the Minecraft container runs as a restricted `minecraft` user.
-- **Hardware Access**: Mapped `eudev-libs` for hardware monitoring (OSHI).
+- **Persistência**:
+    - **Minecraft**: Utiliza Bind Mounts (`./minecraft:/data`) para edição fácil via host.
+    - **Bancos de Dados**: Utilizam Volumes Nomeados (`mongo_data`) para segurança dos dados.
+- **Segurança**: Em produção, o container do Minecraft roda como um usuário restrito `minecraft`.
+- **Acesso ao Hardware**: `eudev-libs` mapeadas para monitoramento de hardware (OSHI).
 
 ---
 
-_Last Updated: May 2026_
+_Última Atualização: Maio de 2026_

@@ -2,80 +2,80 @@
 sidebar_position: 1
 ---
 
-# Introduction
+# Introdução
 
-Welcome to the **Amigos Do Mine** development environment. This project is a specialized Minecraft ecosystem featuring a custom game server and a modern web management portal.
+Bem-vindo ao ambiente de desenvolvimento do **Amigos Do Mine**. Este projeto é um ecossistema Minecraft especializado, contando com um servidor de jogo customizado e um portal web moderno para gestão.
 
-## Bounded Context Structure
+## Estrutura de Contextos
 
-We use **PNPM Workspaces** to organize our codebase into specialized contexts. This architecture ensures scalability and clear separation of concerns between the game server, its assets, and the web infrastructure.
+Utilizamos **PNPM Workspaces** para organizar nossa base de código em contextos especializados. Esta arquitetura garante escalabilidade e uma separação clara de responsabilidades entre o servidor de jogo, seus ativos e a infraestrutura web.
 
 ```mermaid
 graph TD
     Root["Amigos Do Mine Monorepo"]
-    Root --> Portal["Portal Scope: /portal"]
-    Root --> Minecraft["Minecraft Scope: /minecraft"]
-    Root --> Resources["Assets Scope: /resources"]
-    Root --> Studio["Studio Context: /studio"]
-    Root --> Tools["Tools Context: /tools"]
-    Root --> Knowledge["Knowledge Base: /knowledge-base"]
+    Root --> Portal["Escopo Portal: /portal"]
+    Root --> Minecraft["Escopo Minecraft: /minecraft"]
+    Root --> Resources["Escopo Assets: /resources"]
+    Root --> Studio["Contexto Studio: /studio"]
+    Root --> Tools["Contexto Tools: /tools"]
+    Root --> Knowledge["Base de Conhecimento: /knowledge-base"]
 
     Portal --> P_Web["Web App: React"]
     Portal --> P_API["API: Fastify"]
-    Portal --> P_Core["Core Logic"]
+    Portal --> P_Core["Lógica de Core"]
 
-    Minecraft --> M_Server["Purpur Server"]
-    Resources --> R_Plugin["Custom Plugin"]
-    Resources --> R_Assets["MCreator Assets"]
+    Minecraft --> M_Server["Servidor Purpur"]
+    Resources --> R_Plugin["Plugin Customizado"]
+    Resources --> R_Assets["Ativos MCreator"]
 
-    Studio --> Tokens["Design Tokens"]
-    Studio --> Assets["Brand Assets"]
+    Studio --> Tokens["Tokens de Design"]
+    Studio --> Assets["Ativos de Marca"]
     
-    Tools --> MCP["MCP Servers"]
-    Tools --> Scripts["Automation Scripts"]
+    Tools --> MCP["Servidores MCP"]
+    Tools --> Scripts["Scripts de Automação"]
     
     P_Web --> Studio
 ```
 
-### Portal Scope (portal/)
-Manages the web infrastructure.
-- **`@amigos-portal/web`**: React SPA for player dashboard and admin control.
-- **`@amigos-portal/api`**: Fastify REST API for auth, data, and asset serving.
-- **`@amigos-portal/core`**: Shared domain logic and SSOT schemas.
+### Escopo Portal (portal/)
+Gerencia a infraestrutura web.
+- **`@amigos-portal/web`**: SPA React para o dashboard do jogador e controle administrativo.
+- **`@amigos-portal/api`**: API REST Fastify para autenticação, dados e entrega de ativos.
+- **`@amigos-portal/core`**: Lógica de domínio compartilhada e esquemas SSOT.
 
-### Minecraft Scope (minecraft/)
-The core game server environment.
-- **Purpur 1.21+**: A high-performance Minecraft server fork.
-- **Dockerized**: Fully containerized for consistent deployment.
+### Escopo Minecraft (minecraft/)
+O ambiente core do servidor de jogo.
+- **Purpur 1.21+**: Um fork de alta performance do servidor Minecraft.
+- **Dockerizado**: Totalmente conteinerizado para implantação consistente.
 
-### Resources Scope (resources/)
-Where the "magic" happens for game customization.
-- **Amigos Plugin**: Custom logic for game mechanics and backend integration.
-- **Resource Pack**: Custom 3D models and textures built with MCreator.
+### Escopo Resources (resources/)
+Onde a "mágica" acontece para a customização do jogo.
+- **Amigos Plugin**: Lógica customizada para mecânicas de jogo e integração com o backend.
+- **Resource Pack**: Modelos 3D e texturas customizadas construídas com MCreator.
 
 ---
 
-## Quick Start
+## Início Rápido
 
-Ensure you have **Node.js 22+**, **PNPM 10+**, and **Docker** installed.
+Certifique-se de ter o **Node.js 22+**, **PNPM 10+** e **Docker** instalados.
 
-1.  **Install Dependencies:**
+1.  **Instalar Dependências:**
     ```bash
     pnpm install
     ```
 
-2.  **Run the Minecraft Server:**
+2.  **Iniciar o Servidor Minecraft:**
     ```bash
     pnpm server:up
     ```
 
-3.  **Build Game Assets:**
+3.  **Build de Ativos do Jogo:**
     ```bash
     pnpm build:plugin
     pnpm build:resourcepack
     ```
 
-Refer to the **[Cheat Sheet](./cheat-sheet.mdx)** for a complete list of commands.
+Consulte o **[Cheat Sheet](./cheat-sheet.mdx)** para uma lista completa de comandos.
 
 ---
-_Professional engineering for a polished gaming experience._
+_Engenharia profissional para uma experiência de jogo polida._

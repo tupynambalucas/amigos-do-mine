@@ -1,0 +1,31 @@
+---
+title: Merging Resource Packs
+---
+
+# Merging Resource Packs
+
+Sometimes you may want to combine Magic's RP with another RP. This could be a custom RP for your server, or one required by another plugin.
+
+We have a utility for that: [Resource Pack Merger](https://merge.elmakers.com)
+
+It is recommended to use this utility as it will properly merge models if there are conflicts. In most cases this should let you use Magic's RP combined with other plugin RPs, even if they use custom model data or damage predicates.
+
+The manual way to do this is:
+
+1. Unzip your RP
+2. Unzip Magic's RP
+3. Copy Magic's RP onto your RP
+4. Zip the result back up.
+
+Sometimes, however, you'll find you have a collision between the items Magic is using versus the items in your RP.
+
+If you need to change any of the items used by Magic, you can do that. See here for the main items used by Magic:
+
+https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/defaults/items/icons.yml
+
+So for instance if you need to change the item used for spell icons, you can do that in two steps.
+
+1. After unzipping Magic's RP (step 2 above), rename and edit the `assets/minecraft/models/item/diamond_axe.json` to (for instance) `iron_axe`.
+2. Edit `plugins/Magic/items.yml`, adding a line like `spell_icon: iron_axe`
+
+This will switch all spell icons to use the iron axe.

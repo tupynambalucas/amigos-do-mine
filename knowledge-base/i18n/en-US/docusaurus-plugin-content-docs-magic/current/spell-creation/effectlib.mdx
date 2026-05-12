@@ -1,0 +1,22 @@
+---
+title: EffectLib
+---
+
+# EffectLib
+
+EffectLib is a stand-alone library/plugin that is integrated into Magic directly. There is no need to download EffectLib if you are simply using Magic.
+
+If you are a developer, you can use EffectLib directly to create effects in your own plugin. See the [dev.bukkit.org page](http://dev.bukkit.org/bukkit-plugins/effectlib/), my [doxygen docs](http://jenkins.elmakers.com/job/MagicPlugin/doxygen/), or the [github repo](https://github.com/slikey/EffectLib).
+
+## Effects and Parameters
+
+Please check out the [Reference Manual](http://mine.elmakers.com/reference/#effectlib) for a list of all EffectLib effects and parameters!
+
+## Debugging Effects
+
+When creating your own effects, it's a good idea to turn this setting on in plugins/Magic/config.yml
+```yaml
+debug_effects: true
+```
+
+You may want to turn this off on production servers, as typos in effect configs can cause a lot of logging to happen. But this is invaluable for tracking down odd behavior or errors in your effect configs.

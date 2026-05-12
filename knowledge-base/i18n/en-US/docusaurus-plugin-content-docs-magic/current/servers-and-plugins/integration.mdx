@@ -1,0 +1,141 @@
+---
+title: Friendly Plugins
+---
+
+# Plugins that Integrate With Magic
+
+Other plugins may use [Magic's API](http://jenkins.elmakers.com/job/MagicPlugin/doxygen/) to integrate for
+casting spells, creating wands, and other functionality.
+
+[MagicArenas](https://github.com/elBukkit/MagicArenas/wiki) is a simple yet powerful Magic-integrated area/dueling plugin. The main limitation at the moment is that there can be only one winner, it does not easily support team battles.
+
+[HexRPG](https://www.spigotmc.org/resources/hexrpglite-hexrpg-extensive-rpg-plugin.45206/) is a sprawling RPG framework for your server. Players' Intelligence stats will make Magic spells more effective.
+
+[DeluxeCombat](https://www.spigotmc.org/resources/✦-deluxecombat-✦-ultimate-powerful-combat-resource-for-every-server.63970/) Disables Magic damage when a player has PvP disabled or is protected
+
+[FactionsUUID](https://www.spigotmc.org/resources/factionsuuid.1035/) Recent versions of FUUID integrate with Magic directly, supporting PvP, Team and Build permissions
+
+# Integration With Other Plugins
+
+Magic optionally integrates with several popular plugins, though it has
+no **required** dependencies. Magic will do the following by default if
+it detects these other plugins are present, though the functionality can
+be turned off in config.yml:
+
+-   [WorldGuard](http://dev.bukkit.org/bukkit-plugins/worldguard/) :
+    Magic will respect build and pvp region permissions when casting
+    spells that are considered "construction" or "pvp". Magic will, in
+    general, not allow block changes inside a protected region.
+
+    Magic also adds several custom flags, such as blocked-spells and allowed-spells,
+    if using WorldGuard 6.2 or above, or using the [WGCustomFlags](http://jenkins.elmakers.com/job/WGCustomFlags/5/com.mewin$WGCustomFlags/) plugin.
+
+    See the [Regions](../advanced-setup/regions.mdx) section for more information.
+
+-   [dynmap](http://dev.bukkit.org/bukkit-plugins/dynmap/) : My favorite
+    Minecraft map plugin! Magic will show the location of lost wands as
+    icons on your dynmap. Magic will also show spell casts in real-time,
+    personally tailored to match the casting wizard. This can add a few
+    unique elements to your server, such as player spectating and wand
+    lost+found hunts. Magic will also make sure that changes made to the
+    world via spells get shown in dynmap, though be advised this will
+    cause a much higher frequency of rendering, depending on the spells
+    you give out and number of players!
+
+    See the [dynmap section](../reference/dynmap.mdx) for more information.
+
+-  [ValhallaMMO](https://www.spigotmc.org/resources/valhallammo-1-19-26-1-1.94921/)
+   : Magic exposes Valhalla levels and XP as attributes, and adds a magic profile and skill, allowing for detailed integration. See the [Valhalla section](../reference/valhalla.mdx) for more information.
+
+-   [Heroes](http://dev.bukkit.org/bukkit-plugins/heroes/)
+    : Magic adds a graphical skills menu and hotbar items, as well as a skill-based wand for casters. See the [Heroes section](../reference/heroes.mdx) for more information.
+
+
+-   [Dead Souls](https://www.spigotmc.org/resources/dead-souls.69409/)
+    : Lost souls will show up in the Recall menu at level 2 and beyond 
+
+-   [BattleArenas](https://www.spigotmc.org/threads/battlearena.37552/)
+    : Magic spells will respect teams
+
+-   [SkillAPI](https://www.spigotmc.org/resources/skillapi.4824/)
+    : Magic can be configured to use SkillAPI mana, and can use SkillAPI attributes in spell configs. See the [SkillAPI section](../reference/skillapi.mdx) for more information.
+
+-   [Citizens](http://dev.bukkit.org/bukkit-plugins/citizens/) : Magic provides a [Magic NPC](../advanced-setup/npc.mdx) trait for making NPCs that cast spells, as well as several built-in shops and other mechanics. Magic
+    spells will ignore NPC's unless directed otherwise (e.g. the Camera
+    spell). See the [Citizens section](../reference/citizens.mdx) for more information.
+
+-   [Skript](https://github.com/bensku/Skript) : Magic provides cast events and effects for Skript. See the [Skript](../advanced-setup/skript.mdx) section for more info.
+
+-   [MobArena](https://www.spigotmc.org/resources/mobarena.34110/)
+    : You can use Magic items and mobs in MobArenas, see the [MobArena section](../reference/mobarena.mdx) for more information.
+
+-   [RedProtect](https://www.spigotmc.org/resources/redprotect-anti-grief-server-protection-region-management-1-7-1-16.15841/) : Magic
+    will respect build/break/pvp permissions
+
+-   [Residence](https://www.spigotmc.org/resources/residence-1-7-10-up-to-1-16.11480/) : Magic
+    will respect build/break/pvp/mob targeting permissions
+
+-   [Factions](http://dev.bukkit.org/bukkit-plugins/factions/) : Magic
+    will respect build permissions for Factions.
+
+-   [Towny](http://palmergames.com/towny/) : Magic
+    will respect build and PVP permissions for Towny regions.
+
+-   [GriefPrevention](http://dev.bukkit.org/bukkit-plugins/grief-prevention/) : Magic
+    will respect build permissions for GriefPrevention claims.
+
+-   [Citadel](https://www.spigotmc.org/resources/citadel.3224/) : Magic
+    will not allow spells to break reinforced blocks.
+
+-   [Lockette](http://dev.bukkit.org/bukkit-plugins/lockette/) : Magic
+    will not allow building over a Lockette chest or door.
+
+-   [PVPManager](http://dev.bukkit.org/bukkit-plugins/pvpmanager/) : Magic
+    will not allow combat skills while PVP is disabled.
+
+-   [CommandBook](http://dev.bukkit.org/bukkit-plugins/commandbook/) :
+    Magic can use CommandBook warps as Recall waypoints.
+
+-  [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) : Magic will add the following placeholders: magic_path, magic_class, magic_wand and magic_spell.
+
+-   [Multiverse](http://dev.bukkit.org/bukkit-plugins/multiverse-core/)
+    : Magic will respect MV per-world PVP settings
+
+-   [LightAPI](https://www.spigotmc.org/resources/lightapi.4510/) : Magic integrates with LightAPI to provide the Light action and Light spell.
+
+-   [WGCustomFlags](http://dev.bukkit.org/bukkit-plugins/worldguard-custom-flags/)
+    : Magic will add the "allowed-spells" and "blocked-spells" flags,
+    for fine-grained, per-region spell permissions. This is no longer required as of WorldGuard 6.2
+
+-   [Vault](http://dev.bukkit.org/bukkit-plugins/vault/) :
+    Magic will use Vault block names for brushes, and Vault economy in shops.
+
+-   [Essentials](http://dev.bukkit.org/bukkit-plugins/essentials/) :
+    Magic will make wand templates available for sale on signs or in
+    kits, and Essentials warps can be used in Recall.
+
+-   [Elementals](http://dev.bukkit.org/bukkit-plugins/splateds_elementals/)
+    : Magic spells work against Elementals (try Shrink!)
+
+-   [MythicMobs](http://dev.bukkit.org/bukkit-plugins/mythicmobs/) :
+    Magic doesn't directly integrate with MythicMobs, but you can set up
+    mobs that cast spells. See the [MythicMobs section](../reference/mythicmobs.mdx) for details.
+
+
+
+### EffectLib Integration
+
+EffectLib is integrated into Magic for special effects for its spells. See
+this video for some examples. As always, the system is fully
+configurable, and gives you access to all of EffectLib's classes and
+properties.
+
+[![EffectLib Video](http://img.youtube.com/vi/cdinVbIntTU/0.jpg)](http://www.youtube.com/watch?v=cdinVbIntTU)
+
+### Elementals Integration
+
+You can Shrink, Disintegrate, Frost, Fire, etc Elementals to damage
+them. I'm hoping to add a spawning spell and other abilities as the
+Elementals plugin matures.
+
+[![EffectLib Video](http://img.youtube.com/vi/I-IATG6dSBY/0.jpg)](http://www.youtube.com/watch?v=I-IATG6dSBY)

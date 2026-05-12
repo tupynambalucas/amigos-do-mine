@@ -1,0 +1,62 @@
+---
+title: Engineering
+---
+
+# Engineering Magic
+
+Engineering in the Magic plugin refers to the ability to build permanent structures using a wand.
+
+Unlike most spells in Magic, changes made with engineering spells do not automatically undo themselves. Players can use the "Rollback" spell to undo engineering spells, by aiming at something built magically or by aiming up and casting, which will undo the last spell cast by that player.
+
+Engineering magic generally requires that the player have the blocks necessary for building, so the system attempts to avoid cheating in terms of resources. What it gives the player is the ability to build quickly and from a distance, with spells similar to WorldEdit commands.
+
+## Enabling
+
+Use this command to add engineering magic to your base survival configs:
+
+`/mconfig example add engineering`
+
+Player swill be able to advance to engineer rank after master ("Wizard"), and then architect after that.
+
+## Engineering Spells
+
+Engineering magic generally consists of spells that make permanent changes to the world. The spell start off simple, such as placing blocks from a distance, but at the Architect rank you will have WorldEdit-like powers to create giant constructions.
+
+You _will_ need to have the blocks in order to build, the magic is meant to be non-exploitable and still fit within a survival ecosystem without throwing the economy out of whack.
+
+## Conduit Rank
+
+There is a final rank available, "Conduit". At this rank players can use their engineering spells without having to spend blocks. This gives them WorldEdit-like power with unlimited resources.
+
+Since this will hugely unbalance a server, this rank is not attainable by default. Should you wish to allow players to get there, place an NPC with
+
+`/mnpc add conduitshop`
+ 
+## Material Brushes
+
+A "brush" is a block type used for building. Players can collect different brushes that they can use to build with.
+
+There are also some special brushes that players can earn while ranking up:
+
+* **erase** : Build with air
+* **copy** : Build with the same material as your target
+* **clone** : Select a source location and clone blocks from source to target
+* **replicate** : Similar to clone, but moves the source location as you cast so you can copy large structures across multiple spell casts
+* **map** : Build pixel art by using an [image map](../advanced-setup/image-maps.mdx)
+
+## Brush Selection
+
+With an engineering spell equipped, a player may press `shift+Q` (sneak+drop) to open the brush selector. Here a player may choose what material will be used when building. Players must acquire new brushes by enchanting their wands in order to build with new materials.
+
+Once a player reaches the Architect rank, they are able to add new brushes from any material in the world using the Absorb spell.
+
+## Special Brushes
+
+There are a few special brushes that a player may have:
+
+* **Erase** : This brush fills with air, effectively destroying blocks. Players do not receive block items for anything they erase, the block are disintegrated.
+* **Copy** : The brush is chosen automatically from the block the player has cast on
+* **Clone** : When first selected, the clone brush chooses a sample point. Each cast after that will clone blocks from the original sample point.
+* **Replicate** : Similar to clone, but the sample point moves on each cast. This allows players to clone a very large area piece by piece. Very useful for copying or moving a town or other large structure.
+* **Map** : Players may create pixel art from wool, stained glass or clay using a map item. Engineering spells will build with the most recently viewed map.
+* **Schematics**: Players may use a schematic as a brush. See [Using Schematics](schematics.mdx) for more information.

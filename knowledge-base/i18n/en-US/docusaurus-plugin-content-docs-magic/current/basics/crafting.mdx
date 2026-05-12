@@ -1,0 +1,51 @@
+---
+title: Crafting
+---
+
+Magic can add custom crafting recipes for wands or magic items.
+
+The default recipes provided in the survival configs can be seen here: [Crafting Recipes](http://magic.elmakers.com/#crafting)
+
+The configs for these recipes can be seen here: [Survival Crafting Configs](https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/resources/examples/survival/crafting)
+
+## Knowledge Books
+
+You can create knowledge books (1.13 and up) containing one or more crafting recipes.
+
+`/mgive recipe:wand` will give a book containing the wand recipe.
+`/mgive recipe:*` will give a book containing all recipes.
+
+When used by a player, the recipes will be added to their crafting book.
+
+## Modifying recipes
+
+Modified recipes go in crafting.yml or in the crafting folder. First look at the recipe you want to change, then copy the part you want to change into your config files and modify it.
+
+Recipes may require a complete server restart to take effect, though you may try `/magic load` first.
+
+## Custom Recipes
+
+As always, looking at one of the default configs is the best way to learn how to make your own.
+
+Take the default wand recipe, for instance:
+```yaml
+# This is a unique name for this recipe
+wand:
+  # This defines the recipe output, this can be wand,item,spell or brush
+  output_type: wand
+
+  # This defines the item that will be crafted, this will be a wand, item or spell key
+  # depending on the output type
+  output: wand 
+
+  # This defines the materials that will be required to craft this wand
+  materials:
+    o: nether_star
+    i: blaze_rod
+
+  # This defines the shape of the recipe, row_1 is the top. Each row may
+  # have up to 3 characters that map to the materials listed above.
+  row_1: o
+  row_2: i
+  row_3:
+```

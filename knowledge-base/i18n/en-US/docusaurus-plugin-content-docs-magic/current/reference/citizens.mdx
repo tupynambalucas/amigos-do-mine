@@ -1,0 +1,138 @@
+---
+title: Citizens Integration
+---
+
+# Magic Citizens NPCs
+
+Magic has a "magic" Citizens traits built in that can be used to cast spells on players, allow them to check spell upgrade progress, purchase wands, items, spells, and much more.
+
+There is also a "command" trait which can be used to have Citizens NPCs run commands.
+
+Note that Magic also has [built-in NPCs](../advanced-setup/npc.mdx) for simpler tasks such as shops and dialog.
+
+[![Citizens Integration Video](http://img.youtube.com/vi/grpc-ti9j_Q/0.jpg)](http://www.youtube.com/watch?v=grpc-ti9j_Q)
+
+## Getting Started
+
+First you will need [Citizens NPCs](http://wiki.citizensnpcs.co/Citizens_Wiki). Create and select an NPC, then perform the following command:
+
+`/trait magic`
+
+To add the Magic trait. The Magic trait only casts spells- and it can only cast one spell. It may be appropriate in most cases to [create a custom spell](../spell-creation/custom-spells.mdx) for your NPC to use, though several spells are provided that are intended for NPC use.
+
+### The mtrait command
+
+Use `/mtrait` to configure your NPCs. Magic traits have parameters, which can be configured using
+
+`/mtrait <parameter> <value>`
+
+### Magic Trait Parameters
+* **spell** - The spell the NPC should cast, must match a spell key from spells.yml or the defaults.
+* **parameters** - Any parameters you want to provide to the spell, as if using /cast.
+* **caster** - If true, the NPC will cast the spell at the clicking player. By default, the player casts the spell.
+* **permission** - If set, a player will require the specified permission node to use this NPC
+* **invisible** - Set to true to make the NPC invisible
+* **cost** - An amount of money (via Vault integration) to require for use of this NPC
+* **requires** - An item (can be a Magic item) required to use this NPC. Currently does not support requiring multiple items.
+* **hat** - Put any item on an NPC's head, including spell icons. e.g. `/mtrait hat tpshop`
+
+### Built-in Spells for NPC Use
+
+The following spells are intended for NPC use:
+* **upgrades** - Provides a GUI for a player to check on their upgrade progress
+* **spellshop** - A wand-sensitive spell shop that can replace enchanting as a progression mechanism
+* **magicitemshop** - A shop to sell all of the magic items
+* **engineershop** - A shop to allow players to progress to Engineer
+* **architectshop** - A shop to allow players to progress to Architect
+* **bookshop** - A shop to give away spellbooks that describe available spells
+* **broomshop** - A shop to sell brooms
+* **wandshop** - A shop to sell a few example wands
+* **tweakshop** - A shop for wand "tweaks", which are free (inventory/chest mode, etc)
+* **colorshop** - A shop for selling custom wand colors and effects
+* **mobshop** - A shop with custom mob spawn eggs
+* **withdrawals** - An exchange shop for currency items
+* **deposits** - An exchange shop for currency items
+* **ledgershop** - A simple shop that sells the Ledger item
+* **lootshop** - A sell shop for mob loot
+* **trinketshop** - A shop with decorative player skulls
+* **upgradeshop** - A shop for selling wand upgrades (hotbar upgrades, anti-hunger)
+* **fillwand** - For rank-based servers, fills a player's wand with all of their spells
+* **addspell** - Can be used to give players a specific spell
+* **enchantwand** - Can be used as a replacement for the enchantment table
+* **tpshop** - Allow a random tp for $1
+
+#### NPC spell parameters
+
+You can use `/cast` in-game with tab-completion to get an idea for available parameters. In particular, all of the shops support a common set of useful parameters:
+
+* **confirm** - Whether or not to show the confirmation screeen
+* **path** - A player must be on or past this enchanting path to use this shop
+* **path_end** - A player must have completed this enchanting path and be blocked on required spells
+* **path_exact** - A player must be on this exact path
+* **auto_upgrade** - Whether to advance the player to the next path once they meet the requirements
+* **require_wand** - Whether or not to require a wand, useful to prevent players from having spell and upgrade items
+
+### Examples
+
+Some simple examples:
+```bash
+/trait magic
+
+# Set up an upgrades NPC
+/mtrait spell upgrades
+# In most cases the "spell" part is optional
+/mtrait upgrades
+
+# Set up an NPC to sell the Blink spell directly for $100
+/mtrait addspell
+/mtrait parameters spell blink
+/mtrait cost 100
+
+# Set up a spell shop
+/mtrait spellshop
+
+# Set up a random TP NPC
+/mtrait tpshop
+/mtrait hat randomtp
+```
+
+As with any spell, these spells can be customized or used as the basis for new spells via spells.yml.
+
+## Command Traits
+
+Magic also provides a "command" trait- to use it, perform
+
+`/trait command`
+
+Command traits are similar to "magic" traits, but instead of a "spell" parameter they take a "command" parameter. 
+
+The NPC will then run the command when right-clicked.
+
+### Command Trait Parameters
+* **command** - The command to run
+* **console** - If true, run the command as console rather than as the player clicking
+* **op** - If true, temp-op the player when running the command
+* **permission** - If set, a player will require the specified permission node to use this NPC
+* **invisible** - Set to true to make the NPC invisible
+* **cost** - An amount of money (via Vault integration) to require for use of this NPC
+* **requires** - An item (can be a Magic item) required to use this NPC. Currently does not support requiring multiple items.
+
+### Command Trait Selectors
+
+The following selectors can be used in a command:
+
+* **@p** The player's IGN
+* **@pn** The player's IGN (same as @p)
+* **@pd** The player's display name
+* **@uuid** The player's UUID
+* **@world** The world the player is in
+* **@x** The player's x coordinate
+* **@y** The player's y coordinate
+* **@z** The player's z coordinate
+
+### Examples
+
+```bash
+/trait command
+/mtrait command broadcast @p has clicked on an NPC at @world,@x,@y,@z
+```

@@ -1,0 +1,54 @@
+---
+title: Regions
+---
+
+# Regions
+
+Magic integrates with [WorldGuard](http://dev.bukkit.org/bukkit-plugins/worldguard/) 6.2 or above, or older versions of WorldGuard coupled with the [WGCustomFlags](http://jenkins.elmakers.com/job/WGCustomFlags/5/com.mewin%24WGCustomFlags/) plugin to provide region-based control over spells and wands. 
+
+## Region Flag Command
+
+Admins can use several custom flags to control how Magic behaves in specific regions. The general command syntax for modifying region flags is like this:
+
+```bash
+region flag arena -w world blocked-spell-categories master,engineering
+```
+
+This would modify the "arena" region in world "world" so that any spells in the "master" and "engineering" categories are not allowed.
+
+```bash
+region flag arena -w world blocked-spells kill,torture
+```
+
+This works like the other example, but using a specific list of spells instead of categories. Note that spell _key names_ are used here (as found in configs), not in-game localized names.
+
+## Custom Flags
+
+Magic provides the following custom flags:
+
+* **allowed-spells** Spells that will be allowed in a region. Takes priority over PvP and build permissions.
+* **blocked-spells** Spells that are not allowed in a region. Takes priority over allowed-spells.
+* **allowed-spell-categories** Works like allowed-spells, but using spell categories instead of keys.
+* **blocked-spell-categories** Works like blocked-spells, but using spell categories instead of keys.
+* **allowed-wands** Wands that are allowed to be used in a region. Takes priority over wand use permissions.
+* **blocked-wands** Wands that are not allowed to be used in a region. Takes priority over allowed-wands.
+* **spell-overrides** Used like the "/wand override" command, can be a powerful tool for making certain spells behave differently in a particular region.
+* **destructible** Can be used to modify which blocks may be destroyed by spells in a specific region.
+* **reflective** Can be used to make specific blocks reflective in a region (spells will bounce off of them)
+* **magic-tags** Set tags on a region which can be used in spawn rules and other places to match to specific regions
+* **portal-spell** Cast a spell when a player enters a nether portal
+* **portal-warp** Teleport a player when they enter a nether portal
+
+## Wildcards
+
+In all cases `*` can be used as a wildcard, meaning "all". So `/region flag somewhere blocked-spells *` can be used to prevent casting of all spells in a region.
+
+If for some reason you should need it (generally due to overlapping regions) you can use `-` to mean "none". For example, if you have a region where you want to allow all spells, and then inside of that a higher-priority region where you want to block only specific spells you could do:
+
+```bash
+/region flag outer allowed-spells *
+/region flag inner blocked-spells blink,fling
+/region flag inner allowed-spells -
+```
+
+This will prevent the inner region from inheriting the `*` from its parent region.

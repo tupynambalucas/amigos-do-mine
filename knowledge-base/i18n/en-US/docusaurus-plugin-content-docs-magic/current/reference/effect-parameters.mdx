@@ -1,0 +1,68 @@
+---
+title: Effect Parameters
+---
+
+# Effects
+
+Each effect is configured using a "player" class and several common parameters:
+
+| Name              | Values         | Description
+|-------------------|----------------|-----------------
+| `effectlib`       | [EffectLib](effectlib-parameters.mdx)      | Configuration of an [EffectLib](../spell-creation/effectlib.mdx) effect.
+| `location`        | `target`/`origin`/`both` | Where to play the effect
+| `color`           | `RRGGBB`         | The main color to use, only applies to some effects (like Fireworks)
+| `color1`          | `RRGGBB`         | The secondary color to use, only applies to some effects (like Fireworks)
+| `delay`           | milliseconds   | How long to wait before starting the effect
+| `effect`          | Effect name    | A Bukkit effect, often includes sound and particles
+| `sound`           | [Sound name](sound.mdx)     | A sound to play, taken from the Bukkit sound constant or sounds.json
+| `sound_volume`    | 0.0 - 2.0      | The volume at which to play a sound
+| `sound_pitch`     | 0.0 - 2.0      | The pitch to use for playing a sound
+| `particle`        | Particle name  | A Particle type to use, taken from a Magic constant
+| `particle_count`  | count          | The number of particles to spawn
+| `particle_offset_x` | integer        | How much random x-jitter to apply to particles
+| `particle_offset_y` | integer        | How much random y-jitter to apply to particles
+| `particle_offset_z` | integer        | How much random z-jitter to apply to particles
+| `particle_data`   | integer        | A special magic data number, use with care, it can crash the client!!
+| `particle_sub_type` | string         | A special magic data value, use with care, it can crash the client!!
+| `firework`        | Firework Effect | The type of firework to launch, if other firework params are specified without this it will be random
+| `firework_power`  | integer        | The firework power
+| `firework_flicker` | true/false     | Whether or not to flicker the firework effect
+
+## Built-in Effects
+
+Magic comes with a few builtin effect players that may be useful, but in general if you're using EffectLib effects, `EffectSingle` is the only one you need.
+
+## Built-in Effect Configuration
+
+| Name              | Values         | Description
+|-------------------|----------------|-----------------
+| `class`           | Class name     | An effect player class, either a builtin or a fully-qualified external `EffectPlayer`. Defaults to `EffectSingle`.
+
+## Repeating Effects
+
+| Name              | Values         | Description
+|-------------------|----------------|-----------------
+| `iterations`      | count          | How many times to repeat the effect
+| `period`          | milliseconds   | How often to repeat the effect
+| `reverse`         | true/false     | Whether or not to play the effect in reverse
+
+## EffectRing
+
+| Name              | Values         | Description
+|-------------------|----------------|-----------------
+| `radius`          | blocks         | How large the ring should get
+| `size`            | count          | How many effects to spawn per ring
+
+## EffectTrail
+
+| Name              | Values         | Description
+|-------------------|----------------|-----------------
+| `length`          | blocks         | The length of the trail, may be automatic if a target was provided.
+
+enum reference:
+
+* Sound: https://raw.githubusercontent.com/Bukkit/Bukkit/master/src/main/java/org/bukkit/Sound.java
+* Effect: https://raw.githubusercontent.com/Bukkit/Bukkit/master/src/main/java/org/bukkit/Effect.java
+* ParticleType: https://github.com/Slikey/EffectLib/blob/master/src/main/java/de/slikey/effectlib/util/ParticleEffect.java#L44
+* FireworkEffect: https://raw.githubusercontent.com/Bukkit/Bukkit/master/src/main/java/org/bukkit/FireworkEffect.java
+* EffectLib Classes: http://dev.bukkit.org/bukkit-plugins/effectlib/

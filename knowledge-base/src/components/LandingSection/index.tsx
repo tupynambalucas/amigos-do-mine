@@ -13,11 +13,11 @@ export default function LandingSection(): ReactNode {
             <div>
               <h1>
                 <Translate id="homepage.hero.title" description="Main hero title on the homepage">
-                  {'Technical Architecture\n'}
+                  {'Engenharia para\n'}
                 </Translate>
                 <br />
                 <Translate id="homepage.hero.subtitle" description="Secondary hero title">
-                  Amigos Do Mine.
+                  Diversão e Performance.
                 </Translate>
               </h1>
               <p>
@@ -25,21 +25,21 @@ export default function LandingSection(): ReactNode {
                   id="homepage.hero.text.primary"
                   description="First line of the introductory paragraph"
                 >
-                  {'High-performance monorepo engineering for a professional Minecraft ecosystem.\n'}
+                  {'Arquitetura de monorepo de alta performance para um ecossistema Minecraft integrado.\n'}
                 </Translate>
                 <br />
                 <Translate
                   id="homepage.hero.text.secondary"
                   description="Second line of the introductory paragraph"
                 >
-                  Built with React 19, Fastify v5, and Kotlin for maximum efficiency and seamless game integration.
+                  Construído para escalabilidade, segurança e diversão pura.
                 </Translate>
               </p>
             </div>
 
             <Link to="/docs/intro">
               <Translate id="homepage.button.docs" description="Label for the documentation button">
-                Explore Architecture
+                Explorar Arquitetura
               </Translate>
             </Link>
           </div>

@@ -1,0 +1,108 @@
+{
+  "homepage.title": {
+    "message": "Amigos Do Mine Documentation",
+    "description": "The homepage welcome message"
+  },
+  "homepage.description": {
+    "message": "Technical documentation for the high-performance Minecraft ecosystem monorepo."
+  },
+  "homepage.hero.title": {
+    "message": "Technical Architecture\n",
+    "description": "Main hero title on the homepage"
+  },
+  "homepage.hero.subtitle": {
+    "message": "Amigos Do Mine.",
+    "description": "Secondary hero title"
+  },
+  "homepage.hero.text.primary": {
+    "message": "High-performance monorepo engineering for a professional Minecraft ecosystem.\n",
+    "description": "First line of the introductory paragraph"
+  },
+  "homepage.hero.text.secondary": {
+    "message": "Built with React 19, Fastify v5, and Kotlin for maximum efficiency and seamless game integration.",
+    "description": "Second line of the introductory paragraph"
+  },
+  "homepage.button.docs": {
+    "message": "Explore Architecture",
+    "description": "Label for the documentation button"
+  },
+  "homepage.why.title": {
+    "message": "Why Amigos Do Mine?"
+  },
+  "homepage.why.item1.title": {
+    "message": "Community"
+  },
+  "homepage.why.item1.description": {
+    "message": "Be part of a server that values every player."
+  },
+  "homepage.why.item2.title": {
+    "message": "Innovation"
+  },
+  "homepage.why.item2.description": {
+    "message": "Real web integration with the block world."
+  },
+  "homepage.why.item3.title": {
+    "message": "Stability"
+  },
+  "homepage.why.item3.description": {
+    "message": "High performance and zero lag for your gameplay."
+  },
+  "homepage.dosolo.title": {
+    "message": "Technical Foundation"
+  },
+  "homepage.dosolo.subtitle": {
+    "message": "// Scalable architecture for high-fidelity engineering."
+  },
+  "homepage.dosolo.item1.title": {
+    "message": "Monorepo Excellence"
+  },
+  "homepage.dosolo.item1.description": {
+    "message": "Context-driven root layout using PNPM Workspaces and Turborepo for optimized task orchestration."
+  },
+  "homepage.dosolo.item2.title": {
+    "message": "Type-Safe Domain Core"
+  },
+  "homepage.dosolo.item2.description": {
+    "message": "Strictly-typed business logic and schemas defined as single source of truth for all applications."
+  },
+  "homepage.dosolo.item3.title": {
+    "message": "Automated Assets"
+  },
+  "homepage.dosolo.item3.description": {
+    "message": "Automated build pipeline for custom plugins and resource packs."
+  },
+  "homepage.monorepo.title": {
+    "message": "Monorepo Map",
+    "description": "Title for the monorepo map section"
+  },
+  "homepage.monorepo.subtitle": {
+    "message": "Interactive visualization of the Amigos Do Mine bounded contexts. Click on a context to explore.",
+    "description": "Subtitle for the monorepo map section"
+  },
+  "homepage.monorepo.techstack": {
+    "message": "Tech Stack",
+    "description": "Label for the tech stack subsection"
+  },
+  "homepage.monorepo.responsibilities": {
+    "message": "Core Responsibilities",
+    "description": "Label for the core responsibilities subsection"
+  },
+  "homepage.about.badge": {
+    "message": "The Architect"
+  },
+  "homepage.about.title": {
+    "message": "Tupynambá Lucas"
+  },
+  "homepage.about.description": {
+    "message": "Fullstack Developer with a rare profile that combines over 10 years of programming study with a deep sensitivity for design and UX/UI. I have expertise in the architecture of complete digital solutions, developing performant applications with TypeScript and strategically choosing database technology — PostgreSQL for relational structures or MongoDB for high-flexibility scenarios — to ensure the scalability and efficiency of the final product."
+  },
+  "homepage.about.tech.code": {
+    "message": "Code"
+  },
+  "homepage.about.tech.design": {
+    "message": "Design"
+  },
+  "homepage.about.tech.data": {
+    "message": "Data"
+  }
+}

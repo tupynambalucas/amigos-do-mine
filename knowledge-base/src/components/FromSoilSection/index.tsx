@@ -33,38 +33,38 @@ export default function FromSoilSection(): ReactNode {
 
         <div className={styles.content}>
           <h1>
-            <Translate id="homepage.dosolo.title">Technical Foundation</Translate>
+            <Translate id="homepage.dosolo.title">Fundação Técnica</Translate>
           </h1>
           <p className={styles.subtitle}>
             <Translate id="homepage.dosolo.subtitle">
-              // Scalable architecture for high-fidelity engineering.
+              Arquitetura escalável projetada para engenharia de alta fidelidade.
             </Translate>
           </p>
 
           <div className={styles.timeline}>
             <TimelineItem
               title={
-                <Translate id="homepage.dosolo.item1.title">Monorepo Excellence</Translate>
+                <Translate id="homepage.dosolo.item1.title">Excelência em Monorepo</Translate>
               }
               description={
                 <Translate id="homepage.dosolo.item1.description">
-                  Context-driven root layout using PNPM Workspaces and Turborepo for optimized task orchestration.
+                  Layout de raiz orientado a pacotes usando PNPM Workspaces e Turborepo para orquestração otimizada.
                 </Translate>
               }
             />
             <TimelineItem
-              title={<Translate id="homepage.dosolo.item2.title">Type-Safe Domain Core</Translate>}
+              title={<Translate id="homepage.dosolo.item2.title">Core de Domínio Type-Safe</Translate>}
               description={
                 <Translate id="homepage.dosolo.item2.description">
-                  Strictly-typed business logic and schemas defined as single source of truth for all applications.
+                  Lógica de negócio e esquemas estritamente tipados compartilhados entre Web e API.
                 </Translate>
               }
             />
             <TimelineItem
-              title={<Translate id="homepage.dosolo.item3.title">Automated Assets</Translate>}
+              title={<Translate id="homepage.dosolo.item3.title">Assets Automatizados</Translate>}
               description={
                 <Translate id="homepage.dosolo.item3.description">
-                  Automated build pipeline for custom plugins and resource packs.
+                  Pipeline de build automatizado para plugins e resource packs customizados.
                 </Translate>
               }
             />
