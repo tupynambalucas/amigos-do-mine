@@ -10,15 +10,15 @@ const config: Config = {
   favicon: 'favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://amigos-do-mine.com',
+  url: 'https://elo-organico.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/EloOrganico/', // Keeping this as it matches the repo name on GitHub
+  baseUrl: '/amigos-do-mine/', // Updated to match the current repo name on GitHub
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'tupynambalucas', // Usually your GitHub org/user name.
-  projectName: 'EloOrganico', // Usually your repo name.
+  projectName: 'amigos-do-mine', // Updated to match the current repo name.
 
   onBrokenLinks: 'throw',
 
@@ -145,7 +145,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/tupynambalucas/EloOrganico',
+          href: 'https://github.com/tupynambalucas/amigos-do-mine',
           position: 'right',
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
@@ -192,7 +192,7 @@ const config: Config = {
             },
             {
               label: 'Minecraft (Server)',
-              href: 'https://github.com/tupynambalucas/EloOrganico',
+              href: 'https://github.com/tupynambalucas/amigos-do-mine',
             },
           ],
         },
@@ -208,7 +208,7 @@ const config: Config = {
       ],
       copyright: `
         <div class="footer__banner-container">
-          <img src="/EloOrganico/eloornico/svg/banner-negative.svg" alt="Amigos Do Mine" class="footer__banner" />
+          <img src="/amigos-do-mine/eloornico/svg/banner-negative.svg" alt="Amigos Do Mine" class="footer__banner" />
         </div>
         <p>Copyright © ${new Date().getFullYear()} Amigos Do Mine. Professional Minecraft ecosystem management. Built with Docusaurus.</p>
       `,
