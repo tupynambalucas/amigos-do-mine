@@ -8,19 +8,19 @@ export default function WhySection(): ReactNode {
   return (
     <section className={styles.section}>
       <div className={styles.content}>
-        <h1><Translate id="homepage.why.title">Why Elo Orgânico?</Translate></h1>
+        <h1><Translate id="homepage.why.title">Why Amigos Do Mine?</Translate></h1>
         <div>
           <div>
-            <h2><Translate id="homepage.why.item1.title">Belonging</Translate></h2>
-            <p><Translate id="homepage.why.item1.description">Be part of a network that values the local producer.</Translate></p>
+            <h2><Translate id="homepage.why.item1.title">Community</Translate></h2>
+            <p><Translate id="homepage.why.item1.description">Be part of a server that values every player.</Translate></p>
           </div>
           <div>
-            <h2><Translate id="homepage.why.item2.title">Simplicity</Translate></h2>
-            <p><Translate id="homepage.why.item2.description">Direct and transparent processes for everyone.</Translate></p>
+            <h2><Translate id="homepage.why.item2.title">Innovation</Translate></h2>
+            <p><Translate id="homepage.why.item2.description">Real web integration with the blocky world.</Translate></p>
           </div>
           <div>
-            <h2><Translate id="homepage.why.item3.title">Human Connection</Translate></h2>
-            <p><Translate id="homepage.why.item3.description">Relationships based on trust and respect.</Translate></p>
+            <h2><Translate id="homepage.why.item3.title">Stability</Translate></h2>
+            <p><Translate id="homepage.why.item3.description">High performance and zero lag for your gameplay.</Translate></p>
           </div>
         </div>
       </div>

@@ -1,0 +1,45 @@
+---
+title: SkillAPI Integration
+---
+
+# SkillAPI Integration
+
+Magic has some SkillAPI integration to tie into SkillAPI's attribute and mana systems. SkillAPI integration can be disabled by setting this in `config.yml`:
+
+```yaml
+skillapi_enabled: false
+```
+
+## SkillAPI Mana
+
+Set the following in `config.yml`
+
+```yaml
+use_skillapi_mana: true
+```
+
+To have Magic use SkillAPI mana instead of its internal mana system. Wand lore will display SkillAPI mana, which will be used by spells and shown in the XP bar when holding a wand.
+
+## SkillAPI Attributes
+
+Attributes can be used as variables in equations as spell parameters. For instance, to have some spells change behavior based on attributes, you could add the following to spells.yml:
+
+```yaml
+# Reduce Fury's cooldown based on the caster's intelligence attribute.
+# Cooldown is reduced by 1 second for every point of intelligence.
+# This will have a max cooldown of 30 seconds (30000), reduced down to 10000 for an intelligence of 20
+fury:
+  parameters:
+     cooldown: "30000 - intelligence * 1000"
+
+# Increase the damage of the Wound spell based on player strength
+# Here we use the damage_multiplier property, so that this takes affect evenly
+# across the damage values as they increase when the spell levels up.
+wound:
+  parameters:
+    damage_multiplier: "1 + strength / 10"
+```
+
+Equations can only work on numerical parameters, and must always be enclosed in double quotes. Any attribute that is registered with SkillAPI can be used as a parameter.
+
+Make sure to check your server logs if something seems wrong, errors parsing equations will go there.

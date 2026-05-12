@@ -1,0 +1,75 @@
+---
+title: Player Data Storage
+---
+
+By default, Magic will store player data in `plugins/Magic/data/players`.
+
+Player data contains the classes and spells players have unlocked, SP earned, various stats, stored wands, undo queues (for engineering magic) and a host of other information. It is important to keep these backed up and safe!
+
+# Alternate Storage
+
+If you would prefer to store your player data in a database, Magic will easily let you do this!
+
+Magic can also migrate existing player data from the flatfile format, or from any store type to any other.
+
+See the [default configs](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/defaults/config/data_storage.yml) here for examples.
+
+## Using the editor
+
+Use `/mconfig editor config player_data_store` to edit the player data store configs, and add the following:
+
+## SQLite
+```yaml
+player_data_store:
+  class: SQLite
+  database: players
+```
+
+## MySQL
+
+MySQL can also be used, this can be useful if you have servers on a Bungee (or other proxy) network and you want their magic data to stay in sync across all servers. Note you will probably also want to set up inventory syncing, which is not something Magic will do for you.
+
+All parameters are optional, though you will hopefully need to at least specify user and password.
+```yaml
+player_data_store:
+  class: MySQL
+  database: magic
+  host: yourdatabaseserver
+  port: 3306
+  user: minecraft
+  password: somethingsecure
+```
+
+## Postgres
+
+```yaml
+player_data_store:
+  class: PostresSQL
+  database: magic
+  host: localhost
+  port: 3306
+  user: minecraft
+  password: somethingsecure
+```
+
+# Migrating Existing Player Data
+
+If you already have player data (this happens as soon as players log in with the plugin installed) and you want to switch data storage, you can do so while easily migrating your data.
+
+It is _recommended_ to turn on a server whitelist during this process, though it may not be necessary.
+
+It is _**strongly** recommended_ to backup your existing player data before migrating!
+
+In config.yml (or the editor) you would change your existing `player_data_store` block to `migrate_data_store`, like this:
+
+```yaml
+migrate_data_store:
+  class: Yaml
+  folder: data/players
+```
+
+This block has the configuration of where your player data currently resides. The `player_data_store` block should contain your new player data configuration.
+
+Once this is set up, you should run the `/magic migrate` command to push the migration process through (or it will happen at next boot).
+
+After migration is complete you can remove the `migrate_data_store` config, using the same editor command as before.

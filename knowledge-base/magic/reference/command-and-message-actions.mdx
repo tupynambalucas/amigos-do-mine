@@ -1,0 +1,50 @@
+---
+title: Command and Message Actions
+---
+
+# Command and Message
+
+The Command and Message actions support a variety of placeholders:
+
+Generally Command uses a `@` prefix and Message uses a `$` prefix, but for the case of numerical placeholders both are supported. Using `@` will round numbers to the nearest whole number.
+
+## Caster location:
+```text
+@world
+@x
+@y
+@z
+```
+
+## Target location:
+```text
+@tworld
+@tx
+@ty
+@tz
+```
+
+## Caster entity:
+```text
+@pd (display name)
+@pn or @p (name)
+@uuid
+```
+
+## Target entity:
+```text
+@td (display name)
+@tn or @t (name)
+@tuuid
+```
+
+## Spell Cast Information
+```text
+@spell (spell name)
+```
+
+Additionally, all variables and attributes are available for use in messages and commands
+
+## PlaceholderAPI
+
+If you use PlaceholderAPI, you can use any placeholders in a message or command with the `%placeholder%` syntax.

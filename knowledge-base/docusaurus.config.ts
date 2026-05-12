@@ -5,15 +5,15 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Elo Organico',
-  tagline: 'Professional management for a sustainable organic economy.',
+  title: 'Amigos Do Mine',
+  tagline: 'Professional Minecraft ecosystem management.',
   favicon: 'favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://elo-organico.com',
+  url: 'https://amigos-do-mine.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/EloOrganico/',
+  baseUrl: '/EloOrganico/', // Keeping this as it matches the repo name on GitHub
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -63,7 +63,7 @@ const config: Config = {
           routeBasePath: 'changelog',
           blogTitle: 'Changelog',
           blogDescription:
-            'Acompanhe as últimas atualizações, melhorias e correções do Elo Orgânico.',
+            'Acompanhe as últimas atualizações, melhorias e correções do Amigos Do Mine.',
           blogSidebarTitle: 'Todas as versões',
           blogSidebarCount: 'ALL',
           showReadingTime: true,
@@ -82,6 +82,18 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'magic',
+        path: 'magic',
+        routeBasePath: 'magic',
+        sidebarPath: './sidebarsMagic.ts',
+      },
+    ],
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'eloornico/svg/logo-negative.svg',
@@ -91,9 +103,9 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      title: 'EloDocs',
+      title: 'AmigosDocs',
       logo: {
-        alt: 'Elo Organico Logo',
+        alt: 'Amigos Do Mine Logo',
         src: 'eloornico/svg/logo-negative.svg',
       },
       items: [
@@ -102,6 +114,13 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Documentation',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'magicSidebar',
+          position: 'left',
+          label: 'Magic',
+          docsPluginId: 'magic',
         },
         { to: '/studio', label: 'Studio', position: 'left' },
         { to: '/tools', label: 'Tools', position: 'left' },
@@ -153,11 +172,11 @@ const config: Config = {
               to: '/tools',
             },
             {
-              label: 'Instance (Shop)',
-              href: 'https://github.com/tupynambalucas/EloOrganico',
+              label: 'Portal (Dashboard)',
+              to: '/',
             },
             {
-              label: 'Portal (SaaS)',
+              label: 'Minecraft (Server)',
               href: 'https://github.com/tupynambalucas/EloOrganico',
             },
           ],
@@ -169,22 +188,14 @@ const config: Config = {
               label: 'Vision',
               to: '/docs/product/vision',
             },
-            {
-              label: 'Master Plan',
-              to: '/docs/product/masterplan',
-            },
-            {
-              label: 'Roadmap',
-              to: '/docs/product/roadmap',
-            },
           ],
         },
       ],
       copyright: `
         <div class="footer__banner-container">
-          <img src="/EloOrganico/eloornico/svg/banner-negative.svg" alt="Elo Organico" class="footer__banner" />
+          <img src="/EloOrganico/eloornico/svg/banner-negative.svg" alt="Amigos Do Mine" class="footer__banner" />
         </div>
-        <p>Copyright © ${new Date().getFullYear()} Elo Organico. Professional management for a sustainable organic economy. Built with Docusaurus.</p>
+        <p>Copyright © ${new Date().getFullYear()} Amigos Do Mine. Professional Minecraft ecosystem management. Built with Docusaurus.</p>
       `,
     },
     prism: {

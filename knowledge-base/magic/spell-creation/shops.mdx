@@ -1,0 +1,119 @@
+---
+title: Shops
+---
+
+# Magic Shops
+
+Magic supports various forms of server GUI shops via the [Shop](http://reference.elmakers.com/#actions.shop) action. Like all scripted events in Magic, shops exist in the form of spells.
+
+See [itemshop](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/itemshop.yml) for a simple example. There are also many examples included in the [elMakers dev server configs](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/examples/elworld/spells.yml#L2909)
+
+Under the hood, the Shop action re-works its parameters into expanded [Selector](../reference/selector.mdx) parameters.
+
+## Adding a Shop NPC
+
+NPCs can cast any spell, including shops. You can set one up with these commands:
+
+```bash
+/mnpc add Magic Items!
+/mnpc cast magicitemshop
+```
+
+## Creating a Custom Shop
+
+Making a custom shop is pretty easy if you inherit from the [buyshop](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/buyshop.yml) or [sellshop](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/sellshop.yml) spells. 
+
+Looking at a snippet of [trinketshop](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/trinketshop.yml) for example:
+
+```yaml
+trinketshop:
+    inherit: buyshop
+    hidden: true
+    parameters:
+        items:
+        - skull_ale
+        - skull_apple
+        - skull_aquarium
+        - skull_arrowdown
+        - ...
+```
+
+This spell only has 3 properties:
+
+* **inherit** This tells the spell to take all of the properties of some other spell. In this case you will want `buyshop` for a shop where players will buy items and `sellshop` for shops where players can sell items. See the Selector section below if you want something more complicated than that.
+* **hidden** This tells the spell not to shop appear in the /spells list, spell books or on the web site. It's not really necessary to have this for your own spells.
+* **parameters** Here is where you will specify what items can be bought or sold in this shop.
+
+### Parameters
+
+The parameters section of a shop spell is mainly used for the `items` parameter, which specifies what items are in the shop.
+
+You can also optionally have a `scale` parameter in a shop, such as in the [lootshop](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/lootshop.yml), this will scale prices up or down. In the case of sellshops, I use a scale to make items worth consistently less when sold back then they cost to buy.
+
+Other parameters include:
+
+* `confirm`: true/false, whether or not there should be confirmation screen before the purchase is finalized.
+* `confirm_filler`: A Material type used to fill in empty space in the confirmation screen.
+* `auto_close`: true/false, whether the shop should automatically close after a purchase is complete. Set this to false to make shops where large amounts of items can be bought or sold quickly.
+* `sell`: Set to true to have this shop sell items rather than buy items. Under the hood this re-writes many of the Selector parameters to flip around costs and results.
+
+## The Items List
+
+The `items` parameter in a shop can take two different forms:
+
+### List of items
+
+Just a simple list of items. The prices of the items must be defined for each item in the items config. This can be done in `items.yml`, or in-game using `/mitem save <worth>` to specify how much an item is worth.
+
+If an item does not have a worth specified it will be offered for free.
+
+The format `itemname@amount` can be used to offer multiple items in one slot.
+
+### List of configuration sections
+
+For more complex shops, items can be specified in configuration sections. See [fieldshop](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/examples/elworld/spells.yml#L1225) from the elMakers dev server configs as an example. 
+
+Each item in a shop can have a few different properties:
+
+* `item`: The Material type of the item sold in this slot.
+* `slot`: A specific slot of the item GUI to put this item. Omit this to just fill in order.
+* `cost`: The cost of this item, if omitted the saved item worth will be used.
+* `name`: A custom display name for this item. Will be used by the icon as well as the item given.
+* `lore`: A custom list of lore for this item. Will be used by the icon as well as the item given.
+
+### Empty slots
+
+A simple `none` can be put in the item list for an empty slot, allowing you to organize your shops.
+
+## Changing Prices
+
+Changing prices on the default builtin shops can be done two different ways.
+
+### Item Shops
+
+For simple item shops, it's best to change the value of the item rather than change the cost in each shop that sells it. This way your server has consistent prices across shops.
+
+This can be done in `items.yml`, by adding a config like this:
+
+```yaml
+emerald:
+  worth: 1000
+```
+
+or in-game, by holding the item you want to set the value for, and typing `/mitem save emerald 1000`
+
+### Wands and other complex shops
+
+For non-items, such as wands or spells, the shop most likely has the prices built in. In this case you override the prices like you would any other spells' parameters- find the default configs, copy it to your Magic/spells folder and edit it.
+
+For instance, look at the [magicitemshop](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/spells/magicitemshop.yml), it has prices listed for each item. Simply copy that file to your spells folder (or paste it in spells.yml if you prefer) and edit the prices as you wish.
+
+This is also how you can add and remove items from a shop.
+
+## The Selector Action
+
+The Shop action extend Selector, providing a more simplified way to set up shops that mirrors the now-deprecated ItemShop action.
+
+However, this means that all of the parameters available to a Selector action and its options are also available to shops and shop items. 
+
+See the [Selector action](../reference/selector.mdx) section for more information on setting up complex shops or completely custom GUIs using the Selector action.

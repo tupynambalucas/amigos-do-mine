@@ -28,7 +28,7 @@ export default function MonorepoSection() {
           </h2>
           <p>
             <Translate id="homepage.monorepo.subtitle">
-              Interactive visualization of the Elo Orgânico bounded contexts. Click on a context to explore.
+              Interactive visualization of the Amigos Do Mine bounded contexts. Click on a context to explore.
             </Translate>
           </p>
         </div>

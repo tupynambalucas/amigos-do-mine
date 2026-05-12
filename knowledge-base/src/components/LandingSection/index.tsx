@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import Translate, { translate } from '@docusaurus/Translate';
+import Translate from '@docusaurus/Translate';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import BrowserOnly from '@docusaurus/BrowserOnly';
@@ -17,7 +17,7 @@ export default function LandingSection(): ReactNode {
                 </Translate>
                 <br />
                 <Translate id="homepage.hero.subtitle" description="Secondary hero title">
-                  Elo Orgânico.
+                  Amigos Do Mine.
                 </Translate>
               </h1>
               <p>
@@ -25,14 +25,14 @@ export default function LandingSection(): ReactNode {
                   id="homepage.hero.text.primary"
                   description="First line of the introductory paragraph"
                 >
-                  {'High-performance, strictly-typed monorepo engineering for sustainable organic sharing cycles.\n'}
+                  {'High-performance monorepo engineering for a professional Minecraft ecosystem.\n'}
                 </Translate>
                 <br />
                 <Translate
                   id="homepage.hero.text.secondary"
                   description="Second line of the introductory paragraph"
                 >
-                  Built with Fastify, React 19, and WebGPU for maximum efficiency and AI-native development.
+                  Built with React 19, Fastify v5, and Kotlin for maximum efficiency and seamless game integration.
                 </Translate>
               </p>
             </div>

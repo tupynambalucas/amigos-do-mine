@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
@@ -11,19 +10,19 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Pertencimento',
+    title: 'Comunidade',
     Svg: require('@site/static/eloornico/svg/logo-positive.svg').default,
-    description: <>Faça parte de uma rede que valoriza o produtor local.</>,
+    description: <>Um ambiente acolhedor e focado na diversão coletiva.</>,
   },
   {
-    title: 'Simplicidade',
+    title: 'Customização',
     Svg: require('@site/static/eloornico/svg/logo-positive.svg').default,
-    description: <>Processos diretos e transparentes para todos.</>,
+    description: <>Plugins e resource packs únicos desenvolvidos in-house.</>,
   },
   {
-    title: 'Conexão Humana',
+    title: 'Inovação',
     Svg: require('@site/static/eloornico/svg/logo-positive.svg').default,
-    description: <>Relações baseadas na confiança e no respeito.</>,
+    description: <>Integração web moderna para gerenciar sua experiência de jogo.</>,
   },
 ];
 

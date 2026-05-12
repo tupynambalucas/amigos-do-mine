@@ -1,0 +1,62 @@
+---
+title: Disguises
+---
+
+If you have the [LibsDisguises](https://www.spigotmc.org/resources/libs-disguises-free.81/) plugin installed, magic can use disguises in mob configs and spells using the Disguise action.
+
+# Common Parameters
+
+* **type** : Required, the type of disguise to use. Can be "player" or any mob or other entity.
+
+These are all true/false parameters.
+
+* **invisible**
+* **burning**
+* **glowing**
+* **flying**
+* **sneaking**
+* **animations**
+* **sprinting**
+* **swimming**
+* **right_clicking**
+* **custom_name_visible**
+
+* **custom_name** : A name to give to the disguise
+
+# Equipment Parameters
+
+For types that can hold or wear items. These should reference an item or wand.
+
+* **helmet**
+* **boots**
+* **leggings**
+* **chestplate**
+* **mainhand**
+* **offhand**
+
+# Type-specific parameters
+
+* **profession** : Villagers
+* **baby**
+* **material** : Dropped_item
+* **data** : Dropp_item (deprecated)
+* **marker** : Armor stand
+* **baseplate** : Armor stand
+* **small** : Armor stand
+* **arms** : Armor stand
+* **name** : Player
+* **skin** : Player
+
+# Player disguises
+
+Player disguises can be done with `type: player`. You must provide a `name` for the player to use. By default the disguise will use that player's skin.
+
+See [Mad Scientist](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/mobs/madscientist.yml) for an example.
+
+You can however provide a different player name with the `skin` property, or else a saved skin as a JSON string.
+
+Use the command `/mage skin` in-game to dump your own skin JSON, for copying into configs. It may be easiest to use this command from the console, e.g. `/mage NathanWolf skin` so it is easy to copy+paste, but keep in mind the target player (you) still needs to be online for this to work.
+
+In this way you can use a specific skin (change your skin to that skin, then use `/mage skin`) without having to have a specific player account *currently* using that skin.
+
+See [Iron Man](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/survival/mobs/ironman.yml) for a working example.

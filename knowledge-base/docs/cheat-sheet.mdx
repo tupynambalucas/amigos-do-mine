@@ -9,79 +9,70 @@ import TabItem from '@theme/TabItem';
 
 # ⚡ Quick Cheat Sheet
 
-A comprehensive reference for developers to manage the **Elo Orgânico** monorepo, infrastructure, and automation.
+A comprehensive reference for developers to manage the **Amigos Do Mine** monorepo, infrastructure, and automation.
 
 ---
 
-## 🚀 Running the Platform
+## 🎮 Game Server (Minecraft)
 
-We use **Turborepo** to orchestrate applications and their respective infrastructure (databases/cache) in a single command.
+Management of the Purpur server container.
+
+- **Start Server:** `pnpm server:up`
+- **Stop Server:** `pnpm server:down`
+- **View Logs:** `pnpm server:logs`
+- **Restart Server:** `pnpm server:restart`
+- **Reset Data:** `pnpm server:reset` (Wipes and recreates container)
+- **Attach Console:** `pnpm server:attach` (Press `Ctrl+P, Ctrl+Q` to detach)
+
+---
+
+## 🚀 Portal & Apps
+
+Running the web infrastructure.
 
 <Tabs>
-  <TabItem value="instance" label="Community Instance" default>
-    - **Start Everything:** `pnpm instance:dev` (Up infra + Web + API + Core Watch)
-    - **Web Only:** `pnpm instance:dev:web`
-    - **API Only:** `pnpm instance:dev:api`
-    - **Stop App Processes:** `pnpm instance:dev:stop`
-    - **Stop & Clean Everything:** `pnpm instance:dev:down`
+  <TabItem value="web" label="Web Dashboard" default>
+    - **Development:** `pnpm --filter @amigos-portal/web dev`
+    - **Build:** `pnpm --filter @amigos-portal/web build`
   </TabItem>
-  <TabItem value="portal" label="Global Portal">
-    - **Start Everything:** `pnpm portal:dev` (Up infra + Web + API + Core Watch)
-    - **Web Only:** `pnpm portal:dev:web`
-    - **API Only:** `pnpm portal:dev:api`
-    - **Stop App Processes:** `pnpm portal:dev:stop`
-    - **Stop & Clean Everything:** `pnpm portal:dev:down`
+  <TabItem value="api" label="Backend API">
+    - **Development:** `pnpm --filter @amigos-portal/api dev`
+    - **Build:** `pnpm --filter @amigos-portal/api build`
   </TabItem>
   <TabItem value="docs" label="Documentation">
     - **Start Docusaurus:** `pnpm dev:docs`
-    - **Build Docs:** `pnpm build` (Runs build for all workspaces including docs)
+    - **Build Docs:** `pnpm build` (Runs build for all workspaces)
   </TabItem>
 </Tabs>
 
 ---
 
-## 🐳 Infrastructure (Docker)
+## 🛠️ Assets & Plugins (Resources)
 
-Direct management of containerized services.
+Building custom game content.
 
-| Scope | Command | Description |
-| :--- | :--- | :--- |
-| **Instance** | `pnpm instance:infra:up` | Starts MongoDB (Replica Set) and Redis for Instance. |
-| **Instance** | `pnpm instance:infra:down` | Stops and removes Instance containers. |
-| **Instance** | `pnpm instance:infra:reset` | Wipes data and restarts Instance infrastructure. |
-| **Portal** | `pnpm portal:infra:up` | Starts MongoDB (Replica Set) and Redis for Portal. |
-| **Portal** | `pnpm portal:infra:down` | Stops and removes Portal containers. |
-| **Portal** | `pnpm portal:infra:reset` | Wipes data and restarts Portal infrastructure. |
+- **Build Amigos Plugin:** `pnpm build:plugin`
+- **Build Resource Pack:** `pnpm build:resourcepack`
 
 ---
 
 ## 📦 Workspace Management
 
-Handling internal dependencies and catalogs.
+Handling internal dependencies and quality.
 
-- **Add Dependency to Catalog:** `pnpm add <package> --catalog`
-- **Add Dependency to Specific App:** `pnpm add <package>@catalog: --filter @elo-instance/api`
-- **Clean All node_modules:** `pnpm clean:project` (Uses `npkill`)
+- **Clean node_modules:** `pnpm clean:project`
 - **Typecheck All:** `pnpm typecheck`
 - **Lint All:** `pnpm lint`
 
 ---
 
-## 🤖 AI & Studio (MCP)
+## 🎨 Studio & Design (Penpot)
 
-Orchestrating the Model Context Protocol and design bridge.
+Orchestrating the self-hosted design environment.
 
-- **Penpot Studio:** `pnpm penpot:up` / `pnpm penpot:down`
+- **Start Penpot:** `pnpm penpot:up`
+- **Stop Penpot:** `pnpm penpot:down`
 - **Aide AI Bridge:** `pnpm penpot:aide:up` / `pnpm penpot:aide:down`
-- **Context7 Search:** (Via AI Agent) Deep research into documentation.
-
----
-
-## 🏗️ Build Pipelines
-
-- **Full Build:** `pnpm build`
-- **Build Core (Instance):** `pnpm instance:build:core`
-- **Build Core (Portal):** `pnpm portal:build:core`
 
 ---
 _Last Updated: May 2026_

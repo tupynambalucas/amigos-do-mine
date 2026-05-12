@@ -1,0 +1,146 @@
+---
+title: Automata
+---
+
+# Automata
+
+An "automaton" is a magical being make of blocks. Automata are a completely optional feature, meant to bring a
+new challenge and form of gameplay to Minecraft. 
+
+[![Automata Video](http://img.youtube.com/vi/LhffLRWoIBc/0.jpg)](http://www.youtube.com/watch?v=LhffLRWoIBc)
+
+Magic has a more generic superset of Automata, [automatic blocks](../advanced-setup/magic-blocks.mdx) which can be used to spawn mobs, add effects to the world, or other special behaviors.
+
+## Enabling
+
+Automata are not available by default, you can add the to your server with
+
+`/mconfig example add automata`
+
+This will not spawn them by default. (See the [Other Side](the-other-side.mdx) example if you want that). You can test out an automata (be careful!!) using the the `/cast` command:
+
+```bash
+/cast birth_hunter
+/cast birth_snake
+/cast birth_worm
+/cast birth_virus
+```
+
+Those go in order of danger. Use great caution spawning these anywhere near civilization!
+
+### Destroying Automata
+
+To destroy an automata, you must use block-destroying spells such as Blast. Once enough of their blocks have been destroyed, the automata will die.
+
+### The Soul
+
+The "Animate" spell extends `SimulateSpell`, which runs variations of
+[Conway's Game of Life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life). If you're
+familiar with the game of Life, then awesome! If not, cellular automata
+are a very interesting subject and I suggest you read up- though it's
+not required, and there won't be a test :)
+
+Just know that `SimulateSpell` will shuffle around blocks of a certain
+type within a certain radius. If all goes well, the blocks will get cleaned up as the Automata moves around.
+
+Some automata like Virus and Worm grow very large, though.
+
+The `SimulateSpell` also does a couple of extra things:
+
+-   It will find a new location to target.
+    Different variations work differently, but most will target the
+    nearest Player or Automata and try to move in its direction
+-   It may cast some other spell towards the direction the Automata is
+    moving
+
+### Variations and Block Types
+
+Every automata is bound to a specific type of block, and will be named
+as such- e.g. "Hunter gold block". An automata will only simulate
+(modify) blocks of its native type, so take care what you create one out
+of. Many block types are restricted (see `materials.yml`) by default to
+avoid creating a Virus out of Dirt or something similarly destructive.
+
+### Geeky Technical Notes
+
+Two automata of the same block type but different variations (e.g.
+"Hunter gold block" vs "Defender gold block") will simulate each other's
+blocks. This can cause them to go a little haywire and potentially
+self-destruct, particularly if the rulesets of the two different
+Automata are very different.
+
+Two automata of the same block type and same variation will most likely
+cancel each other out (or one will consume the other) if they collide.
+There are also performance-related glitches when this happens, due to
+both of them sharing the same Mage. They will, for instance, share a
+single dynmap marker- meaning it will bounce around on the map if two
+"Hunter gold block" automata are active at the same time.
+
+### Spawning Automata
+
+Every automata has an associated spell. At the time of this writing,
+none of these spells will be naturally available on a wand. The Wolf
+generally has them all, as does Conway's wand - or you can use `/wand add`
+and one of the following:
+
+-   hunter
+-   defender
+-   animate
+-   worm
+-   virus
+
+The "animate" spell is the base spell, but it is also set up to make a
+"Magic Golem". This one is WIP, but eventually will be an automata you
+can ride and steer.
+
+Casting any of these spells on a Blob of blocks (that are not
+restricted) will create an Automata of that type.
+
+Upon death, these Automata are configured to cast a particular spell
+(generally a Blast or Collapse tailored to their block type), and also
+drop some XP and a special item. This item is technically a Wand - it is
+a single-use, locked wand (it can not be combined or modified) with no
+mana that casts the automata's soul spell.
+
+This can be used to "reawaken" the automata, or to create a new one on a
+different set of blocks.
+
+### Naturally Spawning
+
+You can configure a world to spawn automata naturally. I definitely suggest doing this
+in a secondary world! This is what the [Other Side](the-other-side.mdx) example is all about.
+
+This is done by using a "cast" entity spawn rule - giving the plugin a
+percent chance of casting an Automata spell whenever a certain entity
+type spawns.
+
+Take care which entity types you choose for replacement, vanilla
+light-level rules will apply. There is also an optional `allow_indoors`
+parameter I use to make sure they never spawn indoors (underneath a
+non-air block), regardless of light level. This would need to be
+disabled in the nether.
+
+## Warnings
+
+Several automata, particularly the Worm and Virus, are potentially very
+messy. I would not call them destructive per se, they will cover the
+world in blocks, but as long as you choose a block type that doesn't
+exist naturally, it is easy to clean up with SuperConvert + erase.
+
+It may also be a good idea to use the Backup spell (or copy your world)
+before trying out an Automata. Even better, set up an alternate world to
+keep them in, I suggest using
+[MagicWorlds](http://dev.bukkit.org/plugins/magicworlds) if you'd like a
+customized look and feel for your world.
+
+Keep in mind that, by default, an Automata will drop its heart on death.
+This allows the player to reswpawn the Automata on a block type of their
+choosing. Unless you constrain the spells with permissions, a player may
+take that item to another world and use it there.
+
+## Customizing
+
+For updated Automata information, including configuring your own, see
+here:
+
+https://github.com/elBukkit/MagicPlugin/blob/master/Magic/AUTOMATA.md

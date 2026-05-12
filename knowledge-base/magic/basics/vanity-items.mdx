@@ -1,0 +1,79 @@
+---
+title: Vanity Items
+---
+
+Magic comes with several options for customizing player wands, which by default are built into the progress menu.
+
+* Appearances, via `appearanceshop`, allow players to change the look of their wand by changing the item used to represent it.
+* Colors, via `colorshop`, allow players to customize their wand colors. Colors are used in many spell effects, fireworks, and effect bubbles if enabled on a wand.
+* Effects, via `effectshop`, allow players to turn on particle or bubble effects that will show whenever their wand is held.
+
+By default, players can unlock these options with [Spell Points](spell-points.mdx). Once unlocked, players are free to change their customization options whenever they want via the `progressmenu` (right-click an enchant table with their wands).
+
+# Donation Shops
+
+![Donation Shop](https://i.imgur.com/cOd8Svz.png)
+
+Since they are all EULA-compliant, these vanity items are a great way to bring in some donation money.
+
+It is easy to disable the in-game purchases, by putting this in your spells.yml:
+
+```yaml
+appearanceshop:
+  parameters:
+    cost_type: none
+
+effectshop:
+  parameters:
+    cost_type: none
+
+colorshop:
+  parameters:
+    cost_type: none
+```
+
+These items can then be unlocked by using commands, which should be supported by most donation shops such as BuyCraft.
+
+## Unlocking a Wand Appearance
+
+`mage setdata <player> wand_appearances.moon true`
+
+Appearances included in the survival configs:
+* moon
+* magicka
+* spire
+* claw
+* orb
+
+Appearances obtained via rankup (student, apprentice, master, engineer, architect, conduit) can not be unlocked via commands without more advanced customization.
+
+## Unlocking Wand Effects
+
+`mage setdata <player> wand_effects.bubble true`
+
+Effects included in the survival configs:
+* bubble
+* halo
+* rainbow
+
+## Unlocking Wand Colors
+
+`mage setdata <player> wand_colors.red true`
+
+Colors included in the survival configs:
+* red
+* green
+* blue
+* lightblue
+* aqua
+* white
+* black
+* purple
+* yellow
+* orange
+* pink
+* magenta
+* gray
+* lightgray
+* brown
+* darkgreen

@@ -1,75 +1,44 @@
 ---
-title: Product Vision & Strategy
-description: The core mission, value proposition, and long-term goals of the Elo Organico platform.
+title: Product Vision
+description: The core mission, value proposition, and long-term goals of the Amigos Do Mine platform.
 ---
 
-# Product Vision & Strategy
+# Product Vision
 
-## 1. Product Overview
-**Elo Organico** is a specialized platform designed to bridge the gap between organic producers and conscious consumers through **Scheduled Sharing Cycles**. More than just an e-commerce tool, it is a community-driven management system that automates the complex logistics of seasonal harvests and group buying.
+**Amigos Do Mine** isn't just a Minecraft server; it's a whole vibe. 🌟
 
-The project operates through a dual-layered application model, ensuring strict logical separation:
-1.  **Platform Scope (@elo-portal/web & @elo-portal/api)**: The global public face and SaaS entry point. This is a standalone singleton layer that handles high-level discovery, marketing, and future onboarding.
-2.  **Instance Scope (@elo-instance/web & @elo-instance/api)**: Dedicated application pairs deployed for each community, providing a tailored and isolated experience. These instances are governed by the domain-specific logic in `@elo-instance/core`.
-
-### The Vision
-*"To make local, organic, and sustainable food as accessible and easy to purchase as any common industrial product, without losing the human connection."*
+We are building an ecosystem that smashes together the blocky creativity of Minecraft with the slick performance of the modern web. Our goal is to make a server that feels less like a hacked-together plugin soup and more like a polished, standalone game studio experience.
 
 ---
 
-## 2. Current Development Focus: "Single-Instance Mastery"
-**CRITICAL STRATEGY:** Our immediate and absolute priority is to deliver a **complete, 100% functional, and polished single-instance application** (`@elo-instance/*`). 
+## 1. The Big Vision 🚀
 
-While we have a long-term vision of becoming a multi-tenant SaaS platform, **SaaS architectural complexities must not be implemented at this stage.** All current development (codebase, database schemas, UI/UX) must remain focused on producing the best possible version of a standalone system for an ecovillage. The transition to a full SaaS model (Phase 6 of the Master Plan) will only be considered after the single-instance application is stable and fully operational.
+We want to bridge the gap. Usually, Minecraft servers and their websites feel like two strangers living in different houses. We are moving them in together.
 
----
-
-## 3. The Problem
-Before Elo Organico, the sharing process was hindered by:
-- **Operational Chaos:** Reliance on massive spreadsheets and fragmented WhatsApp messages.
-- **Manual Errors:** Human mistakes in order consolidation and payment tracking.
-- **Scaling Friction:** High administrative overhead made it impossible to grow the community without burnout.
-- **Payment Latency:** Delayed financial reconciliation due to manual checking of bank transfers.
+*   **For Players:** It's seamless. You join, the custom textures load automatically, your web profile syncs instantly, and the economy just works.
+*   **For Admins:** It's a superpower. You have a React 19 dashboard that gives you God-mode control over the server, logs, and economy from anywhere.
 
 ---
 
-## 4. The Solution (Value Proposition)
-Elo Organico transforms this process into a professional, automated workflow:
+## 2. Core Features ✨
 
-| For Consumers | For Administrators/Suppliers |
-| :--- | :--- |
-| **Convenience:** A clean, modern shop (`@elo-instance/web`) to browse and buy. | **Automation:** Intelligent parsing of product lists into structured data. |
-| **Transparency:** Real-time access to seasonal availability and prices. | **Efficiency:** Automated order consolidation and stock management via `@elo-instance/api`. |
-| **Speed:** Instant Pix payments with automatic bank reconciliation. | **Control:** Full visibility over cycles, logistics, and financial health. |
+### 2.1. Player Experience
+*   **Immersive Toys**: We don't just use vanilla items. We have a pipeline for custom 3D models and textures that get delivered straight to the player.
+*   **Web Portal**: Check your stats, buy items in the shop, or manage your profile without even opening the game launcher.
+*   **One ID to Rule Them All**: Your web login and your Minecraft UUID are best friends.
 
----
-
-## 5. Target Audience (Personas)
-1. **The Community Coordinator (Admin):** Manages cycles and suppliers via the administrative features of `@elo-instance/web`.
-2. **The Conscious Consumer:** Shops seasonal products through the `@elo-instance/web` interface.
-3. **The Supplier (Fornecedor):** Acts as the bridge between farmers and the community, providing the seasonal catalog.
+### 2.2. Admin Powers
+*   **Command Center**: A beautiful dashboard built with React 19. No more squinting at console logs in a terminal window.
+*   **The "Studio" Pipeline**: We have a dedicated workspace for creating assets. You build it, we deploy it, and every player gets the update automatically.
 
 ---
 
-## 6. Key Product Differentiators
-- **Intelligent Product Ingestion:** Our system handles "messy" product lists from suppliers via a custom-built Regex parser, converting plain text into a structured catalog in seconds.
-- **Pix-First Economy:** Deep integration with EFI Bank ensures that payments are confirmed in real-time, eliminating the "send me the receipt" culture.
-- **Cycle-Based Sales:** Optimized for the natural rhythm of agriculture (Open/Close windows) rather than the "always-on" model of traditional retail.
+## 3. Visual Identity & Theme 😎
+
+1.  **Magic Onboarding**: Connect and play. The resource packs handle themselves via our automated backend pipeline.
+2.  **Visual Consistency**: We maintain a unified design language across the game and the web.
+3.  **Speed**: We prioritize high TPS (Ticks Per Second) and low latency APIs. Nobody likes lag.
 
 ---
 
-## 7. The Product Journey (User Experience)
-Elo Organico is designed around a seamless, high-trust journey. For a detailed technical breakdown of the operational stages, refer to the **[Operational Flowchart in the Master Plan](./masterplan.mdx)**.
-
-1. **Curated Selection**: Consumers browse a seasonal, verified catalog.
-2. **Community Group Buy**: Users join the current cycle, ensuring volume and sustainability.
-3. **Frictionless Payment**: Instant Pix checkout with automated confirmation.
-4. **Soil to Table**: Automated logistics ensure fresh delivery after cycle closure.
-
----
-
-## 8. Success Metrics (KPIs)
-- **Cycle Completion Time:** Reduction in hours spent by the Admin preparing a cycle.
-- **Order Conversion Rate:** Percentage of users who start a cart and complete the Pix payment.
-- **Reconciliation Accuracy:** 100% automated match between orders and bank entries.
-- **Repeat Purchase Rate:** Measuring community retention and trust.
+_Last Updated: May 2026_

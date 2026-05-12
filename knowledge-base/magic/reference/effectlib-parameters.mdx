@@ -1,0 +1,23 @@
+---
+title: EffectLib Parameters
+---
+
+EffectLib effects can be used via an `effectlib` block. The only required parameter in this block is `class`, referring to an EffectLib class.
+
+You can use the `fxdemo` spell in-game to preview all of the available effects.
+
+Please check out the [Reference Manual](http://mine.elmakers.com/reference/#effectlib) for a list of all EffectLib effects and parameters!
+
+## Examples
+```yaml
+   effects:
+      cast:
+      - location: target
+        effectlib:
+          class: AnimatedBall
+          duration: 5000
+```
+
+## Developers
+
+Developers may want to browse through the [doxygen documentation](http://jenkins.elmakers.com/job/EffectLib/doxygen/namespacede_1_1slikey_1_1effectlib_1_1effect.html).

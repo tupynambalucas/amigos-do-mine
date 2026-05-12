@@ -18,11 +18,11 @@ export default function Home(): ReactNode {
     <Layout
       title={translate({
         id: 'homepage.title',
-        message: 'Elo Organico Documentation',
+        message: 'Amigos Do Mine Documentation',
       })}
       description={translate({
         id: 'homepage.description',
-        message: 'Technical documentation for the high-performance, strictly-typed organic sharing monorepo.',
+        message: 'Technical documentation for the high-performance Minecraft ecosystem monorepo.',
       })}
     >
       <BrowserOnly>

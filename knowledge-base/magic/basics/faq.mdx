@@ -1,0 +1,173 @@
+---
+title: FAQ
+---
+
+# Frequently Asked Questions
+
+**How do I customize spells and wands?**
+<details>
+<summary>Answer</summary>
+
+Do not edit the files in the "defaults" folder. The files in "plugins/Magic" will override the defaults, so put any customizations you want to make in there. This includes changing default spell behavior, disabling defaults, or adding new spells and wands. 
+
+Keep in mind that whatever you add to your customized files gets _added_ to the defaults. If you'd like to start completely fresh with your own configs, and/or copy entire spells from the default configs, it's best to disable the defaults via "**load_default_spells: false**" in config.yml.
+
+See [the Customization Section](customization.mdx) for more information.
+
+</details>
+
+**My broomstick won't move!**
+<details>
+<summary>Answer</summary>
+
+You're using Paper and have set `armor_stand_tick` to false. Set it back to true.
+Broomsticks (and other things) in Magic use armor stands, so turning off their ability to move will break them.
+
+</details>
+
+**How do I change the Spell Point Cooldown?**
+<details>
+<summary>Answer</summary>
+
+You can change the spell point cooldown globally or per-spell by editing the spell config. See [SP Balancing](spell-points.mdx#balancing-sp) for more information.
+
+</details>
+
+**I'm getting errors from my configs!**
+<details>
+<summary>Answer</summary>
+
+First, check to make sure you are using spaces in your yaml configs, and not tabs.
+
+It's a good idea to get an editor that understands Yaml, rather than using something like Notepad.
+
+Also make sure you do not have any leading spaces at the top level, `example: potter` is good, ` example potter` is not.
+
+Try to use a [Yaml validation tool](http://yaml-online-parser.appspot.com) to see where your errors are before asking for help.
+
+The in-game editor (`/mconfig editor`) will also help spot these kind of errors.
+
+</details>
+
+**My wand is acting weird in creative mode**
+<details>
+<summary>Answer</summary>
+
+Wands don't really work in creative mode, there's not much I can do about that.
+
+</details>
+
+**How do I localize or change the text in this plugin?**
+<details>
+<summary>Answer</summary>
+
+All of Magic's in-game text can be changed in plugins/Magic/messages.yml
+
+See [the Messages Section](messages.mdx) for more information.
+
+</details>
+
+**How do I turn on the Harry Potter/Star Wars/Bending/Guns?**
+<details>
+<summary>Answer</summary>
+
+See the [Examples](examples.mdx) section.
+
+</details>
+
+**How do I change shop prices?**
+<details>
+<summary>Answer</summary>
+
+See here for information on customizing shops: [Shops](../spell-creation/shops.mdx#changing-prices)
+
+</details>
+
+**How can I start making my own spells, wands and recipes?**
+<details>
+<summary>Answer</summary>
+
+All of the survival configs can be seen here: https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/resources/examples/survival
+
+This is a great place to start learning about the plugin. The best way to learn is to example a spell you are familiar with in-game to see how it works.
+
+earthquake and singularity are good spells to look at if you're curious how some of the more complex spells work. The Customization section https://github.com/elBukkit/MagicPlugin/wiki/Customization is also a good place to start.
+
+You can also visit the [elMakers sandbox server](http://sandbox.elmakers.com) for a live spell editor that has syntax highlighting error detection, auto-complete, and lets you test your spells out live on the server at `sandbox.elmakers.com`.
+
+</details>
+
+**How can I see crafting recipes?**
+<details>
+<summary>Answer</summary>
+
+All of the survival crafting recipes can be seen here: [crafting configs](https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/resources/examples/survival/crafting)
+
+They are also viewable on your server, in plugins/Magic/defaults/crafting.defaults.yml
+
+</details>
+
+**Sometimes my wands randomly stop working!**
+<details>
+<summary>Answer</summary>
+
+If you are running on CraftBukkit/Spigot 1.7, make sure to use the special [CB Build](http://dev.bukkit.org/plugins/magic/). In particular, creative mode and many plugins will destroy the special custom data attached to wands. Magic works much better on 1.8 servers.
+
+If you are running on 1.8 or above, it may be a plugin that is improperly saving and restoring items.
+
+</details>
+
+**I can't see [spell icons](../resource-pack/icons.mdx) they're just diamond axes!**
+<details>
+<summary>Answer</summary>
+
+You will need to use the [Resource Pack](resource-pack.mdx) for the spell and wand icons to show up properly.
+
+</details>
+
+**What is the rank progression?**
+<details>
+<summary>Answer</summary>
+
+Wands progress from Beginner, to Student, Apprentice, Master, Engineer, Architect and Conduit. The Engineer and Architect ranks are not available by default, you have to add the engineering examples with `/mconfig example add engineering`. Conduit is further locked, you will get instructions on how to allow that if you want, when adding the engineering example.
+
+</details>
+
+**A player has lost their wand, what can I do?**
+<details>
+<summary>Answer</summary>
+
+The "restore" command can be used to restore a player's bound wands. This only works if the wands are set to "bound" in the configs and have bound to the player. 
+
+`/wandp <player> restore`
+
+Will restore a player's wands. Only one wand of each type is saved, so this may not work well for players that keep multiple different wands.
+
+</details>
+
+**How do I allow spells to target NPCs?**
+<details>
+<summary>Answer</summary>
+
+Spells won't target NPCs by default. You can turn this on by adding "target_npc: true" to a spell's parameters. To turn this on for all spells, use the "default" entry in spells.yml, like so:
+```
+default:
+ parameters:
+   target_npc: true
+```
+
+</details>
+
+
+**How do I change it so players can't use specific spells in a region?**
+<details>
+<summary>Answer</summary>
+
+This can be done using WorldGuard 6.2 or higher, Magic will add some custom flags:
+```
+region flag arena -w world blocked-spells kill,torture
+```
+
+For more info see the [Regions](../advanced-setup/regions.mdx) section.
+
+</details>

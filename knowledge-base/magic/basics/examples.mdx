@@ -1,0 +1,103 @@
+---
+title: Examples
+---
+
+# Example Configurations
+
+Magic currently comes with several built-in example configurations, in various states of completion.
+
+You are welcome to use these as they are, to extend and customize them, or just take the configs as a kick-start for your own customizations.
+
+If you'd like to try them out, it's easy! It is recommended to do this on a test server, if you are already using Magic this might break existing wands.
+
+## Using Examples
+
+To activate an example, use `/mconfig example set potter`
+
+This will activate the "potter" example configs, turning Magic into a Harry Potter themed plugin.
+
+If you want to *add* an example on top of your existing set up, use `/mconfig example add potter`. 
+This is mostly intended for the survival add-on examples, but can also be used to create a mash-up server.
+
+You can also add a line like the following to your plugins/Magic/config.yml, if you prefer file editing to commands:
+
+`example: potter`
+
+## Customizing Examples
+
+[Customization](customization.mdx) is done in the same way as when using the default configs. The spells.yml, wands.yml and other files in plugins/Magic will override the example configurations.
+
+Some examples will offer suggestions about how to customize when loaded.
+
+## Built-in Examples
+
+### Stand-Alone Configurations
+
+These examples will completely change the way Magic works, if used with `/mconfig example set <example>`. 
+They can also be mixed together using `/mconfig example add <example>`
+
+| Example       | Description   | 
+| ------------- |:-------------:|
+| [survival](survival.mdx)        | Default survival. This is the configuration you get when you first install the plugin.|
+| [potter](../reference/potter.mdx)        | Harry Potter  |
+| [bending](../reference/bending.mdx)       | Avatar        |
+| [stars](../reference/stars.mdx)         | Star Wars     |
+| [war](../reference/war.mdx)         | FPS     |
+| [banners](../reference/banners.mdx) | Just some custom banners |
+| [jutsu](../reference/jutsu.mdx)         | Naruto (incomplete)     |
+| sandbox         | For setting up your own [sandbox](http://sandbox.elmakers.com) server     |
+
+### Survival Add-Ons
+
+These examples add extra features to the base survival configuration. These are added using `/mconfig example add <example>`
+
+| Example       | Description   | 
+| ------------- |:-------------:|
+| [engineering](../reference/engineering.mdx)        | Players can learn building magic, leveling up to WorldEdit-like powers |
+| robes        | Bring back robe textures and recipes|
+| spawnmobs        | Naturally spawn magic mobs |
+| chests | Naturally spawned chests will contain spell points |
+| [netherside](../reference/the-nether-side.mdx)        | Create an alternate reality players can travel to with the Phase spell. |
+| [otherside](../reference/the-other-side.mdx)        | The original alternate reality, comes with dangerous automata. |
+| [automata](../reference/automata.mdx)        | Dangerous block monsters. Used by the otherside example. |
+| norp         | Turn off the resource pack|   |
+| skulls       | Use player skull icons instead of RP|
+| [painterly](../reference/painterly.mdx)        | Painterly Icons |
+| [arenas](../reference/arenas.mdx)         | Wands meant for use in a mob arena     |
+| ranks | Includes a collection of static wands for use in a "rank" type server |
+| safe | Turns off all block damage |
+| [slimefun](../reference/slimefun.mdx) | Use a merged [Slimefun resource pack](../reference/slimefun.mdx) |
+
+### Incomplete Examples
+
+While many of the examples are extremely bare-bones, these are not ready to be used at all.
+
+| Example       | Description   | 
+| ------------- |:-------------:|
+| [rpg](../reference/rpg.mdx)        | RPG Style|
+
+## Screenshots
+
+![Stars](http://i.imgur.com/3TM8yEy.png)
+![Potter](http://i.imgur.com/XSz073S.png)
+![Bending](http://i.imgur.com/nXVOV3Q.png)
+![War](http://i.imgur.com/d6ch1kd.png)
+
+## External Examples
+
+You can load examples made by other people hosted on sites like Github.
+
+The file must be a zip file containing a set of Magic configuration files. Then you can use `/mconfig fetch`, for example to load the [PotterPlus](https://github.com/PotterPlus/PotterPlus) configs by T0xicTyler, you can use:
+
+```bash
+mconfig example fetch potterplus https://github.com/PotterPlus/PotterPlus/archive/master.zip
+mconfig example set potterplus
+```
+
+To switch your server to use those configs.
+
+See [the default configs](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/defaults/config/external_examples.yml) for all of the builtin external examples. These can be fetched by name without specifying the url, e.g.
+
+`/mconfig example fetch extramobs`
+
+See [here](publishing.mdx) for information on creating your own external example if you'd like to share your Magic creations with the world!

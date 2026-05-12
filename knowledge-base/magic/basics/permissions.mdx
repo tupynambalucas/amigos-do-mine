@@ -1,0 +1,166 @@
+---
+title: Permissions
+---
+
+# Permissions
+
+Most permissions in Magic are to allow access to commands, and (with a few exceptions) should only be given to mods or admins.
+
+
+## Quick Run-Down
+
+Most commonly, mods and admins should have the following permissions to have access to all Magic commands and items:
+
+```
+magic.commands.*
+magic.create.*
+```
+
+magic.* is _not_ a good idea, there are many permissions used for bypass or other features that you probably don't want on all the time. It's better to op yourself if you need to bypass!
+
+Players should not need any special permissions. See below for more info.
+
+## Player Permissions
+
+**By default, all players have access to the wand and all spells**. 
+This can be limited by negating the following permission nodes:
+
+* `-magic.wand.use` : Player may not use a wand
+* `-magic.use.<wandname>` : Player may not use a specific wand or magic item
+* `-magic.wand.craft` : Player may not craft a wand
+* `-magic.cast.*` : Player may not cast any spells
+* `magic.cast.<spellname>` : Player can cast a specific spell
+
+**By default, players have access to no commands**. 
+Magic command permissions follow the format ``magic.commands.<command>.<subcommand>``. For example:
+
+* `magic.commands.mskills` : Player can use the /mskills skill selector
+* `magic.commands.spells` : Player can use /spells
+
+## Mod and Admin Permissions
+
+You may also wish to limit which items and wands are available to mods with the /wand and mgive command. By default if they have the commands they can use them to spawn any item.
+
+* `magic.commands.mgive` : Player may spawn items and wands
+* `magic.commands.wand` : Player may spawn only wands
+* `-magic.create.*` : Player may not spawn any items or wands
+* `magic.create.wand` : Player may spawn the wand "wand"
+* `magic.create.battle` : Player may spawn the wand "battle"
+* `magic.create.stone` : Player may spawn stone blocks
+* `magic.create.hylian_shield` : Player may spawn the hylian_shield item
+
+## Bypass Permissions
+
+There are several permissions that ops have by default that will let them bypass restrictions:
+
+* `magic.bypass` : The player may bypass most restriction checks.
+* `magic.bypass_build` : The player may cast spells that are otherwise build-restricted
+* `magic.bypass_break` : The player may cast spells that are otherwise break-restricted
+* `magic.bypass_pvp` : The player may cast spells that are otherwise PVP-restricted
+* `magic.bypass_restricted` : The player may build with restricted materials
+* `magic.bypass_hidden` : The player may see hidden spells in lists and tab-completion
+* `magic.override_bind` : The player may use wands bound to other players
+* `magic.bypass` : The player may bypass other permission checks
+* `magic.wand.override_drop` : The player may drop undroppable wands and put them in chests
+* `magic.wand.override_locked` : The player may reconfigured locked wands
+* `magic.wand.override_stash` : The player may place a bound wand into a chest
+* `magic.wand.use.protected` : Player can use a wand with the "protected" flag set, meaning they are invincible
+* `magic.wand.use.powered` : Player can use a wand with the "powered" flag set, meaning they bypass certain restrictions
+
+## Item Spawning Permissions
+
+* `magic.commands.mgive` : Player can use /mgive to spawn any item
+* `magic.commands.wand` : Player can use /wand to spawn wands
+* `magic.create.<name>` : Player can use /wand or /mgive to get a specific wand. All wands are available by default.
+* `-magic.create.*` : Negate this permission to use per-item/wand permissions for /wand and /mgive
+
+## Wand Modification Permissions
+
+These commands can be used to modify wand items
+
+* `magic.commands.wand.describe` : Player can use /wand describe to list information about a wand
+* `magic.commands.wand.add` : Player can use /wand add to add spells and brushes to wands
+* `magic.commands.wand.add.spell.<spellname>` : Player may add a specific spell to a wand. All spells are allowed by default.
+* `magic.commands.wand.add.material` : Player may add a material to a wand. True by default.
+* `magic.commands.wand.bind` : Player can bind a wand to themselves
+* `magic.commands.wand.unbind` : Player can unbind a wand
+* `magic.commands.wand.remove` : Player can use /wand remove to remove spells and brushes from a wand
+* `magic.commands.wand.create` : Player can use /wand create to change an item into an empty wand
+* `magic.commands.wand.destroy` : Player can use /wand destroy to turn a wand into a normal item
+* `magic.commands.wand.delete` : Player can use /wand delete to delete a saved wand template
+* `magic.commands.wand.enchant` : Player can use /wand enchant to upgrade a wand randomly
+* `magic.commands.wand.name` : Player can use /wand name to rename a wand
+* `magic.commands.wand.list` : Player can use /wand list to see all wands
+* `magic.commands.wand.save` : Player can use /wand save to save a wand item to a new config template
+* `magic.commands.wand.fill` : Player can use /wand fill to add all available spells to a wand
+* `magic.commands.wand.configure` : Player can use /wand configure to change wand properties
+* `magic.commands.wand.upgrade` : Player can use /wand upgrade to upgrade wand properties
+* `magic.commands.wand.duplicate` : Player can use /wand duplicate to create a copy of a wand
+* `magic.commands.wand.organize` : Player can use /wand organize to reorganize their spell inventory
+* `magic.commands.wand.restore` : Player can use /wand restore to retrieve missing bound wands
+* `magic.commands.wand.unlock` : Player can use /wand unlock to unlock a locked wand and modify it
+* `magic.commands.wand.override` : Player can use /wand override to change cast overrides on a wand
+
+## Remote Wand Modification
+
+The /wandp command permissions follow the same format as the /wand command. 
+``/wandp <player> <subcommand>`` Works just like ``/wand <subcommand>`` but acting as another player. This can be used to make changes to a wand that another player is holding.
+
+* `magic.commands.wandp.*` : Player can use /wandp commands on behalf of another player.
+
+## Mage Configuration
+
+* `magic.commands.mage.debug` : Player can turn on debug information for themselves or another player
+* `magic.commands.mage.check` : Player can check permissions for spell casting, breaking, building, etc
+* `magic.commands.mage.getdata` : Player can check mage data or spell casts
+* `magic.commands.mage.setdata` : Player can modify mage data or spell casts
+* `magic.commands.mage.reset` : Player can completely reset a mage's data
+
+## Item Manipulation
+
+The /mitem command can be used in-game to modify non-wand items
+
+* `magic.commands.mitem.add` :        Add enchantments, attributes or lore
+* `magic.commands.mitem.remove` :     Remove enchantments, attributes or lore
+* `magic.commands.mitem.describe` :   Show information about an item
+* `magic.commands.mitem.duplicate` :  Create a copy of an item
+* `magic.commands.mitem.destroy` :    Destroy an item
+* `magic.commands.mitem.skull` :      Create a custom skull based on data in a book
+* `magic.commands.mitem.save` :       Save an item as a new template
+* `magic.commands.mitem.delete` :     Delete a saved item
+* `magic.commands.mitem.worth` :      Show the value of an item
+* `magic.commands.mitem.type` :       Change the type of an item
+* `magic.commands.mitem.export` :    Export all items, names and worth a CSV file
+
+## Magic Mobs
+
+Magic mob spawning and management commands:
+
+* `magic.commands.mmob spawn` : Spawn a custom Magic mob
+* `magic.commands.mmob list` :  List custom mob types
+* `magic.commands.clear` :                       Clear custom mobs from all loaded worlds
+
+## Image Maps
+
+There are specific permissions for the /mmap command
+
+* `magic.commands.mmap load` :      Load a new image map
+* `magic.commands.mmap list` :      List all loaded image maps
+* `magic.commands.mmap give` :      Give a player an image map
+* `magic.commands.mmap import` :      Import image maps from Pixelator
+
+## Command-Line Casting
+
+The /cast command can be used in-game to cast spells. 
+
+* `magic.commands.cast` : Player can use /cast
+* `magic.commands.cast.parameters` : Player can use parameters with /cast
+
+Casting with parameters can be **very dangerous**, this should really only be given to server owners or highly trusted admins. For example, "/cast fire" is fine, but you probably don't want "/cast fire radius 1000".
+
+## Miscellaneous Admin Commands
+
+* `magic.commands.magic.load` : Reload spells.yml, wands.yml, config.yml and messages.yml. (And the defaults)
+* `magic.commands.magic.[save|clean|search|list| .. etc]` : All commands follow the same pnode format.
+
+This list may not be complete, check [plugin.yml](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/plugin.yml) for a full list of permissions

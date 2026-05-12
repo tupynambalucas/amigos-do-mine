@@ -1,0 +1,54 @@
+---
+title: Custom Items
+---
+
+# Custom Items
+
+With Magic, you can create two different types of custom items. Magic Items, AKA "Wands", have special custom item data that Magic uses for casting spells, passive effects and other abilities. See [Wand Parameters](wand-parameters.mdx) for more info.
+
+Magic also lets you create custom vanilla items. These are regular vanilla items, like you could create with the vanilla "/give" command with no special data or tracking/behavior in Magic.
+
+# The /mitem and /mgive Commands
+
+The `/mgive` command may be used to give yourself any item- wand or vanilla. You can also give yourself items that you have saved in-game with `/mitem save <name>` or added manually to the `items.yml` configuration file.
+
+The `/mitem` command lets you manipulate items in-game in several interesting ways:
+
+```bash
+/mitem save <name> [worth] : Save an item to a configuration file for use with /mgive, or in a crafting recipe, shop or anywhere else in Magic. The "worth" value is optional, but can be used to centralize prices for shops.
+
+/mitem name <display name> : Add a custom display name to an item, supports & escape codes for colors.
+
+/mitem add lore <some lore> : Add lore to an item
+/mitem add enchant <enchant> <level> : Add an enchantment to an item
+/mitem add attribute <attribute> <value> : Add an attribute to an item
+/mitem add flag <flag> : Add a flag to an item, can be used to hide vanilla lore
+
+/mitem remove lore [line#] : Remove lore from an item
+/mitem remove enchant [enchant] : Remove an enchantment from an item
+/mitem remove attribute [attribute] : Remove an attribute from an item
+/mitem remove flag [flag] : Remove a flag from an item
+
+/mitem worth : Show the configured worth of an item
+/mitem skull : Create a skull from a written book
+/mitem duplicate : Duplicate an item
+/mitem delete <name> : Delete a saved item
+```
+
+## Tab-Completion
+
+As with all Magic commands, use the `<tab>` key to see available options. For instance:
+```bash
+# List all available enchants
+/mitem add enchant <tab> 
+# List all available damage enchants
+/mitem add enchant damage<tab>
+# list all available mitem commands
+/mitem <tab>
+```
+
+## Skull Creation
+
+The `mitem` command can be used to allow staff to add custom player skulls to the game without requiring creative mode or op status (no command blocks).
+
+See [the Custom Skulls](../resource-pack/custom-skulls.mdx) section for more info.

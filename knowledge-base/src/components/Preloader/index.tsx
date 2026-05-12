@@ -59,7 +59,7 @@ export default function Preloader() {
       <div className={styles.content} ref={contentRef}>
         <div className={styles.logo}>
           <span className={styles.bracket}>[</span>
-          <span className={styles.brand}>ELO ORGANICO</span>
+          <span className={styles.brand}>AMIGOS DO MINE</span>
           <span className={styles.bracket}>]</span>
         </div>
         <div className={styles.progressBarContainer}>

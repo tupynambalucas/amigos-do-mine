@@ -1,0 +1,53 @@
+---
+title: In-Game Customization
+---
+
+For users that want to make small changes, or quickly test changes, there is the `/mconfig` command which lets you  change configuration in-game.
+
+# Command Usage
+
+The `mconfig` command follows this general format:
+
+`/mconfig <action> <type> <key>`
+
+Actions: *disable*, *enable*, *configure*
+Types: *spell*, *wand*, *recipe*, *mob*, *item*, *class*, *path*, *automaton*, *effect*, *attribute*
+
+After using any of these commands, you must use `/magic load` before the configuration will be applied in-game.
+
+# Enabling and Disabling
+
+You can quickly disable spells, wands or other pieces of Magic with this command. For example:
+
+`/mconfig disable spell blink`
+
+Will disable the blink spell, effectively removing it from the game. If you change your mind, you can use
+
+`/mconfig enable spell blink`
+
+To bring it back.
+
+# Configuring
+
+Spell, wand and other configuration properties and parameters can be adjusted with this command. For example, to increase the cooldown on blink you can use
+
+`/mconfig configure spell blink parameters.cooldown 360000`
+
+Configuration keys here use a dotted format, so this would apply the following:
+
+```yaml
+blink:
+  parameters:
+    cooldown: 360000
+```
+
+# Under The Hood
+
+When using this command, Magic will put your changes in a special `_customizations.yml` file. For instance, if disabling a spell the following will be put in `plugins/Magic/spells/_customizations.yml`:
+
+```yaml
+blink:
+  enabled: false
+```
+
+These special files are always loaded last, so any changes you have made in-game will override any other custom configs you've made. Please keep this in mind!

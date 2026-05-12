@@ -1,0 +1,135 @@
+---
+title: Heroes Integration
+---
+
+# Heroes Integration
+
+**Magic is no longer compatible with current versions of Heroes.**
+
+Sorry for any inconvience!
+
+
+## Old Information
+
+Use the `/mskills` command for a graphical skills menu. You may take items out of the skills menu and place them in your hotbar for use as quick-select skills.
+
+`/mskills`
+
+![/mskills menu](http://i.imgur.com/9ysRN2e.png)
+
+Once you have a skill in your hotbar, use the 1-9 inventory buttons to use it.
+
+![Skills Hotbar](http://i.imgur.com/2LKKBfK.png)
+
+If enabled (see Example Configs section) the hotbar icons will show cooldown and mana cost timers, and indicate when they are unavailable for use.
+
+You can also use the skill book (`/mgive skillbook`) to access the skill selector menu.
+
+The "heroes" wand (`/mgive heroes`) will automatically fill with available skills, and can be used like any other wand to activate your skills.
+
+[![Heroes Integration Video](http://img.youtube.com/vi/MUSSXXSS6KM/0.jpg)](http://www.youtube.com/watch?v=MUSSXXSS6KM)
+
+## Example Configs
+
+If using Heroes and Magic together, you may want to add this to 
+**plugins/Magic/config.yml**
+```yaml
+example: heroes
+```
+
+You can see what configuration this changes here: https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/heroes/config.yml
+
+This will enable cool down timers on hotbar skills, turn off SP and spell upgrades, and enable the "flatskulls" resource pack (unless you have a different RP selected), which will make the skill icons look flat instead of cubed.
+
+This config also add crafting recipes for the Heroes wand and Skill Book.
+
+You can view the crafting recipes here:
+https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/main/resources/examples/heroes/crafting.yml
+
+They can be disabled if you wish by adding something like this to your **plugins/Magic/crafting.yml**:
+
+```yaml
+heroes:
+  enabled: false
+```
+
+![Crafting Skill Book](http://i.imgur.com/RncBXJP.png)
+
+![Crafting Wand](http://i.imgur.com/A5nkI6c.png)
+
+## Skill Configs
+
+In order to get icons for your skills, you will need to edit your `skills.yml`. Put an `icon: blaze_rod` line in to use an item for an icon, or `icon-url: http://some_skin_url` to use a custom player head icon. 
+
+You can also add a `icon-disabled` or `icon-disabled-url` for an icon to display when it is unavailable for casting (cooldown, mana, etc).
+
+A `name` property in a skill can also be added to give a skill a nicer name for the skill item title.
+
+For example:
+```yaml
+  icon-url: http://textures.minecraft.net/texture/e3152dba6ee22b6e89e88878acc5a01f5964946b8938e9a1470dfabbeeca
+  icon-disabled-url: http://textures.minecraft.net/texture/1c28376acb23cd93322c0a5d569b48b7cd631a6d65dd4f226adb9e9dd7e5c
+  name: Homing Missile
+```
+
+See here for a variety of skull textures you may use: http://mine.elmakers.com/#textures
+
+## Resource Pack
+
+If you use your own RP, you may want to get the [flat skull icon model for your resource pack](https://github.com/elBukkit/MagicPlugin/blob/93e205d667f042b40f48eafe17ad4296e0d962ae/src/resource-pack/survival/assets/minecraft/models/item/skull_char.json).
+
+## Magic Skills
+
+There is a Magic skill pack available here:
+
+https://s3-us-west-2.amazonaws.com/elmakers/Magic/MagicHeroesSkills.zip
+
+You may add any of these skills to your Heroes skills folder as normal, they will pass through to Magic spells.
+
+Note that on first run the names and icons may not appear correctly, if you restart your server they will show up properly.
+
+You can view a sample Wizard class that uses these skills here:
+
+https://github.com/elBukkit/MagicHeroes/blob/master/heroes-classes/wizard.yml
+
+Magic skills with automatically configure a display name as well as icons. Available spell parameters will appear in `skills.yml` for customization.
+
+### Using Leveled Up Spells and Configuration
+
+For spells that are upgradeable, a `tier` property is available in skill and class configuration to choose one of the upgraded levels to use.
+
+Keep in mind that any changes made to `skills.yml` or classes will override spell upgrade properties. Any changes made to spell configs will not be reflected in skills since the skills properties will override configs, unless you regenerate `skills.yml`.
+
+You will see a `tier-max` property on upgradeable skills, this is just there for reference and can't be changed. Trying to use a tier greater than this property will result in an error.
+
+### Skill Name Conflicts
+
+Some Magic spells have the same name as Heroes' public skills. In this case you will have to choose one or the other to use, or else rename the Magic version. This can be done (_before_ adding the skill jar) by adding something like to `plugins/Magic/spells.yml`
+
+```yaml
+blink:
+  name: Teleport
+```
+
+That will change the skill name of the Magic blink spell from Blink to Teleport.
+
+
+You can also add a property to `plugins/Magic/config.yml` like this:
+```yaml
+heroes_skill_prefix: Magic
+```
+
+If you want to automatically prefix all Magic skills. This would make the names like MagicBlink, MagicFling, MagicMagicMissile (derp), etc.
+
+## Custom Magic Skills
+
+It is unfortunately a little difficult to make Heroes skills out of your custom Magic spells but it is possible. You will need a few dev tools, though, most of which are provided by BuildTools:
+
+* A Java build environment (JDK)
+* Maven
+* PHP
+* git (optional)
+
+1. Clone or download the MagicHeroes project: https://github.com/elBukkit/MagicHeroes
+1. Run `php generate.php [path to your spells.yml file]`
+1. Collect your skills jars from the target folder

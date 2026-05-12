@@ -1,0 +1,43 @@
+---
+title: Equations
+---
+
+Magic has a custom version of [exp4j](https://www.objecthunter.net/exp4j/) built in for equation processing.
+
+Equations can be used in any numeric configuration value. They are generally only evaluated at the start of a spell, though the `UpdateParameters` action can be used to re-process them on-demand during a spell.
+
+Any variables (such as those created by the `ModifyVariable` action), builtin or custom attributes can be used inside of an equation.
+
+Additionally, some actions and effects provide their own variables, such as the `Modified` effect providing `t` (the number of ticks passed) and `i` (the total number of ticks the effect will last).
+
+Unfortunately the exp4j site is not actively maintained, so you may get a certificate warning when visiting. I will paste below the most relevant bits for reference:
+
+## Function Reference
+
+* `abs`: absolute value
+* `acos`: arc cosine
+* `asin`: arc sine
+* `atan`: arc tangent
+* `cbrt`: cubic root
+* `ceil`: nearest upper integer
+* `cos`: cosine
+* `cosh`: hyperbolic cosine
+* `exp`: euler's number raised to the power (e^x)
+* `floor`: nearest lower integer
+* `log`: logarithmus naturalis (base e)
+* `log10`: logarithm (base 10)
+* `log2`: logarithm (base 2)
+* `sin`: sine
+* `sinh`: hyperbolic sine
+* `sqrt`: square root
+* `tan`: tangent
+* `tanh`: hyperbolic tangent
+* `signum`: signum function
+
+## Custom Functions Added by Magic
+
+* `rand(x,y)`: Generate a random number from x to y
+* `prob(p,x,y)`: A random (p%) chance to return x, else return y
+* `min(x,y)`: Return the minimum of x or y
+* `max(x,y)`: Return the maximum of x or y
+* `select(v,x,y,z)`: If v < 0, return x, if v = 0 return y, if v > 0 return z

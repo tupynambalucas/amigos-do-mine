@@ -61,10 +61,10 @@ export default function FromSoilSection(): ReactNode {
               }
             />
             <TimelineItem
-              title={<Translate id="homepage.dosolo.item3.title">AI-Native DevOps</Translate>}
+              title={<Translate id="homepage.dosolo.item3.title">Automated Assets</Translate>}
               description={
                 <Translate id="homepage.dosolo.item3.description">
-                  Deep integration with Model Context Protocol (MCP) and design-to-code bridges for high-context automation.
+                  Automated build pipeline for custom plugins and resource packs.
                 </Translate>
               }
             />

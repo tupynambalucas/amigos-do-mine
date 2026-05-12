@@ -1,0 +1,41 @@
+---
+title: The Nether Side
+---
+
+The "Nether Side" will give players a strange, alternate dimension to travel
+to. This example is intended for 1.16 servers, using the Nether update to make a netherized version of the overworld.
+
+This is an updated version of the [Other Side](the-other-side.mdx) configuration, making a more consistent and Minecraft-feeling world.
+
+## Enabling
+
+Use the following command to enable the nether side configs:
+
+`/mconfig example add netherside`
+
+Players can then use the `Phase` spell (available at the Student rank) to travel to the alternate dimension.
+
+## Screenshots
+
+Using the same seed for both the normal and "other" world creates a
+cool effect when traveling back and forth:
+
+![Normal World](https://i.imgur.com/8sl1pqY.png)
+![Nether World](https://i.imgur.com/5MMFIsm.png)
+
+## Mobs
+
+This world will have dangerous magic mobs spawning naturally. 
+
+[Automata](automata.mdx) can be added using the following commands:
+
+```bash
+/mconfig example add automata
+/mconfig enable world netherside_automata
+```
+
+## Copying Structures
+
+The `netherize` and `supernetherize` spells can be used from in the nether side world to copy structures from the overworld.
+
+Just cast at the location where the structure *would be* and it will copy a netherized version over.

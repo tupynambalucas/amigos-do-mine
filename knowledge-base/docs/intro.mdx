@@ -4,28 +4,29 @@ sidebar_position: 1
 
 # Introduction
 
-Welcome to the **Elo Organico** development environment. This project is a specialized management platform for organic product sharing cycles, built as a high-performance, strictly-typed monorepo.
+Welcome to the **Amigos Do Mine** development environment. This project is a specialized Minecraft ecosystem featuring a custom game server and a modern web management portal.
 
 ## Bounded Context Structure
 
-We use **PNPM Workspaces** with a **Context-Driven Root** layout to strictly isolate our business domains. This architecture ensures scalability and clear separation of concerns.
+We use **PNPM Workspaces** to organize our codebase into specialized contexts. This architecture ensures scalability and clear separation of concerns between the game server, its assets, and the web infrastructure.
 
 ```mermaid
 graph TD
-    Root["Elo Organico Monorepo"]
-    Root --> Instance["Instance Context: /instance"]
-    Root --> Portal["Portal Context: /portal"]
+    Root["Amigos Do Mine Monorepo"]
+    Root --> Portal["Portal Scope: /portal"]
+    Root --> Minecraft["Minecraft Scope: /minecraft"]
+    Root --> Resources["Assets Scope: /resources"]
     Root --> Studio["Studio Context: /studio"]
     Root --> Tools["Tools Context: /tools"]
     Root --> Knowledge["Knowledge Base: /knowledge-base"]
 
-    Instance --> I_Web["Web App: React"]
-    Instance --> I_API["API: Fastify"]
-    Instance --> I_Core["Core Logic"]
-
     Portal --> P_Web["Web App: React"]
     Portal --> P_API["API: Fastify"]
     Portal --> P_Core["Core Logic"]
+
+    Minecraft --> M_Server["Purpur Server"]
+    Resources --> R_Plugin["Custom Plugin"]
+    Resources --> R_Assets["MCreator Assets"]
 
     Studio --> Tokens["Design Tokens"]
     Studio --> Assets["Brand Assets"]
@@ -33,81 +34,48 @@ graph TD
     Tools --> MCP["MCP Servers"]
     Tools --> Scripts["Automation Scripts"]
     
-    I_Web --> Studio
     P_Web --> Studio
 ```
 
-### Instance Context (instance/)
-Manages community-specific operations (the "Community Shop").
-- **`@elo-instance/web`**: React SPA (Admin & Shop).
-- **`@elo-instance/api`**: Fastify REST API.
-- **`@elo-instance/core`**: Domain-specific logic and schemas.
+### Portal Scope (portal/)
+Manages the web infrastructure.
+- **`@amigos-portal/web`**: React SPA for player dashboard and admin control.
+- **`@amigos-portal/api`**: Fastify REST API for auth, data, and asset serving.
+- **`@amigos-portal/core`**: Shared domain logic and SSOT schemas.
 
-### Portal Context (portal/)
-Manages the global platform and SaaS onboarding.
-- **`@elo-portal/web`**: Official landing page and gatekeeper hub.
-- **`@elo-portal/api`**: Global orchestration and tenant management API.
-- **`@elo-portal/core`**: Platform-specific logic and schemas.
+### Minecraft Scope (minecraft/)
+The core game server environment.
+- **Purpur 1.21+**: A high-performance Minecraft server fork.
+- **Dockerized**: Fully containerized for consistent deployment.
 
-### Studio Context (studio/)
-The single source of truth for the project's visual identity and shared UI tokens.
-- **Design Tokens**: Centralized CSS variables and TypeScript constants.
-- **Brand Assets**: Canonical logos, icons, and 3D models.
-- **AI Orchestration**: Design bridge for AI context.
-
-### Tools Context (tools/)
-The automation backbone and infrastructure orchestration hub.
-- **MCP Servers**: Model Context Protocol servers (GitHub, Context7, Docker Hub) providing structured context to AI agents.
-- **Infrastructure**: Docker configurations and runtime environments for development tools.
-- **Automation**: Technical scripts for maintenance, key generation, and workspace health.
-
----
-
-## Strategic Focus: Single-Instance Mastery
-
-While architected for a future Multi-tenant SaaS model, our current priority is the **perfect delivery of a standalone community instance (instance/*)**. All SaaS features in the `portal-*` scope are foundation-only at this stage.
+### Resources Scope (resources/)
+Where the "magic" happens for game customization.
+- **Amigos Plugin**: Custom logic for game mechanics and backend integration.
+- **Resource Pack**: Custom 3D models and textures built with MCreator.
 
 ---
 
 ## Quick Start
 
-Ensure you have **Node.js 22+** and **PNPM 10+** installed.
+Ensure you have **Node.js 22+**, **PNPM 10+**, and **Docker** installed.
 
 1.  **Install Dependencies:**
     ```bash
     pnpm install
     ```
 
-2.  **Set Up Environment:**
-    Copy the `.env.example` to `.env` and configure your local variables.
-
-3.  **Run Development Environment:**
-    We use **Turborepo** to orchestrate both infrastructure and application processes in a single lifecycle. For most cases, you should use the unified dev commands:
+2.  **Run the Minecraft Server:**
     ```bash
-    pnpm instance:dev       # Orchestrate Community (Infra + Web + API + Core)
-    pnpm portal:dev         # Orchestrate Platform (Infra + Web + API + Core)
+    pnpm server:up
     ```
 
-    You can also target specific components using our namespaced scripts:
+3.  **Build Game Assets:**
     ```bash
-    pnpm dev:docs           # Start documentation (Docusaurus)
-    pnpm instance:dev:web   # Start community shop/admin only
-    pnpm instance:dev:api   # Start community API only
-    pnpm portal:dev:web     # Start official portal only
-    pnpm portal:dev:api     # Start portal API only
+    pnpm build:plugin
+    pnpm build:resourcepack
     ```
 
-    Refer to the **[Cheat Sheet](./cheat-sheet.mdx)** for a complete list of commands.
+Refer to the **[Cheat Sheet](./cheat-sheet.mdx)** for a complete list of commands.
 
 ---
-
-## Documentation Index
-
-For detailed guides, please refer to the `docs/` directory:
-- **[Architecture Overview](./engineering/architecture.mdx)**: Technical stack and monorepo strategy.
-- **[Master Plan](./product/masterplan.mdx)**: Project roadmap and phases.
-- **[Product Vision](./product/vision.mdx)**: Product mission and value proposition.
-- **[Style Guide](./engineering/styleguide.mdx)**: Coding standards and conventions.
-
----
-_Professional management for a sustainable organic economy._
+_Professional engineering for a polished gaming experience._

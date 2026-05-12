@@ -48,12 +48,10 @@ export default defineConfig([
           alwaysTryTypes: true,
           project: [
             'tsconfig.json',
-            'instance/apps/*/tsconfig.json',
-            'instance/packages/*/tsconfig.json',
             'portal/apps/*/tsconfig.json',
             'portal/packages/*/tsconfig.json',
-            'shared/*/tsconfig.json',
             'studio/tsconfig.json',
+            'tools/tsconfig.json',
           ],
         },
         node: {
@@ -147,51 +145,11 @@ export default defineConfig([
   },
 
   // ========================================================================
-  // 3. STRICT DOMAIN ISOLATION - Enforce Bounded Contexts
-  // ========================================================================
-  {
-    name: 'monorepo/domain-isolation-instance',
-    files: ['instance/**/*.{ts,tsx}'],
-    rules: {
-      'no-restricted-imports': [
-        'error',
-        {
-          patterns: [
-            {
-              group: ['@amigos-portal/*'],
-              message:
-                'Cross-context import detected: The Instance context must not import from the Portal context. Maintain Bounded Context isolation.',
-            },
-          ],
-        },
-      ],
-    },
-  },
-  {
-    name: 'monorepo/domain-isolation-portal',
-    files: ['portal/**/*.{ts,tsx}'],
-    rules: {
-      'no-restricted-imports': [
-        'error',
-        {
-          patterns: [
-            {
-              group: ['@amigos-instance/*'],
-              message:
-                'Cross-context import detected: The Portal context must not import from the Instance context. Maintain Bounded Context isolation.',
-            },
-          ],
-        },
-      ],
-    },
-  },
-
-  // ========================================================================
-  // 4. DOMAIN CORE - Regras para @amigos-*/core (Strict Logic)
+  // 3. DOMAIN CORE - Regras para @amigos-*/core (Strict Logic)
   // ========================================================================
   {
     name: 'monorepo/domain-core',
-    files: ['**/packages/core/**/*.{ts,tsx}'],
+    files: ['portal/packages/core/**/*.{ts,tsx}'],
     rules: {
       '@typescript-eslint/no-unused-vars': [
         'error',
@@ -212,7 +170,7 @@ export default defineConfig([
   // ========================================================================
   {
     name: 'monorepo/domain-api',
-    files: ['**/apps/api/**/*.{ts,tsx}'],
+    files: ['portal/apps/api/**/*.{ts,tsx}'],
     rules: {
       '@typescript-eslint/no-misused-promises': [
         'error',
@@ -230,7 +188,7 @@ export default defineConfig([
   // ========================================================================
   {
     name: 'monorepo/domain-web',
-    files: ['**/apps/web/**/*.{ts,tsx}'],
+    files: ['portal/apps/web/**/*.{ts,tsx}'],
     plugins: {
       react: reactPlugin,
       'react-hooks': reactHooksPlugin as unknown as EslintPlugin,

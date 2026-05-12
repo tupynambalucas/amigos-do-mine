@@ -1,7 +1,7 @@
 {
   "context": {
     "fileName": ["GEMINI.md"],
-    "discoveryMaxDirs": 200,
+    "discoveryMaxDirs": 1000,
     "loadMemoryFromIncludeDirectories": true,
     "fileFiltering": {
       "enableRecursiveFileSearch": true,

@@ -10,68 +10,89 @@ export interface WorkspaceInfo {
 
 export const MONOREPO_OVERVIEW: WorkspaceInfo = {
   id: 'root',
-  name: 'Elo Orgânico Architecture',
+  name: 'Amigos Do Mine Architecture',
   path: '/',
-  description: 'A high-performance, strictly-typed monorepo built on PNPM Workspaces and Turborepo. This architecture enforces strict domain isolation while sharing critical core logic.',
-  stack: ['PNPM v10', 'Turborepo', 'TypeScript 6', 'ESLint 9'],
+  description: 'A high-performance monorepo built on PNPM Workspaces and Turborepo, integrating a custom Minecraft experience with modern web tools.',
+  stack: ['PNPM v10', 'Turborepo', 'TypeScript 6', 'Docker'],
   responsibilities: [
-    'Single Source of Truth (SSOT) via /packages/core',
+    'Single Source of Truth (SSOT) via /portal/packages/core',
     'Automated Task Orchestration',
-    'Context-Driven Development isolation',
+    'Minecraft Server & Asset synchronization',
     'Shared Design Tokens & Visual Assets'
   ],
   ptBR: {
-    name: 'Arquitetura Elo Orgânico',
-    description: 'Um monorepo de alta performance e tipagem estrita construído com PNPM Workspaces e Turborepo. Esta arquitetura impõe um isolamento rigoroso de domínios enquanto compartilha lógica core crítica.',
+    name: 'Arquitetura Amigos Do Mine',
+    description: 'Um monorepo de alta performance construído com PNPM Workspaces e Turborepo, integrando uma experiência Minecraft customizada com ferramentas web modernas.',
     responsibilities: [
-      'Fonte Única de Verdade (SSOT) via /packages/core',
+      'Fonte Única de Verdade (SSOT) via /portal/packages/core',
       'Orquestração de Tarefas Automatizada',
-      'Isolamento de Desenvolvimento Orientado a Contexto',
+      'Sincronização de Servidor Minecraft e Ativos',
       'Tokens de Design e Ativos Visuais Compartilhados'
     ]
   }
 };
 
 export const WORKSPACES: Record<string, WorkspaceInfo> = {
-  instance: {
-    id: 'instance',
-    name: 'Instance Context',
-    path: '/instance',
-    description: 'Manages community-specific operations, focusing on the "Community Shop" and local administration.',
-    stack: ['React 19', 'Fastify v5', 'MongoDB', 'Zustand'],
+  portal: {
+    id: 'portal',
+    name: 'Portal Scope',
+    path: '/portal',
+    description: 'The web infrastructure, featuring the player dashboard and management API.',
+    stack: ['React 19', 'Fastify v5', 'Zod', 'GSAP'],
     responsibilities: [
-      'Community Shop Frontend',
-      'Local Management API',
-      'Community-scoped domain logic'
+      'Web Dashboard (@amigos-portal/web)',
+      'Management API (@amigos-portal/api)',
+      'Shared Core Logic (@amigos-portal/core)'
     ],
     ptBR: {
-      name: 'Contexto de Instância',
-      description: 'Gerencia operações específicas da comunidade, focando na "Loja Comunitária" e administração local.',
+      name: 'Escopo Portal',
+      description: 'A infraestrutura web, contando com o dashboard do jogador e a API de gerenciamento.',
       responsibilities: [
-        'Frontend da Loja Comunitária',
-        'API de Gerenciamento Local',
-        'Lógica de domínio escopada para a comunidade'
+        'Dashboard Web (@amigos-portal/web)',
+        'API de Gerenciamento (@amigos-portal/api)',
+        'Lógica Core Compartilhada (@amigos-portal/core)'
       ]
     }
   },
-  portal: {
-    id: 'portal',
-    name: 'Portal Context',
-    path: '/portal',
-    description: 'The global platform face and SaaS onboarding hub for managing multiple tenants.',
-    stack: ['React 19', 'Fastify v5', 'Redis', 'BullMQ'],
+  minecraft: {
+    id: 'minecraft',
+    name: 'Minecraft Scope',
+    path: '/minecraft',
+    description: 'The core game server environment using Purpur.',
+    stack: ['Purpur 1.21+', 'Java 21', 'Docker'],
     responsibilities: [
-      'Global Landing Page',
-      'Tenant Onboarding Flow',
-      'Global User Orchestration'
+      'High-performance game server',
+      'Containerized deployment',
+      'Direct console integration'
     ],
     ptBR: {
-      name: 'Contexto do Portal',
-      description: 'A face global da plataforma e o hub de onboarding SaaS para gerenciar múltiplos inquilinos.',
+      name: 'Escopo Minecraft',
+      description: 'O ambiente core do servidor de jogo utilizando Purpur.',
       responsibilities: [
-        'Landing Page Global',
-        'Fluxo de Onboarding de Tenants',
-        'Orquestração Global de Usuários'
+        'Servidor de jogo de alta performance',
+        'Implantação conteinerizada',
+        'Integração direta com o console'
+      ]
+    }
+  },
+  resources: {
+    id: 'resources',
+    name: 'Resources Scope',
+    path: '/resources',
+    description: 'Custom game content, including plugins and resource packs.',
+    stack: ['Kotlin', 'Java', 'MCreator', 'Gradle'],
+    responsibilities: [
+      'Amigos Plugin development',
+      'Custom 3D models and textures',
+      'Automated asset bundling'
+    ],
+    ptBR: {
+      name: 'Escopo Resources',
+      description: 'Conteúdo customizado do jogo, incluindo plugins e resource packs.',
+      responsibilities: [
+        'Desenvolvimento do Amigos Plugin',
+        'Modelos 3D e texturas customizadas',
+        'Empacotamento automático de ativos'
       ]
     }
   },
@@ -79,20 +100,20 @@ export const WORKSPACES: Record<string, WorkspaceInfo> = {
     id: 'studio',
     name: 'Studio Context',
     path: '/studio',
-    description: 'The single source of truth for visual identity, shared tokens, and UI consistency.',
-    stack: ['TailwindCSS v4', 'PostCSS', 'Style Dictionary'],
+    description: 'The single source of truth for visual identity and design assets.',
+    stack: ['TailwindCSS v4', 'Penpot', 'Blender'],
     responsibilities: [
       'Canonical Design Tokens',
       'Brand Asset Management',
-      'Visual Consistency across contexts'
+      'Self-hosted Design Hub'
     ],
     ptBR: {
       name: 'Contexto do Studio',
-      description: 'A fonte única de verdade para identidade visual, tokens compartilhados e consistência de UI.',
+      description: 'A fonte única de verdade para identidade visual e ativos de design.',
       responsibilities: [
         'Tokens de Design Canônicos',
         'Gerenciamento de Ativos de Marca',
-        'Consistência Visual entre contextos'
+        'Hub de Design Self-hosted'
       ]
     }
   },
@@ -100,41 +121,20 @@ export const WORKSPACES: Record<string, WorkspaceInfo> = {
     id: 'tools',
     name: 'Tools Context',
     path: '/tools',
-    description: 'Infrastructure orchestration hub and technical automation backbone.',
-    stack: ['Model Context Protocol (MCP)', 'Docker', 'Shell Scripts'],
+    description: 'Infrastructure orchestration and technical automation backbone.',
+    stack: ['MCP', 'Docker', 'Automation Scripts'],
     responsibilities: [
       'AI Agent Context Servers',
-      'Dev Environment Setup',
-      'CI/CD Pipeline Automation'
+      'Project-wide automation',
+      'DevOps infrastructure'
     ],
     ptBR: {
       name: 'Contexto de Ferramentas',
-      description: 'Hub de orquestração de infraestrutura e espinha dorsal de automação técnica.',
+      description: 'Orquestração de infraestrutura e espinha dorsal de automação técnica.',
       responsibilities: [
         'Servidores de Contexto para Agentes de IA',
-        'Configuração de Ambiente de Desenvolvimento',
-        'Automação de Pipelines CI/CD'
-      ]
-    }
-  },
-  knowledge: {
-    id: 'knowledge',
-    name: 'Knowledge Base',
-    path: '/knowledge-base',
-    description: 'Centralized technical documentation and engineering masterplan.',
-    stack: ['Docusaurus v3', 'MDX', 'Mermaid.js'],
-    responsibilities: [
-      'Engineering Architecture Docs',
-      'Product Roadmap & Vision',
-      'Internal Developer Portal'
-    ],
-    ptBR: {
-      name: 'Base de Conhecimento',
-      description: 'Documentação técnica centralizada e plano mestre de engenharia.',
-      responsibilities: [
-        'Docs de Arquitetura de Engenharia',
-        'Roadmap e Visão do Produto',
-        'Portal Interno do Desenvolvedor'
+        'Automação de todo o projeto',
+        'Infraestrutura de DevOps'
       ]
     }
   }

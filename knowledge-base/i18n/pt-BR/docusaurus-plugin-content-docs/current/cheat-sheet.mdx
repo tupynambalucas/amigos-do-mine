@@ -9,79 +9,70 @@ import TabItem from '@theme/TabItem';
 
 # ⚡ Cheat Sheet Rápido
 
-Uma referência abrangente para desenvolvedores gerenciarem o monorepo **Elo Orgânico**, infraestrutura e automação.
+Uma referência abrangente para desenvolvedores gerenciarem o monorepo **Amigos Do Mine**, infraestrutura e automação.
 
 ---
 
-## 🚀 Executando a Plataforma
+## 🎮 Servidor de Jogo (Minecraft)
 
-Utilizamos o **Turborepo** para orquestrar as aplicações e suas respectivas infraestruturas (bancos de dados/cache) em um único comando.
+Gestão do container do servidor Purpur.
+
+- **Iniciar Servidor:** `pnpm server:up`
+- **Parar Servidor:** `pnpm server:down`
+- **Ver Logs:** `pnpm server:logs`
+- **Reiniciar Servidor:** `pnpm server:restart`
+- **Resetar Dados:** `pnpm server:reset` (Remove e recria o container)
+- **Anexar Console:** `pnpm server:attach` (Pressione `Ctrl+P, Ctrl+Q` para desanexar)
+
+---
+
+## 🚀 Portal & Apps
+
+Executando a infraestrutura web.
 
 <Tabs>
-  <TabItem value="instance" label="Instância de Comunidade" default>
-    - **Iniciar Tudo:** `pnpm instance:dev` (Sobe infra + Web + API + Core Watch)
-    - **Apenas Web:** `pnpm instance:dev:web`
-    - **Apenas API:** `pnpm instance:dev:api`
-    - **Parar Processos de App:** `pnpm instance:dev:stop`
-    - **Parar e Limpar Tudo:** `pnpm instance:dev:down`
+  <TabItem value="web" label="Dashboard Web" default>
+    - **Desenvolvimento:** `pnpm --filter @amigos-portal/web dev`
+    - **Build:** `pnpm --filter @amigos-portal/web build`
   </TabItem>
-  <TabItem value="portal" label="Portal Global">
-    - **Iniciar Tudo:** `pnpm portal:dev` (Sobe infra + Web + API + Core Watch)
-    - **Apenas Web:** `pnpm portal:dev:web`
-    - **Apenas API:** `pnpm portal:dev:api`
-    - **Parar Processos de App:** `pnpm portal:dev:stop`
-    - **Parar e Limpar Tudo:** `pnpm portal:dev:down`
+  <TabItem value="api" label="API Backend">
+    - **Desenvolvimento:** `pnpm --filter @amigos-portal/api dev`
+    - **Build:** `pnpm --filter @amigos-portal/api build`
   </TabItem>
   <TabItem value="docs" label="Documentação">
     - **Iniciar Docusaurus:** `pnpm dev:docs`
-    - **Build da Docs:** `pnpm build` (Executa build para todos os workspaces, incluindo docs)
+    - **Build da Docs:** `pnpm build` (Executa build para todos os workspaces)
   </TabItem>
 </Tabs>
 
 ---
 
-## 🐳 Infraestrutura (Docker)
+## 🛠️ Ativos & Plugins (Resources)
 
-Gestão direta dos serviços conteinerizados.
+Construindo conteúdo customizado para o jogo.
 
-| Escopo | Comando | Descrição |
-| :--- | :--- | :--- |
-| **Instância** | `pnpm instance:infra:up` | Inicia MongoDB (Replica Set) e Redis para Instância. |
-| **Instância** | `pnpm instance:infra:down` | Para e remove os containers da Instância. |
-| **Instância** | `pnpm instance:infra:reset` | Apaga os dados e reinicia a infraestrutura da Instância. |
-| **Portal** | `pnpm portal:infra:up` | Inicia MongoDB (Replica Set) e Redis para o Portal. |
-| **Portal** | `pnpm portal:infra:down` | Para e remove os containers do Portal. |
-| **Portal** | `pnpm portal:infra:reset` | Apaga os dados e reinicia a infraestrutura do Portal. |
+- **Build do Amigos Plugin:** `pnpm build:plugin`
+- **Build do Resource Pack:** `pnpm build:resourcepack`
 
 ---
 
 ## 📦 Gestão de Workspace
 
-Lidando com dependências internas e catálogos.
+Lidando com dependências internas e qualidade.
 
-- **Adicionar Dependência ao Catálogo:** `pnpm add <package> --catalog`
-- **Adicionar Dependência a App Específica:** `pnpm add <package>@catalog: --filter @elo-instance/api`
-- **Limpar node_modules:** `pnpm clean:project` (Usa `npkill`)
+- **Limpar node_modules:** `pnpm clean:project`
 - **Validar Tipagem (Typecheck):** `pnpm typecheck`
 - **Lint:** `pnpm lint`
 
 ---
 
-## 🤖 IA & Studio (MCP)
+## 🎨 Studio & Design (Penpot)
 
-Orquestrando o Model Context Protocol e a ponte de design.
+Orquestrando o ambiente de design self-hosted.
 
-- **Penpot Studio:** `pnpm penpot:up` / `pnpm penpot:down`
-- **Aide AI Bridge:** `pnpm penpot:aide:up` / `pnpm penpot:aide:down`
-- **Busca Context7:** (Via Agente de IA) Pesquisa profunda em documentação técnica.
-
----
-
-## 🏗️ Pipelines de Build
-
-- **Build Completo:** `pnpm build`
-- **Build Core (Instância):** `pnpm instance:build:core`
-- **Build Core (Portal):** `pnpm portal:build:core`
+- **Iniciar Penpot:** `pnpm penpot:up`
+- **Parar Penpot:** `pnpm penpot:down`
+- **Ponte Aide AI:** `pnpm penpot:aide:up` / `pnpm penpot:aide:down`
 
 ---
 _Última Atualização: Maio de 2026_

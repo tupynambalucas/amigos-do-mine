@@ -1,0 +1,266 @@
+---
+title: Customization
+---
+
+# Customizing Magic
+
+Magic is completely customizable. Plugin behavior, available spells and
+wands, and all in-game text can be customized.
+
+## In-Game Editing
+
+See [In-Game Customization](../advanced-setup/in-game-customization.mdx), you can make most types of edits in-game using commands or via a web editor.
+
+## Common Problems
+
+**My edits are not working!**
+
+Please read the files you're editing. There are comments at the top of the files that explain how things work.
+
+Most importantly, don't edit the files in plugins/Magic/defaults. 
+
+Those are there for reference, and will be overwritten on restart. They represent the current set of configs, including defaults and your edits.
+
+Your edits go in plugins/Magic, if that's confusing please keep reading.
+
+## Default Survival Configs
+
+If you don't need to customize a specific aspect of Magic, it helps to
+leave that file alone, this way you will get the benefit of easy
+upgrades as I frequently make changes to the default configurations.
+
+I am making an attempt to have the default configuration be a
+well-balanced, fun experience. I'd like your help to make that happen- I
+am always willing to make changes to the defaults if it fits in with my
+overall vision for the plugin. But if you want something really
+different, feel free to go off on your own!
+
+The default Magic experience entails:
+
+-   Players have access to no Magic commands by default
+-   Players may craft wands (with a blaze rod and nether star)
+-   (Currently disabled by default): Players may find wands in
+    naturally-spawned chests
+-   Wands start out low-level, but can be upgraded with XP on an
+    enchanting table
+-   Wands can be combined on an anvil, bought in Essentials shops, and
+    included in Essentials kits.
+-   Naming a wand on an anvil binds it to the player, and no other
+    player may wield it.
+-   Admins can set up quests or other rewards to upgrade or create wands
+-   Wands are indestructible. They will show up on dynmap (if installed)
+    so players can find lost wands.
+-   Each wand has an inventory of spells and materials that the player
+    can use and manipulate.
+-   Wands use a "mana" system for slowly-regenerating magic power.
+-   All players have access to all spells, if they can find or create a
+    wand that has them.
+
+Any of the above may be disabled or modified. Some different options:
+
+-   There are 3 different wand inventory modes to choose from: A chest
+    inventory (the default), click-to-cycle, and a powerful
+    hotbar-enabled inventory mode.
+-   Permission-based wands, spells and commands (ranking, VIPs, etc)
+-   Players keep wands on death (all players, or per-wand)
+-   Wands come pre-filled with all spells the player has permission to
+    use
+-   Reagents instead of mana
+-   Other item types for wands (enchanted swords, etc - maybe Bows +
+    enchanted arrows one day)
+
+In addition, the default spell and wand templates can be completely
+modified.
+
+If you only wish to localize Magic, you can modify messages.yml and
+leave the rest alone. I'd love to add your localization to my resources
+section, if you'd share it!
+
+## Plugin Folder Layout
+
+There will be several files and folders created in plugins/Magic on first run.
+
+* **defaults**: where Magic writes out the default configs in case you want to look them over. 
+* **data**: where data is stored, such as player data.
+
+The rest of the folders correspond to your configs. You can make customizations in any of the YML files in plugins/Magic, or in individual files placed in folders.
+
+* **crafting**: Custom crafting recipes
+* **enchanting**: Progression paths (used to be custom enchanting, not really anymore)
+* **items**: Custom non-wand vanilla items
+* **materials**: Customize how Magic interacts with different block and item types
+* **messages**: In-game text
+* **mobs**: Custom mobs, including ones that cast spells
+* **spells**: Spells, shops, anything Magic would use as an action script
+* **wands**: Custom magic items that can cast spells or have other abilities
+
+## Simple Customizations
+
+See the [default configs](https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/resources/defaults/config/defaults.yml) file for some examples of things admins commonly want to change. The [config defaults](https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/resources/defaults/config/) list all of the default settings, with explanations of each.
+
+There is also an example [spells.yml](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/examples/customized/spells.yml) file were you can look at some of the common simple spell customizations you can make.
+
+### Customizing Crafting Recipes
+
+You can edit crafting.yml to modify, remove or add crafting recipes. Do not edit crafting.defaults.yml, it is only there for reference and your changes will be overwritten.
+
+To disable a builtin recipe, add some lines like this to the file:
+```yaml
+battle:
+  enabled: false
+```
+
+Reference
+[survival crafting recipes](https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/resources/examples/survival/crafting) to see all of the recipes that are included by default.
+
+### Customizing Spells
+
+Magic is a configurable system, set up to let admins create their own
+experience on their servers. It will create a default configuration
+(spells.defaults.yml) with a variety of spells. If you want to add,
+remove or create your own spells, edit the "spells.yml" template file
+that Magic generates, or replace it with your own.
+
+**Do not** edit spells.defaults.yml, it is only there for reference and your changes will be overwritten.
+
+Similar to spell customization, disabling a spell is simple. Add this to spells.yml to disable the blast spell:
+
+```yaml
+blast:
+  enabled: false
+```
+
+Take a look at the
+[spell defaults](https://github.com/elBukkit/MagicPlugin/tree/master/Magic/src/main/resources/examples/survival/spells) that Magic generates at first run. It contains a list of spells,
+that players can use in-game, configured from building-block actions.
+
+The default configuration files have detailed instructions on use, as
+well as descriptions of all available options.
+
+All spells have a few common properties that you might want to tweak:
+
+-   enabled - Set to "false" to completely remove an existing (default)
+    spell.
+-   cooldown - spells can only be cast so often (in seconds)
+-   range - How far a spell can target (in blocks)
+-   transparent- What a spell can target through (e.g. glass,
+    water)
+-   costs - A list of casting costs (items and amounts) consumed when
+    the spell is cast
+-   name, description, wand icon, etc - All editable in spells.yml
+
+Detailed documentation:
+
+[Custom Spells](../spell-creation/custom-spells.mdx)
+
+### Action System
+
+New in 4.0, spells are now transitioning to use an action-based system. You can identify "action" spells because they have an "actions" list in their configs, and no "class". For example:
+
+```yaml
+disintegrate:
+    icon_url: http://i.imgur.com/zZKzDFS.png
+    icon: bone
+    category: combat
+    pvp_restricted: true
+    worth: 2500
+    actions:
+        cast:
+        - class: Damage
+        - class: ModifyBlock
+    # ... effects and parameters omitted for brevity
+```
+
+Action spells don't necessarily have any custom code- they are constructed from basic "Lego" blocks of behavior that I call "actions".
+
+You can see in Disintegrate, it will either do damage to entities or modify (erase) a block.
+
+For more information, see the [Action System](../reference/actions.mdx) documentation.
+
+### Adding Custom Wands
+
+You can add new wands to wands.yml, or create a wand in-game and save it with the "/wand save" command.
+
+See the default configs for examples of the builtin wands. It is recommended to inherit from the "base_wand" template if you want the item to function like a wand (has a spell inventory, casts on left-click, etc) but this is not necessary.
+
+Here is an annotated example taken from the war configs:
+
+```yaml
+# This is a base template, it is not an actual item you would use in-game, but rather a set
+# of common properties that you might want to use for multiple items.
+base_gun:
+  # This template is hidden since we don't want to use it directly. It will not show up in tab-completion
+  # or in any lists of wands
+  hidden: true
+  # In this case, for guns, we want to cast on right-click, not left-click
+  right_click: cast
+  # Left-click will alt-cast, which for guns is the reload spell
+  left_click: alt_cast
+  # If using custom icons, a wand must always be indestructible. This is because the damage value is
+  # used to differentiate between icons.
+  indestructible: true
+  # This makes spell casts originate from a specific location relative to the player's eyes. In this case
+  # we position them to come roughly out of the barrel of the weapon.
+  cast_location: 0.5,-0.4,0.5
+  # This prevents the vanilla mechanic that makes the items come up very slowly
+  attributes:
+    GENERIC_ATTACK_SPEED: 10
+
+# This is an actual gun we will use in-game.
+ak47:
+  # Inherit from the base_gun template above, meaning we will use all of the properties that are set there.
+  inherit: base_gun
+  # This is the icon used. If adding your own items you will also need to add new items to the resource pack,
+  # which is a bit complex and not covered here.
+  icon: diamond_pickaxe:1
+  # Each gun has only two spells- one that is cast on right-click
+  active_spell: ak47
+  # And one cast on left-click, to reload. There is no spell inventory
+  alternate_spell: reload_ak47
+  # Mana for guns represents ammo. It does not regenerate, the reload spell refills it.
+  mana: 70
+  mana_max: 70
+```
+
+The most important thing that differentiates a wand from a normal item is the ability to cast spells (run a set of actions, basically, doesn't have to be magical) and attach other mechanics to various clicks. In total wands can perform actions on any of the following:
+
+* left_click
+* right_click
+* swap (usually the F key)
+* drop (usually the Q key)
+
+The actions that can be bound to these keys
+
+* cast (cast the currently active spell)
+* alt_cast (cast the alternate spell)
+* toggle (open/close the spell inventory)
+* cycle (cycle to the next spell without using an inventory)
+* cycle_hotbar (cycle to the next hotbar)
+
+Detailed documentation:
+
+[Custom Wands](../reference/custom-wands.mdx)
+
+### Customizing Progression
+
+The default Magic configurations use a progression system that can be customized.
+
+The basics of progression in Magic are:
+
+1. Players craft a wand, which starts at the "beginner" rank.
+2. Players earn Spell Points by casting spells.
+3. Players interact with an enchanting table to show the spell shop.
+4. The spell shop shows the player spells available to the beginner rank.
+5. Players purchase spells from the spell shop by spending Spell Points.
+6. For each spell purchased, a wand may gain mana, protection or other attributes.
+7. Once a player collects all of the beginner spells, they rank up to student.
+8. Ranking up may give the player a mana boost, change their wand icon, or have other effects.
+9. Now the player will see student spells in the spellshop.
+
+Detailed documentation:
+
+[Custom Paths](../reference/custom-paths.mdx)
+
+### Custom Icons
+
+For information on how to set up your own custom spell and wand icons, see [Custom Icons](../resource-pack/icons.mdx).

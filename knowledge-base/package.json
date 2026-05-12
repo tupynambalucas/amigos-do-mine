@@ -1,5 +1,5 @@
 {
-  "name": "@elo-organico/knowledge-base",
+  "name": "@amigos-do-mine/knowledge-base",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,7 +16,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@elo-organico/studio": "workspace:*",
+    "@amigos-do-mine/studio": "workspace:*",
     "@docusaurus/core": "catalog:docs-stack",
     "@docusaurus/faster": "catalog:docs-stack",
     "@docusaurus/preset-classic": "catalog:docs-stack",

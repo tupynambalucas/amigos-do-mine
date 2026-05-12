@@ -1,10 +1,10 @@
-# Elo Organico Knowledge Base
+# Amigos Do Mine Knowledge Base
 
-This is the central documentation hub for the **Elo Organico** project, built with Docusaurus.
+This is the central documentation hub for the **Amigos Do Mine** project, built with Docusaurus.
 
 ## Structure
 
-- `docs/`: Core project documentation (Architecture, Master Plan, Product Vision, etc.).
+- `docs/`: Core project documentation (Architecture, Product Vision, etc.).
 - `src/pages/`: Custom landing pages for workspace contexts (Studio, Tools).
 - `releases/`: Project Changelog and release notes.
 
@@ -34,8 +34,5 @@ The static site will be generated in the `build/` directory.
 
 The documentation is automatically deployed to **GitHub Pages** via GitHub Actions whenever changes are pushed to the `main` branch.
 
-- **Workflow:** `.github/workflows/deploy-docs.yml`
-- **URL:** [https://elo-organico.com](https://elo-organico.com) (or the repository's GitHub Pages URL)
-
 ---
-_Professional documentation for a sustainable organic economy._
+_Professional engineering for a polished gaming experience._

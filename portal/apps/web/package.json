@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@amigos-portal/core": "workspace:*",
-    "@elo-organico/studio": "workspace:*",
+    "@amigos-do-mine/studio": "workspace:*",
     "@gsap/react": "catalog:web-stack",
     "gsap": "catalog:web-stack",
     "react": "catalog:web-stack",

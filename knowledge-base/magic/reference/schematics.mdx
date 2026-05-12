@@ -1,0 +1,82 @@
+---
+title: Using Schematics
+---
+
+# Using Schematics
+
+Magic is able to build with schematics using [Engineering Magic](engineering.mdx) or custom spells. Some spells, such as Tendril, Tent and Cage, use schematics built into Magic.
+
+Engineers and Architects may also earn schematic brushes (which are built into the plugin), however they will need to be holding any blocks necessary for building the schematics, which can make them difficult. Schematics are more useful for the Conduit rank, which is generally admin-only. Conduits can build freely, including with schematics.
+
+## Saving Schematics
+
+Magic does not currently have the ability to save schematics. I suggest using the WorldEdit plugin for this.
+
+## Schematic File Locations
+
+Magic will find schematics in any of the following folders on your server:
+
+* `plugins/Magic/schematics`
+* `plugins/WorldEdit/schematics`
+
+This means Magic can automatically use schematics saved by WorldEdit. If you are downloading schematics instead, you can place them in the `Magic/schematics` folder to keep them contained if you'd prefer.
+
+## Listing Schematics
+
+You can use the command
+
+`/magic list schematics`
+
+In-game or from the server console to list all of the schematics Magic has available. Magic comes with several schematics pre-packaged so you can test out schematic building.
+
+## Creating schematic brushes
+
+Schematic brushes can be created in configs or in-game. Some examples:
+
+### Spawning a schematic brush in-game
+
+The following command may be used to spawn a schematic brush in-game:
+
+`/mgive schematic:tent`
+
+Replace "tent" with a different schematic name to get a different brush.
+
+As with normal brushes, they will be automatically added to your wand when you hold your wand.
+
+These can be put in Magic shops using the same item name, or in enchanting paths for players to earn automatically.
+
+### Using a schematic in a custom spell
+
+```yaml
+buildit:
+    icon: diamond_axe:193
+    actions:
+        cast:
+        - class: Volume
+          actions:
+          - class: ModifyBlock
+    effects:
+        cast:
+        -  class: EffectSingle
+           sound: entity_player_levelup
+    parameters:
+        target: block
+        allow_max_range: true
+        range: 32
+        use_brush_size: true
+        brush: schematic|mycoolthing
+        orient: true
+```
+
+The `Volume` and `ModifyBlock` actions tell the spell to build a rectangular volume using the selected brush.
+
+The `effects` are just for show.
+
+Explanation of `parameters`:
+
+* **target: block** Tells the spell to ignore entities and always target the block you are looking at
+* **allow_max_range: true** Optional, allows the spell to be cast in the air, if it does not hit a block within the specified max range
+* **range: 32** How far away the player may cast this spell
+* **use_brush_size: true** Tells the Volume action to use the size of the brush schematic, instead of a fixed radius or X,Y,Z size
+* **brush: schematic|mycoolthing** Here is where you tell it what schematic to use.
+* **orient: true** Optional, and may cause strange results. Orients the schematic so it is relative to the player's facing direction.

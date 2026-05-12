@@ -1,0 +1,84 @@
+---
+title: Sound
+---
+
+# Sound
+
+In the Magic resource packs, there are custom sounds which can be utilized by the Magic plugin and played alongside any effect. You can use one of the default Magic resource packs, or feel free to mix the sounds into your own! 
+
+Magic also supports the playing of [sounds](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html) found in vanilla Minecraft.
+
+## List of sounds included in Magic RP
+
+* `magic.bonk`
+* `magic.sonic`
+* `magic.crack`
+* `magic.electrify`
+* `magic.hit`
+* `magic.shimmer_crack`
+* `magic.shimmer`
+* `magic.zap_crack`
+* `magic.zap`
+* `magic.zap_big`
+* `magic.teleport`
+* `magic.shield`
+* `magic.burn`
+* `magic.ignite`
+* `magic.shimmer_quiet`
+* `magic.flying`
+* `magic.paperturn`
+* `magic.wandup`
+* `magic.wanddown`
+* `magic.shimmer_big`
+* `magic.shield_boom`
+* `magic.zap_up`
+* `magic.vanish`
+* `magic.saberon`
+* `magic.saberoff`
+* `magic.saberhum`
+* `magic.saberhit`
+* `magic.saberswing`
+
+[Flute sounds](https://github.com/elBukkit/MagicPlugin/blob/master/Magic/src/resource-pack/default/assets/minecraft/sounds.json#L777-L920)
+
+## Examples
+
+### Play button click noise
+
+```yaml
+click:
+  icon: stone_button
+  worth: 5
+  category: specialty
+  effects:
+    cast:
+      - class: EffectSingle
+        sound: UI_BUTTON_CLICK
+        location: origin
+  parameters:
+    target: self
+```
+
+### Play Magic crack noise
+
+```yaml
+click:
+  icon: tnt
+  worth: 5
+  category: specialty
+  effects:
+    cast:
+      - class: EffectSingle
+        sound: magic.crack
+        location: origin
+  parameters:
+    target: self
+```
+
+## Mixing with your RP
+
+To implement Magic sounds into your resource pack, perform the following steps.
+
+1. Clone the repository
+2. Go to `Magic/src/resource-pack/default/assets/minecraft`
+3. Copy over the `sounds.json` and `sounds` folder into your RP's appropriate folder

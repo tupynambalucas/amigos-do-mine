@@ -1,0 +1,164 @@
+---
+title: ValhallaMMO Integration
+---
+
+Magic integrates with [ValhallaMMO](https://www.spigotmc.org/resources/valhallammo-1-19-26-1-1.94921/).
+
+Valhalla profile levels are exposed as Magic attributes. Skill and Level XP is exposed as a Magic currency.
+
+## Builtin Example Config
+
+Simply run `/mexample add valhalla` to load a set of example configs that will switch Magic to work as a Valhalla profile, as integrated into the MMO experience as possible.
+
+The following instructions can be used to make your own integration or further tweak the examples.
+
+## Profile and Skill
+
+Magic will add a new skill and profile, `magic`, used as a spellcasting class that represents the Magic experience.
+
+Config and progression files for this skill will appear in the normal place in the ValhallaMMO skill config folder.
+
+These can be disabled if they are causing problems, use `/mconfig configure config valhalla.profile.enabled false`
+
+## Skill Perk Rewards
+
+You can add perk rewards for learning a spell, discovering a recipe or following a path:
+
+Example config for a path skill perk:
+```yaml
+  beginner:
+    custom_model_data_unlockable: 18001
+    custom_model_data_unlocked: 18001
+    custom_model_data_visible: 18001
+    icon: STICK
+    name: §7Beginner
+    description: Just starting out with magic
+    cost: 0
+    coords: 2,1
+    required_lv: 0
+    perk_rewards:
+      path_upgrade: beginner
+      discover_recipe: wand,spellbook
+```
+
+Config for a spell skill perk:
+
+```yaml
+  blind:
+    custom_model_data_unlockable: 18001
+    custom_model_data_unlocked: 18001
+    custom_model_data_visible: 18002
+    icon: INK_SAC
+    name: Blind
+    description: Blind your target
+    cost: 1
+    coords: -3,0
+    perk_rewards:
+      learn_spell: blind
+    requireperk_all:
+    - beginner
+```
+
+## Customization
+
+NOTE: All of the examples in here will go in new files that you create. Eventually there will be a `valhalla` example to do all of this for you.
+
+## Disable path-based progression
+
+For now, the best approach is to disable path progression and let Valhalla handle leveling up.
+
+In `plugins/Magic/paths/default.yml` put:
+
+```yaml
+default:
+  allow_property_overrides: false
+```
+
+This will prevent paths from overriding mana max and regen.
+
+## Using Valhalla levels
+
+Valhalla levels can be read as attributes, and so used in class, spell and other parameters.
+
+For example, if path progression is disabled you will want players to gain mana on level up.
+
+In `plugins/Magic/classes/mage.yml` put:
+
+```yaml
+mage:
+   path:
+   mana_max: valhalla_level_alchemy * 10 + 50
+   mana_regeneration: valhalla_level_alchemy * 2 + 5
+```
+
+In this example we're using the alchemy profile and skill, but in the future there will be a builtin magic profile and corresponding skill.
+
+## Awarding Valhalla XP
+
+Spells can award Valhalla XP instead of Magic SP, so the player can level up by casting spells.
+
+In `plugins/Magic/config/currency.yml` put:
+
+```yaml
+builtin_currency:
+  sp:
+    replacement: valhalla_xp_alchemy
+```
+
+### Alternately
+
+You can also override spell earn values, which may be a little cleaner.
+
+In `plugins/Magic/config/spells/override.yml` put:
+
+```yaml
+override:
+  earns_type: valhalla_xp_magic
+```
+
+## Switch the spell shop to use the Valhall skill tree
+
+If you'd like magic players to still be able to use the enchantment table, you can change the spellshop to open the skill tree.
+
+In `plugins/Magic/configs/spells/spellshop.yml` put:
+
+```yaml
+spellshop:
+  actions:
+    cast:
+      - class: com.elmakers.mine.bukkit.integration.valhalla.OpenValhallaSkillTreeAction
+  parameters:
+    target: self
+```
+
+## Test that variables are working
+
+You should see a message on startup saying Valhalla integration is working, listing all of the available attributes and currencies. If you want, you can use a spell to test this:
+
+In `plugins/Magic/spells/valhalla.yml` put:
+
+```yaml
+valhalla:
+  actions:
+    cast:
+      - class: Message
+        message: "Your Valhalla alchemy level is $valhalla_level_alchemy with $valhalla_level_alchemy XP"
+  parameters:
+    target: "self"
+```
+
+## Profile and skill
+
+The `magic` profile and skill can be disabled. 
+
+In `plugins/Magic/config/valhalla.yml` put:
+
+```yaml
+valhalla:
+  profile:
+    enabled: false
+```
+
+## TODO
+
+* Add spell perks and other buffs

@@ -1,63 +1,15 @@
-# @elo-organico/studio - Design & Automation Hub
+# @amigos-do-mine/studio - Design & Automation Hub
 
-This workspace centralizes brand identity management, design assets, and AI automation infrastructure for the **Elo Orgânico** project.
+The central source of truth for the Amigos Do Mine visual identity.
 
-## 📖 Detailed Documentation
+## Contents
 
-Technical documentation is centralized in our **[Knowledge Base](https://elo-organico.com/studio)**:
+- `assets/`: Master files for design (Blender, Penpot sources).
+- `src/icons/`: Optimized SVG icon library.
+- `src/tokens/`: Design tokens (Colors, Typography, Theme).
+- `src/logos/`: Canonical brand logos.
 
-- **Brand Strategy & Design Tokens**: Strategy, visual language, and coded constants.
-- **Design Studio (Penpot)**: Infrastructure, S3 configuration, and design workflows.
-- **AI Automation (MCP)**: Specifications for the isolated AI network and context servers.
+## Scripts
 
-## ⚙️ Configuration
-
-Before running the services, you must create a `.env` file in the `studio` directory:
-
-```bash
-# Path: studio/.env
-
-# MCP Infrastructure
-GITHUB_TOKEN=your_github_personal_access_token
-CONTEXT7_API_KEY=your_context7_api_key
-
-# PENPOT Main Configuration
-PENPOT_SECRET_KEY=generate_a_secure_random_string
-PENPOT_DATABASE_URI=postgresql://user:password@host:port/database?sslmode=require
-PENPOT_DATABASE_USERNAME=your_db_user
-PENPOT_DATABASE_PASSWORD=your_db_password
-
-# PENPOT Object Storage (S3)
-PENPOT_BUCKET_NAME=your_bucket_name
-PENPOT_BUCKET_ACCESS_ID=your_access_key_id
-PENPOT_BUCKET_SECRET_KEY=your_secret_access_key
-```
-
-## 🚀 Quick Start (Operation Scripts)
-
-Manage the Studio environment using standardized scripts from the project root or this directory:
-
-### Core Studio Services (Penpot)
-```powershell
-npm run penpot:up      # Launch the studio at http://localhost:9005
-npm run penpot:down    # Shutdown core services
-npm run penpot:update  # Pull latest images and restart
-npm run penpot:reset   # Force container recreation
-```
-
-### AI Automation Tools (MCP)
-```powershell
-# Design Bridge (Manual Start Required)
-npm run mcp:penpot:up     # Activate the Penpot AI bridge (HTTP)
-npm run mcp:penpot:down   # Deactivate the Penpot AI bridge
-
-# Auto-managed Tools
-# GitHub and Context7 MCPs are managed via Agent/IDEA configuration.
-```
-
-## 🏗️ Directory Structure
-
-- `studio/penpot/`: Docker orchestration for the self-hosted Penpot instance.
-- `studio/assets/sources/`: Raw design sources (Adobe Illustrator, Photoshop, etc.).
-- `studio/src/icons/`: Canonical SVG icon library (React wrapper).
-- `studio/src/tokens/`: Brand color and typography definitions.
+- `pnpm penpot:up`: Start the design hub.
+- `pnpm aide:up`: Start the AI design assistant bridge.

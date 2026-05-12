@@ -15,9 +15,9 @@
     "message": "Arquitetura",
     "description": "The label of footer link with label=Architecture linking to /docs/engineering/architecture"
   },
-  "link.item.label.Master Plan": {
-    "message": "Plano Mestre",
-    "description": "The label of footer link with label=Master Plan linking to /docs/product/masterplan"
+  "link.item.label.Style Guide": {
+    "message": "Guia de Estilo",
+    "description": "The label of footer link with label=Style Guide linking to /docs/engineering/styleguide"
   },
   "link.item.label.Studio": {
     "message": "Studio",
@@ -32,7 +32,7 @@
     "description": "The label of footer link with label=GitHub linking to https://github.com/tupynambalucas/EloOrganico"
   },
   "copyright": {
-    "message": "Copyright © 2026 Elo Orgânico. Construído com Docusaurus.",
+    "message": "Copyright © 2026 Amigos Do Mine. Construído com Docusaurus.",
     "description": "The footer copyright"
   }
 }

@@ -1,7 +1,7 @@
 id: 340d6398-cbe0-342a-a18c-64ef21d29992
 name: CoalaPimposo
 created: 1778205164653
-updated: 1778317017088
+updated: 1778522826011
 last_cast: 1778252576958
 cooldown_expiration: 0
 last_death_location: ''
@@ -97,7 +97,7 @@ classes:
   caster: {}
   mage:
     effect_color: 45936de97f68,8bad0d3147a5,d670a4d3c44c
-    mana_timestamp: 1778317016875
+    mana_timestamp: 1778522825859
     mana: 50.0
 transient_modifiers: {}
 active_class: mage
