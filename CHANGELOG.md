@@ -1,8 +1,8 @@
----
-title: v0.1.0 - Foundation & Monorepo Architecture
-date: 2026-05-12
-tags: [core, architecture, monorepo, minecraft, web]
----
+# Changelog
+
+Todas as atualizações, melhorias e novos recursos do Elo Orgânico documentados na Base de Conhecimento.
+
+## v0.1.0 - Foundation & Monorepo Architecture (2026-05-12)
 
 Welcome to the foundation of **Amigos Do Mine** (v0.1.0)! 🎉
 
@@ -32,3 +32,6 @@ This release marks the official initialization of our ecosystem, establishing a 
 This is just the beginning. The foundation is laid, and the "magic" is about to start!
 
 ---
+
+---
+

@@ -58,7 +58,7 @@ jobs:
           fi
 
       - name: Build documentation
-        run: pnpm --filter @elo-organico/knowledge-base build
+        run: pnpm --filter @amigos-do-mine/knowledge-base build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

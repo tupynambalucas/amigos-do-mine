@@ -30,6 +30,7 @@
     "penpot:aide:up": "pnpm --filter @amigos-do-mine/studio aide:up",
     "penpot:aide:down": "pnpm --filter @amigos-do-mine/studio aide:down",
     "// BUILD & QUALITY (CI/CD)": "-------------------------------------------------",
+    "docs:changelog": "node tools/scripts/generate-changelog.mjs",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",

@@ -1,61 +1,74 @@
 # 🤝 Contributing Guidelines
 
 Yo! Welcome to the team! 👋
-We are super stoked you want to help build **Amigos Do Mine**. We run a tight ship with our monorepo, so here is the lowdown on how to contribute without breaking everything.
+We are super stoked you want to help build **Amigos Do Mine**. We run a tight ship with a high-performance monorepo, so here is the lowdown on how to contribute without breaking everything.
+
+---
 
 ## 1. Quick Start ⚡
 
-### What You Need
+### Prerequisites
 
-- **Node.js**: v20+ (The engine).
-- **Docker**: Desktop or Engine + Compose (The playground).
-- **Java**: JDK 21 (Only if you are touching Kotlin code).
+- **Node.js**: v22+ (The engine).
+- **PNPM**: v10+ (The manager).
+- **Docker**: Desktop or Engine + Compose (The infrastructure).
+- **Java**: JDK 21+ (Only if you are touching Kotlin code in `resources/`).
 
-### Spin It Up
+### Setup
 
 ```bash
 # Clone this beauty
-git clone https://github.com/tupynambalucas/AmigosDoMine.git
-cd AmigosDoMine
+git clone https://github.com/tupynambalucas/EloOrganico.git
+cd EloOrganico
 
 # Install the goods
-npm install
+pnpm install
 
-# Wake up the database & redis
-npm run infra:up
+# Wake up the Minecraft server & infrastructure
+pnpm server:up
 ```
 
-## 2. How We Work 🛠️
+---
 
-We use **NPM Workspaces**, so you can run scripts from the root and they magically work in the right folder.
+## 2. Monorepo Architecture 🏗️
 
-- `npm run dev:stack`: Fires up the Backend and Frontend.
-- `npm run dev:minecraft`: Launches the game server (Dockerized).
-- `npm run build:all`: Checks if you broke any types.
-- `npm run infra:reset`: **Danger Zone!** Wipes the DB and starts fresh.
+We use **PNPM Workspaces** managed with **Turborepo**. This means you can run scripts from the root and they will execute across the entire project with smart caching.
 
-### The "Golden Rule" of Types 📜
+### Key Scripts (Root)
+- `pnpm build`: Runs the build pipeline for all packages.
+- `pnpm lint`: Checks code style across the monorepo.
+- `pnpm typecheck`: Validates TypeScript integrity everywhere.
+- `pnpm server:up`: Starts the Dockerized Minecraft environment.
+- `pnpm build:plugin`: Compiles the custom Kotlin/Java plugins.
 
-If you need a new data type (like a `PlayerProfile`), **DO NOT** write it in the frontend or backend folders.
+---
 
-1.  Go to `@amigos-do-mine/shared`.
-2.  Define it there using Zod.
-3.  Import it everywhere else.
-    This keeps us sane and type-safe!
+## 3. Engineering Standards (Mandatory) 📜
 
-## 3. Asset & Code Hygiene 🧹
+We value code that is clean, typed, and scalable. For the full nitty-gritty, read the **[Style Guide & Standards](./knowledge-base/docs/engineering/styleguide.mdx)** in our Knowledge Base.
 
-- **SOLID Principles**: Apply them. If your class does 10 things, split it up.
-- **Language**: Code and Commits in **English**. (We love Portuguese, but the code speaks English).
--   **Naming**:
-  - TS Files: `camelCase.ts`
-  - Textures: `snake_case.png` (Minecraft hates capital letters in files).
--   **Assets**: Don't manually dump files in `backend/public`. Use the `resources` pipeline. It's there for a reason!
+### The "SSOT" Rule (Single Source of Truth)
+If you need a new data shape or type (like a `PlayerProfile`), **DO NOT** write it in the apps folders.
+1. Define it in `portal/packages/core` using **Zod**.
+2. Export it from `@amigos-portal/core`.
+3. Import it everywhere else. **Zero tolerance for `any`**.
+
+### Hygiene & Naming
+- **Language**: All code, comments, and technical documentation must be in **English**.
+- **File Naming**: Use the `name.type.ts` pattern (e.g., `user.schema.ts`, `auth.controller.ts`).
+- **Asset Naming**: Use `snake_case.png` for Minecraft assets (textures, models).
+- **SOLID Principles**: We strictly follow SOLID. If your logic is getting messy, abstract it!
+
+---
 
 ## 4. Submitting Your Art 🎨
 
-1.  Run `npm run lint` (Make it pretty).
-2.  Run `npm run typecheck:all` (Make it work).
-3.  Open a Pull Request and tell us what cool stuff you added!
+1. **Self-Check**: Run `pnpm lint` and `pnpm typecheck`.
+2. **Commit**: Keep messages concise and in English.
+3. **Pull Request**: Open a PR describing your changes. 
+4. **Validation**: Ensure all CI/CD checks pass (including the documentation build).
 
-> _Need the nitty-gritty rules? [STYLEGUIDE.md](./STYLEGUIDE.md) is the law._
+> _New here? Check the **[Knowledge Base Intro](./knowledge-base/docs/intro.mdx)** for a deep dive into our architecture._
+
+---
+_Build it like a game, code it like a bank._
